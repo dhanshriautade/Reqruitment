@@ -1,0 +1,56 @@
+<div class="full-width">
+        <!-- <img class="img" src="../../../assets/logo.jpg" > -->
+        <p-card class="register_card">
+                <form class="example-form">
+                        <div class="my-2">
+                                <img class="img" src="../../../assets/logo_cmp.svg">
+                        </div>
+                        <div class=" input-group my-3">
+                                
+                                <input type="text" autocomplete="off" class="form-control" formControlName="firstname"
+                                        placeholder="Firstname">
+                        </div>
+                        <div class="my-3">
+                                <input type="text" autocomplete="off" class="form-control" formControlName="lastname"
+                                        placeholder="Lastname">
+                        </div>
+                        <div class="my-3">
+                                <input type="text" autocomplete="off" class="form-control" formControlName="email"
+                                        placeholder="Email">
+                        </div>
+                        <div class="my-3">
+                                        <!-- <select class="form-control" formControlName="country_code" placeholder="Country Code">                                                      
+                                                        <option default>Country Code</option>
+                                                                        <option>Tea</option>
+                                                                     
+                                                                        <option>coffee</option>
+                                                                     
+                                                                        <option>soda</option>
+                                                                     
+                                                                     
+                                        </select> -->
+                                        
+                                </div>
+                        <div class="my-3">
+                                <input type="password" autocomplete="off" class="form-control" formControlName="phoneno"
+                                        placeholder="Phone Number">
+                        </div>
+                        <div class="my-3">
+                                <input type="password" autocomplete="off" class="form-control"
+                                        formControlName="password" placeholder="Password">
+                        </div>
+                        <div class="my-3">
+                                <input type="password" autocomplete="off" class="form-control"
+                                        formControlName="confpassword" placeholder="Confirm Password">
+                        </div>
+                        <div class="row sign_up">
+                                <button [disabled]="spinner" class="my-4 btn btn-primary" type="submit">Signup</button>
+                        </div>
+                        <div class="pull-center">
+                                <span class="pull-left">
+                                       <a routerLink="/login" >Already a user?</a>
+                                </span>
+                        </div>
+                </form>
+        </p-card>
+</div>my-1

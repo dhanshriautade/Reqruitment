@@ -1,14 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {AccordionModule} from 'primeng/accordion';
 import { AppComponent } from './app.component';
+import { RegisterComponent } from './components/register/register.component';
+import {CardModule} from 'primeng/card';
+import { LoginComponent } from './components/login/login.component';
+import { RouterModule } from '@angular/router';
+import { ForgotComponent } from './components/forgot/forgot.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterComponent,
+    LoginComponent,
+    ForgotComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AccordionModule,
+    RouterModule.forRoot([]),
+    CardModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

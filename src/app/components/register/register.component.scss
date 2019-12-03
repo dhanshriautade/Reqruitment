@@ -1,0 +1,49 @@
+.register_card {   
+    // height: 450px; 
+    border-radius: 10px;
+    right: 15%;
+    position: absolute;
+    top: 15%;
+    width: 400px;
+    box-shadow: 0px 20px 150px 0px #95989A, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-image: linear-gradient(#FFFFFF, #F0F0F0);  
+}
+.ui-card-body {
+    padding: 1em;
+}
+
+.bgimg {
+    height:100%; 
+    width:auto;
+}
+input,select{
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 0!important;
+}
+.img{
+    width: 200px;
+}
+
+.full-width{
+    background: #bbdefb;
+    top: 0;
+    left: 0;
+    position: fixed;
+    margin: 0!important;
+    width: 100%;
+    height: calc(100% + 8px);
+}
+
+
+.example-form{
+    padding: 20px;
+}
+
+.sign_up{
+    justify-content: center;
+}
+
+a{
+    color: blue
+}
