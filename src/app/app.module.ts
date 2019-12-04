@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,11 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AccordionModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([]),
     CardModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
