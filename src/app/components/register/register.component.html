@@ -18,22 +18,29 @@
                                 <input type="text" autocomplete="off" class="form-control" formControlName="email"
                                         placeholder="Email">
                         </div>
+                      
                         <div class="my-3">
-                                        <!-- <select class="form-control" formControlName="country_code" placeholder="Country Code">                                                      
-                                                        <option default>Country Code</option>
-                                                                        <option>Tea</option>
-                                                                     
-                                                                        <option>coffee</option>
-                                                                     
-                                                                        <option>soda</option>
-                                                                     
-                                                                     
-                                        </select> -->
-                                        
+                                <div class="row">
+                                <div class="col-sm-4 col-lg-4 col-md-4 col-12">
+                                                <select id="user_time_zone" class="form-control code" size="0"  formControlName="areacode"
+                                                placeholder="Area Code">
+                                                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                                                <option value="Alaska">(GMT-09:00) Alaska</option>
+                                                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                                                <option value="Arizona">(GMT-07:00) Arizona</option>
+                                                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                                                            </select>
+                                                <!-- <input type="password"  autocomplete="off"  class="form-control code" formControlName="areacode"
+                                                placeholder="Area Code"> -->
                                 </div>
-                        <div class="my-3">
+                                <div class="col-sm-8 col-lg-8 col-md-8 col-12">
                                 <input type="password" autocomplete="off" class="form-control" formControlName="phoneno"
                                         placeholder="Phone Number">
+                                        </div>
+                                        </div>
                         </div>
                         <div class="my-3">
                                 <input type="password" autocomplete="off" class="form-control"
