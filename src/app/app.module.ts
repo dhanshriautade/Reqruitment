@@ -20,11 +20,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AccordionModule,
-    ReactiveFormsModule,
     RouterModule.forRoot([]),
     CardModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
