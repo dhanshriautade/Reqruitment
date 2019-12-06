@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "angular-google-recaptcha": "^1.0.3",
     "bootstrap": "^4.4.1",
     "ng-recaptcha": "^5.0.0",
     "primeng": "^9.0.0-rc.1",

@@ -9,11 +9,21 @@ import { RouterModule } from '@angular/router';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import {RECAPTCHA_SETTINGS,
-//   RecaptchaLoaderService,
+import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+//import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+// import { RecaptchaModule } from 'ng-recaptcha';
+// import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
+// imports: [
+//     BrowserModule,
+//      RecaptchaModule.forRoot(),  
+    // RecaptchaFormsModule,  
+//] 
+//  import {RECAPTCHA_SETTINGS,
+//     RecaptchaLoaderService,
 //   RecaptchaModule,
 //   RecaptchaSettings,} from 'ng-recaptcha'
 // const globalSettings: RecaptchaSettings = { siteKey: '6Le-BsYUAAAAAE9dpS8I6iIFogMcaJyM_tEFZcpM' };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     ForgotComponent
   ],
+ 
   
   imports: [
     BrowserModule,
@@ -29,16 +40,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardModule,
     AppRoutingModule,
     FormsModule,
-    // RecaptchaModule,
+    RecaptchaModule.forRoot(),
     ReactiveFormsModule
+   
   ],
-  providers: [  
-  //   {
-  //     provide: RECAPTCHA_SETTINGS,
-  //   useValue: globalSettings,
+   bootstrap: [AppComponent],
+   providers: [{
+    provide: RECAPTCHA_SETTINGS,
+    useValue: {
+     siteKey: '6LfeasYUAAAAAITP4bKdndM-R6_L211YDfzwY8If',
+    } as RecaptchaSettings,
+   }]
+  // providers: [  
+  //  {
+  //    provide: RECAPTCHA_SETTINGS,
+  //  useValue: globalSettings,
   // },
-  ],
-  bootstrap: [AppComponent]
+  // ],
+  // bootstrap: [AppComponent]
   
 })
 export class AppModule { }

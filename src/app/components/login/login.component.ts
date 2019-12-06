@@ -10,9 +10,10 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-
+  // resolved(captchaResponse:string){
+  //   console.log('Resolved captcha which response ${captchaResponse}:');
+  // }
   
-
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
      phoneno: ['', [Validators.required ,Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     password: ['', [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
-   // captcha: ['',Validators.required],
+   Recaptcha: ['',Validators.required],
+   //recaptchaReactive:['', Validators.required)],
     rememberset:['']
   });
   }
