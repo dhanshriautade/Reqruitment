@@ -4,7 +4,7 @@
     right: 15%;
     position: absolute;
     top: 15%;
-    width: 330px;
+    width: 400px;
     box-shadow: 0px 20px 150px 0px #95989A, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-image: linear-gradient(#FFFFFF, #F0F0F0);  
 }
@@ -33,7 +33,8 @@ input,select{
     border-radius: 4px;
   }
 .full-width{
-    background: #bbdefb;
+    // background: #eff4f5;
+    background: linear-gradient(to right top, #22247c, #0063A6, #007EBF, #00A0D7, #009DD5) !important;
     top: 0;
     left: 0;
     position: fixed;

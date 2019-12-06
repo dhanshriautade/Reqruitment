@@ -26,7 +26,7 @@ input,select{
 }
 
 .full-width{
-    background: #bbdefb;
+    background: linear-gradient(to right top, #22247c, #0063A6, #007EBF, #00A0D7, #009DD5) !important;
     top: 0;
     left: 0;
     position: fixed;
@@ -34,7 +34,9 @@ input,select{
     width: 100%;
     height: calc(100% + 8px);
 }
-
+.name{
+   
+}
 
 .example-form{
     padding: 20px;
