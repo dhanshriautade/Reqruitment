@@ -25,7 +25,6 @@ const globalSettings: RecaptchaSettings = { siteKey: '6Le-BsYUAAAAAE9dpS8I6iIFog
   imports: [
     BrowserModule,
     AccordionModule,
-    ReactiveFormsModule,
     RouterModule.forRoot([]),
     CardModule,
     AppRoutingModule,
