@@ -6,16 +6,17 @@
                                 <img class="img" src="../../../assets/logo_cmp.svg">
                         </div>
                         <div class=" input-group my-3 form-group">
-                                <input type="text" autocomplete="off" formControlName="firstname" placeholder="First Name"
-                                    class="form-control" 
+                                <input type="text" autocomplete="off" formControlName="firstname"
+                                        placeholder="First Name" class="form-control"
                                         [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" />
                                 <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
                                         <div *ngIf="f.firstname.errors.required">First Name is required</div>
                                         <div *ngIf="f.firstname.errors.pattern">Space Not Allowed</div>
-                                        </div>
+                                </div>
                         </div>
                         <div class="input-group my-3 form-group">
-                                <input type="text" formControlName="lastName"  placeholder="Last Name" class="form-control"
+                                <input type="text" formControlName="lastName" placeholder="Last Name"
+                                        class="form-control"
                                         [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                                 <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                                         <div *ngIf="f.lastName.errors.required">Last Name is required</div>
@@ -36,7 +37,7 @@
                                         <div class="col-sm-4 col-lg-4 col-md-4 col-12">
                                                 <select id="user_time_zone" class="form-control code" size="0"
                                                         formControlName="areacode" placeholder="Area Code">
-                                                        <option value="Hawaii"SS>(GMT-10:00) Hawaii</option>
+                                                        <option value="Hawaii" SS>(GMT-10:00) Hawaii</option>
                                                         <option value="Alaska">(GMT-09:00) Alaska</option>
                                                         <option value="Pacific Time (US &amp; Canada)">(GMT-08:00)
                                                                 Pacific Time (US &amp; Canada)</option>
@@ -60,7 +61,8 @@
                                                         [ngClass]="{ 'is-invalid': submitted && f.phoneno.errors }" />
                                                 <div *ngIf="submitted && f.phoneno.errors" class="invalid-feedback">
                                                         <div *ngIf="f.phoneno.errors.required">Phone No required </div>
-                                                        <div *ngIf="f.phoneno.errors.pattern">phone number is not proper </div>
+                                                        <div *ngIf="f.phoneno.errors.pattern">phone number is not proper
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
@@ -70,18 +72,20 @@
                                         formControlName="password" placeholder="Password"
                                         [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                        <div *ngIf="f.password.errors.required">Password must be at least 8 characters</div>
+                                        <div *ngIf="f.password.errors.required">Password must be at least 8 characters
+                                        </div>
+                                        <div *ngIf="f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div>
                                 </div>
                         </div>
                         <div class="form-group">
                                 <input type="password" autocomplete="off" class="form-control"
                                         formControlName="confpassword" placeholder="Confirm Password"
                                         [ngClass]="{ 'is-invalid': submitted && f.confpassword.errors }" />
-                                        <div *ngIf="submitted && f.confpassword.errors" class="invalid-feedback">
-                                                <div *ngIf="f.confpassword.errors.required">Confirm Password is required
-                                                </div>
-                                                <div *ngIf="f.confpassword.errors.mustMatch">Passwords must match</div>
+                                <div *ngIf="submitted && f.confpassword.errors" class="invalid-feedback">
+                                        <div *ngIf="f.confpassword.errors.required">Confirm Password is required
                                         </div>
+                                        <div *ngIf="f.confpassword.errors.mustMatch">Passwords must match</div>
+                                </div>
                         </div>
                         <div class="row sign_up">
                                 <button [disabled]="spinner" class="my-4 btn btn-primary">Signup</button>
