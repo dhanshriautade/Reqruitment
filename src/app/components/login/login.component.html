@@ -1,47 +1,87 @@
 <div class="full-width">
-        <!-- <img class="img" src="../../../assets/logo.jpg" > -->
+        <!-- <img class="img" src="../../../assets/logo.jpg" >  -->
         <p-card class="register_card">
-                <form class="example-form">
+                <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="my-2">
                                 <img class="img" src="../../../assets/logo_cmp.svg">
                         </div>
-                       
-                        <div class="my-3">
-                                <input type="text" autocomplete="off" class="form-control" formControlName="email"
-                                        placeholder="Email or Phone Number">
+
+                        <div class="mt-5">
+                                <input type="email" autocomplete="off" class="form-control" formControlName="email"
+                                        placeholder="User Name "
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div>
+
                         </div>
-                       
-                      
                         <div class="my-3">
-                                <input type="password" autocomplete="off" class="form-control"
-                                        formControlName="password" placeholder="Password">
+                                <input type="tel" autocomplete="off" class="form-control" formControlName="phoneno"
+                                        placeholder="Phone Number" maxlength="10"
+                                        [ngClass]="{ 'is-invalid': submitted && f.phoneno.errors }">
+                                <div *ngIf="submitted && f.phoneno.errors" class="invalid-feedback">
+                                        <div *ngIf="f.phoneno.errors.required"> Mobile number is required</div>
+                                        <div *ngIf="f.phoneno.errors.pattern">Mobile no.must be 10 digit</div>
+                                </div>
                         </div>
+
+                        <div class="my-3">
+                                <input type="password" autocomplete="off" class="form-control" 
+                                        formControlName="password" placeholder="Password" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password is required</div>
+                                        <!-- <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div> -->
+                                        <div *ngIf="f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div>
+                                        <!-- <div *ngIf="f.password.errors&&f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div> -->
+                                       
+
+                                </div>
+                        </div>
+                         captcha challenge: placeholder
+  <botdetect-captcha captchaStyleName="angularFormCaptcha"></botdetect-captcha>
+
+  <label>
+    <span>Retype the chars long from the picture:</span>
+ captcha code: user-input textbox
+    <input
+      type="text"
+      id="userCaptchaInput"
+      name="userCaptchaInput"
+      formControlName="userCaptchaInput"
+    >
+  </label>
+                        <div nbRecaptcha key="public key" formControlName="captcha"></div>
+                        
                         <div class="my-4">
-                                        <div class="row">
-                                                <div class="col-md-6">
-                                                     <div class="row check_item">    
+                                <div class="row">
+                                        <div class="col-md-6">
+                                                <div class="row check_item">
                                                         <div class="col-md-2 pl-0 pr-0 pt-1">
-                                                                <input type="checkbox" class="check" style="width: 20px;"
-                                                             formControlName="rememberset">
+                                                                <input type="checkbox" class="check"
+                                                                        style="width: 20px;"
+                                                                        formControlName="rememberset">
                                                         </div>
-                                                        <div class="col-md-10 pl-0 pr-0" style="vertical-align: middle;">
-                                                               <span >Remember Me</span> 
-                                                       
+                                                        <div class="col-md-10 pl-0 pr-0"
+                                                                style="vertical-align: middle; margin-top: 3px;">
+                                                                <span>Remember Me</span>
+
                                                         </div>
-                                                        </div>
-                                                </div>
-                                                <div class="col-md-6 mt-1">
-                                                        <a routerLink="/forgot">Forgot Password?</a>
                                                 </div>
                                         </div>
+                                        <div class="col-md-6 mt-1">
+                                                <a routerLink="/forgot">Forgot Password?</a>
+                                        </div>
                                 </div>
-                       
+                        </div>
+
                         <div class="row sign_up">
-                                <button [disabled]="spinner" class="my-4 btn btn-primary" type="submit">Login</button>
+                                <button [disabled]="spinner" class="my-4 btn btn-primary">Login</button>
                         </div>
                         <div class="pull-center">
                                 <span class="pull-left">
-                                                <a routerLink="/signup">New User Registration</a>
+                                        <a routerLink="/signup">New User Registration</a>
                                 </span>
                         </div>
                 </form>

@@ -1,27 +1,32 @@
 <div class="full-width">
         <!-- <img class="img" src="../../../assets/logo.jpg" > -->
         <p-card class="register_card">
-                <form class="example-form">
+                <form class="example-form" [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
                         <div class="my-2">
                                 <img class="img" src="../../../assets/logo_cmp.svg">
                         </div>
-                      
-                        <div class="my-3">
+
+                        <div class="mt-5">
                                 <input type="text" autocomplete="off" class="form-control" formControlName="email"
-                                        placeholder="Email">
+                                        placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div>
                         </div>
-                     
-                      
+
+
                         <div class="row sign_up">
-                                <button [disabled]="spinner" class="my-4 btn btn-primary" type="submit">Continue</button>
+                                <button [disabled]="spinner" class="my-4 btn btn-primary"
+                                        type="submit">Continue</button>
                         </div>
-                        
-                  <div class="my-3 btn">
+
+                        <div class="my-3 btn">
                                 <span class="pull-center">
-                                       <a routerLink="/login" >Login</a>
+                                        <a routerLink="/login">Login</a>
                                 </span>
                         </div>
-                       
+
                 </form>
         </p-card>
 </div>my-1
