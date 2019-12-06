@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+ public resolved(captchaResponse:string){
+    console.log('Resolved captcha with response ${captchaResponse}:');
+  }
+
   constructor() { }
 
   ngOnInit() {

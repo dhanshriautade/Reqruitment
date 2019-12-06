@@ -6,15 +6,21 @@
                                 <img class="img" src="../../../assets/logo_cmp.svg">
                         </div>
                        
-                        <div class="my-3">
-                                <input type="text" autocomplete="off" class="form-control" formControlName="email"
+                        <div class="mt-5">
+                                <input type="text" autocomplete="off" class="form-control"
                                         placeholder="Email or Phone Number">
                         </div>
                        
-                      
+                        <div class="my-3">
+                                        <input type="password" autocomplete="off" class="form-control"
+                                                 placeholder="Password">
+                                </div>
                         <div class="my-3">
                                 <input type="password" autocomplete="off" class="form-control"
-                                        formControlName="password" placeholder="Password">
+                                       s placeholder="Password">
+                        </div>
+                        <div class="my-3">
+                             <re-captcha (resolved)= "resolved($event)"></re-captcha>
                         </div>
                         <div class="my-4">
                                         <div class="row">
@@ -22,7 +28,7 @@
                                                      <div class="row check_item">    
                                                         <div class="col-md-2 pl-0 pr-0 pt-1">
                                                                 <input type="checkbox" class="check" style="width: 20px;"
-                                                             formControlName="rememberset">
+                                                            >
                                                         </div>
                                                         <div class="col-md-10 pl-0 pr-0" style="vertical-align: middle;">
                                                                <span >Remember Me</span> 
