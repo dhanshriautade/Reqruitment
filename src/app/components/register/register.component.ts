@@ -20,7 +20,7 @@ constructor(private formBuilder: FormBuilder) { }
 ngOnInit() {
 this.registerForm = this.formBuilder.group({
 firstname:['', [Validators.required, Validators.pattern(/^\S*$/)]],
-lastName: ['', Validators.required, Validators.pattern(/^\S*$/)],
+lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
 email: ['', [Validators.required, Validators.email]],
 phoneno: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
 areacode:['', Validators.required],

@@ -8,26 +8,27 @@
         <div class=" input-group my-3 form-group">
         <input type="text" autocomplete="off" formControlName="firstname"
         placeholder="First Name" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" />
-        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
-        <div *ngIf="f.firstname.errors.required">First Name is required</div>
+        [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors }" />
+                                <div *ngIf="f.firstname.touched && f.firstname.errors" class="invalid-feedback">
+                                        <div *ngIf="f.firstname.errors.required">firstname is required</div>
+
         <div *ngIf="f.firstname.errors.pattern">Space Not Allowed</div>
         </div>
         </div>
         <div class="input-group my-3 form-group">
         <input type="text" formControlName="lastName" placeholder="Last Name"
         class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }" />
+        <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">lastName is required</div>
         <div *ngIf="f.lastName.errors.pattern">Space Not Allowed</div>
         </div>
         </div>
         <div class="form-group">
         <input type="text" autocomplete="off" class="form-control" formControlName="email"
-        placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-        <div *ngIf="f.email.errors.required">Email is required</div>
+        placeholder="Email" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">email is required</div>
         <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
         </div>
         </div>
@@ -57,10 +58,10 @@
         </div>
         <div class="col-sm-8 col-lg-8 col-md-8 col-12">
         <input type="phoneno" autocomplete="off" class="form-control"
-        formControlName="phoneno" placeholder="Phone Number"
-        [ngClass]="{ 'is-invalid': submitted && f.phoneno.errors }" />
-        <div *ngIf="submitted && f.phoneno.errors" class="invalid-feedback">
-        <div *ngIf="f.phoneno.errors.required">Phone No required </div>
+        formControlName="phoneno" placeholder="Phone Number" maxlength="10"
+        [ngClass]="{ 'is-invalid': f.phoneno.touched && f.phoneno.errors }" />
+        <div *ngIf="f.phoneno.touched && f.phoneno.errors" class="invalid-feedback">
+                <div *ngIf="f.phoneno.errors.required">phone no is required</div>
         <div *ngIf="f.phoneno.errors.pattern">phone number is not proper
         </div>
         </div>
@@ -70,20 +71,18 @@
         <div class="form-group">
         <input type="password" autocomplete="off" class="form-control"
         formControlName="password" placeholder="Password"
-        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-        <div *ngIf="f.password.errors.required">Password must be at least 8 characters
-        </div>
+        [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" />
+        <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">password is required</div>
         <div *ngIf="f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div>
         </div>
         </div>
         <div class="form-group">
         <input type="password" autocomplete="off" class="form-control"
         formControlName="confpassword" placeholder="Confirm Password"
-        [ngClass]="{ 'is-invalid': submitted && f.confpassword.errors }" />
-        <div *ngIf="submitted && f.confpassword.errors" class="invalid-feedback">
-        <div *ngIf="f.confpassword.errors.required">Confirm Password is required
-        </div>
+        [ngClass]="{ 'is-invalid': f.confpassword.touched && f.confpassword.errors }" />
+        <div *ngIf="f.confpassword.touched && f.confpassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confpassword.errors.required">confirmpassword is required</div>
         <div *ngIf="f.confpassword.errors.mustMatch">Passwords must match</div>
         </div>
         </div>

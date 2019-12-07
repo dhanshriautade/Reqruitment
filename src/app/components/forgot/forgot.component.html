@@ -8,9 +8,10 @@
 
                         <div class="mt-5">
                                 <input type="text" autocomplete="off" class="form-control" formControlName="email"
-                                        placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        placeholder="Email"  [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+                                        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+                                                <div *ngIf="f.email.errors.required">Email is required</div>
+        
                                         <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                                 </div>
                         </div>

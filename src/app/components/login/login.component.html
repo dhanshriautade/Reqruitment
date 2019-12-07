@@ -5,13 +5,15 @@
                         <div class="my-2">
                                 <img class="img" src="../../../assets/logo_cmp.svg">
                         </div>
-
+                        
                         <div class="mt-5">
                                 <input type="email" autocomplete="off" class="form-control" formControlName="email"
                                         placeholder="User Name "
-                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+                                <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
                                         <div *ngIf="f.email.errors.required">Email is required</div>
+
+
                                         <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                                 </div>
 
@@ -19,9 +21,9 @@
                         <div class="my-3">
                                 <input type="tel" autocomplete="off" class="form-control" formControlName="phoneno"
                                         placeholder="Phone Number" maxlength="10"
-                                        [ngClass]="{ 'is-invalid': submitted && f.phoneno.errors }">
-                                <div *ngIf="submitted && f.phoneno.errors" class="invalid-feedback">
-                                        <div *ngIf="f.phoneno.errors.required"> Mobile number is required</div>
+                                        [ngClass]="{ 'is-invalid': f.phoneno.touched && f.phoneno.errors }" />
+                                <div *ngIf="f.phoneno.touched && f.phoneno.errors" class="invalid-feedback">
+                                        <div *ngIf="f.phoneno.errors.required">phone no is required</div>
                                         <div *ngIf="f.phoneno.errors.pattern">Mobile no.must be 10 digit</div>
                                 </div>
                         </div>
@@ -29,19 +31,18 @@
                         <div class="my-3">
                                 <input type="password" autocomplete="off" class="form-control"
                                         formControlName="password" placeholder="Password"
-                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                        <div *ngIf="f.password.errors.required">Password is required</div>
-                                        <!-- <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div> -->
+                                        [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" />
+                                <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">password no is required</div>
                                         <div *ngIf="f.password.errors.pattern">password must Special char, digit,
                                                 uppercase, lowercase</div>
-                                        <!-- <div *ngIf="f.password.errors&&f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div> -->
+                                      
 
 
                                 </div>
                         </div>
-                        
-                         <re-captcha></re-captcha> 
+
+                        <re-captcha></re-captcha>
                         <!-- <label>
     <span>Retype the chars long from the picture:</span>
  captcha code: user-input textbox
