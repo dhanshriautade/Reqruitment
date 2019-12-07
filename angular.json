@@ -31,10 +31,8 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss",
-              
               "node_modules/primeng/resources/themes/nova-light/theme.css",
-              "./node_modules/intl-tel-input/build/css/intlTelInput.css"
-            ],
+              "./node_modules/intl-tel-input/build/css/intlTelInput.css"            ],
             "scripts": []
           },
           "configurations": {

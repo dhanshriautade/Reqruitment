@@ -12,6 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { HomeComponent } from './components/home/home.component';
+import {MenuItem} from 'primeng/api';
+import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
+import {DialogModule} from 'primeng/dialog';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
 // import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
@@ -31,7 +36,10 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ForgotComponent
+    ForgotComponent,
+    EmployeeComponent,
+    HomeComponent,
+    AppEmployeeComponent
   ],
  
   
@@ -45,7 +53,10 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
     RecaptchaModule.forRoot(),
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxIntlTelInputModule
+    NgxIntlTelInputModule,
+    DialogModule,
+     BrowserAnimationsModule 
+
    
   ],
    bootstrap: [AppComponent],

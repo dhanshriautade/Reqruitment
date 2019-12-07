@@ -15,3 +15,42 @@
     position: absolute;
     top:8px;
 }
+
+
+.primary{
+    background-color: #1c30ec;
+    color: white
+}
+.formContainer {
+    .ui-dialog {
+        margin-left: 200px;
+      background: white;
+      border: 0px solid white;
+      border-radius: 10px;
+      padding: 10px;
+      color: #1c30ec;
+      .ui-dialog-titlebar {
+        border: none;
+        background-color: white !important;
+        text-align: left !important;
+      }
+    }
+    .ui-dialog-title {
+      background-color: blue;
+      padding: 12px 37px;
+      margin: 5px;
+      color: white;
+      font-weight: 700;
+      border-radius: 0px 0px 20px 20px;
+      top: -10px;
+      position: relative;
+      font-size: 12px;
+    }
+    .ui-widget-overlay.ui-dialog-mask {
+      background: #fff;
+    }
+  }
+
+  body .ui-dialog .ui-dialog-content{
+      border: none !important;
+  }
