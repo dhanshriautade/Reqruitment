@@ -21,6 +21,13 @@ input,select{
     border-bottom: 1px solid;
     border-radius: 0!important;
 }
+
+.code_ph{
+    border: none;
+    border-bottom: 1px solid;
+    width: 357px;
+    //border-radius: 0!important;
+}
 .img{
     width: 200px;
 }
@@ -34,10 +41,10 @@ input,select{
     width: 100%;
     height: calc(100% + 8px);
 }
-.name{
-   
-}
 
+.country{
+    padding-left: 0px;
+}
 .example-form{
     padding: 20px;
 }
@@ -52,4 +59,15 @@ a{
 
 .code{
     padding-left: 5px
+}
+
+.custom{
+    border:none!important
+}
+
+
+
+.intl-tel-input.separate-dial-code[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2] {
+    padding-left: 98px;
+    border: none!important;
 }

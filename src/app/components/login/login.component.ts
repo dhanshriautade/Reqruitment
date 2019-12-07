@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-     phoneno: ['', [Validators.required ,Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+    //  phoneno: ['', [Validators.required ,Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
     password: ['', [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
    Recaptcha: ['',Validators.required],
    //recaptchaReactive:['', Validators.required)],
