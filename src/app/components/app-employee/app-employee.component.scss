@@ -26,10 +26,15 @@
     background-color: #a8b4d4;
   }
   :host ::ng-deep .ui-dialog-content {
-    overflow-y: auto;
+    // overflow-y: auto;
      height: 370px;
   }
-  
+  .btno{
+    text-align: end;
+  }
+  label{
+    color: #898989
+  }
   .switch {
     position: relative;
     display: inline-block;

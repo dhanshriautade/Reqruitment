@@ -16,6 +16,7 @@ import {MenuItem} from 'primeng/api';
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TableModule} from 'primeng/table';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
 // import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
@@ -52,7 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RecaptchaModule.forRoot(),
     ReactiveFormsModule,
     DialogModule,
-     BrowserAnimationsModule 
+     BrowserAnimationsModule ,
+     TableModule
 
    
   ],
