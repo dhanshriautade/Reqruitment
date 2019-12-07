@@ -10,12 +10,16 @@
         <input type="text" autocomplete="off" formControlName="firstname"
         placeholder="First Name" class="form-control"
         [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors }" />
+        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback"> firstname is required</div>
                                 <div *ngIf="f.firstname.touched && f.firstname.errors" class="invalid-feedback">
+                                               
                                         <div *ngIf="f.firstname.errors.required">firstname is required</div>
 
         <div *ngIf="f.firstname.errors.pattern">Space Not Allowed</div>
         </div>
+
         </div>
+        
         <div class="input-group my-2 form-group">
         <input type="text" formControlName="lastName" placeholder="Last Name"
         class="form-control"
@@ -34,40 +38,27 @@
         </div>
         </div>
         
-        <div class="form-group input-group my-2">
-        <div class="row">
-        <div class="col-sm-4 col-lg-4 col-md-4 col-12">
-        <select id="user_time_zone" class="form-control code" size="0"
-        formControlName="areacode" placeholder="Area Code">
-        <option value="Hawaii" SS>(GMT-10:00) Hawaii</option>
-        <option value="Alaska">(GMT-09:00) Alaska</option>
-        <option value="Pacific Time (US &amp; Canada)">(GMT-08:00)
-        Pacific Time (US &amp; Canada)</option>
-        <option value="Arizona">(GMT-07:00) Arizona</option>
-        <option value="Mountain Time (US &amp; Canada)">(GMT-07:00)
-        Mountain Time (US &amp; Canada)</option>
-        <option value="Central Time (US &amp; Canada)"
-        selected="selected">(GMT-06:00) Central Time (US &amp;
-        Canada)</option>
-        <option value="Eastern Time (US &amp; Canada)">(GMT-05:00)
-        Eastern Time (US &amp; Canada)</option>
-        <option value="Indiana (East)">(GMT-05:00) Indiana (East)
-        </option>
-        </select>
-        <!-- <input type="password" autocomplete="off" class="form-control code" formControlName="areacode"
-        placeholder="Area Code"> -->
-        </div>
-        <div class="col-sm-8 col-lg-8 col-md-8 col-12">
-        <input type="phoneno" autocomplete="off" class="form-control"
-        formControlName="phoneno" placeholder="Phone Number" maxlength="10"
-        [ngClass]="{ 'is-invalid': f.phoneno.touched && f.phoneno.errors }" />
-        <div *ngIf="f.phoneno.touched && f.phoneno.errors" class="invalid-feedback">
-                <div *ngIf="f.phoneno.errors.required">phone no is required</div>
-        <div *ngIf="f.phoneno.errors.pattern">phone number is not proper
-        </div>
-        </div>
-        </div>
-        </div>
+        <div class="form-group input-group my-2 ">        
+                <ngx-intl-tel-input class="code_ph" 
+                 
+                [preferredCountries]="preferredCountries"
+                [enableAutoCountrySelect]="false" 
+                [enablePlaceholder]="true" 
+                [searchCountryFlag]="true"
+                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                [selectFirstCountry]="false" 
+                [selectedCountryISO]="CountryISO.India"
+                [maxLength]="15" 
+                [tooltipField]="TooltipLabel.Name" 
+                [phoneValidation]="true" 
+                [separateDialCode]="separateDialCode"
+                name="phone" formControlName="phone" 
+                 [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }" ></ngx-intl-tel-input>  
+                <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone.errors.required">phone no is required</div>
+        
+              
+                </div>
         </div>
         <div class="form-group input-group my-2">
         <input type="password" autocomplete="off" class="form-control"

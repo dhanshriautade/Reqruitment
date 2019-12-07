@@ -9,7 +9,7 @@
                         
                         <div class="mt-5">
                                 <input type="email" autocomplete="off" class="form-control" formControlName="email"
-                                        placeholder="User Name "
+                                        placeholder="Email / Phone Number "
                                         [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
                                 <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
                                         <div *ngIf="f.email.errors.required">Email is required</div>
@@ -19,15 +19,7 @@
                                 </div>
 
                         </div>
-                        <div class="my-3">
-                                <input type="tel" autocomplete="off" class="form-control" formControlName="phoneno"
-                                        placeholder="Phone Number" maxlength="10"
-                                        [ngClass]="{ 'is-invalid': f.phoneno.touched && f.phoneno.errors }" />
-                                <div *ngIf="f.phoneno.touched && f.phoneno.errors" class="invalid-feedback">
-                                        <div *ngIf="f.phoneno.errors.required">phone no is required</div>
-                                        <div *ngIf="f.phoneno.errors.pattern">Mobile no.must be 10 digit</div>
-                                </div>
-                        </div>
+                       
 
                         <div class="my-3">
                                 <input type="password" autocomplete="off" class="form-control"

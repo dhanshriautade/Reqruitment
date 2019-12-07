@@ -10,12 +10,13 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { HomeComponent } from './components/home/home.component';
 import {MenuItem} from 'primeng/api';
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TableModule} from 'primeng/table';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
@@ -52,6 +53,8 @@ import {TableModule} from 'primeng/table';
     FormsModule,
     RecaptchaModule.forRoot(),
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxIntlTelInputModule,
     DialogModule,
      BrowserAnimationsModule ,
      TableModule
