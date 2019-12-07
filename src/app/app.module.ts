@@ -10,6 +10,12 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { HomeComponent } from './components/home/home.component';
+import {MenuItem} from 'primeng/api';
+import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
+import {DialogModule} from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
 // import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
@@ -29,7 +35,10 @@ import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recap
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ForgotComponent
+    ForgotComponent,
+    EmployeeComponent,
+    HomeComponent,
+    AppEmployeeComponent
   ],
  
   
@@ -41,7 +50,10 @@ import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recap
     AppRoutingModule,
     FormsModule,
     RecaptchaModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DialogModule,
+     BrowserAnimationsModule 
+
    
   ],
    bootstrap: [AppComponent],
