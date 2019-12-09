@@ -23,6 +23,16 @@
                     </div>
                   </div>
                         <div class="row my-2">
+                                <div class="col-sm-6 col-lg-6 col-md-6">
+                                        <label class="first">Title</label>
+                                        <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
+                                            name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                                            <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.title.errors.required">Title required</div>
+                                                
+                                             </div>
+                                    </div>
+
                         <div class="col-sm-6 col-lg-6 col-md-6">
                         <label class="first">Email</label>
                         <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
@@ -33,15 +43,7 @@
                              </div>
                     </div>
                     
-                        <div class="col-sm-6 col-lg-6 col-md-6"> 
-                        <label class="first">Phone no</label>
-                        <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                            name="phoneno" formControlName="phoneNo" [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
-                            <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
-                                    <div *ngIf="f.phoneNo.errors.required">Phone No required</div>
-                            
-                             </div>
-                             </div>
+                       
                     </div>
                     
                     <div class="row my-2">
@@ -54,12 +56,14 @@
                              </div>
                     </div>
                     <div class="col-sm-6 col-lg-6 col-md-6">
-                            <label class="first">Designation</label>
+                            <label class="first">Phone no</label>
                             <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                name="designation" formControlName="designation" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }">
-                                <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
-                                        <div *ngIf="f.designation.errors.required">Designation required</div>
+                                name="phoneno" formControlName="phoneNo" [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
+                                <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
+                                        <div *ngIf="f.phoneNo.errors.required">Phone No required</div>
+                                
                                  </div>
+                             
                                  </div>
                     </div>
                     <div class="row my-2">
