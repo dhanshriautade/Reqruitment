@@ -18,6 +18,7 @@ import {MenuItem} from 'primeng/api';
 
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
@@ -52,6 +53,7 @@ import {TableModule} from 'primeng/table';
     CardModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule, 
     RecaptchaModule.forRoot(),
     ReactiveFormsModule,
     BrowserAnimationsModule,

@@ -2,17 +2,23 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class TeamService {
+export class EmployeeService {
 
+  
   constructor(private http: HttpClient) { }
 
-  SignUp(data: any){
+  AddEmployee(data: any) {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
      });
-    return this.http.post(environment.signUp, data, { headers: headers });
+    return this.http.post(environment.Employeepost, data,{ headers: headers });
+  }
+
+  getEmployee(){
+    return this.http.get<any>(environment.Employeeget);
   }
 }

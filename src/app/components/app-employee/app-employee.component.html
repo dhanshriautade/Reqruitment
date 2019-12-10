@@ -78,7 +78,7 @@
                 <div class="col-sm-6 col-lg-6 col-md-6">
 
                     <label class="first">ID Information</label>
-                    <select id="user_time_zone" class="form-control code" size="0" formControlName="id"
+                    <select id="user_time_zone" class="form-control code" size="0" formControlName="ID"
                         placeholder="Area Code">
                         <option></option>
                         <option>Passport</option>
@@ -89,8 +89,8 @@
 
 
                         <span class="text-danger"
-                            *ngIf="employeeForm.controls['id'].hasError('required') && 
-                         (employeeForm.controls['id'].dirty || employeeForm.controls['id'].touched)">
+                            *ngIf="employeeForm.controls['ID'].hasError('required') && 
+                         (employeeForm.controls['ID'].dirty || employeeForm.controls['ID'].touched)">
                             This field is required</span>
                     </select>
 
