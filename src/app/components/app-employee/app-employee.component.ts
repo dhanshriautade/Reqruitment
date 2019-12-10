@@ -1,6 +1,6 @@
 import { Component, OnInit,Input, Output, EventEmitter, } from '@angular/core';
 
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-app-employee',
@@ -33,6 +33,7 @@ export class AppEmployeeComponent implements OnInit {
       phoneNo:['',[Validators.required,Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       dob:['',Validators.required],
       areacode:['',Validators.required],
+      id:['',Validators.required],
       idno:['',Validators.required],
       designation:['',Validators.required]
   })
@@ -47,11 +48,21 @@ export class AppEmployeeComponent implements OnInit {
   }
   get f() { return this.employeeForm.controls; }
 onSubmit() {
-  this.submitted = true;
-  
-  // stop here if form is invalid
-  if (this.employeeForm.invalid) {
-  return;
-  }
-  }
+  this.markFormTouched(this.employeeForm);
+    if (this.employeeForm.valid) {
+      
+      var formValues = this.employeeForm.getRawValue;
+
+    } else {
+      this.employeeForm.controls['rememberset'].setValue(false);
+    }
+  };
+
+  markFormTouched(group: FormGroup | FormArray) {
+    Object.keys(group.controls).forEach((key: string) => {
+      const control = group.controls[key];
+      if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+      else { control.markAsTouched(); };
+    });
+  };
 }

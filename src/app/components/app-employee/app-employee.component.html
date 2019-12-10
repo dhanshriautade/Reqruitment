@@ -1,97 +1,114 @@
 <div class="formContainer">
-    <p-dialog [modal]="true" header='' (onHide)="onClose()" [scrollTop]='0' [blockScroll]="true" [(visible)]="display" header="Create New User" [style]="{width: '75%', height: '460px'}">
-      <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-                    <div class="row my-2">
-                      <div class="col-sm-6 col-lg-6 col-md-6">  
-                        <label class="first">First Name</label>
-                        <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                            name="firstname" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
-                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                                    <div *ngIf="f.firstName.errors.pattern">Space Not Allowed</div>
-                             </div>
-                    </div>
-                   
-                        <div class="col-sm-6 col-lg-6 col-md-6">  
-                        <label class="first">Last Name</label>
-                        <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                            name="lastname" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-                                    <div *ngIf="f.lastName.errors.pattern">Space Not Allowed</div>
-                             </div>
-                    </div>
-                  </div>
-                        <div class="row my-2">
-                        <div class="col-sm-6 col-lg-6 col-md-6">
-                        <label class="first">Email</label>
-                        <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                            name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                    <div *ngIf="f.email.errors.required">Email required</div>
-                                
-                             </div>
-                    </div>
-                    
-                        <div class="col-sm-6 col-lg-6 col-md-6"> 
-                        <label class="first">Phone no</label>
-                        <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                            name="phoneno" formControlName="phoneNo" [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
-                            <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
-                                    <div *ngIf="f.phoneNo.errors.required">Phone No required</div>
-                            
-                             </div>
-                             </div>
-                    </div>
-                    
-                    <div class="row my-2">
-                    <div class="col-sm-6 col-lg-6 col-md-6">
-                        <label class="first">Date of Birth</label>
-                        <input type="date" autocomplete="off" class="form-control text-centre" placeholder=""
-                            name="DOB" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
-                            <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
-                                    <div *ngIf="f.dob.errors.required">Date of birth required</div>
-                             </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-6 col-md-6">
-                            <label class="first">Designation</label>
-                            <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                name="designation" formControlName="designation" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }">
-                                <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
-                                        <div *ngIf="f.designation.errors.required">Designation required</div>
-                                 </div>
-                                 </div>
-                    </div>
-                    <div class="row my-2">
-                            <div class="col-sm-6 col-lg-6 col-md-6">
+    <p-dialog [modal]="true" header='' (onHide)="onClose()" [scrollTop]='0' [blockScroll]="true" [(visible)]="display"
+        header="Create New User" [style]="{width: '75%', height: '460px'}">
+        <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="row my-2">
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <label class="first">First Name</label>
+                    <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
+                        name="firstname" formControlName="firstName">
+                    <span class="text-danger"
+                        *ngIf="employeeForm.controls['firstName'].hasError('required') &&
+                            (employeeForm.controls['firstName'].dirty || employeeForm.controls['firstName'].touched)">This field is
+                        required</span>
+                    <span class="text-danger" *ngIf="employeeForm.controls['firstName'].hasError('pattern') && 
+                            (employeeForm.controls['firstName'].dirty || employeeForm.controls['firstName'].touched)">
+                        Space Not Allowed</span>
+                </div>
 
-                                    <label class="first">ID Information</label>
-                                    <select id="user_time_zone" class="form-control code" size="0"
-                                                             formControlName="ID" placeholder="Area Code">
-                                                             <option ></option>
-                                                             <option >Passport</option>
-                                                             <option >PAN Card</option>
-                                                             <option >Adhar Card</option>
-                                                             <option >Driving Lincese</option>
-                                                             <option >Voter ID</option>
-                                                             
-                                                      </select>
-                        
-                                </div>
-                    <div class="col-sm-6 col-lg-6 col-md-6">
-                            <label class="first">ID No</label>
-                            
-                            <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                name="IDNo" formControlName="idno"  [ngClass]="{ 'is-invalid': submitted && f.idno.errors }">
-                                <div *ngIf="submitted && f.idno.errors" class="invalid-feedback">
-                                        <div *ngIf="f.idno.errors.required">ID required</div>
-                                 </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form group my-4 text-centre btno">
-                            <button type="submit" class="btn btn-primary regis ">SAVE</button>
-                        </div>
-                </form>
+
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <label class="first">Last Name</label>
+                    <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
+                        name="lastname" formControlName="lastName">
+                    <span class="text-danger"
+                        *ngIf="employeeForm.controls['lastName'].hasError('required') &&
+                            (employeeForm.controls['lastName'].dirty || employeeForm.controls['lastName'].touched)">This field is
+                        required</span>
+                    <span class="text-danger" *ngIf="employeeForm.controls['lastName'].hasError('pattern') && 
+                            (employeeForm.controls['lastName'].dirty || employeeForm.controls['lastName'].touched)">
+                        Space Not Allowed</span>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <label class="first">Email</label>
+                    <input type="text" autocomplete="off" class="form-control text-centre" placeholder="" name="email"
+                        formControlName="email">
+                    <span class="text-danger" *ngIf="employeeForm.controls['email'].hasError('required') &&
+                            (employeeForm.controls['email'].dirty || employeeForm.controls['email'].touched)">This
+                        field is required</span>
+                    <span class="text-danger" *ngIf="employeeForm.controls['email'].hasError('email') && 
+                            (employeeForm.controls['email'].dirty || employeeForm.controls['email'].touched)">
+                        Space Not Allowed</span>
+                </div>
+            
+
+            <div class="col-sm-6 col-lg-6 col-md-6">
+                <label class="first">Phone no</label>
+                <input type="text" autocomplete="off" class="form-control text-centre" placeholder="" name="phoneno"
+                    formControlName="phoneNo">
+                <span class="text-danger" *ngIf="employeeForm.controls['phoneNo'].hasError('required') && 
+                            (employeeForm.controls['phoneNo'].dirty || employeeForm.controls['phoneNo'].touched)">
+                    This field is required</span>
+
+            </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <label class="first">Date of Birth</label>
+                    <input type="date" autocomplete="off" class="form-control text-centre" placeholder="" name="DOB"
+                        formControlName="dob">
+                    <span class="text-danger" *ngIf="employeeForm.controls['dob'].hasError('required') && 
+                            (employeeForm.controls['dob'].dirty || employeeForm.controls['dob'].touched)">
+                        This field is required</span>
+                </div>
+
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <label class="first">Designation</label>
+                    <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
+                        name="Designation" formControlName="designation">
+                    <span class="text-danger"
+                        *ngIf="employeeForm.controls['designation'].hasError('required') && 
+                                (employeeForm.controls['designation'].dirty || employeeForm.controls['designation'].touched)">
+                        This field is required</span>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-sm-6 col-lg-6 col-md-6">
+
+                    <label class="first">ID Information</label>
+                    <select id="user_time_zone" class="form-control code" size="0" formControlName="id"
+                        placeholder="Area Code">
+                        <option></option>
+                        <option>Passport</option>
+                        <option>PAN Card</option>
+                        <option>Adhar Card</option>
+                        <option>Driving Lincese</option>
+                        <option>Voter ID</option>
+
+
+                        <span class="text-danger"
+                            *ngIf="employeeForm.controls['id'].hasError('required') && 
+                         (employeeForm.controls['id'].dirty || employeeForm.controls['id'].touched)">
+                            This field is required</span>
+                    </select>
+
+                </div>
+                <div class="col-sm-6 col-lg-6 col-md-6">
+                    <label class="first">ID No</label>
+
+                    <input type="text" autocomplete="off" class="form-control text-centre" placeholder="" name="IDNo"
+                        formControlName="idno">
+                    <span class="text-danger" *ngIf="employeeForm.controls['idno'].hasError('required') && 
+                                (employeeForm.controls['idno'].dirty || employeeForm.controls['idno'].touched)">
+                        This field is required</span>
+                </div>
+            </div>
+
+            <div class="form group my-4 text-centre btno">
+                <button type="submit" class="btn btn-primary regis ">SAVE</button>
+            </div>
+        </form>
     </p-dialog>
-  </div>
+</div>

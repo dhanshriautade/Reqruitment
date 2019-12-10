@@ -15,6 +15,7 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { HomeComponent } from './components/home/home.component';
 import {MenuItem} from 'primeng/api';
+
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
 import {TableModule} from 'primeng/table';

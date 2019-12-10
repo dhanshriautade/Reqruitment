@@ -1,91 +1,111 @@
 <div class="full-width">
-                <!-- <img src="/assets/images.png" class="bgimg"> -->
-                <!-- <img class="img" src="../../../assets/quicklinks_job_seekers-01-01.png"> -->
-         <p-card class="register_card">
-        <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="my-2">
-        <img class="img" src="../../../assets/logo_cmp.svg">
-        </div>
-        <div class=" input-group my-2 form-group">
-        <input type="text" autocomplete="off" formControlName="firstname"
-        placeholder="First Name" class="form-control"
-        [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors }" />
-        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback"> firstname is required</div>
+        <!-- <img src="/assets/images.png" class="bgimg"> -->
+        <!-- <img class="img" src="../../../assets/quicklinks_job_seekers-01-01.png"> -->
+        <p-card class="register_card">
+                <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="my-2">
+                                <img class="img" src="../../../assets/logo_cmp.svg">
+                        </div>
+                        <div class=" input-group my-2 form-group">
+                                <input type="text" autocomplete="off" formControlName="firstname"
+                                        placeholder="First Name" class="form-control"
+                                        [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors }" />
+                                <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback"></div>
                                 <div *ngIf="f.firstname.touched && f.firstname.errors" class="invalid-feedback">
-                                               
+
                                         <div *ngIf="f.firstname.errors.required">firstname is required</div>
 
-        <div *ngIf="f.firstname.errors.pattern">Space Not Allowed</div>
-        </div>
+                                        <div *ngIf="f.firstname.errors.pattern">Space Not Allowed</div>
+                                </div>
 
-        </div>
-        
-        <div class="input-group my-2 form-group">
-        <input type="text" formControlName="lastName" placeholder="Last Name"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }" />
-        <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
-                <div *ngIf="f.lastName.errors.required">lastName is required</div>
-        <div *ngIf="f.lastName.errors.pattern">Space Not Allowed</div>
-        </div>
-        </div>
-        <div class="form-group input-group my-2">
-        <input type="text" autocomplete="off" class="form-control" formControlName="email"
-        placeholder="Email" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
-        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
-                <div *ngIf="f.email.errors.required">email is required</div>
-        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-        </div>
-        </div>
-        
-        <div class="form-group input-group my-2 ">        
-                <ngx-intl-tel-input class="code_ph" 
-                 
-                [preferredCountries]="preferredCountries"
-                [enableAutoCountrySelect]="false" 
-                [enablePlaceholder]="true" 
-                [searchCountryFlag]="true"
-                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                [selectFirstCountry]="false" 
-                [selectedCountryISO]="CountryISO.India"
-                [maxLength]="15" 
-                [tooltipField]="TooltipLabel.Name" 
-                [phoneValidation]="true" 
-                [separateDialCode]="separateDialCode"
-                name="phone" formControlName="phone" 
-                 [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }" ></ngx-intl-tel-input>  
-                <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
-                        <div *ngIf="f.phone.errors.required">phone no is required</div>
-        
-              
-                </div>
-        </div>
-        <div class="form-group input-group my-2">
-        <input type="password" autocomplete="off" class="form-control"
-        formControlName="password" placeholder="Password"
-        [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" />
-        <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">password is required</div>
-        <div *ngIf="f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div>
-        </div>
-        </div>
-        <div class="form-group">
-        <input type="password" autocomplete="off" class="form-control"
-        formControlName="confpassword" placeholder="Confirm Password"
-        [ngClass]="{ 'is-invalid': f.confpassword.touched && f.confpassword.errors }" />
-        <div *ngIf="f.confpassword.touched && f.confpassword.errors" class="invalid-feedback">
-                <div *ngIf="f.confpassword.errors.required">confirmpassword is required</div>
-        <div *ngIf="f.confpassword.errors.mustMatch">Passwords must match</div>
-        </div>
-        </div>
-        <div class="row sign_up">
-        <button [disabled]="spinner" class="my-4 btn btn-primary">Signup</button>
-        </div>
-        <div class="pull-center">
-        <span class="pull-left">
-        <a routerLink="/login">Already a user?</a>
-        </span>
-        </div>
-        </form>
+                        </div>
+                        <div class=" input-group my-2 form-group">
+                                <input type="text" autocomplete="off" formControlName="lastName"
+                                        placeholder="Last Name" class="form-control"
+                                        [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }" />
+
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback"></div>
+                                <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
+
+                                        <div *ngIf="f.lastName.errors.required">lastName is required</div>
+
+                                        <div *ngIf="f.lastName.errors.pattern">Space Not Allowed</div>
+                                </div>
+
+                        </div>
+
+                        <div class="form-group input-group my-2">
+                                <input type="text" autocomplete="off" class="form-control" formControlName="email"
+                                        placeholder="Email"
+                                        [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback"></div>
+                                <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+
+                                        <div *ngIf="f.email.errors.required">email is required</div>
+
+                                        <div *ngIf="f.email.errors.email">Must enter valid email addresss</div>
+                                </div>
+
+                        </div>
+
+                        <div class="form-group input-group my-2 ">
+                                <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
+                                        [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
+                                        [searchCountryFlag]="true"
+                                        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                        [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
+                                        [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
+                                        [separateDialCode]="separateDialCode" name="phone" formControlName="phone"
+                                        [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }">
+                                </ngx-intl-tel-input>
+
+                                <div *ngIf="submitted && f.phone.errors" class="invalid-feedback"></div>
+                                <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
+
+                                        <div *ngIf="f.phone.errors.required">phone is required</div>
+
+                                </div>
+                        </div>
+                                <div class="form-group input-group my-2">
+                                        <input type="password" autocomplete="off" class="form-control"
+                                                formControlName="password" placeholder="Password"
+                                                [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" />
+                                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback"></div>
+                                                <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                
+                                                        <div *ngIf="f.password.errors.required">email is required</div>
+                
+                                                        <div *ngIf="f.password.errors.pattern">Password must be 8 char include Special char, digit, uppercase, lowercase</div>
+                                                </div>
+                
+                                        </div>
+
+                                <div class="form-group">
+                                        <input type="password" autocomplete="off" class="form-control"
+                                                formControlName="confpassword" placeholder="Confirm Password"  
+                                                [ngClass]="{ 'is-invalid': f.confpassword.touched && f.confpassword.errors}" />
+                                       
+
+                                        <div *ngIf="submitted && f.confpassword.errors" class="invalid-feedback"></div>
+                                              
+                                        <div *ngIf="f.confpassword.touched && f.confpassword.errors" class="invalid-feedback">
+
+                                                <div *ngIf="f.confpassword.errors.required">Password is required</div>
+
+                                                <div *ngIf="f.confpassword.errors.mustMatch">
+
+                                                        Password must be matched</div>
+                                        </div>
+
+                                </div>
+                                <div class="row sign_up">
+                                        <button [disabled]="spinner" class="my-4 btn btn-primary">Signup</button>
+                                </div>
+                                <div class="pull-center">
+                                        <span class="pull-left">
+                                                <a routerLink="/login">Already a user?</a>
+                                        </span>
+                                </div>
+                </form>
         </p-card>
-        </div>
+</div>

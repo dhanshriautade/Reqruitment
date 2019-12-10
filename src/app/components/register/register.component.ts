@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { MustMatch } from '../_helpers/must-match.validator';
 import { map } from "rxjs/operators";
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
@@ -47,13 +47,24 @@ validator: MustMatch('password', 'confpassword')
 get f() { return this.registerForm.controls; }
 
 onSubmit() {
-    
-this.submitted = true;
+    this.markFormTouched(this.registerForm);
+    if (this.registerForm.valid) {
+      
+      var formValues = this.registerForm.getRawValue;
 
-// stop here if form is invalid
-if (this.registerForm.invalid) {
-return;
-}
+    } else {
+      this.registerForm.controls['rememberset'].setValue(false);
+    }
+  };
 
-}
+  markFormTouched(group: FormGroup | FormArray) {
+    Object.keys(group.controls).forEach((key: string) => {
+      const control = group.controls[key];
+      if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+      else { control.markAsTouched(); };
+    });
+  };
+
+
+
 }
