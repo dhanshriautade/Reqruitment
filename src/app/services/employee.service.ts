@@ -12,7 +12,13 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   AddEmployee(data: any) {
- 
-    return this.http.post(environment.Employeepost, data);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.Employeepost, data,{ headers: headers });
+  }
+
+  getEmployee(){
+    return this.http.get<any>(environment.Employeeget);
   }
 }

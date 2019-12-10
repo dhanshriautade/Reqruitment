@@ -19,7 +19,12 @@ export class AppEmployeeComponent implements OnInit {
   useradd: boolean = false;
   submitted: boolean;
   data;
-  constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) { }
+  constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) { 
+    this.EmployeeService.getEmployee().subscribe(res => {
+       console.log(res);
+    })
+
+  }
   showDialog() {
     this.display = true;
   }
@@ -111,7 +116,7 @@ export class AppEmployeeComponent implements OnInit {
 
     console.log('list',this.data);
 
-    this.EmployeeService.AddEmployee(this.data).subscribe(res => {
+    this.EmployeeService.AddEmployee(JSON.stringify(this.data)).subscribe(res => {
 
     })
 

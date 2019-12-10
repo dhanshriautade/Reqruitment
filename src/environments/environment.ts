@@ -5,7 +5,8 @@ const base_url = 'http://localhost:8081/';
 export const environment = {
   production: false,
   Employeepost:base_url + 'addEmployee',
-  signUp: base_url+ 'signup'
+  Employeeget:base_url + 'getAllEmployeesInfo',
+  signUp: 'http://localhost:8087/signup',
 };
 
 /*

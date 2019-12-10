@@ -10,6 +10,9 @@ export class TeamService {
   constructor(private http: HttpClient) { }
 
   SignUp(data: any){
-    return this.http.post(environment.signUp, data);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.signUp, data, { headers: headers });
   }
 }
