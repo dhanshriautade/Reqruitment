@@ -17,6 +17,8 @@ import { HomeComponent } from './components/home/home.component';
 import {MenuItem} from 'primeng/api';
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
+
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
@@ -47,6 +49,7 @@ import {TableModule} from 'primeng/table';
   
   imports: [
     BrowserModule,
+    AutoCompleteModule,
     AccordionModule,
     RouterModule.forRoot([]),
     CardModule,

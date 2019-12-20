@@ -1,33 +1,62 @@
 <div class="full-width">
-        <!-- <img class="img" src="../../../assets/logo.jpg" > -->
-        <p-card class="register_card">
-                <form class="example-form" [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
-                        <div class="my-2">
-                                <img class="img" src="../../../assets/logo_cmp.svg">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-2"></div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-8 main">
+                <img src="/assets/logo/360Logo.png" class="bgimg">
+                <p-card class="login_card">
+                    <div class="example-form">
+                        <div class="logo_name" style="  font-family:'Maven Pro'">
+                            OFFICE Management
                         </div>
-
-                        <div class="mt-5">
-                                <input type="text" autocomplete="off" class="form-control" formControlName="email"
-                                        placeholder="Email"  [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
-                                        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
-                                                <div *ngIf="f.email.errors.required">Email is required</div>
-        
-                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        <div class="name my-3">
+                            Get started with your account
+                        </div>
+                                     
+                        <form #myForm="ngForm" [formGroup]="forgetForm" (ngSubmit)="Login()">
+                            <div class=" tag row my-2">
+                                <label for="name">User Name / ID</label>
+                                <!-- <i class="fa fa-user icon"></i>  -->
+                                <input type="text" class="form-control" formControlName="email" placeholder="youremail@gmail.com"
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div class="error err" *ngIf="f.email.errors.required">Email  required</div>
+                                    <div class="error err" *ngIf="f.email.errors.email">Email must be a valid email address</div>
                                 </div>
+                            </div>
+                           
+                            <div class="my-2">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6"></div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <a>Forgot Password?</a>
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="my-4">
+                                <button class="btn btn-primary" type="submit">Login <i
+                                    *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i> </button>
+    
+                            </div>
+                        </form>
+                        <div class="my-3">
+    
+                            <img src="/assets/logo/beauto.png" class="footer">
+                            @ BEAUTO System Pvt. Ltd. | <a style="color: #6C66E1"> Terms</a>
+    
                         </div>
-
-
-                        <div class="row sign_up">
-                                <button [disabled]="spinner" class="my-4 btn btn-primary"
-                                        type="submit">Continue</button>
-                        </div>
-
-                        <div class="my-3 btn">
-                                <span class="pull-center">
-                                        <a routerLink="/login">Login</a>
-                                </span>
-                        </div>
-
-                </form>
-        </p-card>
-</div>my-1
+                        <!-- <div class="my-3">
+                            <img class="fb mr-4" src="../../../assets/logo/fb.svg">
+                            <img class="twitter mr-4" src="../../../assets/logo/twitter.png">
+                            <img class="gmail mr-4" src="../../../assets/logo/gm.png">
+                        </div> -->
+                    </div>
+    
+                </p-card>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-2"></div>
+    
+        </div>
+    
+    </div>
+    

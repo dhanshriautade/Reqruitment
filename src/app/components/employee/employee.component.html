@@ -1,10 +1,13 @@
-<div>
-        <button class="primary m-0" label="Open"  (click)="showDialog()">
-                + Add New Employee</button>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-sm-1"></div>
+          <div class="col-sm-2 my-3">
+            <button type="button" class="btn info">Personal Information</button>
+          </div>
+          <div class="col-sm-2 my-3">
+            <button type="button" class="btn upload">Upload Resume</button>
+          </div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-1"></div>
+    </div>
 </div>
-
-
- 
-    <app-app-employee [(display)]="display" (displayChange)="onDialogClose($event)"></app-app-employee>
-
-    
