@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder, FormArray } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  [x: string]: any;
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -15,8 +17,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
+      email: ['', Validators.compose([Validators.required, Validators.pattern(/^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}))$/)])],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
     rememberset:['']
   });
   if (localStorage.getItem('email') != 'null' || localStorage.getItem('password') != 'null'){
@@ -31,7 +33,14 @@ export class LoginComponent implements OnInit {
 
   
   onSubmit(){
-    
+    this.markFormTouched(this.loginForm);
+    if (this.loginForm.valid) {
+
+      var formValues = this.loginForm.getRawValue;
+
+    } else {
+      this.loginForm.controls['rememberset'].setValue(false);
+    }
     const rememberset = this.loginForm.value.rememberset;
     if (rememberset) {
       localStorage.setItem('email', this.loginForm.value.email);
@@ -51,10 +60,33 @@ export class LoginComponent implements OnInit {
     }
     console.log(JSON.stringify(this.data));
     
-  this.submitted=true;
-  if(this.loginForm.invalid){
-    return;
+   
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
 
+    }
   }
+  markFormTouched(group: FormGroup | FormArray) {
+    Object.keys(group.controls).forEach((key: string) => {
+      const control = group.controls[key];
+      if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+      else { control.markAsTouched(); };
+    });
+  };
 }
-}
+  
+//   markFormTouched(group: FormGroup | FormArray) {
+//     Object.keys(group.controls).forEach((key: string) => {
+//       const control = group.controls[key];
+//       if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+//       else { control.markAsTouched(); };
+//     });
+//   };
+//  } markFormTouched(loginForm: FormGroup) {
+//     throw new Error("Method not implemented.");
+//    }
+// }  markFormTouched(loginForm: FormGroup) {
+//     throw new Error("Method not implemented.");
+//   }
+

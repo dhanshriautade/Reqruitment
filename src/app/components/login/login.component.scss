@@ -17,16 +17,29 @@
 }
 
 .bgimg{
-    margin-top:58px;
-    margin-bottom: 28px;
+    margin-top:45px;
+    margin-bottom: 25px;
+    width: 101px;
+    height: 102px;
 }
+
+    .check_item{
+        padding-left: 10px;
+        margin-left: 70px;
+    }
+    .check{
+        height: 17px;
+        border: 1px solid gray;
+        border-radius: 4px;
+      }
+
 
 :host ::ng-deep .ui-card-body{
 padding: 0px !important;
 }
 :host ::ng-deep .ui-card{
     border-radius: 17px;
-    height: 480px;
+    height: 580px;
 }
 .name{
     font-family: 'Maven Pro';
@@ -70,7 +83,9 @@ padding: 0px !important;
       width: 25px
   }
 .footer{
-    width: 30px;
+    //width: 30px;
+    width: 16px;
+    height: 16px;
 }
 input{
     border: none;
@@ -83,6 +98,11 @@ button{
 }
 .tag{
     padding: 0px 95px 0px 95px;
+}
+.tag1{
+    padding: 0px 105px 0px 95px;
+    margin-left: 30px;
+    margin-top: 10px;
 }
 .DeactiveAllUser {
     height: 33px;
@@ -105,6 +125,12 @@ button{
     color: #7c7171;
     font-weight: 700;
   
+}
+.sign{
+    margin-right: 53px;
+}
+.reg{
+margin-right: 50px;
 }
 
 .full-width

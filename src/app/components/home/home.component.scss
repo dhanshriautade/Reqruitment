@@ -1,36 +1,227 @@
 
-.header{
-    height: 81px;
-}
-.img{
-    width: 181px;
-    margin-top: 12px;
-    height: 31px;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
+    .menu_bottom{      
+      bottom: 0px;      
+      position: absolute;
+      background-color: #C9C9CA;
+      width: calc(100% + 11px) !important; 
+    
+  }
+  .bgimg{
+      width: 210px;
+      padding: 10px;
+  
   }
   
-  li {
-    float: left;
+  .info-card {
+      padding: 12px 30px 10px 27px;
+      color: black;
+      font-size: 10px;
+      font-weight: bold;
+      font-size: smaller;
+    }
+    .edit{
+        text-align: end;
+    }
+
+   .footer{
+       text-align: center;
+       font-size: smaller;
+   }
+   .dashboard{
+      height: 89vh;
+      background-color: #ECEFF1;
+   }
+   .header{
+      height: 75px;
+   }
+
+   .logo{
+      background-color: #455A64;
+      height: 75px;
+      font-size: x-large;
+      color:#ACBEC6;;
+      font-weight: bold;
+   }
+
+   .link{
+    color:#6C66E1
+   }
+
+   .profile{
+      text-align: end;
+   }
+
+   .search{
+      top: 0px;
+      position: absolute;
+      z-index:1;
+      input, button{
+          background: transparent;
+        
+      }
+  }
+  input{
+      border: none;
+  }
+
+  
+
+  :host ::ng-deep .ui-autocomplete-input {
+      border: 0 ;
+      border-radius: 2px;
+  }
+  :host ::ng-deep .ui-inputgroup input{
+      width: 100% !important;
+  }
+
+  .ui-button-warn{
+     background-color: white;
+     border: none;
+  }
+
+
+  .gradient{
+      background-color: white
   }
   
-  li a {
-    display: block;
-    color: gray;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
+  .card_size{
+      padding-top: 2%;
   }
-  
-  li a:hover {
-      color: #4A90E2;
-    background-color: #8080802e;
-    border-bottom: 4px solid #4A90E2;
-    font-weight: 700;
-    // display: inline;
- }
+
+  .profile{
+      text-align: end;
+      color: white;
+      font-weight: bold;
+      margin-top: 27px;
+  }
+
+  .profileImage{
+      width: 45px;
+      border-radius: 25px;
+  }
+
+  .fream{
+      background-color: white;
+  }
+
+  .auto{
+      font-weight: 700;
+  color: #0000FF;
+  }
+
+  .head{
+      background-color: #90A4AE;
+      color: white;
+  }
+
+  th ,td {
+      border-right: 1px solid white;
+      color: white;
+  }
+
+  .table-striped tbody tr:nth-of-type(odd){
+ background-color: #F4F4F5
+  }
+
+  .table-striped tbody tr:nth-of-type(even){
+      background-color: #F5FBFF
+       }
+
+       .blue{
+           color: #2C75FF
+       }
+
+       .red{
+           color: #D2345C;
+       }
+
+       .name{
+           color:#455A64 ;
+       }
+
+       tbody tr:hover{
+            background-color: #D5EAF8 !important; 
+       }
+
+        .btn-secondary{
+          background-color: #CFD8DC;
+          border: #CFD8DC;
+       }
+
+      span{
+          color: #263238bf;
+      }
+      .admin{
+          color: #808080b0;
+          font-size: 14px;
+      }
+       .head{
+           height: 10px!important;
+       }
+
+       table td, .table th {
+          padding: 7px 5px 7px 13px;
+          // vertical-align: top;
+          border-top: 1px solid #dee2e6;
+      }
+
+      
+      span.red {
+          width: 49px;
+  height: 49px;
+  border-radius: 25px;
+  margin: auto;
+  padding-top: 12px;
+  background: red;
+        }
+       
+.count{
+      padding: 12px 0px 0px 12px;
+      color: white;
+      font-weight: 900;
+      font-size: x-large;
+   }
+
+
+        .num{
+          background-color: blue;
+          margin-top: 18px;
+          border-radius: 73px;
+          width: 59px;
+          height: 60px;
+        }
+        .num1{
+          background-color: green;
+          margin-top: 18px;
+          border-radius: 73px;
+          width: 59px;
+          height: 60px;
+        }
+        .num2{
+          background-color: red;
+          margin-top: 18px;
+          border-radius: 73px;
+          width: 59px;
+          height: 60px;
+        }
+
+        .event{
+          color: #808080b0;
+          font-size: 16px;
+         
+        }
+
+        .Events{
+          margin: 0px 0px 23px -27px
+        }
+        
+        .eventt{
+          color: #808080b0;
+          font-size: 14px;
+          padding-bottom: 9px;
+        }
+
+        .Profname{
+          color: blue;
+      }
+     

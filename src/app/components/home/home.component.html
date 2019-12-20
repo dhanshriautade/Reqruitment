@@ -1,27 +1,60 @@
-<div class="header row">
-    <div class="col-sm-1 col-md-2 col-lg-2">
+<div class="header">
 
-    </div>
-    <div class="col-sm-10 col-md-8 col-lg-8">
-        <div class="row">
-           
-                    <img class="img" src="../../../assets/logo_cmp.svg">
-       
-                    <ul>
-                            <li><a >Jobs</a></li>
-                            <li><a >Recruiters</a></li>
-                            <li><a >Companies</a></li>
-                            <li><a >Tools</a></li>
-                            <li><a >Services</a></li>
-                            <li><a >More</a></li>
-                        </ul>
-                
 
-        </div>
-       
+    <div class="row">
+      <div class="col-sm-2 col-md-3 col-lg-3 col-xl-2 col-3 logo">
+        <img src="/assets/logo/logo_one.png" class="bgimg">
+        
+      </div>
+      <div class="col-sm-10 col-md-9 col-lg-9 col-xl-10 col-9 profile" style="margin-top: 15px;">
+        <div class="d-flex d-flex-row flx1">
+          <div class="mr-auto"></div>
+          <div>
+          <div class="mt-1">
+          <p-autoComplete [(ngModel)]="text" placeholder="Search Employee or Help" [suggestions]="results"
+          (completeMethod)="search($event)"></p-autoComplete>
+          <button type="submit" pButton type="button" (click)="onComplete($event)" class="ui-button-warn">
+          <img class=" mt-2" src="/assets/logo/Search Icon.png">
+          </button>
+          
+          </div>
+          </div>
+          <div class="ml-2 mr-2 mt-2 ">
+          <img class=" mt-2" src="/assets/logo/settings.png">
+          </div>
+          <div class="ml-2 mr-2 mt-2"><img src="/assets/logo/Notification.png"></div>
+          <div class="ml-2 mr-2 mt-2"><img src="/assets/logo/logout.png"></div>
+          <div class="ml-2 mr-2 mt-2 Profname">Dhanshri Autade</div>
+          <div class="ml-2 mr-2 mt-2"><i class="fa fa-angle-down" aria-hidden="true" style="color:black"></i></div>
+          <div class="profile" style="margin-top: 0px;">
+          <img class="profileImage" (click)="LogOut()" src="http://lorempixel.com/100/100" />
+          </div>
+          
+          </div>
+   
+      </div>  
+  
     </div>
-    <div class="col-sm-1 col-md-2 col-lg-2">
+  
+  
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 
+
+
+
+
+<div class="menu_bottom row">
+    <div class="col-sm-3 col-md-3 col-lg-4 col-xl-4 col-1">
+  
     </div>
-</div>
-<router-outlet></router-outlet>
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-10 footer">
+      @ BEAUTO System Pvt. Ltd. | <a class="link"> Terms</a>
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-4 col-xl-4 col-1">
+  
+    </div>
+  
+  </div>
