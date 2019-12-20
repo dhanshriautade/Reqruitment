@@ -1,73 +1,117 @@
-.register_card {   
-    // height: 450px; 
-    border-radius: 10px;
-    right: 15%;
-    position: absolute;
-    top: 15%;
-    width: 400px;
-    box-shadow: 0px 20px 150px 0px #95989A, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-image: linear-gradient(#FFFFFF, #F0F0F0);  
-}
-.ui-card-body {
-    padding: 1em;
-}
-
-.bgimg {
-    height:100%; 
-    width:auto;
-}
-input,select{
-    border: none;
-    border-bottom: 1px solid;
-    border-radius: 0!important;
-}
-
-.code_ph{
-    border: none;
-    border-bottom: 1px solid;
-    width: 357px;
-    //border-radius: 0!important;
-}
-.img{
-    width: 200px;
-}
 
 .full-width{
-    background: linear-gradient(to right top, #22247c, #0063A6, #007EBF, #00A0D7, #009DD5) !important;
-    top: 0;
+    background: #455A64;
     left: 0;
     position: fixed;
     margin: 0!important;
     width: 100%;
     height: calc(100% + 8px);
+    
+}
+.full-width{
+    font-family: 'Maven Pro';
+}
+.main{
+    text-align: center;
+    padding: 0px 120px 0px 120px;
 }
 
-.country{
-    padding-left: 0px;
-}
-.example-form{
-    padding: 20px;
+.bgimg{
+    margin-top:58px;
+    margin-bottom: 28px;
 }
 
-.sign_up{
-    justify-content: center;
+:host ::ng-deep .ui-card-body{
+padding: 0px !important;
+}
+:host ::ng-deep .ui-card{
+    border-radius: 17px;
+    height: 480px;
+}
+.name{
+    font-family: 'Maven Pro';
+    color: #263238; 
+    size: 16px;
+    font-weight: bold;
+}
+.err{
+    text-align: left;
+}
+.logo_name{
+    background-color: #CFD8DC;
+    height: 51px;
+    font-family: 'Maven Pro';
+    font-weight: 700;
+    font-size: xx-large;
+    // padding: 12px;
+    border-radius: 17px 17px 0px 0px;
 }
 
-a{
-    color: blue
+.ActiveAllUser {
+    height: 33px;
+    width: 115px;
+    // padding: 5px 30px;
+    border-radius: 50px;
+    border: 1px #FCC612 solid;
+    position: relative;
+    z-index: 1;
+    background-color: #90A4AE;
+    font-weight: 700;
+    color: white;
+   
+}
+.fb{
+        width: 17px;
+  }
+  .twitter{
+      width: 19px;
+  }
+  .gmail{
+      width: 25px
+  }
+.footer{
+    width: 30px;
+}
+input{
+    border: none;
+    border-bottom: 1px solid #CDD5DA;
+    border-radius: 0!important;
+}
+button{
+    width: 130px;
+    border-radius: 15px;
+}
+.tag{
+    padding: 0px 95px 0px 95px;
+}
+.DeactiveAllUser {
+    height: 33px;
+    width: 115px;
+    // padding: 5px 56px;
+    border-radius: 50px;    
+    border: 1px #90A4AE solid;
+    margin-left: -25px;
+    color: white;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    background-color: #90A4AE;
 }
 
-.code{
-    padding-left: 5px
+.activeUserList{
+    background: #FCC612;
+    // color: black;;
+    z-index: 10;
+    color: #7c7171;
+    font-weight: 700;
+  
 }
 
-.custom{
-    border:none!important
-}
-
-
-
-.intl-tel-input.separate-dial-code[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2] {
-    padding-left: 98px;
-    border: none!important;
+.full-width
+{
+    .row{
+        .col-lg-6{
+            // padding: 0px 50px 0px 50px;
+        }
+    }
 }

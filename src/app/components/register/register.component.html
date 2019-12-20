@@ -1,91 +1,70 @@
 <div class="full-width">
-                <!-- <img src="/assets/images.png" class="bgimg"> -->
-                <!-- <img class="img" src="../../../assets/quicklinks_job_seekers-01-01.png"> -->
-         <p-card class="register_card">
-        <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="my-2">
-        <img class="img" src="../../../assets/logo_cmp.svg">
-        </div>
-        <div class=" input-group my-2 form-group">
-        <input type="text" autocomplete="off" formControlName="firstname"
-        placeholder="First Name" class="form-control"
-        [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors }" />
-        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback"> firstname is required</div>
-                                <div *ngIf="f.firstname.touched && f.firstname.errors" class="invalid-feedback">
-                                               
-                                        <div *ngIf="f.firstname.errors.required">firstname is required</div>
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-2"></div>
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-8 main">
+            <img src="/assets/logo/360Logo.png" class="bgimg">
+            <p-card class="login_card">
+                <div class="example-form">
+                    <div class="logo_name" style="  font-family:'Maven Pro'">
+                        OFFICE Management
+                    </div>
+                    <div class="name my-3">
+                        Get started with your account
+                    </div>
+                                 
+                    <form #myForm="ngForm" [formGroup]="loginForm" (ngSubmit)="Login()">
+                        <div class=" tag row my-2">
+                            <label for="name">User Name / ID</label>
+                            <!-- <i class="fa fa-user icon"></i>  -->
+                            <input type="text" class="form-control" formControlName="email" placeholder="youremail@gmail.com"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div class="error err" *ngIf="f.email.errors.required">Email  required</div>
+                                <div class="error err" *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="tag row my-2">
+                            <label for="name">Password</label>
+                            <input type="password" class="form-control" formControlName="password" placeholder="*********"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div class="error err" *ngIf="f.password.errors.required">Password required</div>
+                                <div class="error err" *ngIf="f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div>
+                            </div>
+                        </div>
+                        <div class="my-2">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <a>Forgot Password?</a>
+                                </div>
+                            </div>
 
-        <div *ngIf="f.firstname.errors.pattern">Space Not Allowed</div>
-        </div>
+                        </div>
+                        <div class="my-4">
+                            <button class="btn btn-primary" type="submit">Login <i
+                                *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i> </button>
 
-        </div>
-        
-        <div class="input-group my-2 form-group">
-        <input type="text" formControlName="lastName" placeholder="Last Name"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }" />
-        <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
-                <div *ngIf="f.lastName.errors.required">lastName is required</div>
-        <div *ngIf="f.lastName.errors.pattern">Space Not Allowed</div>
-        </div>
-        </div>
-        <div class="form-group input-group my-2">
-        <input type="text" autocomplete="off" (keyup)="onKey($event)" class="form-control" formControlName="email"
-        placeholder="Email" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
-        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
-                <div *ngIf="f.email.errors.required">email is required</div>
-        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-        </div>
-        </div>
-        
-        <div class="form-group input-group my-2 ">        
-                <ngx-intl-tel-input class="code_ph" 
-                 
-                [preferredCountries]="preferredCountries"
-                [enableAutoCountrySelect]="false" 
-                [enablePlaceholder]="true" 
-                [searchCountryFlag]="true"
-                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                [selectFirstCountry]="false" 
-                [selectedCountryISO]="CountryISO.India"
-                [maxLength]="15" 
-                [tooltipField]="TooltipLabel.Name" 
-                [phoneValidation]="true" 
-                [separateDialCode]="separateDialCode"
-                name="phone" formControlName="phone" 
-                 [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }" ></ngx-intl-tel-input>  
-                <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
-                        <div *ngIf="f.phone.errors.required">phone no is required</div>
-        
-              
+                        </div>
+                    </form>
+                    <div class="my-3">
+
+                        <img src="/assets/logo/beauto.png" class="footer">
+                        @ BEAUTO System Pvt. Ltd. | <a style="color: #6C66E1"> Terms</a>
+
+                    </div>
+                    <!-- <div class="my-3">
+                        <img class="fb mr-4" src="../../../assets/logo/fb.svg">
+                        <img class="twitter mr-4" src="../../../assets/logo/twitter.png">
+                        <img class="gmail mr-4" src="../../../assets/logo/gm.png">
+                    </div> -->
                 </div>
+
+            </p-card>
         </div>
-        <div class="form-group input-group my-2">
-        <input type="password" autocomplete="off" class="form-control"
-        formControlName="password" placeholder="Password"
-        [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" />
-        <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">password is required</div>
-        <div *ngIf="f.password.errors.pattern">password must Special char, digit, uppercase, lowercase</div>
-        </div>
-        </div>
-        <div class="form-group">
-        <input type="password" autocomplete="off" class="form-control"
-        formControlName="confpassword" placeholder="Confirm Password"
-        [ngClass]="{ 'is-invalid': f.confpassword.touched && f.confpassword.errors }" />
-        <div *ngIf="f.confpassword.touched && f.confpassword.errors" class="invalid-feedback">
-                <div *ngIf="f.confpassword.errors.required">confirmpassword is required</div>
-        <div *ngIf="f.confpassword.errors.mustMatch">Passwords must match</div>
-        </div>
-        </div>
-        <div class="row sign_up">
-        <button [disabled]="spinner" class="my-4 btn btn-primary">Signup</button>
-        </div>
-        <div class="pull-center">
-        <span class="pull-left">
-        <a routerLink="/login">Already a user?</a>
-        </span>
-        </div>
-        </form>
-        </p-card>
-        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-2"></div>
+
+    </div>
+
+</div>
+
