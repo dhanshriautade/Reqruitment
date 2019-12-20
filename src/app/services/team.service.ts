@@ -15,4 +15,12 @@ export class TeamService {
      });
     return this.http.post(environment.signUp, data, { headers: headers });
   }
+
+  AlreadyUse(data: any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+     return this.http.post(environment.alreadyUser, data, { headers: headers });
+
+  }
 }

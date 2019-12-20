@@ -48,6 +48,23 @@ export class RegisterComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
+
+    onKey(event: any) { // without type info
+        this.data = {
+            "firstName": "",
+            "lastName": "",
+            "contact": "",
+            "email": event.target.value,
+            "password": "",
+            "country": "",
+            "reEnterPassword": ""
+        }
+        
+        this.TeamService.AlreadyUse(this.data).subscribe(res => {
+            console.log(res);
+
+        })
+    }
     onSubmit() {
         this.submitted = true;
 
