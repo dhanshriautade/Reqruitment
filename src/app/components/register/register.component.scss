@@ -77,6 +77,7 @@ input{
     border-bottom: 1px solid #CDD5DA;
     border-radius: 0!important;
     height: 25px;
+    font-size: small;
 }
 button{
     width: 130px;
@@ -116,4 +117,29 @@ button{
             // padding: 0px 50px 0px 50px;
         }
     }
+}
+
+
+.code_ph{
+    border: none;
+    border-bottom: 1px solid #CDD5DA;
+    width: 357px;
+    //border-radius: 0!important;
+}
+.intl-tel-input.separate-dial-code[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2] {
+   // padding-left: 98px;
+    border: none!important;
+    
+}
+:host ::ng-deep  .country-list{
+    white-space: normal !important;
+       max-height: 200px !important;
+     overflow-y: scroll !important; 
+}
+
+:host ::ng-deep .selected-dial-code{
+    margin-top: -7px;
+}
+.invalid-feedback{
+    text-align: start;
 }
