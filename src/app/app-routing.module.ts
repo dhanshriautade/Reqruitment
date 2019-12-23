@@ -6,6 +6,7 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     children:[
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: EmployeeComponent},
+      { path: 'admin', component: AdminComponent},
     ]
   }
 ]

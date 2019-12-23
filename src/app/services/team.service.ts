@@ -23,4 +23,12 @@ export class TeamService {
      return this.http.post(environment.alreadyUser, data, { headers: headers });
 
   }
+
+  resumeUpload(data:any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+     });
+     return this.http.post(environment.uploadresume, data, { headers: headers });
+
+  }
 }
