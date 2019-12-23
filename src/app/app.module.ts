@@ -12,11 +12,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+
 import { EmployeeComponent } from './components/employee/employee.component';
 import { HomeComponent } from './components/home/home.component';
 import {MenuItem} from 'primeng/api';
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
+import {CalendarModule} from 'primeng/calendar';
 
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -61,6 +63,7 @@ import {TableModule} from 'primeng/table';
     BrowserAnimationsModule,
     NgxIntlTelInputModule,
     DialogModule,
+    CalendarModule,
      BrowserAnimationsModule ,
      TableModule
 
