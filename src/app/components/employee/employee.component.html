@@ -3,9 +3,64 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-11">
             <button type="button" class="btn info my-3 mr-4">Personal Information</button>
-         
-            <button type="button" class="btn upload my-3">Upload Resume</button>
-            </div>
-        
+
+            <button type="button" class="btn upload my-3" (click)="showDialog()">Upload Resume</button>
+
+
+
+
+            <p-dialog [(visible)]="display" [style]="{width: '90%', height: '86%'}">
+                <p-header class="dialogHeader mt-2">
+                    <img src="../../../assets/resume page.png" alt="">
+                    <span class="ml-2 mt-2 report"> Upload Resume</span>
+                </p-header>
+                <div class="row resume">
+                    Upload your resume,cover letter and any other documents.
+                </div>
+                <div class="row format">
+                    Upload either DOCX or PDF(2.0 MB max)
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-6 ">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btnx">Upload file</button>
+                                    <input type="file" name="myfile" />
+                                    <span class=" ml-2 mt-2 word">Or</span>
+                                    <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
+                                    <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
+                                    <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btng">Upload file</button>
+                                    <input type="file" name="myfile" />
+                                     <span class=" ml-2 mt-2 word">Or</span>
+                                    <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
+                                    <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
+                                    <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+
+                    </div>
+                </div>
+             
+                <hr class="line">
+                <div class="space">
+
+                </div>
+                <hr>
+                <div class="row">
+                    <button class="btn  btn3" type="button">submit</button>
+                </div>
+            </p-dialog>
+        </div>
+
     </div>
 </div>

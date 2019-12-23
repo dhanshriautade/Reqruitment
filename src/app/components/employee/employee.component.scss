@@ -8,3 +8,79 @@
     width: 180px;
 }
  
+.format{
+    color: #8EA3AF;
+    margin-left: 37px;
+    margin-top: 6px;
+    font-size: small;
+}
+.resume{
+    margin-top: 19px;
+    margin-left: 37px;
+}
+.space{
+    margin-bottom: 225px;
+}
+.btn3{
+     background-color: blue;
+    width: 129px;
+    height: 33px;
+    margin-left: 700px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1px;
+    font-size:small;
+   
+}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btnx {
+    background-color:blue;
+    color: white;
+    font-weight: 500;
+    margin-left: 5%;
+    margin-top: 18px;
+    height: 34px;
+    border-radius: 8px;
+    width: 113px;
+    margin-left: 37px;
+    border: 0ch;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  .btng{
+    height: 34px;
+    border-radius: 8px;
+    width: 113px;
+    background-color: #AFBEC6;
+    font-weight: 500;
+    margin-top: 18px;
+    color: white;
+    border: 0ch;
+    
+  }
+  .report{
+    color: blue;
+    font-size: larger;
+   // margin-left: 12px;
+  }
+
+  .filename{
+    font-size: x-small;
+    color: blue;
+  }
+.word{
+  color: #8EA3AF;
+  font-size: smaller;
+}
