@@ -4,6 +4,7 @@ import { MustMatch } from '../_helpers/must-match.validator';
 import { map } from "rxjs/operators";
 import { TeamService } from 'src/app/services/team.service';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
+import { ToastrService } from 'ngx-toastr';
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
@@ -26,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
     });
     form: FormGroup;
-    constructor(private formBuilder: FormBuilder, public TeamService: TeamService) { }
+    constructor(private formBuilder: FormBuilder,private toastr: ToastrService, public TeamService: TeamService) { }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -79,14 +80,22 @@ export class RegisterComponent implements OnInit {
             "reEnterPassword": this.registerForm.value.confpassword,
 
         }
-        console.log(JSON.stringify(this.data));
-        this.TeamService.SignUp(this.data).subscribe(res => {
-
-        })
+       
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
+        }else{
+
+      
+            console.log(JSON.stringify(this.data));
+            this.TeamService.SignUp(this.data).subscribe(res => {
+         
+            })
+
+            this.toastr.success('Successfully Created !!!');
+            this.registerForm.reset();
         }
+        
     }
         markFormTouched(group: FormGroup | FormArray) {
             Object.keys(group.controls).forEach((key: string) => {

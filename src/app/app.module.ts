@@ -23,6 +23,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
+import { ToastrModule } from 'ngx-toastr';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
 // import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
@@ -65,7 +66,12 @@ import {TableModule} from 'primeng/table';
     DialogModule,
     CalendarModule,
      BrowserAnimationsModule ,
-     TableModule
+     TableModule,
+     ToastrModule.forRoot({
+      closeButton: true,
+      progressBar: true,
+      preventDuplicates : true
+    })
 
    
   ],

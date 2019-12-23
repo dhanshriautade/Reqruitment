@@ -2,9 +2,11 @@
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-11">
-            <button type="button" class="btn info my-3 mr-4">Personal Information</button>
+            <button type="button" [ngClass]="infodispaly ? 'active' : ''" class="btn info my-3 mr-4"
+                (click)="PersonalInfo()">Personal Information</button>
 
-            <button type="button" class="btn upload my-3" (click)="showDialog()">Upload Resume</button>
+            <button type="button" [ngClass]="display ? 'active' : ''" class="btn upload my-3"
+                (click)="UploadResume()">Upload Resume</button>
 
 
 
@@ -38,7 +40,7 @@
                                 <div class="upload-btn-wrapper">
                                     <button class="btng">Upload file</button>
                                     <input type="file" name="myfile" />
-                                     <span class=" ml-2 mt-2 word">Or</span>
+                                    <span class=" ml-2 mt-2 word">Or</span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
@@ -50,7 +52,7 @@
 
                     </div>
                 </div>
-             
+
                 <hr class="line">
                 <div class="space">
 
@@ -59,6 +61,16 @@
                 <div class="row">
                     <button class="btn  btn3" type="button">submit</button>
                 </div>
+            </p-dialog>
+
+
+             <p-dialog [(visible)]="infodispaly" [style]="{width: '90%', height: '86%'}">
+                <p-header class="dialogHeader mt-2">
+                    <img src="../../../assets/resume page.png" alt="">
+                    <span class="ml-2 mt-2 report"> Profile</span>
+                </p-header>
+                   
+
             </p-dialog>
         </div>
 

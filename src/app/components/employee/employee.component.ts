@@ -8,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeeComponent implements OnInit {
   display = false;
   close: any;
-  constructor() { }
+  infodispaly =  true;
+  constructor() {
+    this.infodispaly =  true;
+   }
 
-  showDialog(){
+  UploadResume(){
     // debugger;
     this.display = true;
+    this.infodispaly =  false;
   }
-
+  PersonalInfo(){
+    this.infodispaly =  true;
+    this.display = false;
+  }
   onDialogClose(event) {
     this.display = event;
     this.close = true;
