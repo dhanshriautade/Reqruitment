@@ -12,7 +12,7 @@
                         Get started with your account
                     </div>
 
-                    <form #myForm="ngForm" [formGroup]="registerForm" (ngSubmit)="Login()">
+                    <form #myForm="ngForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                         <div class=" tag row my-2">
                             <label for="name">First Name</label>
                             <input type="text" autocomplete="off" formControlName="firstname" placeholder="First Name"
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="my-4">
-                            <button class="btn btn-primary" type="submit" (click)="login()">Sign up <i *ngIf="spinner"
+                            <button class="btn btn-primary" type="submit" >Sign up <i *ngIf="spinner"
                                     class="pi pi-spin pi-spinner ml-1" ></i> </button>
 
                         </div>
