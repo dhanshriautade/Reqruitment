@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot',
@@ -21,10 +21,26 @@ export class ForgotComponent implements OnInit {
   }
   get f() { return this.forgetForm.controls; }
   onSubmit(){
-    this.submitted=true;
-    if(this.forgetForm.invalid){
+    this.markFormTouched(this.forgetForm);
+    if (this.forgetForm.valid) {
+      
+      var formValues = this.forgetForm.getRawValue;
+
+    } else {
+      this.forgetForm.controls['rememberset'].setValue(false);
+    }
+    
+    this.submitted = true;
+    
+    if (this.forgetForm.invalid) {
       return;
-  
     }
   }
+  markFormTouched(group: FormGroup | FormArray) {
+    Object.keys(group.controls).forEach((key: string) => {
+      const control = group.controls[key];
+      if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+      else { control.markAsTouched(); };
+    });
+  };
 }
