@@ -12,7 +12,7 @@
                             Get started with your account
                         </div>
                                      
-                        <form #myForm="ngForm" [formGroup]="loginForm" (ngSubmit)="Login()">
+                        <form #myForm="ngForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                             <div class=" tag row my-2">
                                 <label for="name">User Name / ID</label>
                                 <!-- <i class="fa fa-user icon"></i>  -->
@@ -64,7 +64,7 @@
                     </div>
                           
                             <div class="my-4">
-                                <button class="btn btn-primary" type="submit" (click)="onSubmit()">Login <i
+                                <button class="btn btn-primary" type="submit">Login <i
                                     *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i> </button>
     
                             </div>

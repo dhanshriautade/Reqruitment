@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators ,FormArray} from '@angular/forms';
 import { MustMatch } from '../_helpers/must-match.validator';
 import { map } from "rxjs/operators";
 import { TeamService } from 'src/app/services/team.service';
@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-
+        this.markFormTouched(this.registerForm);
         this.data = {
             "firstName": this.registerForm.value.firstname,
             "lastName": this.registerForm.value.lastName,
@@ -87,7 +87,15 @@ export class RegisterComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
-
-
     }
+        markFormTouched(group: FormGroup | FormArray) {
+            Object.keys(group.controls).forEach((key: string) => {
+              const control = group.controls[key];
+              if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+              else { control.markAsTouched(); };
+            });
+          };
+
+
+    
 }

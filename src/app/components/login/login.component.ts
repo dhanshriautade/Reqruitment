@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
+  spinner = false;
   data;
   constructor(private formBuilder: FormBuilder) { }
 
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   
   onSubmit(){
+    // this.spinner =  true;
     this.markFormTouched(this.loginForm);
     if (this.loginForm.valid) {
 
@@ -58,13 +60,16 @@ export class LoginComponent implements OnInit {
       "email": this.loginForm.value.email,
       "password": this.loginForm.value.password
     }
-    console.log(JSON.stringify(this.data));
-    
    
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
 
+    }
+    else{
+      this.spinner = true;
+      console.log(JSON.stringify(this.data));
+      this.spinner = false;    
     }
   }
   markFormTouched(group: FormGroup | FormArray) {
@@ -76,17 +81,4 @@ export class LoginComponent implements OnInit {
   };
 }
   
-//   markFormTouched(group: FormGroup | FormArray) {
-//     Object.keys(group.controls).forEach((key: string) => {
-//       const control = group.controls[key];
-//       if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
-//       else { control.markAsTouched(); };
-//     });
-//   };
-//  } markFormTouched(loginForm: FormGroup) {
-//     throw new Error("Method not implemented.");
-//    }
-// }  markFormTouched(loginForm: FormGroup) {
-//     throw new Error("Method not implemented.");
-//   }
 
