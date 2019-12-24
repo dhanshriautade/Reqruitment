@@ -23,34 +23,25 @@
                     Upload either DOCX or PDF(2.0 MB max)
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-6 ">
-                                <div class="upload-btn-wrapper">
-                                    <button class="btnx">Upload file</button>
-                                    <input type="file" name="myfile" />
-                                    <span class=" ml-2 mt-2 word">Or</span>
+                  
+                            <div class="col-sm-4 my-3">
+                                    <input type="file" class="filetag" name="myfile" (change)="upload($event.target.files)" />
+                                    <span class="mt-2 word">Or</span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-                                </div>
-
+                             
                             </div>
-                            <div class="col-sm-6">
-                                <div class="upload-btn-wrapper">
-                                    <button class="btng">Upload file</button>
-                                    <input type="file" name="myfile" />
-                                    <span class=" ml-2 mt-2 word">Or</span>
+                            <div class="col-sm-4 my-3">
+                                    <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" />
+                                     <span class=" ml-2 mt-2 word">Or</span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
                                     <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-                                </div>
+                              
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-
-                    </div>
+                       
+                    
                 </div>
 
                 <hr class="line">
