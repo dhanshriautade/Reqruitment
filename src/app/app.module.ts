@@ -11,8 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
-
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input'
 import { EmployeeComponent } from './components/employee/employee.component';
 import { HomeComponent } from './components/home/home.component';
 import {MenuItem} from 'primeng/api';

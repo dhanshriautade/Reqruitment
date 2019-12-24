@@ -87,3 +87,164 @@
   color: #8EA3AF;
   font-size: smaller;
 }
+.nam_e{
+    text-align: end;
+}
+.line{
+    border-bottom: 1px solid gray;
+    margin-top: 20px;
+  
+}
+.head{
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.year{
+    color: #6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+}
+.month{
+    color:#6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+    margin-left: 10px; 
+}
+.country{
+    color: #6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+   
+
+}
+.state{
+    color:#6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+    margin-left: 10px; 
+   
+}
+.city{
+    color:#6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+    margin-left: 10px; 
+   
+       
+}
+.note{
+    color:#6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+   
+    
+}
+.line{
+    padding: 0px 31px 0px 31px;
+}
+
+
+.loc{
+    margin-top: 10px;
+}
+.add{
+    background-color: #ACBEC6;
+    margin-left: 10px;
+    width:65px;
+    color:white;
+}
+.year_s{
+    margin-left: 25px;
+    color: #6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+}
+.idno{
+    width:160px;
+    margin-left: 10px;
+}
+.plus{
+    width:45px;
+    border-color: #ACBEC6;
+    margin-left: 10px;
+}
+.pluss{
+    color:white;
+    background-color: #3EECB6;
+   font-size: larger;
+    border-radius: 77px;
+   height: 28px;
+   width: 28px;
+   font-weight: 700;
+}
+:host ::ng-deep .ng-trigger {
+    overflow: auto;
+  
+
+}
+.passno{
+    border-radius: 45px;
+    border: 1px solid gray;
+    width: 240px;
+    height: 40px;
+    background-color: #CCD8DD;
+}
+.des{
+    width: 240px;
+}
+.save{
+    width:120px;
+    margin-top: 13px;
+    background-color: #3E5EFF;
+}
+:host ::ng-deep  .ui-button-icon-only{
+    background-color: gray;
+    border-color: gray;
+}
+:host ::ng-deep  .country-list{
+    white-space: normal !important;
+       max-height: 200px !important;
+     overflow-y: scroll !important; 
+}
+
+:host ::ng-deep .selected-dial-code{
+    margin-top: 1px;
+}
+.intl-tel-input.separate-dial-code[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2] {
+    padding-left: 98px;
+    border: none!important;
+}
+.tel{
+    border: 1px solid #C0C9CC;
+    border-radius: 6px;
+}
+.other{
+    border: 1px solid #C0C9CC;
+    width: 240px;
+    height: 40px;
+}
+.close{
+  margin-top: 11px; 
+  margin-right: 10px; 
+
+}
+.browse{
+    width: 101px;
+    height: 39px;
+    border-radius: 6px;
+}
