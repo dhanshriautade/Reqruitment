@@ -100,7 +100,7 @@
   width: 187px;
   height: 34px;
   position:relative;
-  margin-left: 35px;
+  margin-left: 3px;
   
 }
 
@@ -331,4 +331,8 @@
 
 :host ::ng-deep.group .grp_form  {
     height: 557px;
+}
+.req{
+  margin-left: 36px;
+  color: red;
 }
