@@ -1,6 +1,7 @@
 .dashboard{
     height: 89vh;
     background-color: #ECEFF1;
+    overflow-y: scroll !important;
  }
 
  .btn{
@@ -196,16 +197,21 @@
    font-weight: 700;
 }
 :host ::ng-deep .ng-trigger {
-    overflow: auto;
-  
+    // overflow: auto;
+  height: 20% !important;
 
 }
+:host ::ng-deep.ng-trigger  .ui-dialog .ui-widget .ui-widget-content  {
+    height: 69%;
+}
 .passno{
+  
+    width: 233px;
+    height: 32px;
+    margin-left: 6px;
     border-radius: 45px;
-    border: 1px solid gray;
-    width: 240px;
-    height: 40px;
-    background-color: #CCD8DD;
+    border: 1px solid #CCD8DD;
+    background-color: #EBEFF1;
 }
 .des{
     width: 240px;
@@ -242,12 +248,47 @@
     height: 40px;
 }
 .close{
-  margin-top: 11px; 
+  margin-top: 7px; 
   margin-right: 10px; 
 
 }
-.browse{
-    width: 101px;
-    height: 39px;
-    border-radius: 6px;
+.btn-file-upload{
+    width: 187px;
+    height: 34px;
+    position:relative;
+  }
+  .btn-file-upload:after{
+   content:  attr(value);
+   position: absolute;
+   font-weight: 500;
+   height: 41px;
+   top: 0;
+   left: 0;
+   bottom: 0;    
+   width: 92px;
+   background-color:#EBEFF1;
+   color: #93ACB5;
+   text-align: center;
+   font-size: 14px;
+   line-height: 2.5;
+   border-radius: 3px;
+  }
+  .doc{
+    margin-left: 39px;
+    font-weight: 700;
+  }
+//   :host ::ng-deep .pi-times{
+//     display: none;
+//   }
+
+
+:host ::ng-deep .body .ui-dialog{
+    height: 80%;
+}
+:host ::ng-deep.ui-dialog-content .ui-widget-content{
+    height: 113%;
+}
+
+:host ::ng-deep.group .grp_form  {
+    height: 557px;
 }

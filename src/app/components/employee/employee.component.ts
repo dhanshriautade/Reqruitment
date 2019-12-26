@@ -21,6 +21,7 @@ export class EmployeeComponent implements OnInit {
   eval;
   checked;
   note;
+  idCard;
   pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   separateDialCode = true;
   SearchCountryField = SearchCountryField;
@@ -28,9 +29,23 @@ export class EmployeeComponent implements OnInit {
   CountryISO = CountryISO;
   preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
   submitted: boolean;
+  public imagePath;
+  imgURL: any;
+  public message: string;
+
+  // foundDoc: any;
+  // selectedDoc: any = [];
+  // pickedDoc: any = [];
+  // idcard: any = ["Adhar No.","Passport No.","PAN Card No","Driving Lincese No.","Voter ID No."];
+   
+  
+  
+  docArray=[];
   personalInfoForm = new FormGroup({
 
   })
+  
+  idNo: string;
  
   
     constructor(private formBuilder: FormBuilder, public TeamService : TeamService,private http:HttpClient) {
@@ -50,7 +65,7 @@ export class EmployeeComponent implements OnInit {
     'id': '0 Month'},{'id': 0},{'id': 1},{'id': 2},{'id': 3},{'id': 4},{'id': 5},{'id': 6},{'id': 7},{'id': 8},{'id': 9},{'id': 10},{'id': 11}
   ]
   this.check=[
-    {'val':'country'},{'val':'Afghanistan'},{'val':'Albania'},{'val':'Algeria'},{'val':'Andorra'},{'val':'Angola'}
+    {'val':'Country'},{'val':'Afghanistan'},{'val':'Albania'},{'val':'Algeria'},{'val':'Andorra'},{'val':'Angola'}
     ,{'val':'Antigua'},{'val':'Argentina'},{'val':'Armenia'},{'val':'Australia'},{'val':'Austria'},{'val':'Azerbaijan'}
     ,{'val':'Bahamas'},{'val':'Bahrain'},{'val':'Bangladesh'},{'val':'Barbados'},{'val':'Belarus'},{'val':'Belgium'}
     ,{'val':'Belize'},{'val':'Benin'},{'val':'Bhutan'},{'val':'Bolivia'},{'val':'Bosnia'},{'val':'Botswana'}
@@ -86,7 +101,7 @@ export class EmployeeComponent implements OnInit {
    ,{'val':'other'}
   ]
   this.eval=[
-  {'sa':'state'},{'sa':'Andhra Pradesh'},{'sa':'Arunachal Pradesh'},{'sa':'Assam'},{'sa':'	Bihar'},{'sa':'Chhattisgarh'},{'sa':'Goa'},
+  {'sa':'State'},{'sa':'Andhra Pradesh'},{'sa':'Arunachal Pradesh'},{'sa':'Assam'},{'sa':'	Bihar'},{'sa':'Chhattisgarh'},{'sa':'Goa'},
   {'sa':'	Gujarat'},{'sa':'Haryana'},{'sa':'Himachal Pradesh'},{'sa':'Jharkhand'},{'sa':'Karnataka'},{'sa':'	Kerala'},{'sa':'Madhya Pradesh'},
   {'sa':'	Maharashtra'},{'sa':'	Manipur'},{'sa':'Meghalaya'},{'sa':'Mizoram'},{'sa':'Nagaland'},{'sa':'Odisha'},{'sa':'Punjab'},
   {'sa':'	Rajasthan'},{'sa':'Sikkim'},{'sa':'Tamil Nadu'},{'sa':'Telangana'},{'sa':'Tripura'},{'sa':'Uttar Pradesh'},{'sa':'Uttarakhand'}
@@ -94,7 +109,7 @@ export class EmployeeComponent implements OnInit {
     
   ]
   this.checked=[
-    {'ind':'City name'},{'ind':'Mumbai'},{'ind':'Delhi'},{'ind':'Bangalore'},{'ind':'Hyderabad'},{'ind':'Ahmedabad'},{'ind':'Chennai'},{'ind':'Indore'}
+    {'ind':'City'},{'ind':'Mumbai'},{'ind':'Delhi'},{'ind':'Bangalore'},{'ind':'Hyderabad'},{'ind':'Ahmedabad'},{'ind':'Chennai'},{'ind':'Indore'}
     ,{'ind':'Kolkata'},{'ind':'Surat'},{'ind':'Pune'},{'ind':'Jaipur'},{'ind':'Lucknow'},{'ind':'Kanpur'},{'ind':'Nagpur'},{'ind':'Thane'}
     ,{'ind':'Bhopal'},{'ind':'Visakhapatnam'},{'ind':'Patna'},{'ind':'Vadodara'},{'ind':'Ghaziabad'},{'ind':'Ludhiana'},{'ind':'Agra'},{'ind':'Nashik'}
     ,{'ind':'Faridabad'},{'ind':'Meerut'},{'ind':'Rajkot'},{'ind':'Kalyan-Dombivli'},{'ind':'Vasai-Virar'},{'ind':'Varanasi'},{'ind':'Srinagar'},{'ind':'Aurangabad'}
@@ -109,9 +124,28 @@ export class EmployeeComponent implements OnInit {
     {'notes':'select'},{'notes':'one week'},{'notes':' 15 days'},{'notes':'1 month'},{'notes':' 2 month'},{'notes':'3 month'},{'notes':'other'}
   
   ]
-    }
+   }
 
-    
+   preview(files) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+ 
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }
+  
+
+
     upload(files: FileList){
       this.fileToUpload = files.item(0);
       console.log(this.fileToUpload);
@@ -162,8 +196,8 @@ export class EmployeeComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
      // phoneNo: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       dob: ['', Validators.required],
-      expYear  :['1'],
-      expMonth :['1'],
+      expYear  :[''],
+      expMonth :[''],
       country :[''],
       state   :[''],
       city    :[''],
@@ -176,6 +210,15 @@ export class EmployeeComponent implements OnInit {
 
     })
   }
+  addDocument(){
+   
+
+    this.docArray.push(this.personalInfoForm.get('idProof').value+this.personalInfoForm.get('identityNo').value)
+  }
+  removeDoc(i:any){
+    console.log(i)
+    this.docArray.splice(i,1);
+    }
 
   onSubmit() {
    this.personalInfoForm.get('firstName').setValue('sandeep')
