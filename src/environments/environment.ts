@@ -8,7 +8,8 @@ export const environment = {
   Employeeget:base_url + 'getAllEmployeesInfo',
   signUp: base_url + 'signup',
   alreadyUser:base_url + 'verifyemail/eventhit',
-  uploadresume:base_url + 'uploadDocuments'
+  uploadresume:base_url + 'uploadDocuments',
+  forgot: base_url + 'emailexists?email='
 };
 
 /*
