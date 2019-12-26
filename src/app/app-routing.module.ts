@@ -7,12 +7,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
+  {path: 'reset/password', component: ResetPasswordComponent },
   {
     path: 'main', component: HomeComponent ,
     children:[

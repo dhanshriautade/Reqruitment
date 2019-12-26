@@ -24,6 +24,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminComponent } from './components/admin/admin.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
 // import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
@@ -47,7 +48,8 @@ import { AdminComponent } from './components/admin/admin.component';
     EmployeeComponent,
     HomeComponent,
     AppEmployeeComponent,
-    AdminComponent
+    AdminComponent,
+    ResetPasswordComponent
   ],
  
   
