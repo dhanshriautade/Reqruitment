@@ -105,11 +105,11 @@ export class AdminComponent implements OnInit {
       "status": "1"
     };
 
-    console.log('list',this.data);
-
     this.EmployeeService.AddEmployee(JSON.stringify(this.data)).subscribe(res => {
 
     })
+
+    this.display = false;
 
 
   }
