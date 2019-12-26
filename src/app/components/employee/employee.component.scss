@@ -90,3 +90,41 @@
   color: #8EA3AF;
   font-size: smaller;
 }
+:host ::ng-deep .pi-times{
+  display: none;
+}
+.btn-file-upload{
+  width: 187px;
+  height: 34px;
+  position:relative;
+  margin-left: 35px;
+  
+}
+
+.btn-file-upload:after{
+ content:  attr(value);
+ position: absolute;
+ font-weight: 500;
+ height: 34px;
+ top: 0;
+ left: 0;
+ bottom: 0;    
+ width: 92px;
+ background-color:blue;
+ color: white;
+ border-radius: 2px;
+ text-align: center;
+ font-size: 12px;
+ line-height: 3;
+ border-radius: 5px;
+ 
+ 
+}
+.error{
+  color: red;
+  margin-left: 36px;
+}
+
+// :host ::ng-deep .ui-dialog-content .ui-widget-content{
+//   height: 406px;
+// }

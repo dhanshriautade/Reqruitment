@@ -12,6 +12,10 @@ export class EmployeeComponent implements OnInit {
   close: any;
   infodispaly =  true;
   fileToUpload: File = null;
+  valid: boolean=false;
+  errormassage:boolean = false;
+  val: boolean=false;
+  err:boolean = false;
   constructor(public TeamService: TeamService) {
     this.infodispaly =  true;
    }
@@ -40,4 +44,59 @@ export class EmployeeComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  getFileDetails (event) {
+    for (var i = 0; i < event.target.files.length; i++) { 
+      var name = event.target.files[i].name;
+      var type = event.target.files[i].type;
+      var size = event.target.files[i].size;
+      var modifiedDate = event.target.files[i].lastModifiedDate;
+
+      var fileType=name.split('.').pop();
+
+ if(size<=20000 && fileType=='pdf'|| fileType=='docx' ){
+      
+        this.valid=true;
+        this.errormassage = false;
+        
+        
+      }else { this.errormassage = true;
+       
+        this.valid=false;
+      }
+      
+      console.log ('Name: ' + fileType + "\n" + 
+        'Type: ' + type + "\n" +
+        'Last-Modified-Date: ' + modifiedDate + "\n" +
+        'Size: ' + Math.round(size / 1024) + " KB");
+
+    }
+  }
+  Details(event) {
+    for (var i = 0; i < event.target.files.length; i++) { 
+      var name = event.target.files[i].name;
+      var type = event.target.files[i].type;
+      var size = event.target.files[i].size;
+      var modifiedDate = event.target.files[i].lastModifiedDate;
+
+      var fileType=name.split('.').pop();
+
+ if(size<=20000 && fileType=='pdf'|| fileType=='docx' ){
+      
+        this.val=true;
+        this.err = false;
+        
+        
+      }else { this.err = true;
+       
+        this.val=false;
+      }
+      
+      console.log ('Name: ' + fileType + "\n" + 
+        'Type: ' + type + "\n" +
+        'Last-Modified-Date: ' + modifiedDate + "\n" +
+        'Size: ' + Math.round(size / 1024) + " KB");
+
+    }
+  }
 }
