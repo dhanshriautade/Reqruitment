@@ -163,11 +163,11 @@
 
 
 
-                                    <select class="year">
+                                    <select class="year" formControlName='expYear'>
                                         <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
 
                                     </select>
-                                    <select class="month">
+                                    <select class="month" formControlName='expMonth'>
                                         <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
                                     </select>
                                 </div>
@@ -188,15 +188,15 @@
 
 
 
-                                    <select class="country">
+                                    <select class="country" formControlName='country'>
                                         <option *ngFor="let a of check" [value]="a.val">{{a.val}}</option>
 
                                     </select>
-                                    <select class="state">
+                                    <select class="state" formControlName='state'>
                                         <option *ngFor="let e of eval" [value]="e.sa">{{e.sa}}</option>
 
                                     </select>
-                                    <select class="city">
+                                    <select class="city" formControlName='city'>
                                         <option *ngFor="let c of checked" [value]="c.ind">{{c.ind}}</option>
 
                                     </select>
@@ -217,7 +217,7 @@
 
 
 
-                                    <select class="note">
+                                    <select class="note" formControlName='noticePer'>
                                         <option *ngFor="let n of note" [value]="n.notes">{{n.notes}}</option>
 
                                     </select>
@@ -242,7 +242,7 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <select id="user_time_zone" class="form-control code " size="0"
-                                            placeholder="Area Code" name="skill">
+                                            placeholder="Area Code" name="skill" formControlName='skill'>
                                             <option>Skill Name</option>
                                             <option>Angular</option>
                                             <option>Java</option>
@@ -255,11 +255,11 @@
                                     <div class="col-sm-8">
                                         <div class="row">
                                             <label class="nam_e"> Experience :</label>
-                                            <select class="year_s">
+                                            <select class="year_s" formControlName='sExpYear'>
                                                 <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
 
                                             </select>
-                                            <select class="month">
+                                            <select class="month" formControlName='sExpMonth'>
                                                 <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
                                             </select>
                                             <button type="button" class="btn upload add">Add</button>
@@ -288,7 +288,7 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <select id="user_time_zone" class="form-control code skill" size="0"
-                                            placeholder="Area Code" name="skill">
+                                            placeholder="Area Code" name="skill" formControlName='idProof' >
                                             <option>Select file type</option>
                                             <option>adhar no.</option>
                                             <option>Passport</option>
@@ -301,7 +301,7 @@
                                         <div class="row">
                                             <label class="nam_e"> Identity No.:</label>
                                             <input type="text" autocomplete="off" class="form-control idno"
-                                                placeholder="***********" name="id">
+                                                placeholder="***********" name="id" formControlName='identityNo'>
                                             <button type="button" class="btn upload add">Add</button>
                                             <button type="button" class="btn upload plus">
                                                 <div class="pluss">+</div>

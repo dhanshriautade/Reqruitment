@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
-import {HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType} from '@angular/common/http';
+import {HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType, HttpParams} from '@angular/common/http';
 
 import { TeamService } from 'src/app/services/team.service';
 @Component({
@@ -33,7 +33,7 @@ export class EmployeeComponent implements OnInit {
   })
  
   
-    constructor(private formBuilder: FormBuilder, public TeamService : TeamService) {
+    constructor(private formBuilder: FormBuilder, public TeamService : TeamService,private http:HttpClient) {
       this.infodispaly =  true;
       this.data = [{
         'num': '0 Years'},{'num': 0},{'num': 1},
@@ -140,18 +140,46 @@ export class EmployeeComponent implements OnInit {
      }
   ngOnInit() {
 
+
+
+    // let params = new HttpParams();
+    // params = params.append('email', 'gaurav@gmail.com');
+
+    // this.http.get('http://localhost:8080/getprofile',{
+    //   params:params
+    // })
+    // .subscribe((response:any)=>{
+    //   console.log(JSON.stringify(response));
+    // })
+
+
+
+
     this.personalInfoForm = this.formBuilder.group({
       designation: ['', Validators.required],
       firstName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
       lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
       email: ['', [Validators.required, Validators.email]],
      // phoneNo: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-      dob: ['', Validators.required]
+      dob: ['', Validators.required],
+      expYear  :['1'],
+      expMonth :['1'],
+      country :[''],
+      state   :[''],
+      city    :[''],
+      noticePer:[''],
+      skill:[''],
+      sExpYear:[''],
+      sExpMonth:[''],
+      identityNo:[''],
+      idProof:['']
 
     })
   }
 
   onSubmit() {
+   this.personalInfoForm.get('firstName').setValue('sandeep')
+   console.log(this.personalInfoForm.value)
     this.markFormTouched(this.personalInfoForm);
     if (this.personalInfoForm.valid) {
       
