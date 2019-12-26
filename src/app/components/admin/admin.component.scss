@@ -2,3 +2,12 @@
     height: 89vh;
     background-color: #ECEFF1;
  }
+ 
+ .info{
+     background-color: blue;
+ }
+
+ :host ::ng-deep  .ui-dialog-titlebar-icon{
+    padding: 0px 0px 0px 1027px !important;
+ }
+

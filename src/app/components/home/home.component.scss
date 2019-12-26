@@ -30,6 +30,8 @@
    .dashboard{
       height: 89vh;
       background-color: #ECEFF1;
+      overflow: auto;
+     
    }
    .header{
       height: 75px;
@@ -111,6 +113,7 @@
 
   .head{
       background-color: #90A4AE;
+     
       color: white;
   }
 
@@ -125,6 +128,7 @@
 
   .table-striped tbody tr:nth-of-type(even){
       background-color: #F5FBFF
+      
        }
 
        .blue{
@@ -145,6 +149,7 @@
 
         .btn-secondary{
           background-color: #CFD8DC;
+      
           border: #CFD8DC;
        }
 
