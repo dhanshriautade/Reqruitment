@@ -46,6 +46,9 @@ export class EmployeeComponent implements OnInit {
   
   skillArray=[];
   docArray=[];
+  uploadForm = new FormGroup({
+
+  })
   personalInfoForm = new FormGroup({
 
   })
@@ -200,6 +203,13 @@ export class EmployeeComponent implements OnInit {
     // })
 
 
+    this.uploadForm=this.formBuilder.group({
+      file:[''],
+      secondfile:[''],
+      thirdfile:['']
+    
+    })
+    
 
 
     this.personalInfoForm = this.formBuilder.group({
@@ -242,7 +252,10 @@ this.skillArray.splice(i,1)
     console.log(i)
     this.docArray.splice(i,1);
     }
-
+    onUpload(){
+      this.submitted = true;
+      console.log(this.uploadForm.value)
+    }
   onSubmit() {
   //  this.personalInfoForm.get('firstName').setValue('sandeep')
     this.markFormTouched(this.personalInfoForm);

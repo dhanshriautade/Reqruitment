@@ -12,68 +12,71 @@
                     <img src="../../../assets/resume page.png" alt="">
                     <span class="ml-2 mt-2 report"> Upload Resume</span>
                 </p-header>
-                <div class="row resume">
-                    Upload your resume,cover letter and any other documents.
-                </div>
-                <div class="row format">
-                    Upload either DOCX or PDF(2.0 MB max)
-                </div>
-                <div class="row">
-
-                    <div class="col-sm-4 my-3">
-                        <label>
-                            <!-- <input type="file" class="filetag" name="myfile" (change)="upload($event.target.files)" /> -->
-                            <span class="req">*</span>
-                            <input type="file" class="btn-file-upload1 " value="Upload file"
-                                (change)="upload($event.target.files)"   (change)="getFileDetails($event)" />
-                                </label>
-                        <span class=" ml-2 mt-2 word">Or</span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-                        <div class="error" *ngIf="errormassage">Invalid file type or size </div>
+                <form class="group grp_form" [formGroup]="uploadForm" (ngSubmit)="onUpload()">
+                    <div class="row resume">
+                        Upload your resume,cover letter and any other documents.
                     </div>
-                    <div class="col-sm-4 my-3">
-                        <label>
-                            <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
-                            <input type="file" class="btn-file-upload1" value="Upload File"
-                                (change)="upload($event.target.files)" (change)="Details($event)" />
-                        </label>
-                        <span class=" ml-2 mt-2 word">Or</span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-                        <div class="error" *ngIf="err">Invalid file type or size </div>
+                    <div class="row format">
+                        Upload either DOCX or PDF(2.0 MB max)
                     </div>
+                    <div class="row">
 
-                    <div class="col-sm-4 my-3">
+                        <div class="col-sm-4 my-3 ">
                             <label>
-                        <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
-                        <input type="file" class="btn-file-upload1" value="Upload File"
-                        (change)="upload($event.target.files)"  (change)="Details($event)"/>
-                        </label>
-                        <span class=" ml-2 mt-2 word">Or</span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
-                        <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-                        <div class="error" *ngIf="err">Invalid file type or size </div>
+                                <!-- <input type="file" class="filetag" name="myfile" (change)="upload($event.target.files)" /> -->
+                                <!-- <span class="req">*</span> -->
+                                <input type="file" class="  btn-file-upload1 form-control " value="Upload file"
+                                    (change)="upload($event.target.files)" (change)="getFileDetails($event)"
+                                    formControlName="file" />
+                            </label>
+                            <span class=" ml-2 mt-2 word">Or</span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
+                            <div class="error" *ngIf="errormassage">Invalid file type or size </div>
+                        </div>
+                        <div class="col-sm-4 my-3">
+                            <label>
+                                <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
+                                <input type="file" class=" form-control btn-file-upload1" value="Upload File"
+                                    (change)="upload($event.target.files)" (change)="Details($event)" formControlName="secondfile" />
+                            </label>
+                            <span class=" ml-2 mt-2 word">Or</span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
+                            <div class="error" *ngIf="err">Invalid file type or size </div>
+                        </div>
+
+                        <div class="col-sm-4 my-3">
+                            <label>
+                                <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
+                                <input type="file" class=" form-control btn-file-upload1" value="Upload File"
+                                    (change)="upload($event.target.files)" (change)="FileDetails($event)" formControlName="thirdfile"/>
+                            </label>
+                            <span class=" ml-2 mt-2 word">Or</span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
+                            <div class="error" *ngIf="error">Invalid file type or size </div>
+                        </div>
+
+
                     </div>
 
+                    <hr class="line">
+                    <div class="space">
 
-                </div>
-
-                <hr class="line">
-                <div class="space">
-
-                </div>
-                <hr>
-                <div class="row">
-                    <button class="btn  btn3" type="button">submit</button>
-                </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <button class="btn  btn3"  type="button">submit</button>
+                    </div>
+                    </form>
             </p-dialog>
 
 
-            <p-dialog [(visible)]="infodispaly" [style]="{width: '90%'}">
+            <p-dialog [(visible)]="infodispaly" [style]="{width: '90%', height: '70%'}">
                 <p-header class="dialogHeader mt-2">
                     <img src="../../../assets/user big.png" alt="">
                     <span class="ml-2 mt-2 report"> Profile</span>
@@ -83,12 +86,12 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row ">
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>First Name :</label> </div>
+                                    <label class="nam_e">FirstName :</label> </div>
                                 <div class="col-sm-4">
                                     <input type="text" autocomplete="off" class="form-control text-centre"
-                                        placeholder="first name" name="firstname" formControlName="firstName">
+                                        placeholder="" name="firstname" formControlName="firstName">
                                     <span class="text-danger"
                                         *ngIf="personalInfoForm.controls['firstName'].hasError('required') &&
                                             (personalInfoForm.controls['firstName'].dirty || personalInfoForm.controls['firstName'].touched)">This
@@ -99,12 +102,12 @@
                                             (personalInfoForm.controls['firstName'].dirty || personalInfoForm.controls['firstName'].touched)">
                                         Space Not Allowed</span>
                                 </div>
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>Last Name :</label> </div>
+                                    <label class="nam_e">LastName :</label> </div>
                                 <div class="col-sm-4">
                                     <input type="text" autocomplete="off" class="form-control text-centre"
-                                        placeholder="last name" name="lastname" formControlName="lastName">
+                                        placeholder="" name="lastname" formControlName="lastName">
                                     <span class="text-danger"
                                         *ngIf="personalInfoForm.controls['lastName'].hasError('required') &&
                                             (personalInfoForm.controls['lastName'].dirty || personalInfoForm.controls['lastName'].touched)">This
@@ -125,12 +128,12 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row my-2">
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>Email Id :</label> </div>
+                                    <label class="nam_e">Email Id :</label> </div>
                                 <div class="col-sm-4">
                                     <input type="email" autocomplete="off" class="form-control text-centre"
-                                        placeholder="youremail@gmail.com" name="Email" formControlName="email">
+                                        placeholder="" name="Email" formControlName="email">
                                     <span class="text-danger"
                                         *ngIf="personalInfoForm.controls['email'].hasError('required') &&
                                         (personalInfoForm.controls['email'].dirty || personalInfoForm.controls['email'].touched)">This
@@ -140,9 +143,9 @@
                                         (personalInfoForm.controls['email'].dirty || personalInfoForm.controls['email'].touched)">
                                         Email must be valid email address</span>
                                 </div>
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>DOB :</label> </div>
+                                    <label class="nam_e">DOB :</label> </div>
                                 <div class="col-sm-4">
                                     <!-- <p-calendar [(ngModel)]="DueDate"  [showIcon]="true" [yearNavigator]="true" yearRange="1900:2019"></p-calendar> -->
                                     <input type="date" autocomplete="off" class="form-control text-centre"
@@ -157,39 +160,24 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row ">
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>Cell No. :</label> </div>
+                                    <label class="nam_e">Cell No. :</label> </div>
                                 <div class="col-sm-4 ">
                                     <div class="tel">
-                                        <ngx-intl-tel-input class="code_ph" 
-                                        [preferredCountries]="preferredCountries"
-                                            [enableAutoCountrySelect]="false"
-                                             [enablePlaceholder]="true"
+                                        <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
+                                            [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
                                             [searchCountryFlag]="true"
                                             [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                                            [selectFirstCountry]="false" 
-                                            [selectedCountryISO]="CountryISO.India"
-                                            [maxLength]="15"
-                                             [tooltipField]="TooltipLabel.Name"
-                                             [phoneValidation]="true"
+                                            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
+                                            [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
                                             [separateDialCode]="separateDialCode" name="phone"></ngx-intl-tel-input>
-                                          
-                                            
-                                            <!-- <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['phoneNo'].hasError('required') &&
-                                        (personalInfoForm.controls['phoneNo'].dirty || personalInfoForm.controls['phoneNo'].touched)">This
-                                        field is required</span>
-                                            <span class="text-danger"
-                                            *ngIf="personalInfoForm.controls['phoneNo'].hasError('pattern') && 
-                                            (personalInfoForm.controls['phoneNo'].dirty || personalInfoForm.controls['phoneNo'].touched)">
-                                            enter valid phone number</span> -->
-                                        </div>
+                                    </div>
+
                                 </div>
+                                <div class="col-sm-2">
 
-                                <div class="col-sm-2 nam_e">
-
-                                    <label>photo :</label> </div>
+                                    <label class="nam_e">photo :</label> </div>
                                 <div class="col-sm-4">
                                     <span style="color:red;" *ngIf="message">{{message}}</span>
                                     <input #file type="file" accept='image/*' class="btn-file-upload"
@@ -210,31 +198,21 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row loc">
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>Total Experience :</label> </div>
+                                    <label class="nam_e">Total Experience :</label> </div>
 
                                 <div class="col-sm-10">
 
 
 
                                     <select class="year" formControlName='expYear'>
-                                        <option [disabled]="true" [selected]="true">0 Years</option>
                                         <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
 
                                     </select>
-                                    <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['expYear'].hasError('required') &&
-                                    (personalInfoForm.controls['expYear'].dirty || personalInfoForm.controls['expYear'].touched)"> *</span>
-
                                     <select class="month" formControlName='expMonth'>
-                                        <option [disabled]="true" [selected]="true">0 Month</option>
                                         <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
                                     </select>
-                                    <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['expMonth'].hasError('required') &&
-                                    (personalInfoForm.controls['expMonth'].dirty || personalInfoForm.controls['expMonth'].touched)"> *</span>
-
                                 </div>
                             </div>
 
@@ -246,39 +224,25 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row loc">
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>Current Location :</label> </div>
+                                    <label class="nam_e">Current Location :</label> </div>
                                 <div class="col-sm-10">
 
 
 
                                     <select class="country" formControlName='country'>
-                                        <option [disabled]="true" [selected]="true">Country</option>
                                         <option *ngFor="let a of check" [value]="a.val">{{a.val}}</option>
 
                                     </select>
-                                    <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['country'].hasError('required') &&
-                                    (personalInfoForm.controls['country'].dirty || personalInfoForm.controls['country'].touched)">*
-                                    </span>
                                     <select class="state" formControlName='state'>
-                                        <option [disabled]="true" [selected]="true">State</option>
                                         <option *ngFor="let e of eval" [value]="e.sa">{{e.sa}}</option>
 
                                     </select>
-                                    <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['state'].hasError('required') &&
-                                    (personalInfoForm.controls['state'].dirty || personalInfoForm.controls['state'].touched)">*
-                                    </span>
                                     <select class="city" formControlName='city'>
-                                        <option [disabled]="true" [selected]="true">City</option>
                                         <option *ngFor="let c of checked" [value]="c.ind">{{c.ind}}</option>
 
                                     </select>
-                                    <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['city'].hasError('required') &&
-                                    (personalInfoForm.controls['city'].dirty || personalInfoForm.controls['city'].touched)">*</span>
                                 </div>
                             </div>
 
@@ -288,31 +252,19 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row loc">
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>Notice Period :</label> </div>
+                                    <label class="nam_e">Notice Period :</label> </div>
 
                                 <div class="col-sm-10">
-                                    <div class="row">
-                                        <div class="col-sm-3">
 
 
-                                            <select class="note" formControlName='noticePer'>
-                                                <option [disabled]="true" [selected]="true">Select</option>
-                                                <option *ngFor="let n of note" [value]="n.notes">{{n.notes}}</option>
 
-                                            </select>
-                                        </div>
-                                        <span class="text-danger"
-                                            *ngIf="personalInfoForm.controls['noticePer'].hasError('required') &&
-                                        (personalInfoForm.controls['noticePer'].dirty || personalInfoForm.controls['noticePer'].touched)">*</span>
+                                    <select class="note" formControlName='noticePer'>
+                                        <option *ngFor="let n of note" [value]="n.notes">{{n.notes}}</option>
 
-                                        <div class="col-sm-3">
-                                            <input type="text" autocomplete="off" class="form-control text-centre"
-                                                placeholder="others" name="other" >
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
+                                    </select>
+
                                 </div>
                             </div>
 
@@ -323,132 +275,87 @@
 
                     <div class="col-sm-3"></div>
                     <label class="head">Add Skill's and Experience Details </label>
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <div class="row ">
-                                <div class="col-sm-2 nam_e">
 
-                                    <label>Add Skill :</label> </div>
-                                <div class="col-sm-10">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <select id="user_time_zone" class="form-control code " size="0"
-                                                placeholder="Area Code" name="skill" formControlName='skill'>
-                                                <option [disabled]="true" [selected]="true">Skill Name</option>
-                                                <option>Angular</option>
-                                                <option>Java</option>
-                                                <option>Android</option>
-                                                <option>Spring</option>
-                                                <option>Hibernate</option>
-                                                <option>servlet</option>
-                                                <option>JSP</option>
+                    <div class="col-sm-9">
+                        <div class="row ">
+                            <div class="col-sm-2">
+
+                                <label class="nam_e">Add Skill :</label> </div>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <select id="user_time_zone" class="form-control code " size="0"
+                                            placeholder="Area Code" name="skill" formControlName='skill'>
+                                            <option>Skill Name</option>
+                                            <option>Angular</option>
+                                            <option>Java</option>
+                                            <option>Android</option>
+                                            <option>Spring</option>
+                                            <option>Hibernate</option>
+                                            <option>servlet</option>
+                                            <option>JSP</option>
+                                        </select></div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <label class="nam_e"> Experience :</label>
+                                            <select class="year_s" formControlName='sExpYear'>
+                                                <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
+
                                             </select>
-                                       
-                                        <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['skill'].hasError('required') &&
-                                (personalInfoForm.controls['skill'].dirty || personalInfoForm.controls['skill'].touched)">this field is required
-                                    </span>
-                                </div>
-                                        <div class="col-sm-8">
-                                            <div class="row">
-                                                <label class="nam_e"> Experience :</label>
-                                                <select class="year_s" formControlName="sExpYear">
-                                                    <option [disabled]="true" [selected]="true">0 Years</option>
-                                                    <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
-
-                                                </select>
-                                                <span class="text-danger"
-                                                    *ngIf="personalInfoForm.controls['sExpYear'].hasError('required') &&
-                                            (personalInfoForm.controls['sExpYear'].dirty || personalInfoForm.controls['sExpYear'].touched)">*
-                                                </span>
-                                                <select class="month" formControlName='sExpMonth'>
-                                                    <option [disabled]="true" [selected]="true">0 Month</option>
-                                                    <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
-                                                </select>
-                                                <span class="text-danger"
-                                                    *ngIf="personalInfoForm.controls['sExpMonth'].hasError('required') &&
-                                            (personalInfoForm.controls['sExpMonth'].dirty || personalInfoForm.controls['sExpMonth'].touched)">*
-                                                </span>
-                                                <button type="button" class="btn upload add"(click)="addSkill()">Add</button>
-                                            </div>
+                                            <select class="month" formControlName='sExpMonth'>
+                                                <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
+                                            </select>
+                                            <button type="button" class="btn upload add">Add</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
 
                     <div class="col-sm-3"></div>
-                    <div *ngFor="let skill of this.skillArray">
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <div class="row my-2">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-4 ">
-                                        <div class="passno"> <span class="doc align-top">{{skill}}</span><i
-                                                class="close pi pi-times" (click)='removeSkill(i)'></i> </div>
-
-
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="col-sm-12 line"></div>
                     <div class="row ">
                     </div>
                     <label class="head">Identity Proof </label>
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <div class="row ">
-                                <div class="col-sm-2 nam_e">
 
-                                    <label>Select Id Proof :</label> </div>
-                                <div class="col-sm-10">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <select id="user_time_zone" class="form-control code skill" size="0"
-                                                placeholder="Area Code" name="skill" formControlName='idProof'>
+                    <div class="col-sm-9">
+                        <div class="row ">
+                            <div class="col-sm-2">
 
-                                                <option [disabled]="true" [selected]="true">Select File Type</option>
-                                                <option>Adhar No.-</option>
-                                                <option>Passport No.</option>
-                                                <option>PAN Card No.</option>
-                                                <option>Adhar Card No.</option>
-                                                <option>Driving Lincese No.</option>
-                                                <option>Voter ID No.</option>
-                                            </select>
-                                            <span class="text-danger"
-                                            *ngIf="personalInfoForm.controls['idProof'].hasError('required') &&
-                                    (personalInfoForm.controls['idProof'].dirty || personalInfoForm.controls['idProof'].touched)">this field is required
-                                        </span></div>
-                                        <div class="col-sm-8">
-                                            <div class="row">
-                                                <label class="nam_e"> Identity No.:</label>
-                                               <input type="text" autocomplete="off" class="form-control idno"
-                                                    placeholder="***********" name="id" formControlName='identityNo'>  
-                                                    <span class="text-danger"
-                                                    *ngIf="personalInfoForm.controls['identityNo'].hasError('required') &&
-                                            (personalInfoForm.controls['identityNo'].dirty || personalInfoForm.controls['identityNo'].touched)">this field is required
-                                                </span>
-                                            
-                                                <button type="button" class="btn upload add">Add</button>
-                                                <button type="button" class="btn upload plus">
-                                                    <div class="pluss" (click)="addDocument()">+</div>
-                                                </button>
-                                            </div>
+                                <label class="nam_e">Select Id Proof :</label> </div>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <select id="user_time_zone" class="form-control code skill" size="0"
+                                            placeholder="Area Code" name="skill" formControlName='idProof'>
+
+                                            <option value="" disable>Select file type</option>
+                                            <option>Adhar No.-</option>
+                                            <option>Passport No.</option>
+                                            <option>PAN Card No.</option>
+                                            <option>Adhar Card No.</option>
+                                            <option>Driving Lincese No.</option>
+                                            <option>Voter ID No.</option>
+                                        </select></div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <label class="nam_e"> Identity No.:</label>
+                                            <input type="text" autocomplete="off" class="form-control idno"
+                                                placeholder="***********" name="id" formControlName='identityNo'>
+                                            <button type="button" class="btn upload add">Add</button>
+                                            <button type="button" class="btn upload plus">
+                                                <div class="pluss" (click)="addDocument()">+</div>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
 
@@ -478,16 +385,12 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row my-2">
-                                <div class="col-sm-2 nam_e">
+                                <div class="col-sm-2">
 
-                                    <label>Designation :</label> </div>
+                                    <label class="nam_e"></label>Designation: </div>
                                 <div class="col-sm-4 ">
                                     <input type="email" autocomplete="off" class="form-control des"
                                         placeholder="Current Designation" name="desgn" formControlName="designation">
-                                        <span class="text-danger"
-                                        *ngIf="personalInfoForm.controls['designation'].hasError('required') &&
-                                (personalInfoForm.controls['designation'].dirty || personalInfoForm.controls['designation'].touched)">this field is required
-                                    </span>
                                 </div>
 
                                 <div class="col-sm-6">
