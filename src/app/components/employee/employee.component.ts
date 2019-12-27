@@ -45,7 +45,9 @@ export class EmployeeComponent implements OnInit {
    
   
   skillArray=[];
+  secskillArray=[];
   docArray=[];
+  fields: any;
   uploadForm = new FormGroup({
 
   })
@@ -54,6 +56,7 @@ export class EmployeeComponent implements OnInit {
   })
   
   idNo: string;
+ 
  
   
     constructor(private formBuilder: FormBuilder, public TeamService : TeamService,private http:HttpClient) {
@@ -226,27 +229,37 @@ export class EmployeeComponent implements OnInit {
       city    :['',Validators.required],
       noticePer:['',Validators.required],
       skill:['',Validators.required],
+      secSkill:['',Validators.required],
       sExpYear:['',Validators.required],
       sExpMonth:['',Validators.required],
       identityNo:['',Validators.required],
-      idProof:['',Validators.required]
+      idProof:['',Validators.required],
+      
 
     })
   }
+  addsecSkill(){
+    this.secskillArray.push(this.personalInfoForm.get('secSkill').value)
+  }
   addSkill(){
-    this.skillArray.push(this.personalInfoForm.get('skill').value+this.personalInfoForm.get('sExpYear').value+
-    this.personalInfoForm.get('sExpMonth').value)
+    this.skillArray.push(this.personalInfoForm.get('skill'). value)
+
   }
   removeSkill(i:any){
 console.log(i)
 this.skillArray.splice(i,1)
   }
+  removesecSkill(i:any){
+    console.log(i)
+    this.secskillArray.splice(i,1)
+      }
  
 
   addDocument(){
    
 
     this.docArray.push(this.personalInfoForm.get('idProof').value+this.personalInfoForm.get('identityNo').value)
+ 
   }
   removeDoc(i:any){
     console.log(i)
@@ -258,17 +271,39 @@ this.skillArray.splice(i,1)
     }
   onSubmit() {
   //  this.personalInfoForm.get('firstName').setValue('sandeep')
+  this.submitted = true;
+  console.log('add skill',this.skillArray);
+  this.personalInfoForm.patchValue(
+    {
+      skill: this.skillArray,
+    }
+
+  )
+  console.log('add secSkill',this.secskillArray);
+  this.personalInfoForm.patchValue(
+    {
+      secSkill: this.secskillArray,
+    }
+
+  )
+
+  console.log('add idProof',this.docArray);
+  this.personalInfoForm.patchValue(
+    {
+      idProof: this.docArray,
+    }
+
+  )
+  console.log('add identityNo',this.docArray);
+  this.personalInfoForm.patchValue(
+    {
+      identityNo: this.docArray,
+    }
+
+  )
+  console.log(this.personalInfoForm.value)
     this.markFormTouched(this.personalInfoForm);
     
-    this.submitted = true;
-    
-    if (this.personalInfoForm.invalid) {
-      return;
-    }
-    else{
-      console.log(this.personalInfoForm.value)
-   
-    }
   }
   markFormTouched(group: FormGroup | FormArray) {
     Object.keys(group.controls).forEach((key: string) => {
