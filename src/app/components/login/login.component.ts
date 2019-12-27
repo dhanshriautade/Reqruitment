@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder, FormArray } from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   spinner = false;
   data;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private toastr: ToastrService,) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   
   onSubmit(){
     // this.spinner =  true;
+    
     this.markFormTouched(this.loginForm);
     if (this.loginForm.valid) {
 
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
     }
    
     this.submitted = true;
+    
     if (this.loginForm.invalid) {
       return;
 
@@ -69,8 +71,17 @@ export class LoginComponent implements OnInit {
     else{
       this.spinner = true;
       console.log(JSON.stringify(this.data));
-      this.spinner = false;    
+      this.TeamService.Login(this.data).subscribe(res => {
+        this.loginForm.reset();
+        this.spinner = false;    
+        this.toastr.success('Successfully signin !!!');
+        this.router.navigateByUrl('/main/home');
+                })
+
+     
     }
+  
+           
   }
   markFormTouched(group: FormGroup | FormArray) {
     Object.keys(group.controls).forEach((key: string) => {

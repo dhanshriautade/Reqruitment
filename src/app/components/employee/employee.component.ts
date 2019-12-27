@@ -55,7 +55,12 @@ export class EmployeeComponent implements OnInit {
   
     constructor(private formBuilder: FormBuilder, public TeamService : TeamService,private http:HttpClient) {
       //  this.infodispaly =  true;
-     
+      var email = 'dhanshri.autade3@gmail.com';
+      this.TeamService.GetProfile(email).subscribe(res => {
+        console.log('getprofile',res);
+        // this.personalInfoForm.value.firstName = res.
+         
+      })
       this.infodispaly =  true;
       this.data = [
       {'num': 1},
@@ -240,13 +245,16 @@ this.skillArray.splice(i,1)
 
   onSubmit() {
   //  this.personalInfoForm.get('firstName').setValue('sandeep')
-   console.log(this.personalInfoForm.value)
     this.markFormTouched(this.personalInfoForm);
     
     this.submitted = true;
     
     if (this.personalInfoForm.invalid) {
       return;
+    }
+    else{
+      console.log(this.personalInfoForm.value)
+   
     }
   }
   markFormTouched(group: FormGroup | FormArray) {
