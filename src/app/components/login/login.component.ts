@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
+import { TeamService } from 'src/app/services/team.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +17,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   spinner = false;
   data;
-  constructor(private formBuilder: FormBuilder,private toastr: ToastrService,) { }
+  constructor(private formBuilder: FormBuilder,public router: Router,private toastr: ToastrService,public TeamService: TeamService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -69,14 +72,17 @@ export class LoginComponent implements OnInit {
 
     }
     else{
-      this.spinner = true;
-      console.log(JSON.stringify(this.data));
-      this.TeamService.Login(this.data).subscribe(res => {
-        this.loginForm.reset();
-        this.spinner = false;    
-        this.toastr.success('Successfully signin !!!');
-        this.router.navigateByUrl('/main/home');
+        this.spinner = true;
+      this.TeamService.Login(this.data).subscribe(res => { 
+               
                 })
+                this.spinner = false;
+                this.toastr.success('Successfully signin !!!');
+                this.router.navigateByUrl('/main');
+                this.loginForm.reset();
+                // this.spinner = false;
+              
+                  
 
      
     }

@@ -16,6 +16,14 @@ export class TeamService {
     return this.http.post(environment.signUp, data, { headers: headers });
   }
 
+  Login(data: any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.login, data, { headers: headers });
+  }
+
+
   GetProfile(data: any){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -24,12 +32,6 @@ export class TeamService {
   
   }
 
-  Login(data: any){
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-     });
-    return this.http.post(environment.login, data, { headers: headers });
-  }
 
   forgot(data: any){
     let headers = new HttpHeaders({
