@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 import {HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType, HttpParams} from '@angular/common/http';
@@ -19,7 +19,7 @@ export class EmployeeComponent implements OnInit {
   errormassage:boolean = false;
   val: boolean=false;
   err:boolean = false;
- 
+  
   data;
   detail;
   check;
@@ -44,7 +44,7 @@ export class EmployeeComponent implements OnInit {
   // idcard: any = ["Adhar No.","Passport No.","PAN Card No","Driving Lincese No.","Voter ID No."];
    
   
-  
+  skillArray=[];
   docArray=[];
   personalInfoForm = new FormGroup({
 
@@ -55,9 +55,10 @@ export class EmployeeComponent implements OnInit {
   
     constructor(private formBuilder: FormBuilder, public TeamService : TeamService,private http:HttpClient) {
       //  this.infodispaly =  true;
+     
       this.infodispaly =  true;
-      this.data = [{
-        'num': '0 Years'},{'num': 0},{'num': 1},
+      this.data = [
+      {'num': 1},
   {'num': 2},{'num': 3},{'num': 4},{'num': 5},{'num': 6},{'num': 7},{'num': 8},{'num': 9},{'num': 10},{'num': 11},
   {'num': 12},{'num': 13},{'num':14},{'num': 15},{'num': 16},{'num': 17},{'num': 18},{'num': 19},{'num': 20},{'num': 21},
   {'num': 22},{'num': 23},{'num': 24},{'num': 25},{'num': 26},{'num': 27},{'num': 28},{'num': 29},{'num': 30},{'num': 31},
@@ -67,11 +68,11 @@ export class EmployeeComponent implements OnInit {
       ]
     
   
-  this.detail=[{
-    'id': '0 Month'},{'id': 0},{'id': 1},{'id': 2},{'id': 3},{'id': 4},{'id': 5},{'id': 6},{'id': 7},{'id': 8},{'id': 9},{'id': 10},{'id': 11}
+  this.detail=[
+   {'id': 1},{'id': 2},{'id': 3},{'id': 4},{'id': 5},{'id': 6},{'id': 7},{'id': 8},{'id': 9},{'id': 10},{'id': 11}
   ]
   this.check=[
-    {'val':'Country'},{'val':'Afghanistan'},{'val':'Albania'},{'val':'Algeria'},{'val':'Andorra'},{'val':'Angola'}
+   {'val':'Afghanistan'},{'val':'Albania'},{'val':'Algeria'},{'val':'Andorra'},{'val':'Angola'}
     ,{'val':'Antigua'},{'val':'Argentina'},{'val':'Armenia'},{'val':'Australia'},{'val':'Austria'},{'val':'Azerbaijan'}
     ,{'val':'Bahamas'},{'val':'Bahrain'},{'val':'Bangladesh'},{'val':'Barbados'},{'val':'Belarus'},{'val':'Belgium'}
     ,{'val':'Belize'},{'val':'Benin'},{'val':'Bhutan'},{'val':'Bolivia'},{'val':'Bosnia'},{'val':'Botswana'}
@@ -107,7 +108,7 @@ export class EmployeeComponent implements OnInit {
    ,{'val':'other'}
   ]
   this.eval=[
-  {'sa':'State'},{'sa':'Andhra Pradesh'},{'sa':'Arunachal Pradesh'},{'sa':'Assam'},{'sa':'	Bihar'},{'sa':'Chhattisgarh'},{'sa':'Goa'},
+ {'sa':'Andhra Pradesh'},{'sa':'Arunachal Pradesh'},{'sa':'Assam'},{'sa':'	Bihar'},{'sa':'Chhattisgarh'},{'sa':'Goa'},
   {'sa':'	Gujarat'},{'sa':'Haryana'},{'sa':'Himachal Pradesh'},{'sa':'Jharkhand'},{'sa':'Karnataka'},{'sa':'	Kerala'},{'sa':'Madhya Pradesh'},
   {'sa':'	Maharashtra'},{'sa':'	Manipur'},{'sa':'Meghalaya'},{'sa':'Mizoram'},{'sa':'Nagaland'},{'sa':'Odisha'},{'sa':'Punjab'},
   {'sa':'	Rajasthan'},{'sa':'Sikkim'},{'sa':'Tamil Nadu'},{'sa':'Telangana'},{'sa':'Tripura'},{'sa':'Uttar Pradesh'},{'sa':'Uttarakhand'}
@@ -115,7 +116,7 @@ export class EmployeeComponent implements OnInit {
     
   ]
   this.checked=[
-    {'ind':'City'},{'ind':'Mumbai'},{'ind':'Delhi'},{'ind':'Bangalore'},{'ind':'Hyderabad'},{'ind':'Ahmedabad'},{'ind':'Chennai'},{'ind':'Indore'}
+    {'ind':'Mumbai'},{'ind':'Delhi'},{'ind':'Bangalore'},{'ind':'Hyderabad'},{'ind':'Ahmedabad'},{'ind':'Chennai'},{'ind':'Indore'}
     ,{'ind':'Kolkata'},{'ind':'Surat'},{'ind':'Pune'},{'ind':'Jaipur'},{'ind':'Lucknow'},{'ind':'Kanpur'},{'ind':'Nagpur'},{'ind':'Thane'}
     ,{'ind':'Bhopal'},{'ind':'Visakhapatnam'},{'ind':'Patna'},{'ind':'Vadodara'},{'ind':'Ghaziabad'},{'ind':'Ludhiana'},{'ind':'Agra'},{'ind':'Nashik'}
     ,{'ind':'Faridabad'},{'ind':'Meerut'},{'ind':'Rajkot'},{'ind':'Kalyan-Dombivli'},{'ind':'Vasai-Virar'},{'ind':'Varanasi'},{'ind':'Srinagar'},{'ind':'Aurangabad'}
@@ -127,10 +128,11 @@ export class EmployeeComponent implements OnInit {
     ,{'ind':'other'}
   ]
   this.note=[
-    {'notes':'select'},{'notes':'one week'},{'notes':' 15 days'},{'notes':'1 month'},{'notes':' 2 month'},{'notes':'3 month'},{'notes':'other'}
+    {'notes':'one week'},{'notes':' 15 days'},{'notes':'1 month'},{'notes':' 2 month'},{'notes':'3 month'},{'notes':'other'}
   
   ]
    }
+   
 
    preview(files) {
     if (files.length === 0)
@@ -200,22 +202,32 @@ export class EmployeeComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
       lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
       email: ['', [Validators.required, Validators.email]],
-     // phoneNo: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+      //phoneNo: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       dob: ['', Validators.required],
-      expYear  :[''],
-      expMonth :[''],
-      country :[''],
-      state   :[''],
-      city    :[''],
-      noticePer:[''],
-      skill:[''],
-      sExpYear:[''],
-      sExpMonth:[''],
-      identityNo:[''],
-      idProof:['']
+      expYear  :['', Validators.required],
+      expMonth :['', Validators.required],
+      country :['',Validators.required],
+      state   :['',Validators.required],
+      city    :['',Validators.required],
+      noticePer:['',Validators.required],
+      skill:['',Validators.required],
+      sExpYear:['',Validators.required],
+      sExpMonth:['',Validators.required],
+      identityNo:['',Validators.required],
+      idProof:['',Validators.required]
 
     })
   }
+  addSkill(){
+    this.skillArray.push(this.personalInfoForm.get('skill').value+this.personalInfoForm.get('sExpYear').value+
+    this.personalInfoForm.get('sExpMonth').value)
+  }
+  removeSkill(i:any){
+console.log(i)
+this.skillArray.splice(i,1)
+  }
+ 
+
   addDocument(){
    
 
@@ -227,14 +239,9 @@ export class EmployeeComponent implements OnInit {
     }
 
   onSubmit() {
-   this.personalInfoForm.get('firstName').setValue('sandeep')
+  //  this.personalInfoForm.get('firstName').setValue('sandeep')
    console.log(this.personalInfoForm.value)
     this.markFormTouched(this.personalInfoForm);
-    if (this.personalInfoForm.valid) {
-      
-      var formValues = this.personalInfoForm.getRawValue;
-
-    } 
     
     this.submitted = true;
     
