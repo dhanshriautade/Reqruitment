@@ -27,12 +27,15 @@
        text-align: center;
        font-size: smaller;
    }
-   .dashboard{
-      height: 89vh;
-      background-color: #ECEFF1;
-      overflow: auto;
+  
+
+//    .dashboard{
+//       height: 89vh;
+//       background-color: #ECEFF1;
+      
+//      overflow: hidden;
      
-   }
+//    }
    .header{
       height: 75px;
    }
@@ -57,7 +60,7 @@
       top: 0px;
       position: absolute;
       z-index:1;
-      input, button{
+   input, button{
           background: transparent;
         
       }

@@ -1,9 +1,10 @@
 .dashboard{
     height: 89vh;
     background-color: #ECEFF1;
-    overflow-y: scroll !important;
+    overflow-y: scroll ; 
+    overflow-x: hidden ;
+    
  }
-
  .btn{
     background-color: white;
     width: 180px;
@@ -193,6 +194,7 @@
     padding: 11px 55px 5px 0px;
     border-color: #CCD8DD;
     background-color: white;
+    width: 180px;
    
     
 }
@@ -237,13 +239,11 @@
    font-weight: 700;
 }
 :host ::ng-deep .ng-trigger {
-    // overflow: auto;
-  height: 20% !important;
+   
+  height: 50% !important;
 
 }
-:host ::ng-deep.ng-trigger  .ui-dialog .ui-widget .ui-widget-content  {
-    height: 69%;
-}
+
 .passno{
   
     width: 233px;
@@ -254,7 +254,7 @@
     background-color: #EBEFF1;
 }
 .des{
-    width: 240px;
+    width: 232px;
 }
 .save{
     width:120px;
@@ -291,6 +291,9 @@
   margin-top: 7px; 
   margin-right: 10px; 
  display: contents;
+ margin-left: 30px;
+ display:block;
+ margin-left: 18px;
 }
 .btn-file-upload{
     width: 187px;
@@ -316,18 +319,13 @@
   .doc{
     margin-left: 39px;
     font-weight: 700;
+  
   }
 //   :host ::ng-deep .pi-times{
 //     display: none;
 //   }
 
 
-:host ::ng-deep .body .ui-dialog{
-    height: 80%;
-}
-:host ::ng-deep.ui-dialog-content .ui-widget-content{
-    height: 113%;
-}
 
 :host ::ng-deep.group .grp_form  {
     height: 557px;
