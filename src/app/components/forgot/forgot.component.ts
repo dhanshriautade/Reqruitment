@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { TeamService } from 'src/app/services/team.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
@@ -13,7 +13,7 @@ export class ForgotComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder,public TeamService: TeamService) { }
+  constructor(private formBuilder: FormBuilder,public TeamService: TeamService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.forgetForm = this.formBuilder.group({
@@ -35,7 +35,7 @@ export class ForgotComponent implements OnInit {
     } else {
       this.forgetForm.controls['rememberset'].setValue(false);
     }
-    
+    this.toastr.success('Successfully Created !!!');
     this.submitted = true;
     
     if (this.forgetForm.invalid) {
