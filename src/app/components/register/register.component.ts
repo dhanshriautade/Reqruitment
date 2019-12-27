@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
             "contact": this.registerForm.value.phone.number,
             "email": this.registerForm.value.email,
             "password": this.registerForm.value.password,
-            "country": this.registerForm.value.phone.dialCode,
+            "countryCode": this.registerForm.value.phone.dialCode,
             "reEnterPassword": this.registerForm.value.confpassword,
 
         }
