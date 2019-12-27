@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { TeamService } from 'src/app/services/team.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
@@ -12,8 +12,8 @@ export class ForgotComponent implements OnInit {
   forgetForm: FormGroup;
   loading = false;
   submitted = false;
-
-  constructor(private formBuilder: FormBuilder,public TeamService: TeamService) { }
+  spinner = false;
+  constructor(private formBuilder: FormBuilder,public TeamService: TeamService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.forgetForm = this.formBuilder.group({
@@ -22,11 +22,7 @@ export class ForgotComponent implements OnInit {
   }
   get f() { return this.forgetForm.controls; }
   Login(){
-    console.log(this.forgetForm.value);
-  
-    this.TeamService.forgot(this.forgetForm.value.email).subscribe(res => {
-         
-    })
+
     this.markFormTouched(this.forgetForm);
     if (this.forgetForm.valid) {
       
@@ -42,7 +38,15 @@ export class ForgotComponent implements OnInit {
       return;
     }
     else{
-    
+      this.spinner = true;
+      console.log(this.forgetForm.value);
+      this.TeamService.forgot(this.forgetForm.value.email).subscribe(res => {
+        this.forgetForm.reset();
+      
+     
+    })
+    this.toastr.success('Successfully Created !!!'); 
+    this.spinner = false;
     }
   }
   markFormTouched(group: FormGroup | FormArray) {

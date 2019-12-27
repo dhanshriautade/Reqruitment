@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 import {HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType, HttpParams} from '@angular/common/http';
 
@@ -49,6 +49,9 @@ export class EmployeeComponent implements OnInit {
   docArray=[];
   fields: any;
   uploadForm = new FormGroup({
+
+    file:new FormControl(['']),
+    secondfile:new FormControl(['']),
 
   })
   personalInfoForm = new FormGroup({
@@ -268,6 +271,18 @@ this.skillArray.splice(i,1)
     onUpload(){
       this.submitted = true;
       console.log(this.uploadForm.value)
+      var data = {
+        resume : this.uploadForm.value.file,
+        otherDocs : this.uploadForm.value.secondfile,
+        docsInfo : {
+          id: 'dhanashri.autade3@gmail.com',
+          date:'20/11/2019'
+        }
+      }
+       console.log('list',data);
+      this.TeamService.resumeUpload(data).subscribe(res => {
+         
+      })
     }
   onSubmit() {
   //  this.personalInfoForm.get('firstName').setValue('sandeep')
@@ -327,6 +342,8 @@ this.skillArray.splice(i,1)
       
         this.valid=true;
         this.errormassage = false;
+        const file = event.target.files[0];
+        this.uploadForm.get('file').setValue(file);
         
         
       }else { this.errormassage = true;
@@ -354,6 +371,9 @@ this.skillArray.splice(i,1)
       
         this.val=true;
         this.err = false;
+        const file = event.target.files[0];
+        this.uploadForm.get('secondfile').setValue(file);
+
         
         
       }else { this.err = true;

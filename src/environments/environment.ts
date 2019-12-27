@@ -7,7 +7,7 @@ export const environment = {
   Employeepost:base_url + 'addEmployee',
   Employeeget:base_url + 'getAllEmployeesInfo',
   signUp: base_url + 'signup',
-  login:base_url + '',
+  login:base_url + 'check/checkLogin',
   alreadyUser:base_url + 'verifyemail/eventhit',
   uploadresume:base_url + 'uploadDocuments',
   forgot: base_url + 'emailexists?email=',
