@@ -16,6 +16,14 @@ export class TeamService {
     return this.http.post(environment.signUp, data, { headers: headers });
   }
 
+  forgot(data: any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    debugger;
+    return this.http.post(environment.forgot + data, { headers: headers });
+  }
+ 
   AlreadyUse(data: any){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
