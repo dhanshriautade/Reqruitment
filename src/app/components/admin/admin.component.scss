@@ -1,13 +1,116 @@
 .dashboard{
     height: 89vh;
     background-color: #ECEFF1;
+    
  }
  
  .info{
-     background-color: blue;
+     //background-color: blue;
  }
-
+ :host ::ng-deep  .ui-dialog .ui-dialog-titlebar{
+    height: 52px;
+ }
  :host ::ng-deep  .ui-dialog-titlebar-icon{
     padding: 0px 0px 0px 1027px !important;
  }
+ .head{
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #3E5A65;
+}
+.nam_e{
+    text-align: end;
+    color: gray;
+    padding-top: 6px;
+}
+:host ::ng-deep  .country-list{
+    white-space: normal !important;
+      max-height: 200px !important;
+     overflow-y: scroll !important; 
+}
 
+:host ::ng-deep .selected-dial-code{
+    margin-top: 1px;
+   
+    margin-left: 12px;
+}
+.intl-tel-input.separate-dial-code[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4[_ngcontent-ffm-c2] input[_ngcontent-ffm-c2] {
+    padding-left: 98px;
+    border: none!important;
+   
+}
+.tel{
+    border: 1px solid #C0C9CC;
+    border-radius: 6px;
+    width: 78%;
+   height: 40px;
+   
+}
+.plus{
+    width:45px;
+    border-color: #ACBEC6;
+    margin-left: 10px;
+    height: 36px;
+}
+.pluss{
+    color:white;
+    background-color: #3EECB6;
+   font-size: larger;
+    border-radius: 77px;
+    height: 25px;
+    width: 25px;
+   font-weight: 700;
+}
+.idno{
+    width: 130px;
+    margin-left: 8px;
+}
+.add{
+    background-color: #ACBEC6;
+    margin-left: 10px;
+    width:65px;
+    color:white;
+    height: 36px;
+}
+
+.report{
+color: blue;
+font-size: larger;
+}
+
+ .field{
+    text-align-last: end;
+}
+.box{
+    width: 78%;
+    height: 35px;
+    font-size: small;
+    //padding-right: 9px;
+    
+}
+
+.box1{
+    height: 35px;
+    font-size: small;
+    width: 152px;
+}
+:host ::ng-deep .pi-times{
+        display: none;
+  }
+    
+  .option{
+      color: gray;
+      font-size: smaller;
+  }
+
+  .col-sm-4{
+      padding-left: 0px;
+  }
+  .sel{
+    padding-left: 0px;
+  }
+  .save{
+    margin-left: 61%;
+    height: 91%;
+  }

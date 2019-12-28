@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
@@ -17,6 +17,11 @@ export class AdminComponent implements OnInit {
   useradd: boolean = false;
   submitted: boolean;
   data;
+  separateDialCode = true;
+  SearchCountryField = SearchCountryField;
+  TooltipLabel = TooltipLabel;
+  CountryISO = CountryISO;
+  preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
   constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) { 
     this.EmployeeService.getEmployee().subscribe(res => {
        console.log(res);
@@ -34,7 +39,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.employeeForm = this.formBuilder.group({
-      title: [''],
+      title: ['',Validators.required],
       firstName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
       lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
       email: ['', [Validators.required, Validators.email]],

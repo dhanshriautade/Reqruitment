@@ -1,110 +1,204 @@
 <div class="dashboard">
         <div class="row">
-        <div class="col-sm-1 col-lg-1 col-md-1" ></div>
-        <div class="col-sm-10 col-lg-10 col-md-10" >
-        <button type="button" class="btn info my-3 ml-4"
-        (click)="PersonalInfo()">Personal Information</button>
+                <div class="col-sm-1 col-lg-1 col-md-1"></div>
+                <div class="col-sm-10 col-lg-10 col-md-10">
+                        <button type="button" class="btn  btn-primary info my-3 ml-4" (click)="PersonalInfo()">Add
+                                Employee</button>
 
-        <p-dialog [modal]="true" header='' (onHide)="onClose()" [scrollTop]='0' [blockScroll]="true" [(visible)]="display" header="Create New Employee" [style]="{width: '100%', height: '460px'}">
-                <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-                              <div class="row my-2">
-                                <div class="col-sm-6 col-lg-6 col-md-6">  
-                                  <label class="first">First Name</label>
-                                  <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                      name="firstname" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
-                                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                              <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                                              <div *ngIf="f.firstName.errors.pattern">Space Not Allowed</div>
-                                       </div>
-                              </div>
-                             
-                                  <div class="col-sm-6 col-lg-6 col-md-6">  
-                                  <label class="first">Last Name</label>
-                                  <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                      name="lastname" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-                                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                                              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-                                              <div *ngIf="f.lastName.errors.pattern">Space Not Allowed</div>
-                                       </div>
-                              </div>
-                            </div>
-                                  <div class="row my-2">
-                                          <div class="col-sm-6 col-lg-6 col-md-6">
-                                                  <label class="first">Title</label>
-                                                  <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                                      name="title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
-                                                      <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                                                              <div *ngIf="f.title.errors.required">Title required</div>
-                                                          
-                                                       </div>
-                                              </div>
-          
-                                  <div class="col-sm-6 col-lg-6 col-md-6">
-                                  <label class="first">Email</label>
-                                  <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                      name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                              <div *ngIf="f.email.errors.required">Email required</div>
-                                          
-                                       </div>
-                              </div>
-                              
-                                 
-                              </div>
-                              
-                              <div class="row my-2">
-                              <div class="col-sm-6 col-lg-6 col-md-6">
-                                  <label class="first">Date of Birth</label>
-                                  <input type="date" autocomplete="off" class="form-control text-centre" placeholder=""
-                                      name="DOB" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
-                                      <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
-                                              <div *ngIf="f.dob.errors.required">Date of birth required</div>
-                                       </div>
-                              </div>
-                              <div class="col-sm-6 col-lg-6 col-md-6">
-                                      <label class="first">Phone no</label>
-                                      <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                          name="phoneno" formControlName="phoneNo" [ngClass]="{ 'is-invalid': submitted && f.phoneNo.errors }">
-                                          <div *ngIf="submitted && f.phoneNo.errors" class="invalid-feedback">
-                                                  <div *ngIf="f.phoneNo.errors.required">Phone No required</div>
-                                          
-                                           </div>
-                                       
-                                           </div>
-                              </div>
-                              <div class="row my-2">
-                                      <div class="col-sm-6 col-lg-6 col-md-6">
-          
-                                              <label class="first">ID Information</label>
-                                              <select id="user_time_zone" class="form-control code" size="0"
-                                                                       formControlName="ID" placeholder="Area Code">
-                                                                       <option ></option>
-                                                                       <option >Passport</option>
-                                                                       <option >PAN Card</option>
-                                                                       <option >Adhar Card</option>
-                                                                       <option >Driving Lincese</option>
-                                                                       <option >Voter ID</option>
-                                                                       
-                                                                </select>
-                                  
-                                          </div>
-                              <div class="col-sm-6 col-lg-6 col-md-6">
-                                      <label class="first">ID No</label>
-                                      
-                                      <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""
-                                          name="IDNo" formControlName="idno"  [ngClass]="{ 'is-invalid': submitted && f.idno.errors }">
-                                          <div *ngIf="submitted && f.idno.errors" class="invalid-feedback">
-                                                  <div *ngIf="f.idno.errors.required">ID required</div>
-                                           </div>
-                                  </div>
-                              </div>
-                              
-                              <div class="form group my-4 text-centre btno">
-                                      <button type="submit" class="btn btn-primary regis ">SAVE</button>
-                                  </div>
-                          </form>
-              </p-dialog>
-              </div>
-              <div class="col-sm-1 col-md-1 col-lg-1"></div>
-    </div>
+                        <p-dialog [modal]="true" header='' (onHide)="onClose()" [scrollTop]='0' [blockScroll]="true"
+                                [(visible)]="display" [style]="{width: '100%'}">
+                                <p-header class="dialogHeader mt-2">
+                                        <img src="../../../assets/user big.png" alt="">
+                                        <span class="ml-2 mt-2 report">Add Employee</span>
+                                </p-header>
+                                <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                                        <label class="head">Personal Information</label>
+                                        <div class="row">
+                                                <div class="col-sm-8">
+                                                        <div class="row ">
+                                                                <div class="col-sm-2 field">
+                                                                        <label class="nam_e">FirstName :</label>
+                                                                </div>
+                                                                <div class="col-sm-4 ">
+                                                                        <input type="text" autocomplete="off"
+                                                                                class="form-control text-centre box"
+                                                                                placeholder="first name"
+                                                                                name="firstname"
+                                                                                formControlName="firstName"
+                                                                                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                                                                        <div *ngIf="submitted && f.firstName.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div
+                                                                                        *ngIf="f.firstName.errors.required">
+                                                                                        First Name is required</div>
+                                                                                <div *ngIf="f.firstName.errors.pattern">
+                                                                                        Space Not Allowed</div>
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-sm-2 field">
+
+                                                                        <label class="nam_e">LastName :</label> </div>
+                                                                <div class="col-sm-4">
+                                                                        <input type="text" autocomplete="off"
+                                                                                class="form-control text-centre box"
+                                                                                placeholder="last name" name="lastname"
+                                                                                formControlName="lastName"
+                                                                                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                                                        <div *ngIf="submitted && f.lastName.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="f.lastName.errors.required">
+                                                                                        Last Name is required</div>
+                                                                                <div *ngIf="f.lastName.errors.pattern">
+                                                                                        Space Not Allowed</div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                        <div class="row my-2">
+                                                <div class="col-sm-8">
+                                                        <div class="row ">
+                                                                <div class="col-sm-2 field">
+                                                                        <label class="nam_e">Email :</label>
+                                                                </div>
+                                                                <div class="col-sm-4 ">
+                                                                        <input type="text" autocomplete="off"
+                                                                                class="form-control text-centre box"
+                                                                                placeholder="xyz@gmail.com" name="email"
+                                                                                formControlName="email"
+                                                                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                                                        <div *ngIf="submitted && f.email.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="f.email.errors.required">
+                                                                                        Email required</div>
+
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-sm-2 field">
+
+                                                                        <label class="nam_e">DOB :</label> </div>
+                                                                <div class="col-sm-4">
+                                                                        <input type="date" autocomplete="off"
+                                                                                class="form-control text-centre box1"
+                                                                                placeholder="" name="DOB"
+                                                                                formControlName="dob"
+                                                                                [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
+                                                                        <div *ngIf="submitted && f.dob.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="f.dob.errors.required">Date
+                                                                                        of birth required</div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                        <div class="row">
+                                                <div class="col-sm-8">
+                                                        <div class="row ">
+                                                                <div class="col-sm-2 field">
+
+                                                                        <label class="nam_e">Cell No. :</label> </div>
+                                                                    <div class="col-sm-4 ">
+                                                                        <div class="tel">
+                                                                            <ngx-intl-tel-input class="code_ph " [preferredCountries]="preferredCountries"
+                                                                                [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
+                                                                                [searchCountryFlag]="true"
+                                                                                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                                                                [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
+                                                                                [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
+                                                                                [separateDialCode]="separateDialCode" name="phone"></ngx-intl-tel-input>
+                                                                        </div>
+                                    
+                                                                    </div>
+                                                                <div class="col-sm-2 field">
+                                                                        <label class="nam_e">Title :</label>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                        <input type="text" autocomplete="off"
+                                                                                class="form-control text-centre box"
+                                                                                placeholder="" name="title"
+                                                                                formControlName="title"
+                                                                                [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                                                                        <div *ngIf="submitted && f.title.errors"
+                                                                                class="invalid-feedback">
+                                                                                <div *ngIf="f.title.errors.required">
+                                                                                        Title required</div>
+
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-sm-4"></div>
+                                        <label class="head">Identity proof</label>
+                                        <div class="col-sm-9">
+                                                <div class="row ">
+                                                        <div class="col-sm-2">
+
+                                                                <label class="nam_e">Select Id Proof :</label> </div>
+                                                        <div class="col-sm-10 sel">
+                                                                <div class="row">
+                                                                        <div class="col-sm-4">
+                                                                                <select id="user_time_zone"
+                                                                                        class="form-control code skill box"
+                                                                                        size="0" placeholder="Area Code"
+                                                                                        name="skill"
+                                                                                        formControlName='idProof'>
+
+                                                                                        <option value="" disable>Select
+                                                                                                file type</option>
+                                                                                        <option>Adhar No.-</option>
+                                                                                        <option>Passport No.</option>
+                                                                                        <option>PAN Card No.</option>
+                                                                                        <option>Adhar Card No.</option>
+                                                                                        <option>Driving Lincese No.
+                                                                                        </option>
+                                                                                        <option>Voter ID No.</option>
+                                                                                </select></div>
+                                                                        <div class="col-sm-8">
+                                                                                <div class="row">
+                                                                                        <label class="nam_e"> ID
+                                                                                                No.:</label>
+                                                                                        <input type="text"
+                                                                                                autocomplete="off"
+                                                                                                class="form-control idno"
+                                                                                                placeholder="***********"
+                                                                                                name="id"
+                                                                                                formControlName='identityNo box'>
+                                                                                        <button type="button"
+                                                                                                class="btn upload add">Add</button>
+                                                                                        <button type="button"
+                                                                                                class="btn upload plus">
+                                                                                                <div class="pluss"
+                                                                                                        (click)="addDocument()">
+                                                                                                        +</div>
+                                                                                        </button>
+                                                                                        <span class="mt-2 option">Add
+                                                                                                more id proof
+                                                                                                (optional)</span>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="col-sm-3"></div>
+                                                <hr>
+                                                <div class="row">
+                                                        <div class="col-sm-7"></div>
+                                                        <div class="col-sm-5">
+                                                                <button type="submit" class="btn btn-primary save">Add
+                                                                        Employee</button></div>
+                                                </div>
+                                                <hr>
+                                        </div>
+
+
+                                </form>
+                        </p-dialog>
+                </div>
+                <div class="col-sm-1 col-md-1 col-lg-1"></div>
+        </div>
 </div>
