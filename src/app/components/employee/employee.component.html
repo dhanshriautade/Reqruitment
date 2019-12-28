@@ -39,7 +39,8 @@
                             <label>
                                 <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
                                 <input type="file" class=" form-control btn-file-upload1" value="Upload File"
-                                    (change)="upload($event.target.files)" (change)="Details($event)" formControlName="secondfile" />
+                                    (change)="upload($event.target.files)" (change)="Details($event)"
+                                    formControlName="secondfile" />
                             </label>
                             <span class=" ml-2 mt-2 word">Or</span>
                             <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
@@ -52,7 +53,8 @@
                             <label>
                                 <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
                                 <input type="file" class=" form-control btn-file-upload1" value="Upload File"
-                                    (change)="upload($event.target.files)" (change)="FileDetails($event)" formControlName="thirdfile"/>
+                                    (change)="upload($event.target.files)" (change)="FileDetails($event)"
+                                    formControlName="thirdfile" />
                             </label>
                             <span class=" ml-2 mt-2 word">Or</span>
                             <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
@@ -72,7 +74,7 @@
                     <div class="row">
                         <button class="btn  btn3" type="submit">submit</button>
                     </div>
-                    </form>
+                </form>
             </p-dialog>
 
 
@@ -82,7 +84,7 @@
                     <span class="ml-2 mt-2 report"> Profile</span>
                 </p-header>
                 <form class="group grp_form" [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()">
-                 
+
                     <label class="head">Personal Information</label>
                     <div class="row">
                         <div class="col-sm-9">
@@ -184,7 +186,6 @@
                                     <input #file type="file" accept='image/*' class="btn-file-upload"
                                         (change)="preview(file.files)" value="Browse" />
                                     <img [src]="imgURL" height="40" *ngIf="imgURL">
-                                    <!-- <input type="text" autocomplete="off" class="form-control text-centre" placeholder=""  name="photo" > -->
                                 </div>
                             </div>
 
@@ -284,33 +285,34 @@
                                     <label>Primary Skill :</label> </div>
                                 <div class="col-sm-4">
                                     <select id="user_time_zone" class="form-control code  " size="0"
-                                    placeholder="Area Code" name="skill" formControlName='skill'>
-                                    <option>Skill Name</option>
-                                    <option>C</option>
-                                    <option>C++</option>
-                                    <option>php</option>
-                                    <option>Python</option>
-                                    <option>Embedded</option>
-                                    <option>Ruby</option>
-                                    
-                                </select>
-                              
+                                        placeholder="Area Code" name="skill" formControlName='primarySkill'>
+                                        <option>Skill Name</option>
+                                        <option>C</option>
+                                        <option>C++</option>
+                                        <option>php</option>
+                                        <option>Python</option>
+                                        <option>Embedded</option>
+                                        <option>Ruby</option>
+
+                                    </select>
+                                  
                                 </div>
                                 <button type="button" class="btn upload add" (click)='addSkill()'>Add</button>
-                              
-                                
-                        <div class="col-sm-6"></div>
-                                                    </div>
-                                                </div>        
-                    
-                                   <div class="col-sm-3"></div>     
-                                   <div *ngFor="let skill of this.skillArray;index as i">
-                                 
-                                        
-                                    <div class="passno"> <span class="doc align-top">{{skill}}</span><i
-                                            class="close pi pi-times" (click)='removeSkill(i)'></i> </div>
-                                        </div> </div>                    
-                           
+
+
+                                <div class="col-sm-6"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3"></div>
+                        <div *ngFor="let primarySkill of this.skillArray;index as i">
+
+
+                            <div class="passno"> <span class="doc align-top">{{primarySkill}}</span><i
+                                    class="tick pi pi-times" (click)='removeSkill(i)'></i> </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="row codes">
@@ -319,54 +321,36 @@
                                     <label>Secondary Skill :</label> </div>
                                 <div class="col-sm-4">
                                     <select id="user_time_zone" class="form-control code " size="0"
-                                    placeholder="Area Code" name="secskill" formControlName='secSkill'>
-                                    <option>Skill Name</option>
-                                    <option>Angular</option>
-                                    <option>Java</option>
-                                    <option>Android</option>
-                                    <option>Spring</option>
-                                    <option>Hibernate</option>
-                                    <option>servlet</option>
-                                    <option>JSP</option>
-                                </select>
-                              
+                                        placeholder="Area Code" name="secskill" formControlName='secondorySkill'>
+                                        <option>Skill Name</option>
+                                        <option>Angular</option>
+                                        <option>Java</option>
+                                        <option>Android</option>
+                                        <option>Spring</option>
+                                        <option>Hibernate</option>
+                                        <option>servlet</option>
+                                        <option>JSP</option>
+                                    </select>
+
                                 </div>
-                                <button type="button" class="btn upload add" (click)='addsecSkill()'>Add</button>
-                              
+                                <button type="button" class="btn upload add"  (click)='addsecSkill()'>Add</button>
+                                <div class="col-sm-6"></div>
+                            </div>
+                        </div>
 
-                                    <div *ngFor="let secSkill of this.secskillArray;index as i">
-                                       
-                                            
-                                                        <div class="passno"> <span class="doc align-top">{{secSkill}}</span><i
-                                                                class="close pi pi-times" (click)='removesecSkill(i)'></i> </div>
-                                                            </div></div></div></div>
-                
-                                                    
-                                               
-                                       
-        
-                              
-                                        <!-- <div class="row">
-                                            <label class="nam_e"> Experience :</label>
-                                            <select class="year_s" formControlName='sExpYear'>
-                                                <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
+                        <div class="col-sm-3"></div>
 
-                                            </select>
-                                            <select class="month" formControlName='sExpMonth'>
-                                                <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
-                                            </select>
-                                           
-                                        </div> -->
-                        
-                  
-                   
-                   
+                        <div *ngFor="let secondorySkill of this.secskillArray;index as i">
 
 
+                            <div class="passno"> <span class="doc align-top">{{secondorySkill}}</span><i
+                                    class="tick pi pi-times" (click)='removesecSkill(i)'></i> </div>
+                        </div>
+                    </div>
                     <div class="col-sm-12 line"></div>
                     <div class="row ">
                     </div>
-                   <label class="head">Identity Proof </label>
+                    <label class="head">Identity Proof </label>
 
                     <div class="col-sm-9">
                         <div class="row ">
@@ -413,8 +397,8 @@
                                     <div class="col-sm-2">
                                     </div>
                                     <div class="col-sm-4 ">
-                                        <div class="passno"> <span class="doc align-top">{{doc}}</span><i
-                                                class="close pi pi-times" (click)='removeDoc(i)'></i> </div>
+                                        <div class="passno1"> <span class="doc align-top">{{doc}}</span><i
+                                                class="tick1 pi pi-times" (click)='removeDoc(i)'></i> </div>
 
 
                                     </div>
@@ -449,7 +433,7 @@
                     <div class="col-sm-12 line"></div>
                     <div class="row ">
                     </div>
-               
+
                     <div class="row">
                         <div class="col-sm-7"></div>
                         <div class="col-sm-5">
@@ -459,7 +443,7 @@
 
 
 
-                       
+
                 </form>
             </p-dialog>
         </div>

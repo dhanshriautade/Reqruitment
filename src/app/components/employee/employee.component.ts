@@ -37,16 +37,11 @@ export class EmployeeComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
-
-  // foundDoc: any;
-  // selectedDoc: any = [];
-  // pickedDoc: any = [];
-  // idcard: any = ["Adhar No.","Passport No.","PAN Card No","Driving Lincese No.","Voter ID No."];
-   
-  
   skillArray=[];
   secskillArray=[];
   docArray=[];
+  documentArray=[];
+  docidArray=[];
   fields: any;
   uploadForm = new FormGroup({
 
@@ -68,6 +63,7 @@ export class EmployeeComponent implements OnInit {
       this.TeamService.GetProfile(email).subscribe(res => {
         console.log('getprofile',res);
         // this.personalInfoForm.value.firstName = res.
+        
          
       })
       this.infodispaly =  true;
@@ -115,11 +111,8 @@ export class EmployeeComponent implements OnInit {
    , {'val':'Seychelles'},{'val':'Sierra Leone'},{'val':'Singapore'},{'val':'Slovakia'},{'val':'Slovenia'},{'val':'Solomon Islands'}
    , {'val':'Somalia'},{'val':'South Africa'},{'val':'South Korea'},{'val':'South Sudan'},{'val':'Spain'},{'val':'Sudan'}
    , {'val':'Suriname'},{'val':'Sweden'},{'val':'Switzerland'},{'val':'Syria'},{'val':'Taiwan'},{'val':'Tajikistan'}
-  //  , {'val':'Tanzania'},{'val':'Thailand'},{'val':'Timor-Leste'},{'val':'Togo'},{'val':'Tonga'},{'val':'Trinidad and Tobago'}
-  //  , {'val':'Tunisia'},{'val':'Turkey'},{'val':'Turkmenistan'},{'val':'Tuvalu'},{'val':'Uganda'},{'val':'Ukraine'}
-  //  , {'val':'United Arab Emirates'},{'val':'United Kingdom'},{'val':'United States of America'},{'val':'Uruguay'},{'val':'Uzbekistan'},{'val':'Vanuatu'}
-  //  , {'val':'Vatican City'},{'val':'Venezuela'},{'val':'Vietnam'},{'val':'Yemen'},{'val':'Zambia'},{'val':'Zimbabwe'},
-   ,{'val':'other'}
+   ,{'val':'other'
+  }
   ]
   this.eval=[
  {'sa':'Andhra Pradesh'},{'sa':'Arunachal Pradesh'},{'sa':'Assam'},{'sa':'	Bihar'},{'sa':'Chhattisgarh'},{'sa':'Goa'},
@@ -231,8 +224,8 @@ export class EmployeeComponent implements OnInit {
       state   :['',Validators.required],
       city    :['',Validators.required],
       noticePer:['',Validators.required],
-      skill:['',Validators.required],
-      secSkill:['',Validators.required],
+      primarySkill:['',Validators.required],
+      secondorySkill:['',Validators.required],
       sExpYear:['',Validators.required],
       sExpMonth:['',Validators.required],
       identityNo:['',Validators.required],
@@ -241,13 +234,28 @@ export class EmployeeComponent implements OnInit {
 
     })
   }
-  addsecSkill(){
-    this.secskillArray.push(this.personalInfoForm.get('secSkill').value)
-  }
+
   addSkill(){
-    this.skillArray.push(this.personalInfoForm.get('skill'). value)
+    if(this.personalInfoForm.get('primarySkill').value===''){
+      console.log('in if')
+    // this.skillArray.push(this.personalInfoForm.get('primarySkill').value)
+  }else{
+    console.log('in else')
+    this.skillArray.push(this.personalInfoForm.get('primarySkill').value)
+  }
 
   }
+  addsecSkill(){
+     if(this.personalInfoForm.get('secondorySkill').value===''){
+      console.log('in if')
+   }else{
+     console.log('in else')
+    this.secskillArray.push(this.personalInfoForm.get('secondorySkill').value)
+   }
+    //  this.secskillArray.push(this.personalInfoForm.get('secondorySkill').value)
+    
+  }
+ 
   removeSkill(i:any){
 console.log(i)
 this.skillArray.splice(i,1)
@@ -259,11 +267,11 @@ this.skillArray.splice(i,1)
  
 
   addDocument(){
-   
-
-    this.docArray.push(this.personalInfoForm.get('idProof').value+this.personalInfoForm.get('identityNo').value)
- 
+   this.docArray.push(this.personalInfoForm.get('idProof').value+this.personalInfoForm.get('identityNo').value)
+   this.documentArray.push(this.personalInfoForm.get('identityNo').value)
+   this.docidArray.push(this.personalInfoForm.get('idProof').value)
   }
+    
   removeDoc(i:any){
     console.log(i)
     this.docArray.splice(i,1);
@@ -285,34 +293,34 @@ this.skillArray.splice(i,1)
       })
     }
   onSubmit() {
-  //  this.personalInfoForm.get('firstName').setValue('sandeep')
+  
   this.submitted = true;
-  console.log('add skill',this.skillArray);
+  console.log('add primarySkill',this.skillArray);
   this.personalInfoForm.patchValue(
     {
-      skill: this.skillArray,
+      primarySkill: this.skillArray,
     }
 
   )
-  console.log('add secSkill',this.secskillArray);
+  console.log('add secondorySkill',this.secskillArray);
   this.personalInfoForm.patchValue(
     {
-      secSkill: this.secskillArray,
+      secondorySkill: this.secskillArray,
     }
 
   )
 
-  console.log('add idProof',this.docArray);
+  console.log('add idProof',this.docidArray);
   this.personalInfoForm.patchValue(
     {
-      idProof: this.docArray,
+      idProof: this.docidArray,
     }
 
   )
-  console.log('add identityNo',this.docArray);
+  console.log('add identityNo',this.documentArray);
   this.personalInfoForm.patchValue(
     {
-      identityNo: this.docArray,
+      identityNo: this.documentArray,
     }
 
   )
@@ -320,6 +328,7 @@ this.skillArray.splice(i,1)
     this.markFormTouched(this.personalInfoForm);
     
   }
+ 
   markFormTouched(group: FormGroup | FormArray) {
     Object.keys(group.controls).forEach((key: string) => {
       const control = group.controls[key];
