@@ -11,7 +11,8 @@ export const environment = {
   alreadyUser:base_url + 'verifyemail/eventhit',
   uploadresume:base_url + 'uploadDocuments',
   forgot: base_url + 'emailexists?email=',
-  getprofile:base_url + 'getprofile'
+  getprofile:base_url + 'getprofile',
+  AddInfo:base_url + 'experienceprofile'
 };
 
 /*
