@@ -24,6 +24,7 @@ export class EmployeeComponent implements OnInit {
   err: boolean = false;
 
   data;
+  value;
   detail;
   check;
   eval;
@@ -331,15 +332,13 @@ export class EmployeeComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // console.log('mob',this.personalInfoForm.value.phone.number);
-    this.data = {     
+    this.value = {     
 
       "firstName":this.personalInfoForm.value.firstName,
       "lastName":this.personalInfoForm.value.lastName,
-      "contact":this.personalInfoForm.value.phone.number, 
+      "contact":this.personalInfoForm.value.phone.number,
       "countryCode":this.personalInfoForm.value.phone.dialCode,   
       "email":this.personalInfoForm.value.email,
-  
-  
       "designation":this.personalInfoForm.value.designation,
       "country":this.personalInfoForm.value.country,
       "state":this.personalInfoForm.value.state,
@@ -348,17 +347,19 @@ export class EmployeeComponent implements OnInit {
       "noticePeriod":this.personalInfoForm.value.noticePer,
       "title":"PA",
       "dob":this.personalInfoForm.value.dob,
-      "idType":this.docidArray,
-      "idNumber": this.documentArray,
+      "idType":'adhar',
+      "idNumber": '12345',
       "primarySkill":this.skillArray,
-      "secondorySkill":this.secskillArray
+      "secondarySkill":this.secskillArray
       }
+    
   
-    console.log(this.personalInfoForm.value)
+    console.log(this.value)
 
 
 
-    this.TeamService.AddInformation(this.data).subscribe(res => {
+    this.TeamService.AddInformation(this.value).subscribe(res => {
+      console.log(JSON.stringify(res))
 
     })
     this.markFormTouched(this.personalInfoForm);
