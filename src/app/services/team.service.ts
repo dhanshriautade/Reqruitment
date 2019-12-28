@@ -49,10 +49,11 @@ export class TeamService {
 
   }
 
-  resumeUpload(data:any){
+  resumeUpload(data){
     let headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
      });
+     debugger;
      return this.http.post(environment.uploadresume, data, { headers: headers });
 
   }
