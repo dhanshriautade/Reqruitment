@@ -233,6 +233,32 @@ export class EmployeeComponent implements OnInit {
       
 
     })
+
+    var email = 'dhanshri.autade3@gmail.com';
+    this.TeamService.GetProfile(email).subscribe((res:any) => {
+      console.log('getprofile',res);
+      this.personalInfoForm.get('firstName').setValue(res.firstName);
+      this.personalInfoForm.get('lastName').setValue(res.lastName);
+      this.personalInfoForm.get('email').setValue(res.email);
+      this.personalInfoForm.get('dob').setValue(res.dob);
+      this.personalInfoForm.get('country').setValue(res.country);
+      this.personalInfoForm.get('state').setValue(res.state);
+      this.personalInfoForm.get('city').setValue(res.city);
+      this.personalInfoForm.get('noticePer').setValue(res.noticePeriod);
+      this.personalInfoForm.get('skill').setValue(res.primarySkill);
+      this.personalInfoForm.get('idProof').setValue(res.idType);
+      this.personalInfoForm.get('identityNo').setValue(res.idNumber);
+      this.personalInfoForm.get('designation').setValue(res.designation);
+        //contact
+       //country code
+      // residualCountry
+      //secondarySkill
+      //title
+    })
+
+
+
+
   }
 
   addSkill(){
@@ -278,17 +304,19 @@ this.skillArray.splice(i,1)
     }
     onUpload(){
       this.submitted = true;
-      console.log(this.uploadForm.value)
-      var data = {
-        resume : this.uploadForm.value.file,
-        otherDocs : this.uploadForm.value.secondfile,
-        docsInfo : {
-          id: 'dhanashri.autade3@gmail.com',
-          date:'20/11/2019'
-        }
+      // console.log(this.uploadForm.value);
+      this.data = {
+        id: 'dhanashri.autade3@gmail.com',
+        date:'20/11/2019'
       }
-       console.log('list',data);
-      this.TeamService.resumeUpload(data).subscribe(res => {
+      const formData = new FormData();
+    
+      formData.append('resume', this.uploadForm.value.file);
+      formData.append('otherDocs', this.uploadForm.value.secondfile);
+      formData.append('docsInfo', this.data);
+      
+     
+      this.TeamService.resumeUpload(formData).subscribe(res => {
          
       })
     }

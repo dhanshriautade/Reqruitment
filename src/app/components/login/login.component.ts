@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
+  info;
   spinner = false;
   data;
   constructor(private formBuilder: FormBuilder,public router: Router,private toastr: ToastrService,public TeamService: TeamService) { }
@@ -74,12 +75,21 @@ export class LoginComponent implements OnInit {
     else{
         this.spinner = true;
       this.TeamService.Login(this.data).subscribe(res => { 
-               
+                  this.info = res;
+                 
+
+                  if(this.info.status ===  true){
+                    this.toastr.success('Successfully signin !!!');
+                    this.router.navigateByUrl('/main');
+                    this.spinner = false;             
+                    this.loginForm.reset();
+                    }
+                    if (this.info.status === 500 ||this.info.status !=  true ){
+                      this.toastr.error('Invalid Successfully signin !!!');
+                
+                    }
                 })
-                this.spinner = false;
-                this.toastr.success('Successfully signin !!!');
-                this.router.navigateByUrl('/main');
-                this.loginForm.reset();
+                
                 // this.spinner = false;
               
                   
