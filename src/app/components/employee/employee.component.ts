@@ -320,39 +320,39 @@ this.skillArray.splice(i,1)
          
       })
     }
-  onSubmit() {
-  
+  onSubmit() {  
   this.submitted = true;
-  console.log('add primarySkill',this.skillArray);
-  this.personalInfoForm.patchValue(
+   this.personalInfoForm.patchValue(
     {
       primarySkill: this.skillArray,
     }
 
   )
-  console.log('add secondorySkill',this.secskillArray);
-  this.personalInfoForm.patchValue(
+   this.personalInfoForm.patchValue(
     {
       secondorySkill: this.secskillArray,
     }
 
   )
-
-  console.log('add idProof',this.docidArray);
-  this.personalInfoForm.patchValue(
+this.personalInfoForm.patchValue(
     {
       idProof: this.docidArray,
     }
 
   )
-  console.log('add identityNo',this.documentArray);
-  this.personalInfoForm.patchValue(
+   this.personalInfoForm.patchValue(
     {
       identityNo: this.documentArray,
     }
 
   )
   console.log(this.personalInfoForm.value)
+
+
+
+  this.TeamService.AddInformation(this.personalInfoForm.value).subscribe(res => {
+
+  })
     this.markFormTouched(this.personalInfoForm);
     
   }

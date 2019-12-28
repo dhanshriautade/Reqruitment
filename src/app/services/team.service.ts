@@ -15,6 +15,12 @@ export class TeamService {
      });
     return this.http.post(environment.signUp, data, { headers: headers });
   }
+  AddInformation(data: any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.AddInfo, data, { headers: headers });
+  }
 
   Login(data: any){
     let headers = new HttpHeaders({
