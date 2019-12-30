@@ -233,6 +233,21 @@ export class EmployeeComponent implements OnInit {
 
     var email = 'dhanshri.autade3@gmail.com';
     this.TeamService.GetProfile(email).subscribe((res: any) => {
+
+      if(res.primarySkill != ''){
+        for(var i=0; i<res.primarySkill.length;i++)
+        {
+          this.skillArray.push(res.primarySkill[i]);
+        }
+
+      }
+      if(res.secondarySkill != ''){
+        for(var i=0; i<res.secondarySkill.length;i++)
+        {
+          this.secskillArray.push(res.secondarySkill[i]);
+        }
+
+      }
       console.log('getprofile', res);
       this.personalInfoForm.get('firstName').setValue(res.firstName);
       this.personalInfoForm.get('lastName').setValue(res.lastName);
@@ -274,13 +289,11 @@ export class EmployeeComponent implements OnInit {
   }
   addsecSkill() {
     if (this.personalInfoForm.get('secondorySkill').value === '') {
-      console.log('in if')
+      
     } else {
-      console.log('in else')
       this.secskillArray.push(this.personalInfoForm.get('secondorySkill').value)
     }
-    //  this.secskillArray.push(this.personalInfoForm.get('secondorySkill').value)
-
+    
   }
 
   removeSkill(i: any) {
@@ -339,6 +352,8 @@ export class EmployeeComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
+
+    
    
     // console.log('mob',this.personalInfoForm.value.phone.number);
     this.value = {     
