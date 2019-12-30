@@ -17,14 +17,24 @@ employeeForm = new FormGroup({
   useradd: boolean = false;
   submitted: boolean;
   data;
+  term;
+  dataone;
   separateDialCode = true;
   SearchCountryField = SearchCountryField;
   TooltipLabel = TooltipLabel;
   CountryISO = CountryISO;
   preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
   constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) { 
+    
     this.EmployeeService.getEmployee().subscribe(res => {
-       console.log(res);
+       this.data = res;
+       debugger;
+       for(var i = 0; i < this.data.length; i++){
+        this.dataone.push(this.data[i]);
+        
+
+       }
+       console.log('list',this.dataone);
     })
 
 }

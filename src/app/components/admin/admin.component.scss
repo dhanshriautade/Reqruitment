@@ -13,6 +13,35 @@
  :host ::ng-deep  .ui-dialog-titlebar-icon{
     padding: 0px 0px 0px 1027px !important;
  }
+ .card-header{
+    padding: 0px !important;
+}
+th ,td {
+    border-right: 1px solid white;
+    // color: white;
+}
+.card-body{
+    padding: 5px 15px 0px 20px;
+}
+.headone{
+    height: 10px!important;
+    background-color: #90A4AE;
+    color: white;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: #F4F4F5
+     }
+ 
+     .table-striped tbody tr:nth-of-type(even){
+         background-color: #F5FBFF
+          }
+.evnt{
+
+    color: #157DEC;
+    margin-left: 10px;
+    font-weight: bold;
+    
+    }
  .head{
     font-weight: bold;
     margin-top: 15px;
