@@ -58,6 +58,7 @@ export class EmployeeComponent implements OnInit {
   })
 
   idNo: string;
+  primarySkill: any;
 
 
 
@@ -241,10 +242,17 @@ export class EmployeeComponent implements OnInit {
       this.personalInfoForm.get('state').setValue(res.state);
       this.personalInfoForm.get('city').setValue(res.city);
       this.personalInfoForm.get('noticePer').setValue(res.noticePeriod);
-      this.personalInfoForm.get('skill').setValue(res.primarySkill);
+      this.personalInfoForm.get('primarySkill').setValue(res.primarySkill);
+      this.personalInfoForm.get('secondorySkill').setValue(res.secondarySkill);
       this.personalInfoForm.get('idProof').setValue(res.idType);
       this.personalInfoForm.get('identityNo').setValue(res.idNumber);
       this.personalInfoForm.get('designation').setValue(res.designation);
+      this.personalInfoForm.get('sExpYear').setValue(res.sExpYear);
+      this.personalInfoForm.get('sExpMonth').setValue(res.sExpMonth);
+      this.personalInfoForm.get('phone.contact').setValue(res.contact);
+      this.personalInfoForm.get('phone.countryCode').setValue(res.countryCode);
+      this.personalInfoForm.get('expYear').setValue(res.expYear);
+      this.personalInfoForm.get('expMonth').setValue(res.expMonth);
       //contact
       //country code
       // residualCountry
@@ -331,6 +339,7 @@ export class EmployeeComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
+   
     // console.log('mob',this.personalInfoForm.value.phone.number);
     this.value = {     
 
@@ -345,12 +354,13 @@ export class EmployeeComponent implements OnInit {
       "city":this.personalInfoForm.value.city,
       "residualCountry":"maha",
       "noticePeriod":this.personalInfoForm.value.noticePer,
+     
       "title":"PA",
       "dob":this.personalInfoForm.value.dob,
       "idType":'adhar',
       "idNumber": '12345',
       "primarySkill":this.skillArray,
-      "secondarySkill":this.secskillArray
+      "secondarySkill":this.secskillArray,
       }
     
   
@@ -363,6 +373,10 @@ export class EmployeeComponent implements OnInit {
 
     })
     this.markFormTouched(this.personalInfoForm);
+    console.log('add primarySkill',this.docArray);
+    this.primarySkill.patchValue({
+      primarySkill:this.skillArray,
+    })
 
   }
 
