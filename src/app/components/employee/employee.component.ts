@@ -65,12 +65,12 @@ export class EmployeeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public TeamService: TeamService, private http: HttpClient) {
     //  this.infodispaly =  true;
     var email = 'dhanshri.autade3@gmail.com';
-    this.TeamService.GetProfile(email).subscribe(res => {
-      console.log('getprofile', res);
+    // this.TeamService.GetProfile(email).subscribe(res => {
+      // console.log('getprofile', res);
       // this.personalInfoForm.value.firstName = res.
 
 
-    })
+    // })
     this.infodispaly = true;
     this.data = [
       { 'num': 1 },
@@ -225,15 +225,17 @@ export class EmployeeComponent implements OnInit {
       identityNo: ['', Validators.required],
       idProof: ['', Validators.required],
       contact:['', Validators.required],
-      countryCode:['', Validators.required],
+      code:['', Validators.required],
       phone:['', Validators.required],
+      title:['', Validators.required],
 
 
     })
 
-    var email = 'dhanshri.autade3@gmail.com';
+    var email = 'mona@gmail.com';
     this.TeamService.GetProfile(email).subscribe((res: any) => {
-
+      console.log('getprofile', res);
+     
       if(res.primarySkill != ''){
         for(var i=0; i<res.primarySkill.length;i++)
         {
@@ -248,8 +250,7 @@ export class EmployeeComponent implements OnInit {
         }
 
       }
-      console.log('getprofile', res);
-      this.personalInfoForm.get('firstName').setValue(res.firstName);
+       this.personalInfoForm.get('firstName').setValue(res.firstName);
       this.personalInfoForm.get('lastName').setValue(res.lastName);
       this.personalInfoForm.get('email').setValue(res.email);
       this.personalInfoForm.get('dob').setValue(res.dob);
@@ -264,10 +265,11 @@ export class EmployeeComponent implements OnInit {
       this.personalInfoForm.get('designation').setValue(res.designation);
       this.personalInfoForm.get('sExpYear').setValue(res.sExpYear);
       this.personalInfoForm.get('sExpMonth').setValue(res.sExpMonth);
-      this.personalInfoForm.get('phone.contact').setValue(res.contact);
-      this.personalInfoForm.get('phone.countryCode').setValue(res.countryCode);
+      this.personalInfoForm.get('phone').setValue(res.contact);
+      this.personalInfoForm.get('phone').setValue(res.code);
       this.personalInfoForm.get('expYear').setValue(res.expYear);
       this.personalInfoForm.get('expMonth').setValue(res.expMonth);
+      this.personalInfoForm.get('title').setValue(res.title);
       //contact
       //country code
       // residualCountry
@@ -335,7 +337,7 @@ export class EmployeeComponent implements OnInit {
 
     this.fileUploadProgress = '0%';
 
-    this.http.post('http://localhost:8080/uploadDocuments', formData, {
+    this.http.post('http://localhost:8081/uploadDocuments', formData, {
       reportProgress: true,
       observe: 'events'   
     })
@@ -361,7 +363,7 @@ export class EmployeeComponent implements OnInit {
       "firstName":this.personalInfoForm.value.firstName,
       "lastName":this.personalInfoForm.value.lastName,
       "contact":this.personalInfoForm.value.phone.number,
-      "countryCode":this.personalInfoForm.value.phone.dialCode,   
+      "code":this.personalInfoForm.value.phone.dialCode,   
       "email":this.personalInfoForm.value.email,
       "designation":this.personalInfoForm.value.designation,
       "country":this.personalInfoForm.value.country,
@@ -370,7 +372,7 @@ export class EmployeeComponent implements OnInit {
       "residualCountry":"maha",
       "noticePeriod":this.personalInfoForm.value.noticePer,
      
-      "title":"PA",
+      "title":this.personalInfoForm.value.title,
       "dob":this.personalInfoForm.value.dob,
       "idType":'adhar',
       "idNumber": '12345',
@@ -388,10 +390,8 @@ export class EmployeeComponent implements OnInit {
 
     })
     this.markFormTouched(this.personalInfoForm);
-    console.log('add primarySkill',this.docArray);
-    this.primarySkill.patchValue({
-      primarySkill:this.skillArray,
-    })
+   
+  
 
   }
 
