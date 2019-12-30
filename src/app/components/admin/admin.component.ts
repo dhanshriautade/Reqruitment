@@ -14,6 +14,7 @@ employeeForm = new FormGroup({
 
   })
   devicedetails
+  displaylist = true;
   useradd: boolean = false;
   submitted: boolean;
   data;
@@ -132,5 +133,10 @@ this.display = false;
 }
 PersonalInfo(){
 this.display = true;
+this.displaylist = false;
+}
+removeSkill(){
+  this.display = false;
+this.displaylist = true;
 }
 }

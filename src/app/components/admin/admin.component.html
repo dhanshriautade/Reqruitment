@@ -4,7 +4,7 @@
                 <div class="col-sm-10 col-lg-10 col-md-10">
                         <button type="button" class="btn  btn-primary info my-3 ml-4" (click)="PersonalInfo()">Add
                                 Employee</button>
-                        <div class="card">
+                        <div class="card" *ngIf="displaylist">
                                 <div class="card-header">
                                         <div class="d-flex">
                                                 <span class="evnt">Employee List</span>
@@ -20,6 +20,7 @@
                                                         </div>
                                                 </div>
                                         </div>
+                                      
                                 </div>
                                 <div class="card-body my-1">
                                         <div> Employee Information</div>
@@ -65,6 +66,9 @@
                                 <p-header class="dialogHeader mt-2">
                                         <img src="../../../assets/user big.png" alt="">
                                         <span class="ml-2 mt-2 report">Add Employee</span>
+                                        <div class="d-flex">
+                                                <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill()"></i>
+                                        </div>
                                 </p-header>
                                 <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
                                         <label class="head">Personal Information</label>
