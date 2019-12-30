@@ -12,20 +12,20 @@ export class AdminComponent implements OnInit {
 display = false;
 employeeForm = new FormGroup({
 
-})
-devicedetails
-useradd: boolean = false;
-submitted: boolean;
-data;
-separateDialCode = true;
-SearchCountryField = SearchCountryField;
-TooltipLabel = TooltipLabel;
-CountryISO = CountryISO;
-preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) {
-this.EmployeeService.getEmployee().subscribe(res => {
-console.log(res);
-})
+  })
+  devicedetails
+  useradd: boolean = false;
+  submitted: boolean;
+  data;
+  separateDialCode = true;
+  SearchCountryField = SearchCountryField;
+  TooltipLabel = TooltipLabel;
+  CountryISO = CountryISO;
+  preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+  constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) { 
+    this.EmployeeService.getEmployee().subscribe(res => {
+       console.log(res);
+    })
 
 }
 showDialog() {
@@ -37,24 +37,24 @@ this.useradd = true;
 
 
 
-ngOnInit() {
-this.employeeForm = this.formBuilder.group({
-title: ['',Validators.required],
-firstName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
-lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
-email: ['', [Validators.required, Validators.email]],
-phoneNo: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-dob: ['', Validators.required],
-passport: [''],
-pan: [''],
-adhar: [''],
-drivingLicence: [''],
-voterId: ['',],
-status: [''],
-ID: [],
-idno: []
-})
-}
+  ngOnInit() {
+    this.employeeForm = this.formBuilder.group({
+      title: ['',Validators.required],
+      firstName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
+      lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNo: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+      dob: ['', Validators.required],
+      passport: [''],
+      pan: [''],
+      adhar: [''],
+      drivingLicence: [''],
+      voterId: ['',],
+      status: [''],
+      ID: [],
+      idno: []
+    })
+  }
 
 get f() { return this.employeeForm.controls; }
 onSubmit() {
