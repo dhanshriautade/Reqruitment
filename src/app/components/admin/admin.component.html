@@ -100,18 +100,19 @@
                                                                 <div class="col-sm-2 field">
 
                                                                         <label class="nam_e">Cell No. :</label> </div>
-                                                                    <div class="col-sm-4 ">
-                                                                        <div class="tel">
-                                                                            <ngx-intl-tel-input class="code_ph " [preferredCountries]="preferredCountries"
-                                                                                [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
-                                                                                [searchCountryFlag]="true"
-                                                                                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                                                                                [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
-                                                                                [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
-                                                                                [separateDialCode]="separateDialCode" name="phone"></ngx-intl-tel-input>
-                                                                        </div>
-                                    
-                                                                    </div>
+                                                                <div class="col-sm-4 ">
+                                                                                <div class="tel">
+                                                                                                <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
+                                                                                                    [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
+                                                                                                    [searchCountryFlag]="true"
+                                                                                                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                                                                                    [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
+                                                                                                    [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
+                                                                                                    [separateDialCode]="separateDialCode" formControlName="phone" name="phone">
+                                                                                                </ngx-intl-tel-input>
+                                                                                            </div>
+
+                                                                </div>
                                                                 <div class="col-sm-2 field">
                                                                         <label class="nam_e">Title :</label>
                                                                 </div>
@@ -146,7 +147,7 @@
                                                                                         class="form-control code skill box"
                                                                                         size="0" placeholder="Area Code"
                                                                                         name="skill"
-                                                                                        formControlName='idProof'>
+                                                                                        formControlName='ID'>
 
                                                                                         <option value="" disable>Select
                                                                                                 file type</option>
@@ -167,7 +168,7 @@
                                                                                                 class="form-control idno"
                                                                                                 placeholder="***********"
                                                                                                 name="id"
-                                                                                                formControlName='identityNo box'>
+                                                                                                formControlName='idno'>
                                                                                         <button type="button"
                                                                                                 class="btn upload add">Add</button>
                                                                                         <button type="button"
