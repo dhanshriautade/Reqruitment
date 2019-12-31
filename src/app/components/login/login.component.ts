@@ -88,10 +88,16 @@ export class LoginComponent implements OnInit {
                       this.toastr.error('Invalid Successfully signin !!!');
                 
                     }
-                })
+                },error => {
+
+                  if(error.status === 0){
+                    this.toastr.error('Please check your network !!!');
+                    this.spinner = false;
+                  }
+                }
+                )
                 
-                // this.spinner = false;
-              
+                this.spinner = false;             
                   
 
      

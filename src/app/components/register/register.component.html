@@ -13,8 +13,11 @@
                     </div>
 
                     <form #myForm="ngForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                        <div class=" tag row my-2">
-                            <label for="name">First Name</label>
+                        <div class=" tag row my-4">
+                            <div class="col-sm-4 lab">
+                                    <label for="name">First Name :</label>
+                            </div>
+                           <div class="col-sm-8">
                             <input type="text" autocomplete="off" formControlName="firstname" placeholder="First Name"
                                 class="form-control p-0"
                                 [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors }" />
@@ -22,9 +25,13 @@
                                     <div *ngIf="f.firstname.errors.required">first Name is required</div>
                                     <div *ngIf="f.firstname.errors.pattern">Space Not Allowed</div>
                                 </div>
+                                </div>
                         </div>
-                        <div class="tag row my-2">
-                            <label for="name">Last Name</label>
+                        <div class="tag row my-4">
+                                <div class="col-sm-4 lab">
+                            <label for="name">Last Name :</label>
+                            </div>
+                            <div class="col-sm-8">
                             <input type="text" formControlName="lastName" placeholder="Last Name"
                                 class="form-control p-0"
                                 [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }" />
@@ -32,18 +39,28 @@
                                 <div *ngIf="f.lastName.errors.required">last Name is required</div>
                                 <div *ngIf="f.lastName.errors.pattern">Space Not Allowed</div>
                             </div>
+                            </div>
                         </div>
-                        <div class="tag row my-2">
-                            <label for="name">Email</label>
+                        <div class="tag row my-4">
+                                <div class="col-sm-4 lab">
+                            <label for="name">Email :</label>
+                            </div>
+                            <div class="col-sm-8">
                             <input type="text" autocomplete="off" class="form-control p-0" formControlName="email"
-                                [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" placeholder="email" />
+                                [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" placeholder="Email" />
                             <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
                                 <div *ngIf="f.email.errors.required">email is required</div>
                                 <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                             </div>
+                            </div>
                         </div>
-                        <div class="form-group input-group my-2 tag row my-2  ">
-                            <ngx-intl-tel-input class="code_ph " 
+                        <div class="form-group input-group my-2 tag row my-4  ">
+                                <div class="col-sm-4 lab">
+                                        <label for="name">Contact No :</label>
+                              </div>
+                           
+                              <div class="col-sm-8 ">
+                            <ngx-intl-tel-input class="con " 
                                     [cssClass]="'custom'" 
                                     [preferredCountries]="preferredCountries"
                                     [enableAutoCountrySelect]="false" 
@@ -63,40 +80,49 @@
 
 
                             </div>
+                            </div>
                     </div>
-                        <div class="tag row my-2">
-                            <label for="name">Password</label>
+                        <div class="tag row my-4">
+                                <div class="col-sm-4 lab">
+                            <label for="name">Password :</label>
+                            </div>
+                            <div class="col-sm-8">
                             <input type="password" autocomplete="off" class="form-control p-0"
                                 formControlName="password"
                                 [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }"
-                                placeholder="password" />
+                                placeholder="Password" />
                             <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
                                 <div *ngIf="f.password.errors.required">password is required</div>
                                 <div *ngIf="f.password.errors.pattern">password must Special char, digit,
                                     uppercase, lowercase</div>
                             </div>
+                            </div>
                         </div>
-                        <div class="tag row my-2">
-                            <label for="name">Confirm password</label>
+                        <div class="tag row my-4">
+                                <div class="col-sm-4 lab">
+                            <label for="name">Confirm password :</label>
+                            </div>
+                            <div class="col-sm-8">
                             <input type="password" autocomplete="off" class="form-control p-0"
                                 formControlName="confpassword"
                                 [ngClass]="{ 'is-invalid': f.confpassword.touched && f.confpassword.errors }"
-                                placeholder="confirm password" />
+                                placeholder="Confirm Password" />
                             <div *ngIf="f.confpassword.touched && f.confpassword.errors" class="invalid-feedback">
                                 <div *ngIf="f.confpassword.errors.required">confirmpassword is required</div>
                                 <div *ngIf="f.confpassword.errors.mustMatch">Passwords must match</div>
                             </div>
+                            </div>
                         </div>
+                
                         <div class="my-4">
-                            <button class="btn btn-primary" type="submit" >Sign up <i *ngIf="spinner"
+                                <span class="pull-left my-2 ml-4">
+                                        <a routerLink="/login">Already a user?</a>
+                                    </span>
+                            <button class="btn btn-primary sign" type="submit" >Sign up <i *ngIf="spinner"
                                     class="pi pi-spin pi-spinner ml-1" ></i> </button>
 
                         </div>
-                        <div class="pull-center">
-                            <span class="pull-left">
-                                <a routerLink="/login">Already a user?</a>
-                            </span>
-                        </div>
+                      
                     </form>
                 </div>
 

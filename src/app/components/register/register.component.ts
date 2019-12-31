@@ -5,6 +5,7 @@ import { map } from "rxjs/operators";
 import { TeamService } from 'src/app/services/team.service';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
@@ -16,6 +17,7 @@ export class RegisterComponent implements OnInit {
 
     registerForm: FormGroup;
     submitted = false;
+    spinner= false;
     data;
     pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     separateDialCode = true;
@@ -27,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
     });
     form: FormGroup;
-    constructor(private formBuilder: FormBuilder,private toastr: ToastrService, public TeamService: TeamService) { }
+    constructor(private formBuilder: FormBuilder,public router: Router,private toastr: ToastrService, public TeamService: TeamService) { }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -68,7 +70,7 @@ export class RegisterComponent implements OnInit {
     }
     onSubmit() {
         this.submitted = true;
-
+        this.spinner = true;
         this.markFormTouched(this.registerForm);
         this.data = {
             "firstName": this.registerForm.value.firstname,
@@ -84,17 +86,22 @@ export class RegisterComponent implements OnInit {
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
-        }else{
-
-      
+        }else{      
             console.log(JSON.stringify(this.data));
-            this.TeamService.SignUp(this.data).subscribe(res => {
-         
+            this.TeamService.SignUp(this.data).subscribe((res : any) => {
+                console.log(res);
+               if(res.code === '200' || res.code === 200  ){
+                this.toastr.success('Successfully Created !!!');
+                this.router.navigateByUrl('/login');
+          
+               }
             })
 
-            this.toastr.success('Successfully Created !!!');
             this.registerForm.reset();
+            this.spinner = false;
         }
+
+     
         
     }
         markFormTouched(group: FormGroup | FormArray) {

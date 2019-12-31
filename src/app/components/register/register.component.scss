@@ -26,7 +26,7 @@ padding: 0px !important;
 }
 :host ::ng-deep .ui-card{
     border-radius: 17px;
-    height: 620px;
+    height: fit-content;
 }
 .name{
     font-family: 'Maven Pro';
@@ -79,12 +79,21 @@ input{
     height: 25px;
     font-size: small;
 }
+.con{
+    border-bottom: 1px solid #CDD5DA;
+}
 button{
     width: 130px;
     border-radius: 15px;
 }
+.lab{
+    text-align: end;
+}
+.sign{
+    margin: 0px 116px 0px 0px;
+}
 .tag{
-    padding: 0px 95px 0px 95px;
+    padding: 0px 69px 0px 19px;
     margin-top: -13px;
 }
 .DeactiveAllUser {
