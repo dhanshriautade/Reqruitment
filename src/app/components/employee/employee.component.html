@@ -49,21 +49,7 @@
                             <div class="error" *ngIf="err">Invalid file type or size </div>
                         </div>
 
-                        <div class="col-sm-4 my-3">
-                            <label>
-                                <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
-                                <input type="file" class=" form-control btn-file-upload1" value="Upload File"
-                                    (change)="upload($event.target.files)" (change)="FileDetails($event)"
-                                    formControlName="thirdfile" />
-                            </label>
-                            <span class=" ml-2 mt-2 word">Or</span>
-                            <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
-                            <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
-                            <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-                            <div class="error" *ngIf="error">Invalid file type or size </div>
-                        </div>
-
-
+                      
                     </div>
 
                     <hr class="line">
