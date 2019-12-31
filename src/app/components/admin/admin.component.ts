@@ -24,20 +24,29 @@ employeeForm = new FormGroup({
   SearchCountryField = SearchCountryField;
   TooltipLabel = TooltipLabel;
   CountryISO = CountryISO;
+  infodetail = [];
+  configer:any;
   preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
   constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) { 
     
     this.EmployeeService.getEmployee().subscribe(res => {
        this.data = res;
-       debugger;
-       for(var i = 0; i < this.data.length; i++){
-        this.dataone.push(this.data[i]);
-        
-
-       }
-       console.log('list',this.dataone);
+        let keys = Object.keys(this.data);
+        console.log('keys',keys);
+        for(var i=0; i<keys.length ; i++){
+           this.infodetail.push(this.data[keys[i]]);
+        }
+        this.configer = {
+          itemsPerPage: 8,
+          currentPage: 1,
+          totalItems: this.infodetail.length
+        };
+       console.log('list',this.infodetail);
     })
 
+}
+pageChanged(event){
+  this.configer.currentPage = event;
 }
 showDialog() {
 this.display = true;

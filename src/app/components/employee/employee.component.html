@@ -171,6 +171,7 @@
                                         <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
                                             [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
                                             [searchCountryFlag]="true"
+
                                             [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
                                             [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
                                             [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
@@ -315,7 +316,8 @@
 
                         <div class="clip ml-5 my-2">
                             <span class="left_chip my-2 ml-1" *ngFor="let primarySkill of this.skillArray;index as i">
-                            {{primarySkill}} <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill(i)"></i>
+                            {{primarySkill}}
+                             <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill(i)"></i>
                             </span>
                             </div>
 

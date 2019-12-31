@@ -129,8 +129,8 @@ font-size: larger;
     font-size: small;
     width: 152px;
 }
-:host ::ng-deep .pi-times{
-        display: none;
+:host ::ng-deep .ui-dialog-titlebar-icon{
+        display: none !important;
   }
     
   .option{

@@ -7,67 +7,69 @@
                         <div class="card" *ngIf="displaylist">
                                 <div class="card-header">
                                         <div class="d-flex">
+                                                <div class="my-2 mr-auto">
                                                 <span class="evnt">Employee List</span>
-                                        </div>
-                                        <div class="p-2">
+                                                </div>
+                                                <div class="my-2 mr-2">
                                                 <div class="input-group">
                                                         <input type="text" class="form-control" [(ngModel)]="term"
-                                                                placeholder="Search events">
+                                                                placeholder="Search Employee">
                                                         <div class="input-group-append">
                                                                 <button class="btn btn-secondary" type="button">
                                                                         <i class="fa fa-search"></i>
                                                                 </button>
                                                         </div>
                                                 </div>
+                                                </div>
                                         </div>
                                       
                                 </div>
                                 <div class="card-body my-1">
-                                        <div> Employee Information</div>
-                                        <table class="table table-striped my-5" style="margin: auto; width: 85%;">
+                                     
+                                        <table class="table table-striped my-2" style="margin: auto; width: 85%;">
                                                 <thead>
                                                         <tr class="headone">
-                                                                <th scope="col">NO</th>
-                                                                <th scope="col">First Name</th>
-                                                                <th scope="col">Last Name</th>
-                                                                <th scope="col">Pending Feedback</th>
-                                                                <th scope="col">Phone No.</th>
-                                                                <th scope="col">Title</th>
+                                                                <th>NO</th>
+                                                                <th align="center"scope="col">First Name</th>
+                                                                <th align="center"scope="col">Last Name</th>
+                                                                <th align="center"scope="col">Email</th>
+                                                                <th align="center" scope="col">Phone No.</th>
+                                                                <th  align="center" scope="col">Title</th>
                                                         </tr>
                                                 </thead>
                                                 <tbody>
-                                                        <tr>
+                                                        <tr *ngFor="let user of infodetail | filter:term | paginate: configer; let i = index">
 
-                                                                <td scope="row" class="name">1</td>
-                                                                <td class="name">Dhanshri</td>
-                                                                <td align="center" class="blue">Autade</td>
-                                                                <td align="center" class="name">89</td>
-                                                                <td align="center" class="name">90</td>
-                                                                <td align="center" class="red">UI</td>
+                                                                <td scope="row" class="name">{{i+1}}</td>
+                                                                <td class="name">{{user.firstName}}</td>
+                                                                <td align="center" class="blue">{{user.lastName}}</td>
+                                                                <td align="center" class="name">{{user.email}}</td>
+                                                                <td align="center" class="name">{{user.phoneNo}}0</td>
+                                                                <td align="center" class="red">{{user.title}}</td>
                                                         </tr>
-                                                        <tr>
-
-                                                                <td scope="row" class="name">1</td>
-                                                                <td class="name">Dhanshri</td>
-                                                                <td align="center" class="blue">Autade</td>
-                                                                <td align="center" class="name">89</td>
-                                                                <td align="center" class="name">90</td>
-                                                                <td align="center" class="red">UI</td>
-                                                        </tr>
+                                                        
 
 
                                                 </tbody>
+                                               
                                         </table>
+                                        <div class="text-right">
+                                                        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+                                         </div>
                                 </div>
                         </div>
 
-                        <p-dialog [modal]="true" header='' (onHide)="onClose()" [scrollTop]='0' [blockScroll]="true"
+                        <p-dialog [modal]="true" header='' (onHide)="removeSkill()" [scrollTop]='0' [blockScroll]="true"
                                 [(visible)]="display" [style]="{width: '100%'}">
                                 <p-header class="dialogHeader mt-2">
+                                   <div class="d-flex">
+                                                <div class="my-2 mr-auto">
                                         <img src="../../../assets/user big.png" alt="">
                                         <span class="ml-2 mt-2 report">Add Employee</span>
-                                        <div class="d-flex">
+                                                </div>
+                                        <div class=""> 
                                                 <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill()"></i>
+                                        </div>
                                         </div>
                                 </p-header>
                                 <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">

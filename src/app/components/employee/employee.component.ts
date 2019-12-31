@@ -232,7 +232,7 @@ export class EmployeeComponent implements OnInit {
 
     })
 
-    var email = 'mona@gmail.com';
+    var email = 'dhanshri.autade3@gmail.com';
     this.TeamService.GetProfile(email).subscribe((res: any) => {
       console.log('getprofile', res);
      
@@ -333,7 +333,7 @@ export class EmployeeComponent implements OnInit {
       formData.append('otherDocs', this.otherfileData[i]);
     }
 
-    formData.append('docsInfo', '{"id":"ranigirnmakar@gmail.com","date":"15/03/1996"}');
+    formData.append('docsInfo', '{"id":"dhanshri.autade3@gmail.com","date":"15/03/1996"}');
 
     this.fileUploadProgress = '0%';
 

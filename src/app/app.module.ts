@@ -18,7 +18,9 @@ import {MenuItem} from 'primeng/api';
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
 import {CalendarModule} from 'primeng/calendar';
-
+ 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
@@ -66,7 +68,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxIntlTelInputModule,
+    Ng2SearchPipeModule,
     DialogModule,
+    NgxPaginationModule,
     CalendarModule,
      BrowserAnimationsModule ,
      TableModule,
