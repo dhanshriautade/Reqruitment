@@ -166,15 +166,6 @@ export class EmployeeComponent implements OnInit {
   }
 
 
-
-  upload(files: FileList) {
-    this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
-    this.TeamService.resumeUpload(this.fileToUpload).subscribe(res => {
-
-    })
-  }
-
   onFileChanged(event) {
     const file = event.target.files[0]
   }
@@ -328,16 +319,16 @@ export class EmployeeComponent implements OnInit {
   onUpload() {
     this.submitted = true;
     const formData = new FormData();
-    formData.append('resume', this.uploadForm.value.file);
+    formData.append('resume', this.fileToUpload);
     for (var i = 0; i < this.otherfileData.length; i++) {
       formData.append('otherDocs', this.otherfileData[i]);
     }
 
-    formData.append('docsInfo', '{"id":"dhanshri.autade3@gmail.com","date":"15/03/1996"}');
+    formData.append('docsInfo', '{"id":"dhanhfhdfghdshri.autade3@gmail.com","date":"15/03/1996"}');
 
     this.fileUploadProgress = '0%';
-
-    this.http.post('http://localhost:8081/uploadDocuments', formData, {
+       debugger;
+    this.http.post('http://localhost:8080/uploadDocuments', formData, {
       reportProgress: true,
       observe: 'events'   
     })
@@ -404,7 +395,9 @@ export class EmployeeComponent implements OnInit {
   };
 
 
-  getFileDetails(event) {
+  getFileDetails(event : any) {
+  
+    this.fileToUpload = <File>event.target.files[0];
     for (var i = 0; i < event.target.files.length; i++) {
       var name = event.target.files[i].name;
       var type = event.target.files[i].type;
