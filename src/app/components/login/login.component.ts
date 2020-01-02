@@ -76,8 +76,10 @@ export class LoginComponent implements OnInit {
         this.spinner = true;
       this.TeamService.Login(this.data).subscribe(res => { 
                   this.info = res;
-                 
-
+                 console.log(this.info);
+                   localStorage.setItem('id',this.info.emp_id);
+                  localStorage.setItem('email',this.info.email);
+                 this.spinner =false;
                   if(this.info.status ===  true){
                     this.toastr.success('Successfully signin !!!');
                     this.router.navigateByUrl('/main');

@@ -22,7 +22,7 @@ export class EmployeeComponent implements OnInit {
   errormassage: boolean = false;
   val: boolean = false;
   err: boolean = false;
-
+  sent_data;
   data;
   value;
   detail;
@@ -59,18 +59,21 @@ export class EmployeeComponent implements OnInit {
 
   idNo: string;
   primarySkill: any;
+  email_id;
 
 
 
   constructor(private formBuilder: FormBuilder, public TeamService: TeamService, private http: HttpClient) {
     //  this.infodispaly =  true;
-    var email = 'dhanshri.autade3@gmail.com';
-    // this.TeamService.GetProfile(email).subscribe(res => {
-      // console.log('getprofile', res);
-      // this.personalInfoForm.value.firstName = res.
+    this.email_id = localStorage.getItem('email');
+    console.log('this is email',this.email_id);
+    //var email = 'dhanshri.autade3@gmail.com';
+     // this.TeamService.GetProfile(email).subscribe(res => {
+       // console.log('getprofile', res);
+      //  this.personalInfoForm.value.firstName = res.
 
 
-    // })
+      // })
     this.infodispaly = true;
     this.data = [
       { 'num': 1 },
@@ -223,7 +226,7 @@ export class EmployeeComponent implements OnInit {
 
     })
 
-    var email = 'dhanshri.autade3@gmail.com';
+    var email = 'email_id';
     this.TeamService.GetProfile(email).subscribe((res: any) => {
       console.log('getprofile', res);
      
@@ -323,11 +326,14 @@ export class EmployeeComponent implements OnInit {
     for (var i = 0; i < this.otherfileData.length; i++) {
       formData.append('otherDocs', this.otherfileData[i]);
     }
-
-    formData.append('docsInfo', '{"id":"dhanhfhdfghdshri.autade3@gmail.com","date":"15/03/1996"}');
-
+   this.sent_data = {
+      "id":this.email_id,
+    "date":"15/03/1996"
+  }
+      
+    formData.append('docsInfo',this.sent_data );
+      debugger;
     this.fileUploadProgress = '0%';
-       debugger;
     this.http.post('http://localhost:8080/uploadDocuments', formData, {
       reportProgress: true,
       observe: 'events'   
