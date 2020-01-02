@@ -26,7 +26,7 @@
                                 <!-- <input type="file" class="filetag" name="myfile" (change)="upload($event.target.files)" /> -->
                                 <!-- <span class="req">*</span> -->
                                 <input type="file" class="  btn-file-upload1 form-control " value="Upload file"
-                                    (change)="upload($event.target.files)" (change)="getFileDetails($event)"
+                                    (change)="getFileDetails($event)"
                                     formControlName="file" />
                             </label>
                             <span class=" ml-2 mt-2 word">Or</span>
@@ -37,9 +37,8 @@
                         </div>
                         <div class="col-sm-4 my-3">
                             <label>
-                                <!-- <input type="file" class="filetag" name="myfilename" (change)="uploadFile($event.target.files)" /> -->
-                                <input type="file" class=" form-control btn-file-upload1" value="Upload File"
-                                    (change)="upload($event.target.files)" (change)="Details($event)"
+                                  <input type="file" class=" form-control btn-file-upload1" value="Upload File"
+                                   (change)="Details($event)"
                                     formControlName="secondfile" />
                             </label>
                             <span class=" ml-2 mt-2 word">Or</span>
@@ -154,7 +153,7 @@
                                     <label>Cell No. :</label> </div>
                                 <div class="col-sm-4 ">
                                     <div class="tel">
-                                        <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
+                                        <!-- <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
                                             [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
                                             [searchCountryFlag]="true"
 
@@ -162,7 +161,7 @@
                                             [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
                                             [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
                                             [separateDialCode]="separateDialCode" formControlName="phone" name="phone">
-                                        </ngx-intl-tel-input>
+                                        </ngx-intl-tel-input> -->
                                     </div>
 
                                 </div>
