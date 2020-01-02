@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
                     this.loginForm.reset();
                     }
                     if (this.info.status === 500 ||this.info.status !=  true ){
-                      this.toastr.error('Invalid Successfully signin !!!');
+                      this.toastr.error('Invalid credentials Oops !!!');
                 
                     }
                 },error => {

@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
     }
     onSubmit() {
         this.submitted = true;
-        this.spinner = true;
+      
         this.markFormTouched(this.registerForm);
         this.data = {
             "firstName": this.registerForm.value.firstname,
@@ -86,8 +86,9 @@ export class RegisterComponent implements OnInit {
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
-        }else{      
-            console.log(JSON.stringify(this.data));
+           
+        }else{    
+            this.spinner = true;  
             this.TeamService.SignUp(this.data).subscribe((res : any) => {
                 console.log(res);
                if(res.code === '200' || res.code === 200  ){
@@ -100,7 +101,6 @@ export class RegisterComponent implements OnInit {
             this.registerForm.reset();
             this.spinner = false;
         }
-
      
         
     }
