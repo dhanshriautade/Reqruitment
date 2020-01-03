@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   name;
+  email: string;
   constructor(private router: Router) {
-    this.name = localStorage.getItem('name');
+    this.email = localStorage.getItem('email');
   }
 
   LogOut(){

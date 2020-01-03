@@ -254,6 +254,12 @@
                                                         </div>
                                                 </div>
                                                 <div class="col-sm-3"></div>
+
+                                                <div class="row">
+                                                        <div class="clip ml-5 my-2">
+                                                            <span class="left_chip my-2 ml-1" *ngFor="let doc of this.docArray;index as i">
+                                                            {{doc}} <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeDoc(i)"></i>
+                                                            </span></div></div> 
                                                 <hr>
                                                 <div class="row">
                                                         <div class="col-sm-7"></div>
