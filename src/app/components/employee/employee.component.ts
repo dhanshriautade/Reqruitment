@@ -235,7 +235,7 @@ export class EmployeeComponent implements OnInit {
 
     })
 
-    var email = 'email_id';
+    var email = this.email_id;
     this.TeamService.GetProfile(email).subscribe((res: any) => {
       console.log('getprofile', res);
      
