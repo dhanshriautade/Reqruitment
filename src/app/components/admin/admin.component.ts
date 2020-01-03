@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 selector: 'app-admin',
@@ -18,7 +19,11 @@ employeeForm = new FormGroup({
   useradd: boolean = false;
   submitted: boolean;
   data;
+  docArray = [];
+  documentArray = [];
+  docidArray = [];
   term;
+  spinner=false;
   dataone;
   separateDialCode = true;
   SearchCountryField = SearchCountryField;
@@ -27,7 +32,7 @@ employeeForm = new FormGroup({
   infodetail = [];
   configer:any;
   preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-  constructor(private formBuilder: FormBuilder, public EmployeeService: EmployeeService) { 
+  constructor(private formBuilder: FormBuilder, private toastr: ToastrService, public EmployeeService: EmployeeService) { 
     
     this.EmployeeService.getEmployee().subscribe(res => {
        this.data = res;
@@ -66,20 +71,22 @@ this.useradd = true;
       //phoneNo: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       phone:['', Validators.required],
       dob: ['', Validators.required],
+      ID: ['', Validators.required],
+      idno: ['', Validators.required],
       passport: [''],
       pan: [''],
       adhar: [''],
       drivingLicence: [''],
       voterId: ['',],
       status: [''],
-      ID: [],
-      idno: []
+    
     })
   }
 
 get f() { return this.employeeForm.controls; }
 onSubmit() {
 this.submitted = true;
+this.spinner = true;
 if (this.employeeForm.invalid) {
 return;
 }
@@ -133,13 +140,20 @@ this.data = {
 };
 
 this.EmployeeService.AddEmployee(JSON.stringify(this.data)).subscribe(res => {
+  this.spinner = false;
+  this.toastr.success('Successfully added Employee !!!');
 
 })
-
+this.employeeForm.reset();
+this.spinner = false;
 this.display = false;
 
 
+
 }
+  markFormTouched(employeeForm: any) {
+    throw new Error("Method not implemented.");
+  }
 PersonalInfo(){
 this.display = true;
 this.displaylist = false;
@@ -148,4 +162,13 @@ removeSkill(){
   this.display = false;
 this.displaylist = true;
 }
+addDocument() {
+  this.docArray.push(this.employeeForm.get('ID').value + this.employeeForm.get('idno').value)
+  this.documentArray.push(this.employeeForm.get('idno').value)
+  this.docidArray.push(this.employeeForm.get('ID').value)
+}
+removeDoc(i: any) {
+  this.docArray.splice(i, 1);
+}
+
 }

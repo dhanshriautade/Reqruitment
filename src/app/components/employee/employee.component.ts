@@ -4,6 +4,7 @@ import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input
 import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType, HttpParams } from '@angular/common/http';
 
 import { TeamService } from 'src/app/services/team.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -21,14 +22,22 @@ export class EmployeeComponent implements OnInit {
   valid: boolean = false;
   errormassage: boolean = false;
   val: boolean = false;
+  passport;
+  panCard;
+  voterId;
+  drivingLincese;
   err: boolean = false;
+   MyArrayType = [];
   sent_data;
+  docidArraysent;
   data;
   value;
   detail;
   check;
+  spinner = false;
   eval;
   checked;
+  adharCard;
   note;
   idCard;
   pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -63,7 +72,7 @@ export class EmployeeComponent implements OnInit {
 
 
 
-  constructor(private formBuilder: FormBuilder, public TeamService: TeamService, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private toastr: ToastrService, public TeamService: TeamService, private http: HttpClient) {
     //  this.infodispaly =  true;
     this.email_id = localStorage.getItem('email');
     console.log('this is email',this.email_id);
@@ -306,6 +315,59 @@ export class EmployeeComponent implements OnInit {
     this.docArray.push(this.personalInfoForm.get('idProof').value + this.personalInfoForm.get('identityNo').value)
     this.documentArray.push(this.personalInfoForm.get('identityNo').value)
     this.docidArray.push(this.personalInfoForm.get('idProof').value)
+    // for(var i=0;i<this.docArray.length;i++){
+    //   this.docArray.push(this.personalInfoForm.get('idProof').value + this.personalInfoForm.get('identityNo').value)
+    // }
+    //     if (this.personalInfoForm.get('idProof').value === '') {
+//     } else {
+//    this.documentArray.push(this.personalInfoForm.get('idProof').value)
+//  }
+//  if (this.personalInfoForm.get('identityNo').value === '') {
+// } else {
+// this.docidArray.push(this.personalInfoForm.get('identityNo').value)
+// }
+   
+   
+   
+    if(this.docidArraysent.length != null){
+      if(this.personalInfoForm.get('idProof').value === 'adhar')
+      {
+         this.adharCard = this.personalInfoForm.get('identityNo').value;
+      }
+      if(this.personalInfoForm.get('idProof').value === 'Passport No.')
+      {
+         this.passport = this.personalInfoForm.get('identityNo').value;
+        
+      }
+      if(this.personalInfoForm.get('idProof').value === 'PAN Card No.')
+      {
+         this.panCard = this.personalInfoForm.get('identityNo').value;
+        
+      }
+      if(this.personalInfoForm.get('idProof').value === 'Driving Lincese No.')
+      {
+         this.drivingLincese = this.personalInfoForm.get('identityNo').value;
+        
+      }
+      if(this.personalInfoForm.get('idProof').value === 'Voter ID No.')
+      {
+         this.voterId = this.personalInfoForm.get('identityNo').value;
+        
+      }
+    }
+
+    this.docidArraysent = [
+      {
+        "adharCard" : this.adharCard,
+        "passport" : this.passport,
+        "panCard" : this.panCard,
+        "drivingLincese" : this.drivingLincese,
+        "voterId" : this.voterId
+      }
+    ]
+
+    console.log('this array',this.docidArraysent);
+   
   }
 
   removeDoc(i: any) {
@@ -321,6 +383,7 @@ export class EmployeeComponent implements OnInit {
   }
   onUpload() {
     this.submitted = true;
+    this.spinner=true;
     const formData = new FormData();
     formData.append('resume', this.fileToUpload);
     for (var i = 0; i < this.otherfileData.length; i++) {
@@ -339,24 +402,28 @@ export class EmployeeComponent implements OnInit {
       observe: 'events'   
     })
     .subscribe(events => {
+      this.spinner = false;
+      this.toastr.success('Successfully uploaded resume !!!');
       if(events.type === HttpEventType.UploadProgress) {
         this.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%';
         console.log(this.fileUploadProgress);
       } else if(events.type === HttpEventType.Response) {
         this.fileUploadProgress = 'Uploading Completed';
-        console.log(events.body);          
+        console.log(events.body);  
+               
         }
          
     }) 
+    this.markFormTouched(this.uploadForm);
+    this.uploadForm.reset();
   }
   onSubmit() {
     this.submitted = true;
 
-    
-   
+    this.spinner = true;
     // console.log('mob',this.personalInfoForm.value.phone.number);
+  
     this.value = {     
-
       "firstName":this.personalInfoForm.value.firstName,
       "lastName":this.personalInfoForm.value.lastName,
       "contact":this.personalInfoForm.value.phone.number,
@@ -371,10 +438,12 @@ export class EmployeeComponent implements OnInit {
      
       "title":this.personalInfoForm.value.title,
       "dob":this.personalInfoForm.value.dob,
-      "idType":'adhar',
-      "idNumber": '12345',
+      "idType":this.documentArray,
+      "idNumber": this.docidArray,
       "primarySkill":this.skillArray,
       "secondarySkill":this.secskillArray,
+
+    
       }
     
   
@@ -384,10 +453,13 @@ export class EmployeeComponent implements OnInit {
 
     this.TeamService.AddInformation(this.value).subscribe(res => {
       console.log(JSON.stringify(res))
+      this.spinner = false;
+      this.toastr.success('Successfully created Employee !!!');
+     
 
     })
     this.markFormTouched(this.personalInfoForm);
-   
+      this.personalInfoForm.reset();
   
 
   }

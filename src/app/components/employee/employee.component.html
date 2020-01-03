@@ -57,7 +57,9 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <button class="btn  btn3" type="submit">submit</button>
+                        <button class="btn  btn3" type="submit">submit
+                            <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
+                        </button>
                     </div>
                 </form>
             </p-dialog>
@@ -153,7 +155,7 @@
                                     <label>Cell No. :</label> </div>
                                 <div class="col-sm-4 ">
                                     <div class="tel">
-                                        <!-- <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
+                                         <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
                                             [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
                                             [searchCountryFlag]="true"
 
@@ -161,7 +163,7 @@
                                             [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
                                             [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
                                             [separateDialCode]="separateDialCode" formControlName="phone" name="phone">
-                                        </ngx-intl-tel-input> -->
+                                        </ngx-intl-tel-input> 
                                     </div>
 
                                 </div>
@@ -305,13 +307,6 @@
                              <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill(i)"></i>
                             </span>
                             </div>
-
-                        <!-- <div *ngFor="let primarySkill of this.skillArray;index as i">
-
-
-                            <div class="passno ml-3"> <span class="doc ">{{primarySkill}}</span><i
-                                    class="tick pi pi-times" (click)='removeSkill(i)'></i> </div>
-                        </div> -->
                     </div>
 
                     <div class="row">
@@ -346,12 +341,7 @@
                             </span>
                             </div>
 
-                        <!-- <div *ngFor="let secondorySkill of this.secskillArray;index as i">
-
-
-                            <div class="passno ml-3"> <span class="doc ">{{secondorySkill}}</span><i
-                                    class="tick pi pi-times" (click)='removesecSkill(i)'></i> </div>
-                        </div> -->
+                       
                     </div>
                     <div class="col-sm-12 line"></div>
                     <div class="row ">
@@ -391,18 +381,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                
 
 
 
                     <div class="col-sm-3"></div>
                     <div class="row">
-                        <div *ngFor="let doc of this.docArray;index as i">
-
-                            <div class="passno1 ml-5"> <span class="doc align-top">{{doc}}</span><i
-                                    class="tick1 pi pi-times" (click)='removeDoc(i)'></i> </div>
-                        </div>
-                    </div>
+                    <div class="clip ml-5 my-2">
+                        <span class="left_chip my-2 ml-1" *ngFor="let doc of this.docArray;index as i">
+                        {{doc}} <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeDoc(i)"></i>
+                        </span></div></div>    </div>   
+                  
                     <div class="col-sm-3"></div>
 
                     <div class="row">
@@ -430,7 +419,10 @@
                     <div class="row">
                         <div class="col-sm-7"></div>
                         <div class="col-sm-5">
-                            <button type="submit" class="btn btn-primary save">Save</button></div>
+                            <button type="submit" class="btn btn-primary save">Save
+                                
+                                <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
+                            </button></div>
                     </div>
 
 
