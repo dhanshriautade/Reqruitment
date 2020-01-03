@@ -196,6 +196,7 @@ export class EmployeeComponent implements OnInit {
     this.display = event;
     this.close = true;
   }
+
   ngOnInit() {
 
 
@@ -239,14 +240,15 @@ export class EmployeeComponent implements OnInit {
     this.TeamService.GetProfile(email).subscribe((res: any) => {
       console.log('getprofile', res);
      
-      if(res.primarySkill != ''){
+      if( res.primarySkill != null ){
+       
         for(var i=0; i<res.primarySkill.length;i++)
         {
           this.skillArray.push(res.primarySkill[i]);
         }
 
       }
-      if(res.secondarySkill != ''){
+      if(res.secondarySkill != null){
         for(var i=0; i<res.secondarySkill.length;i++)
         {
           this.secskillArray.push(res.secondarySkill[i]);
