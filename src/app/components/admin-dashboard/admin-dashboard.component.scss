@@ -1,0 +1,144 @@
+.dashboard{
+    height: 89vh;
+    background-color: #ECEFF1;
+ }
+
+.main{
+    background-color: white;    
+    padding: 6px;
+}
+.summary{
+    background-color: white;  
+   // padding: 6px;
+}
+
+  .gradient{
+    background-color: white
+}
+.detail{
+    background-color: white;    
+    height: 75px;
+}
+
+.wel{
+    font-weight: bolder;
+   
+}
+.name1{
+    color: blue;
+}
+
+
+ .bocard-body{
+    padding: 5px 15px 0px 20px;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: #F4F4F5
+     }
+ 
+     .table-striped tbody tr:nth-of-type(even){
+         background-color: #F5FBFF
+          }
+          .card-header{
+            padding: 0px !important;
+        }
+        .evnt{
+
+            color: #157DEC;
+            margin-left: 10px;
+            font-weight: bold;
+            font-size:large;
+            
+            }
+            .headone{
+                height: 10px!important;
+                background-color: #90A4AE;
+                color: white;
+            }
+            th ,td {
+    border-right: 1px solid white;
+    // color: white;
+}
+.hr{
+    color: #AFBEC6;
+    margin-left: 108px;
+}
+.img{
+    width: 26px;
+}
+.replace{
+background-color: #AFBEC6;
+color: white;
+width: 106%;
+    height: 32px;
+    line-height: 1px;
+    margin-left: 71px;
+}
+.job{
+    width: 106%;
+    height: 32px;
+    line-height: 1px;
+    margin-left: 42%;
+}
+.head{
+    background-color:#5D7C8C;
+    height: 39px;
+}
+
+.apply{
+    background-color: #AFBEC6;
+    color: white;
+    height: 36px;
+    line-height: 1px;
+    margin-left: 13px;
+}
+.square{
+    background-color: #5632FF;
+    width: 83px;
+    height: 38px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 36px;
+    font-size: x-large;
+}
+.square1{
+    background-color: #00E35B;
+    width: 83px;
+    height: 38px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 36px;
+    font-size: x-large;
+}
+.square2{
+    background-color: #DF0058;
+    width: 83px;
+    height: 38px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 36px;
+    font-size: x-large;
+    margin-left: 16px;
+}
+.complete{
+    font-weight: bold;
+    color: white;
+}
+.d-flex {
+    height: 49px;
+    display: flex!important;
+}
+.box{
+    width: 143px;
+    color: #AFBEC6;
+    border: none;
+}
+.for{
+    color: #AFBEC6;
+}
+.bookmark{
+    color: red;
+}

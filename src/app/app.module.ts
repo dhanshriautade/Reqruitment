@@ -27,6 +27,8 @@ import {TableModule} from 'primeng/table';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminComponent } from './components/admin/admin.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
 // import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
@@ -51,7 +53,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     HomeComponent,
     AppEmployeeComponent,
     AdminComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AdminDashboardComponent,
+   
   ],
  
   
