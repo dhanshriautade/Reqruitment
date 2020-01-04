@@ -8,68 +8,72 @@
                                 <div class="card-header">
                                         <div class="d-flex">
                                                 <div class="my-2 mr-auto">
-                                                <span class="evnt">Employee List</span>
+                                                        <span class="evnt">Employee List</span>
                                                 </div>
                                                 <div class="my-2 mr-2">
-                                                <div class="input-group">
-                                                        <input type="text" class="form-control" [(ngModel)]="term"
-                                                                placeholder="Search Employee">
-                                                        <div class="input-group-append">
-                                                                <button class="btn btn-secondary" type="button">
-                                                                        <i class="fa fa-search"></i>
-                                                                </button>
+                                                        <div class="input-group">
+                                                                <input type="text" class="form-control"
+                                                                        [(ngModel)]="term"
+                                                                        placeholder="Search Employee">
+                                                                <div class="input-group-append">
+                                                                        <button class="btn btn-secondary" type="button">
+                                                                                <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                </div>
                                                         </div>
                                                 </div>
-                                                </div>
                                         </div>
-                                      
+
                                 </div>
                                 <div class="card-body my-1">
-                                     
+
                                         <table class="table table-striped my-2" style="margin: auto; width: 85%;">
                                                 <thead>
                                                         <tr class="headone">
                                                                 <th>NO</th>
-                                                                <th align="center"scope="col">First Name</th>
-                                                                <th align="center"scope="col">Last Name</th>
-                                                                <th align="center"scope="col">Email</th>
+                                                                <th align="center" scope="col">First Name</th>
+                                                                <th align="center" scope="col">Last Name</th>
+                                                                <th align="center" scope="col">Email</th>
                                                                 <th align="center" scope="col">Phone No.</th>
-                                                                <th  align="center" scope="col">Title</th>
+                                                                <th align="center" scope="col">Title</th>
                                                         </tr>
                                                 </thead>
                                                 <tbody>
-                                                        <tr *ngFor="let user of infodetail | filter:term | paginate: configer; let i = index">
+                                                        <tr
+                                                                *ngFor="let user of infodetail | filter:term | paginate: configer; let i = index">
 
                                                                 <td scope="row" class="name">{{i+1}}</td>
-                                                                <td class="name">{{user?.firstName}}</td>
-                                                                <td align="center" class="blue">{{user?.lastName}}</td>
-                                                                <td align="center" class="name">{{user?.email}}</td>
-                                                                <td align="center" class="name">{{user?.phoneNo}}0</td>
-                                                                <td align="center" class="red">{{user?.title}}</td>
+                                                                <td class="name">{{user.firstName}}</td>
+                                                                <td align="center" class="blue">{{user.lastName}}</td>
+                                                                <td align="center" class="name">{{user.email}}</td>
+                                                                <td align="center" class="name">{{user.phoneNo}}</td>
+                                                                <td align="center" class="red">{{user.title}}</td>
                                                         </tr>
-                                                        
+
 
 
                                                 </tbody>
-                                               
+
                                         </table>
                                         <div class="text-right">
-                                                        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-                                         </div>
+                                                <pagination-controls (pageChange)="pageChanged($event)">
+                                                </pagination-controls>
+                                        </div>
                                 </div>
                         </div>
 
                         <p-dialog [modal]="true" header='' (onHide)="removeSkill()" [scrollTop]='0' [blockScroll]="true"
                                 [(visible)]="display" [style]="{width: '100%'}">
                                 <p-header class="dialogHeader mt-2">
-                                   <div class="d-flex">
+                                        <div class="d-flex">
                                                 <div class="my-2 mr-auto">
-                                        <img src="../../../assets/user big.png" alt="">
-                                        <span class="ml-2 mt-2 report">Add Employee</span>
+                                                        <img src="../../../assets/user big.png" alt="">
+                                                        <span class="ml-2 mt-2 report">Add Employee</span>
                                                 </div>
-                                        <div class=""> 
-                                                <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill()"></i>
-                                        </div>
+                                                <div class="">
+                                                        <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                                                (click)="removeSkill()"></i>
+                                                </div>
                                         </div>
                                 </p-header>
                                 <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
@@ -202,6 +206,51 @@
                                         </div>
 
                                         <div class="col-sm-4"></div>
+                                        <div class="row">
+                                                <div class="col-sm-8">
+                                                        <div class="row ">
+                                                                <div class="col-sm-2 field">
+
+                                                                        <label class="nam_e">Department :</label> </div>
+                                                                <div class="col-sm-4 ">
+                                                                        <select id="department"
+                                                                                class="form-control code skill box"
+                                                                                size="0" name="department"
+                                                                                formControlName='department'
+                                                                                (change)="getDesignationList()">
+
+                                                                                <option value="" disable>Select
+                                                                                        department</option>
+                                                                                <option>Software</option>
+                                                                                <option>Embedded</option>
+                                                                                <option>Mechanical</option>
+                                                                        </select>
+
+                                                                </div>
+
+                                                                <div class="col-sm-2 field">
+
+                                                                        <label class="nam_e">Designation :</label>
+                                                                </div>
+                                                                <div class="col-sm-4 ">
+                                                                        <select id="designation"
+                                                                                class="form-control code skill box"
+                                                                                size="0" name="designation"
+                                                                                formControlName='designation'>
+
+                                                                                <option [value]="design"
+                                                                                        *ngFor="let design of designationList">
+                                                                                        {{design}}</option>
+
+                                                                        </select>
+
+                                                                </div>
+
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-sm-4"></div>
                                         <label class="head">Identity proof</label>
                                         <div class="col-sm-9">
                                                 <div class="row ">
@@ -218,14 +267,13 @@
                                                                                         formControlName='ID'>
 
                                                                                         <option value="" disable>Select
-                                                                                                file type</option>
-                                                                                        <option>Adhar No.-</option>
-                                                                                        <option>Passport No.</option>
-                                                                                        <option>PAN Card No.</option>
-                                                                                        <option>Adhar Card No.</option>
-                                                                                        <option>Driving Lincese No.
+                                                                                                ID type</option>
+                                                                                        <option>Adhar Card</option>
+                                                                                        <option>Passport</option>
+                                                                                        <option>PAN Card</option>
+                                                                                        <option>Driving Lincese
                                                                                         </option>
-                                                                                        <option>Voter ID No.</option>
+                                                                                        <option>Voter ID</option>
                                                                                 </select></div>
                                                                         <div class="col-sm-8">
                                                                                 <div class="row">
@@ -257,9 +305,13 @@
 
                                                 <div class="row">
                                                         <div class="clip ml-5 my-2">
-                                                            <span class="left_chip my-2 ml-1" *ngFor="let doc of this.docArray;index as i">
-                                                            {{doc}} <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeDoc(i)"></i>
-                                                            </span></div></div> 
+                                                                <span class="left_chip my-2 ml-1"
+                                                                        *ngFor="let doc of this.docArray;index as i">
+                                                                        {{doc}} <i class=" tick pi pi-times mt-2 "
+                                                                                aria-hidden="true"
+                                                                                (click)="removeDoc(i)"></i>
+                                                                </span></div>
+                                                </div>
                                                 <hr>
                                                 <div class="row">
                                                         <div class="col-sm-7"></div>
