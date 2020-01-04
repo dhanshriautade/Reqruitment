@@ -26,8 +26,7 @@
                                 <!-- <input type="file" class="filetag" name="myfile" (change)="upload($event.target.files)" /> -->
                                 <!-- <span class="req">*</span> -->
                                 <input type="file" class="  btn-file-upload1 form-control " value="Upload Resume"
-                                    (change)="getFileDetails($event)"
-                                    formControlName="file" />
+                                    (change)="getFileDetails($event)" formControlName="file" />
                             </label>
                             <span class=" ml-2 mt-2 word">Or</span>
                             <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
@@ -37,9 +36,8 @@
                         </div>
                         <div class="col-sm-4 my-3">
                             <label>
-                                  <input type="file" class=" form-control btn-file-upload1" value="Upload File"
-                                   (change)="Details($event)"
-                                    formControlName="secondfile" />
+                                <input type="file" class=" form-control btn-file-upload1" value="Upload File"
+                                    (change)="Details($event)" formControlName="secondfile" />
                             </label>
                             <span class=" ml-2 mt-2 word">Or</span>
                             <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
@@ -48,7 +46,7 @@
                             <div class="error" *ngIf="err">Invalid file type or size </div>
                         </div>
 
-                      
+
                     </div>
 
                     <hr class="line">
@@ -155,15 +153,14 @@
                                     <label>Cell No. :</label> </div>
                                 <div class="col-sm-4 ">
                                     <div class="tel">
-                                         <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
+                                        <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
                                             [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
                                             [searchCountryFlag]="true"
-
                                             [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
                                             [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
                                             [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
                                             [separateDialCode]="separateDialCode" formControlName="phone" name="phone">
-                                        </ngx-intl-tel-input> 
+                                        </ngx-intl-tel-input>
                                     </div>
 
                                 </div>
@@ -172,11 +169,11 @@
                                     <label>Title :</label> </div>
                                 <div class="col-sm-4">
                                     <input type="text" autocomplete="off" class="form-control text-centre"
-                                    placeholder="" name="title" formControlName="title">
+                                        placeholder="" name="title" formControlName="title">
                                     <span class="text-danger"
-                                    *ngIf="personalInfoForm.controls['title'].hasError('required') &&
+                                        *ngIf="personalInfoForm.controls['title'].hasError('required') &&
                                     (personalInfoForm.controls['title'].dirty || personalInfoForm.controls['title'].touched)">This
-                                    field is required</span>
+                                        field is required</span>
                                     <!-- <span style="color:red;" *ngIf="message">{{message}}</span>
                                     <input #file type="file" accept='image/*' class="btn-file-upload"
                                         (change)="preview(file.files)" value="Browse" />
@@ -303,10 +300,10 @@
 
                         <div class="clip ml-5 my-2">
                             <span class="left_chip my-2 ml-1" *ngFor="let primarySkill of this.skillArray;index as i">
-                            {{primarySkill}}
-                             <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill(i)"></i>
+                                {{primarySkill}}
+                                <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill(i)"></i>
                             </span>
-                            </div>
+                        </div>
                     </div>
 
                     <div class="row">
@@ -336,12 +333,14 @@
 
                         <div class="col-sm-3"></div>
                         <div class="clip ml-5 my-2">
-                            <span class="left_chip my-2 ml-1" *ngFor="let secondorySkill of this.secskillArray;index as i">
-                            {{secondorySkill}} <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removesecSkill(i)"></i>
+                            <span class="left_chip my-2 ml-1"
+                                *ngFor="let secondorySkill of this.secskillArray;index as i">
+                                {{secondorySkill}} <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                    (click)="removesecSkill(i)"></i>
                             </span>
-                            </div>
+                        </div>
 
-                       
+
                     </div>
                     <div class="col-sm-12 line"></div>
                     <div class="row ">
@@ -360,12 +359,8 @@
                                             placeholder="Area Code" name="idproof" formControlName='idProof'>
 
                                             <option value="" disable>Select file type</option>
-                                            <option>adhar</option>
-                                            <option>Passport No.</option>
-                                            <option>PAN Card No.</option>
-                                            <option>Adhar Card No.</option>
-                                            <option>Driving Lincese No.</option>
-                                            <option>Voter ID No.</option>
+                                            <option [value]="idType" [disabled]="docidArray.includes(idType)" *ngFor="let idType of idTypeList">
+                                                {{idType}}</option>
                                         </select></div>
                                     <div class="col-sm-8">
                                         <div class="row">
@@ -381,17 +376,20 @@
                                 </div>
                             </div>
                         </div>
-                
 
 
 
-                    <div class="col-sm-3"></div>
-                    <div class="row">
-                    <div class="clip ml-5 my-2">
-                        <span class="left_chip my-2 ml-1" *ngFor="let doc of this.docArray;index as i">
-                        {{doc}} <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeDoc(i)"></i>
-                        </span></div></div>    </div>   
-                  
+
+                        <div class="col-sm-3"></div>
+                        <div class="row">
+                            <div class="clip ml-5 my-2">
+                                <span class="left_chip my-2 ml-1" *ngFor="let doc of this.docArray;index as i">
+                                    {{doc}} <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                        (click)="removeDoc(i)"></i>
+                                </span></div>
+                        </div>
+                    </div>
+
                     <div class="col-sm-3"></div>
 
                     <div class="row">
@@ -420,7 +418,7 @@
                         <div class="col-sm-7"></div>
                         <div class="col-sm-5">
                             <button type="submit" class="btn btn-primary save">Save
-                                
+
                                 <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
                             </button></div>
                     </div>
