@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   name;
   email: string;
   constructor(private router: Router) {
-    this.email = localStorage.getItem('email');
+    this.name = localStorage.getItem('name');
   }
 
   LogOut(){

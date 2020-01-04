@@ -39,10 +39,9 @@ export class LoginComponent implements OnInit {
   
   onSubmit(){
     // this.spinner =  true;
-    
+    this.spinner = true;
     this.markFormTouched(this.loginForm);
     if (this.loginForm.valid) {
-
       var formValues = this.loginForm.getRawValue;
 
     } else {
@@ -79,6 +78,7 @@ export class LoginComponent implements OnInit {
                  console.log(this.info);
                    localStorage.setItem('id',this.info.emp_id);
                   localStorage.setItem('email',this.info.email);
+                  localStorage.setItem('name',this.info.empName);
                  this.spinner =false;
                   if(this.info.status ===  true){
                     this.toastr.success('Successfully signin !!!');
@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit {
                 }
                 )
                 
-                this.spinner = false;             
+                // this.spinner = false;             
                   
 
      
