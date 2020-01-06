@@ -237,68 +237,66 @@ title:['', Validators.required],
 
 })
 
-var email = 'dhanshri.autade3@gmail.com';
-this.TeamService.GetProfile(email).subscribe((res: any) => {
-console.log('getprofile', res);
+var email = this.email_id;
 
-if(res.primarySkill != ''){
-for(var i=0; i<res.primarySkill.length;i++)
-{
-this.skillArray.push(res.primarySkill[i]);
+this.getProfileEmployee();
+
+
 }
 
-}
-if(res.secondarySkill != ''){
-for(var i=0; i<res.secondarySkill.length;i++)
-{
-this.secskillArray.push(res.secondarySkill[i]);
-}
 
-}
-if(res.idproof !=''){
-for(var i=0;i<res.idproof.length;i++){
-}
-
-}
-// if(res.identityNo !=''){
-// for(var i=0;i<res.identityNo.length;i++){
-// this.documentArray.push(res.idProof[i]);
-// }
-
-// }
-this.personalInfoForm.get('firstName').setValue(res.firstName);
-this.personalInfoForm.get('lastName').setValue(res.lastName);
-this.personalInfoForm.get('email').setValue(res.email);
-this.personalInfoForm.get('dob').setValue(res.dob);
-this.personalInfoForm.get('country').setValue(res.country);
-this.personalInfoForm.get('state').setValue(res.state);
-this.personalInfoForm.get('city').setValue(res.city);
-this.personalInfoForm.get('noticePer').setValue(res.noticePeriod);
-this.personalInfoForm.get('primarySkill').setValue(res.primarySkill);
-this.personalInfoForm.get('secondorySkill').setValue(res.secondarySkill);
-this.personalInfoForm.get('idProof').setValue(res.idproof);
-this.personalInfoForm.get('identityNo').setValue('');
-this.personalInfoForm.get('designation').setValue(res.designation);
-this.personalInfoForm.get('sExpYear').setValue(res.sExpYear);
-this.personalInfoForm.get('sExpMonth').setValue(res.sExpMonth);
-this.personalInfoForm.get('phone').setValue(res.countryCode, + ' + ' + res.contact);
-
-this.personalInfoForm.get('expYear').setValue(res.totalExperienceInYear);
-this.personalInfoForm.get('expMonth').setValue(res.totalExperienceInMonth);
-this.personalInfoForm.get('title').setValue(res.title);
-//contact
-//country code
-// residualCountry
-//secondarySkill
-
-
-
-
-//title
-})
-
-
-
+getProfileEmployee(){
+    var email = this.email_id;
+    this.TeamService.GetProfile(email).subscribe((res: any) => {
+        console.log('getprofile', res);
+        
+        if(res.primarySkill != ''){
+        for(var i=0; i<res.primarySkill.length;i++)
+        {
+        this.skillArray.push(res.primarySkill[i]);
+        }
+        
+        }
+        if(res.secondarySkill != ''){
+        for(var i=0; i<res.secondarySkill.length;i++)
+        {
+        this.secskillArray.push(res.secondarySkill[i]);
+        }
+        
+        }
+        if(res.idproof !=''){
+        for(var i=0;i<res.idproof.length;i++){
+        }
+        
+        }
+        // if(res.identityNo !=''){
+        // for(var i=0;i<res.identityNo.length;i++){
+        // this.documentArray.push(res.idProof[i]);
+        // }
+        
+        // }
+        this.personalInfoForm.get('firstName').setValue(res.firstName);
+        this.personalInfoForm.get('lastName').setValue(res.lastName);
+        this.personalInfoForm.get('email').setValue(res.email);
+        this.personalInfoForm.get('dob').setValue(res.dob);
+        this.personalInfoForm.get('country').setValue(res.country);
+        this.personalInfoForm.get('state').setValue(res.state);
+        this.personalInfoForm.get('city').setValue(res.city);
+        this.personalInfoForm.get('noticePer').setValue(res.noticePeriod);
+        this.personalInfoForm.get('primarySkill').setValue(res.primarySkill);
+        this.personalInfoForm.get('secondorySkill').setValue(res.secondarySkill);
+        this.personalInfoForm.get('idProof').setValue(res.idproof);
+        this.personalInfoForm.get('identityNo').setValue('');
+        this.personalInfoForm.get('designation').setValue(res.designation);
+        this.personalInfoForm.get('sExpYear').setValue(res.sExpYear);
+        this.personalInfoForm.get('sExpMonth').setValue(res.sExpMonth);
+        this.personalInfoForm.get('phone').setValue(res.countryCode, + ' + ' + res.contact);
+        
+        this.personalInfoForm.get('expYear').setValue(res.totalExperienceInYear);
+        this.personalInfoForm.get('expMonth').setValue(res.totalExperienceInMonth);
+        this.personalInfoForm.get('title').setValue(res.title);
+      
+        })
 }
 
 addSkill() {
@@ -479,7 +477,10 @@ this.toastr.success('Successfully created Employee !!!');
 
 })
 this.markFormTouched(this.personalInfoForm);
+
 this.personalInfoForm.reset();
+
+
 
 
 }
