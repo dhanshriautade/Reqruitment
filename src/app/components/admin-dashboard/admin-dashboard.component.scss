@@ -146,3 +146,108 @@ width: 106%;
     padding: 23px,6px,4px,5px;
     font-size: smaller;
 }
+
+.note{
+    color:#6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+    width: 314px;
+}
+.nam_e{
+    text-align: end;
+}
+.notice{
+  
+    margin-top: 9px;
+}
+.dept{
+    width: 314px;
+    color:#6F838C;
+    border-radius: 5px;
+    padding: 11px 55px 5px 0px;
+    border-color: #CCD8DD;
+    background-color: white;
+}
+.tick{
+    display: inline-block;
+    color:#ACBEC6;
+   
+    
+   }
+.add{
+    background-color: #ACBEC6;
+    margin-left: 10px;
+    width:65px;
+    color:white;
+}
+.des{
+    border: 1px solid #CCD8DD;
+    border-radius: 3px;
+    height: 152px;
+}
+.draw{
+    border: 1px solid #CCD8DD;
+    border-radius: 3px;
+    height: 30px;
+    background-color: #E8E7E8;
+}
+.left_chip {
+    font-size: 13px;
+    background-color: #EBEFF1;
+    padding: 2px 9px 8px 9px;
+    color: #536D77;
+    border-radius: 15px;
+    display: inline-block;
+    margin-right: 15px;
+    }
+    .clip{
+    background-color:white;
+    border: 1px solid #CCD8DD;
+    border-radius: 3px;
+    }
+    .line{
+        border-bottom: 1px solid gray;
+        margin-top: 20px;
+      
+    }
+    // :host ::ng-deep .pi-times{
+    //     display: none;
+    //   } 
+      .report{
+        color: blue;
+        font-size: larger;
+       
+      }
+      .info{
+          color: white;
+        background-color: blue;
+        width: 180px;
+    }
+    .submit{
+        color: white;
+        background-color: blue;
+        width: 150px;
+
+    }
+    .preview{
+        color: gray;
+        background-color: #ACBEC6;
+        width: 150px;
+
+    }
+    .cancel{
+        color: gray;
+        background-color: white;
+        width: 150px;
+
+    }
+    .replace{
+        color:gray;
+    }
+    :host ::ng-deep.ui-dialog-content {
+        height: 357.25px;
+        overflow-y: scroll !important;
+    }
+    
