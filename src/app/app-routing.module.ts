@@ -9,8 +9,6 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { CreateJobComponent } from './components/create-job/create-job.component';
-
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -24,7 +22,6 @@ const routes: Routes = [
       { path: 'home', component: EmployeeComponent},
       { path: 'admin', component: AdminComponent},
       { path: 'dash' , component:AdminDashboardComponent},
-      { path: 'job' , component:CreateJobComponent}
     ]
   }
 ]
