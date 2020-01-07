@@ -29,6 +29,12 @@ export class TeamService {
     return this.http.post(environment.login, data, { headers: headers });
   }
 
+  CreateJob(data: any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.CreateJob, data, { headers: headers });
+  }
 
   GetProfile(data: any){
     let headers = new HttpHeaders({

@@ -12,7 +12,8 @@ export const environment = {
   uploadresume:base_url + 'uploadDocuments',
   forgot: base_url + 'emailexists?email=',
   getprofile:base_url + 'getprofile',
-  AddInfo:base_url + 'experienceprofile'
+  AddInfo:base_url + 'experienceprofile',
+  CreateJob: base_url + 'addjobcreation'
 };
 
 /*
