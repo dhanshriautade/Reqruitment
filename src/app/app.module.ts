@@ -18,7 +18,7 @@ import {MenuItem} from 'primeng/api';
 import { AppEmployeeComponent } from './components/app-employee/app-employee.component';  
 import {DialogModule} from 'primeng/dialog';
 import {CalendarModule} from 'primeng/calendar';
- 
+import {ChartModule} from 'primeng/chart';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -60,6 +60,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
  
   
   imports: [
+    ChartModule,
     BrowserModule,
     AutoCompleteModule,
     AccordionModule,
