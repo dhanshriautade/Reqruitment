@@ -5,7 +5,7 @@
 
 .main{
     background-color: white;    
-    padding: 6px;
+    //padding: 6px;
 }
 .summary{
     background-color: white;  
@@ -22,6 +22,7 @@
 
 .wel{
     font-weight: bolder;
+    color: #253238;
    
 }
 .name1{
@@ -75,13 +76,12 @@ width: 106%;
     margin-left: 71px;
 }
 .job{
-    width: 106%;
     height: 32px;
     line-height: 1px;
-    margin-left: 42%;
+    width: 150px;
 }
 .head{
-    background-color:#5D7C8C;
+    background-color:#8EA3AF;
     //height: 39px;
     margin: 0px 6px 0px 6px;
 }
@@ -89,9 +89,8 @@ width: 106%;
 .apply{
     background-color: #AFBEC6;
     color: white;
-    height: 36px;
+    height: 30px;
     line-height: 1px;
-    margin-left: 13px;
 }
 .square{
     background-color: #5632FF;
@@ -130,13 +129,20 @@ width: 106%;
 }
 
 .box{
-    width: 143px;
+    width: 167px;
     color: #AFBEC6;
-    border: none;
 }
 .for{
     color: #AFBEC6;
 }
 .bookmark{
     color: red;
+}
+.search{
+    width: 490px;
+    height: 33px;
+    margin-top: 3px;
+    border-radius: 6px;
+    padding: 23px,6px,4px,5px;
+    font-size: smaller;
 }
