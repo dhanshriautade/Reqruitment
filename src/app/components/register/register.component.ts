@@ -70,8 +70,7 @@ export class RegisterComponent implements OnInit {
     }
     onSubmit() {
         this.submitted = true;
-      
-        this.markFormTouched(this.registerForm);
+        // this.markFormTouched(this.registerForm);
         this.data = {
             "firstName": this.registerForm.value.firstname,
             "lastName": this.registerForm.value.lastName,
@@ -83,12 +82,10 @@ export class RegisterComponent implements OnInit {
 
         }
        
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
-           
-        }else{    
+     
             this.spinner = true;  
+         
+            console.log('data',this.data);
             this.TeamService.SignUp(this.data).subscribe((res : any) => {
                 console.log(res);
                if(res.code === '200' || res.code === 200  ){
@@ -104,14 +101,13 @@ export class RegisterComponent implements OnInit {
      
         
     }
-        markFormTouched(group: FormGroup | FormArray) {
-            Object.keys(group.controls).forEach((key: string) => {
-              const control = group.controls[key];
-              if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
-              else { control.markAsTouched(); };
-            });
-          };
+        // markFormTouched(group: FormGroup | FormArray) {
+        //     Object.keys(group.controls).forEach((key: string) => {
+        //       const control = group.controls[key];
+        //       if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+        //       else { control.markAsTouched(); };
+        //     });
+        //   };
 
 
     
-}
