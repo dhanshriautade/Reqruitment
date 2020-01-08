@@ -18,6 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   notice; 
   data;
   spinner = false;
+  term;
   deptartment: {}[];
   skillArray = [];
   createJobForm = new FormGroup({
