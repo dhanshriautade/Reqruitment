@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TeamService } from 'src/app/services/team.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -16,12 +17,14 @@ export class AdminDashboardComponent implements OnInit {
   getAllJob;
   notice; 
   data;
+  spinner = false;
   deptartment: {}[];
   skillArray = [];
   createJobForm = new FormGroup({
 
   })
- constructor(private formBuilder: FormBuilder,public TeamService: TeamService) {
+  markFormTouched: any;
+ constructor(private formBuilder: FormBuilder, private toastr: ToastrService,public TeamService: TeamService) {
   this.notice = [
     { 'notes': 'one week' }, { 'notes': ' 15 days' }, { 'notes': '1 month' }, { 'notes': ' 2 month' }, { 'notes': '3 month' }, { 'notes': 'other' }
     
@@ -95,10 +98,10 @@ export class AdminDashboardComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    
+    this.spinner = true;
    
     this.data = {
-      "jobId":"A0010",
+      "jobId":"A0013",
       "designation":this.createJobForm.value.designation,
       "experienceInYears":this.createJobForm.value.experienceInYears,
       "noticePeriod":this.createJobForm.value.noticePeriod,
@@ -114,8 +117,13 @@ export class AdminDashboardComponent implements OnInit {
       
       }
       this.TeamService.CreateJob(this.data).subscribe(res => { 
+        this.spinner = false;
+this.toastr.success('Successfully created job !!!');
       
       });
+     
+this.createJobForm.reset();
+this.spinner = false;
       console.log('this is jobcreation',this.data);
       this.display = false;
       this.currentStatus = true;
