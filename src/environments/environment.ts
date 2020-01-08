@@ -13,7 +13,8 @@ export const environment = {
   forgot: base_url + 'emailexists?email=',
   getprofile:base_url + 'getprofile',
   AddInfo:base_url + 'experienceprofile',
-  CreateJob: base_url + 'addjobcreation'
+  CreateJob: base_url + 'addjobcreation',
+  GetAlljob: base_url + 'getalljobpostingdetails'
 };
 
 /*

@@ -28,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AdminComponent } from './components/admin/admin.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
@@ -62,6 +63,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
   imports: [
     ChartModule,
     BrowserModule,
+    AngularFontAwesomeModule,
     AutoCompleteModule,
     AccordionModule,
     RouterModule.forRoot([]),

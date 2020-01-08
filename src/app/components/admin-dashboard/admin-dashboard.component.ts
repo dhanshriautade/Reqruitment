@@ -13,6 +13,7 @@ export class AdminDashboardComponent implements OnInit {
   currentStatus =  true;
   display =false;
   submitted: boolean;
+  getAllJob;
   notice; 
   data;
   deptartment: {}[];
@@ -55,6 +56,7 @@ export class AdminDashboardComponent implements OnInit {
      this.currentStatus = false;
      this.display = true;
    }
+  
   ngOnInit() {
     this.createJobForm = this.formBuilder.group({
       jobId: [''],
@@ -72,6 +74,11 @@ export class AdminDashboardComponent implements OnInit {
 
 
     })
+
+    this.TeamService.Getalljob().subscribe(res => { 
+       console.log(res);
+       this.getAllJob = res;
+    });
   
   }
 
@@ -84,13 +91,14 @@ export class AdminDashboardComponent implements OnInit {
     this.skillArray.splice(i, 1);
     }
   showDialog(){
-    this.display=true;
+    this.display=false;
   }
   onSubmit() {
     this.submitted = true;
+    
    
     this.data = {
-      "jobId":"A008",
+      "jobId":"A0010",
       "designation":this.createJobForm.value.designation,
       "experienceInYears":this.createJobForm.value.experienceInYears,
       "noticePeriod":this.createJobForm.value.noticePeriod,
@@ -109,6 +117,9 @@ export class AdminDashboardComponent implements OnInit {
       
       });
       console.log('this is jobcreation',this.data);
+      this.display = false;
+      this.currentStatus = true;
+
    
   }
 

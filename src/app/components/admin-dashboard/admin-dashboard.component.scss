@@ -60,10 +60,6 @@
     border-right: 1px solid white;
     // color: white;
 }
-.hr{
-    color: #AFBEC6;
-    margin-left: 108px;
-}
 .img{
     width: 26px;
 }
@@ -82,8 +78,7 @@ width: 106%;
 }
 .head{
     background-color:#8EA3AF;
-    //height: 39px;
-    margin: 0px 6px 0px 6px;
+   
 }
 
 .apply{
@@ -92,43 +87,14 @@ width: 106%;
     height: 30px;
     line-height: 1px;
 }
-.square{
-    background-color: #5632FF;
-    //width: 83px;
-    height: 38px;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    line-height: 36px;
-    font-size: x-large;
-}
-.square1{
-    background-color: #00E35B;
-   // width: 83px;
-    height: 38px;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    line-height: 36px;
-    font-size: x-large;
-}
-.square2{
-    background-color: #DF0058;
-    //width: 83px;
-    height: 38px;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    line-height: 36px;
-    font-size: x-large;
-    
-}
+
 .complete{
     font-weight: bold;
     color: white;
 }
 
 .box{
+    border: none;
     width: 167px;
     color: #AFBEC6;
 }
@@ -153,7 +119,7 @@ width: 106%;
     padding: 11px 55px 5px 0px;
     border-color: #CCD8DD;
     background-color: white;
-    width: 314px;
+    width: 284px;
 }
 .nam_e{
     text-align: end;
@@ -163,7 +129,7 @@ width: 106%;
     margin-top: 9px;
 }
 .dept{
-    width: 314px;
+    width: 286px;
     color:#6F838C;
     border-radius: 5px;
     padding: 11px 55px 5px 0px;
@@ -206,17 +172,19 @@ width: 106%;
     background-color:white;
     border: 1px solid #CCD8DD;
     border-radius: 3px;
+ 
     }
     .line{
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid #CCD8DD;
         margin-top: 20px;
       
     }
-    // :host ::ng-deep .pi-times{
-    //     display: none;
-    //   } 
+    :host ::ng-deep .pi-times{
+        display: none;
+    }
+   
       .report{
-        color: blue;
+        color: #3E5EFF;
         font-size: larger;
        
       }
@@ -227,7 +195,7 @@ width: 106%;
     }
     .submit{
         color: white;
-        background-color: blue;
+        background-color: #3E5EFF;
         width: 150px;
 
     }
@@ -243,11 +211,25 @@ width: 106%;
         width: 150px;
 
     }
-    .replace{
+    .replaced{
         color:gray;
     }
     :host ::ng-deep.ui-dialog-content {
-        height: 357.25px;
+        height: 370.25px;
         overflow-y: scroll !important;
+     
+    }
+    .show_button{
+        margin-bottom: 30px;
+    }
+    .tick1{
+        display: none;
+    }
+   
+    .imge{
+        padding-bottom: 4px;
+    }
+    .pckg{
+        text-align: left;
     }
     
