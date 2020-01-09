@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
   displaydilog: boolean;
+  isActive: boolean;
 
   constructor() { }
 
   showTest(){
     this.displaydilog=true;
+  }
+  onClick() {
+    this.isActive = !this.isActive;
+    
   }
  
   ngOnInit() {

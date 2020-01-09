@@ -90,7 +90,7 @@
                                     <th align="center" scope="col">ECTC</th>
                                     <th align="center" scope="col">Location</th>
                                     <th align="center" scope="col">Date</th>
-                                    <th align="center" scope="col"><i class=" star pi pi-star"></i></th>
+                                    <th align="center" scope="col"><i class="fa fa-star" aria-hidden="true"></i></th>
                                     <th align="center" scope="col">Action</th>
                                     <th align="center" scope="col">Assign</th>
                                     <th align="center" scope="col">Status</th>
@@ -108,20 +108,15 @@
                                     <td align="center" class="red">05</td>
                                     <td align="center" class="red bookmark">Pune</td>
                                     <td align="center" class="red">07-03-2020</td>
-                                    <td align="center" class="red"><i class=" stars pi pi-star"></i></td>
+                                    <td align="center" class="red"><div (click)="onClick()">
+                                        <i class="pi pi-star" [class.active]="isActive"></i>
+                                     </div></td>
                                     <td align="center" class="red text-primary" style="z-index: 1;"><i
                                             class="font fa fa-gear" (click)="op.toggle($event)"></i>   </td>
                                             <td align="center" class="red text-primary">assign</td>
                                             <td align="center" class="red">Rejected</td>
         
                                         </tr>
-                                       
-                                <!-- <p-dialog [(visible)]="displaydilog" [style]="{width: '90%', height: '20px'}">
-                                    <p-header class="dialogHeader mt-2">
-                                        
-                                        <span class="ml-2 mt-2 report"> Action</span>
-                                        </p-header>
-                                    </p-dialog> -->
                             </tbody>
 
                         </table>
