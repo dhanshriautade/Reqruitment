@@ -343,7 +343,7 @@
                         <div class="col-sm-2"></div>
                         <div class=" col-sm-8 ">
                             <div class="input-group">
-                                <input type="text" class="search"
+                                <input type="text" class="search"   [(ngModel)]="term"
                                     placeholder="Search Employees,designations,jobs,job ID...">
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary" type="button">
@@ -381,7 +381,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let job of getAllJob;index as i">
+                                    <tr *ngFor="let job of getAllJob  | filter:term | paginate: config ;index as i">
                                         <td scope="row" class="name">{{i+1}}</td>
                                         <td class="name">Java Lead</td>
                                         <td align="center" class="blue text-primary">{{job.jobId}}</td>

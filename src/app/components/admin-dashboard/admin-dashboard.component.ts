@@ -18,12 +18,14 @@ export class AdminDashboardComponent implements OnInit {
   notice; 
   data;
   spinner = false;
+  term;
   deptartment: {}[];
   skillArray = [];
   createJobForm = new FormGroup({
 
   })
   markFormTouched: any;
+  config: { itemsPerPage: number; currentPage: number; totalItems: any; };
  constructor(private formBuilder: FormBuilder, private toastr: ToastrService,public TeamService: TeamService) {
   this.notice = [
     { 'notes': 'one week' }, { 'notes': ' 15 days' }, { 'notes': '1 month' }, { 'notes': ' 2 month' }, { 'notes': '3 month' }, { 'notes': 'other' }
@@ -81,6 +83,11 @@ export class AdminDashboardComponent implements OnInit {
     this.TeamService.Getalljob().subscribe(res => { 
        console.log(res);
        this.getAllJob = res;
+       this.config = {
+        itemsPerPage: 2,
+        currentPage: 1,
+        totalItems: this.getAllJob.count
+      };
     });
   
   }
@@ -89,6 +96,10 @@ export class AdminDashboardComponent implements OnInit {
   addskill() {
     this.skillArray.push(this.createJobForm.get('skills').value);
   }
+  pageChanged(event){
+    this.config.currentPage = event;
+  }
+ 
   removeSkill(i: any) {
     console.log(i)
     this.skillArray.splice(i, 1);
