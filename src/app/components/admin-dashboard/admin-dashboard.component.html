@@ -57,9 +57,16 @@
                 </div>
                 <div class="Centered">
                     <p-dialog [(visible)]="displayp" [style]="{width: '62%'}" class="abc">
-                          <p-header class="dialogHeader mt-2">
+                          <p-header class="dialogHeader"> 
+                            <div class="row diaheader"> 
+                             <div class="col-sm-10">
                               <img class="imge" src="../../../assets/logo/Create Job.png" alt="">
-                              <span class="ml-2 mt-2 report">JVL0145</span>
+                              <span class="ml-2 report">JVL0145</span>
+                              </div>
+                              <div class="col-sm-2">
+                              <i class="tick fa fa-times mt-2" aria-hidden="true"(click)="removeWindow()"></i>
+                              </div>
+                           </div>
                           </p-header>
                           <form class="group grp_form" [formGroup]="previewjobForm" (ngSubmit)="onSubmit()">
                               <div class="row my-3">
@@ -106,7 +113,7 @@
                               <div class="row">
                                   <div class="col-sm-9"></div>
                                   <div class="col-sm-3">
-                                      <button type="button" class="btn reset">Close</button>
+                                      <button type="button" class="btn windowclose" (click)="removeWindow()">Close</button>
                                   </div>
                               </div>
                           </form>
