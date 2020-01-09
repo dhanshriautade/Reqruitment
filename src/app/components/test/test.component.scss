@@ -50,7 +50,7 @@
         color: #157DEC;
         font-weight: bold;
     }
-    .star{
+    .stars{
 color: white;
 padding-top: 5px;
 font-size: 25px;
@@ -99,9 +99,20 @@ font-size: 25px;
               width: 4%;
                 position: fixed;
                 top: 73%;
-	            left: 77%;
-	            
-               
+	            left: 77%;  
+            }
+            .pi-star {
+                color:#ACBEC6;
+                font-size: 26px;
+            }
+            .fa-star {
+                color:white;
+                font-size: 19px;
+            }
+            
+            .pi-star.active {
+                color: #FFC900;
+                font-size: 26px;
             }
              
          
