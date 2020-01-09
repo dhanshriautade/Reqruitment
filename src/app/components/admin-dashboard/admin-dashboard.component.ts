@@ -13,6 +13,8 @@ export class AdminDashboardComponent implements OnInit {
   datacharts: any;
   currentStatus =  true;
   display =false;
+  displayPreview = false;
+  displayp=false;
   submitted: boolean;
   getAllJob;
   notice; 
@@ -22,6 +24,9 @@ export class AdminDashboardComponent implements OnInit {
   deptartment: {}[];
   skillArray = [];
   createJobForm = new FormGroup({
+
+  })
+  previewjobForm = new FormGroup({
 
   })
   markFormTouched: any;
@@ -60,7 +65,16 @@ export class AdminDashboardComponent implements OnInit {
    createjob(){
      this.currentStatus = false;
      this.display = true;
+     this.displayp = false
    }
+
+
+   previewjob(){
+    this.displayp = true;
+    this.displayPreview = true
+
+   }
+  
   
   ngOnInit() {
     this.createJobForm = this.formBuilder.group({
