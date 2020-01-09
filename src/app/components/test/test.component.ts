@@ -13,6 +13,7 @@ export class TestComponent implements OnInit {
   showTest(){
     this.displaydilog=true;
   }
+ 
   ngOnInit() {
   }
 
