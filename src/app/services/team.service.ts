@@ -22,6 +22,14 @@ export class TeamService {
     return this.http.post(environment.AddInfo, data, { headers: headers });
   }
 
+
+  getNotification(){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.get(environment.getnotification, { headers: headers });
+
+  }
   Login(data: any){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
