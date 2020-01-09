@@ -27,7 +27,15 @@
        text-align: center;
        font-size: smaller;
    }
+   .Centered{
+    position: fixed;
+    top: 40%;
+    left: 35%;
+    width: 22%;
+ }
+   .div_hover { background-color: #FFFFFF; }
 
+   .div_hover:hover { background-color:#ECEFF1; }
    .notify{
        display: contents
    }
