@@ -9,6 +9,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { TestComponent } from './components/test/test.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'home', component: EmployeeComponent},
       { path: 'admin', component: AdminComponent},
       { path: 'dash' , component:AdminDashboardComponent},
+      { path: 'test' , component:TestComponent},
     ]
   }
 ]

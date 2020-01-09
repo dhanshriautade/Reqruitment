@@ -312,7 +312,9 @@
                             <div class="col-sm-6 show_button">
                                 <button type="button" class="btn cancel my-3 mr-4">cancel</button>
                                 <button type="button" class="btn preview my-3 mr-4">Preview</button>
-                                <button type="submit" class="btn submit my-3 mr-4">Submit</button>
+                                <button type="submit" class="btn submit my-3 mr-4">Submit
+                                    <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
+                                </button>
                             </div>
                         </div>
                     </form>

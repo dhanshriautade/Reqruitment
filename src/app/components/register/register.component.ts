@@ -13,8 +13,6 @@ import { Router } from '@angular/router';
     preserveWhitespaces: false
 })
 export class RegisterComponent implements OnInit {
-
-
     registerForm: FormGroup;
     submitted = false;
     spinner= false;
@@ -25,14 +23,12 @@ export class RegisterComponent implements OnInit {
     TooltipLabel = TooltipLabel;
     CountryISO = CountryISO;
     preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-    phoneForm = new FormGroup({
 
-    });
-    form: FormGroup;
     constructor(private formBuilder: FormBuilder,public router: Router,private toastr: ToastrService, public TeamService: TeamService) { }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
+
             firstname: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
             lastName: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
             email: ['', [Validators.required, Validators.email]],
@@ -49,7 +45,7 @@ export class RegisterComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+   
 
 
     onKey(event: any) { // without type info
@@ -68,9 +64,14 @@ export class RegisterComponent implements OnInit {
 
         })
     }
+    get f() { return this.registerForm.controls; }
+   
     onSubmit() {
         this.submitted = true;
-        // this.markFormTouched(this.registerForm);
+         this.markFormTouched(this.registerForm);
+         if (this.registerForm.valid) {
+            var formValues = this.registerForm.getRawValue;
+         }      
         this.data = {
             "firstName": this.registerForm.value.firstname,
             "lastName": this.registerForm.value.lastName,
@@ -81,33 +82,39 @@ export class RegisterComponent implements OnInit {
             "reEnterPassword": this.registerForm.value.confpassword,
 
         }
+        console.log('data',this.data);
+        if (this.registerForm.invalid) {
+            return;
+      
+          }
        
      
             this.spinner = true;  
          
-            console.log('data',this.data);
+           
             this.TeamService.SignUp(this.data).subscribe((res : any) => {
                 console.log(res);
-               if(res.code === '200' || res.code === 200  ){
+                if(res.code === '200' || res.code === 200  ){
                 this.toastr.success('Successfully Created !!!');
                 this.router.navigateByUrl('/login');
           
-               }
+                 }
             })
 
             this.registerForm.reset();
             this.spinner = false;
-        }
+        
      
         
     }
-        // markFormTouched(group: FormGroup | FormArray) {
-        //     Object.keys(group.controls).forEach((key: string) => {
-        //       const control = group.controls[key];
-        //       if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
-        //       else { control.markAsTouched(); };
-        //     });
-        //   };
-
+    markFormTouched(group: FormGroup | FormArray) {
+        Object.keys(group.controls).forEach((key: string) => {
+          const control = group.controls[key];
+          if (control instanceof FormGroup || control instanceof FormArray) { control.markAsTouched(); this.markFormTouched(control); }
+          else { control.markAsTouched(); };
+        });
+      };
+}
+        
 
     

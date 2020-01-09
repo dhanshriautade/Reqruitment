@@ -29,6 +29,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { TestComponent } from './components/test/test.component';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
@@ -56,12 +58,14 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AdminComponent,
     ResetPasswordComponent,
     AdminDashboardComponent,
+    TestComponent,
    
   ],
  
   
   imports: [
     ChartModule,
+    OverlayPanelModule,
     BrowserModule,
     AngularFontAwesomeModule,
     AutoCompleteModule,
