@@ -2,6 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const base_url = 'http://localhost:8081/';
+
 export const environment = {
   production: false,
   Employeepost:base_url + 'addEmployee',
@@ -14,7 +15,8 @@ export const environment = {
   getprofile:base_url + 'getprofile',
   AddInfo:base_url + 'experienceprofile',
   CreateJob: base_url + 'addjobcreation',
-  GetAlljob: base_url + 'getalljobpostingdetails'
+  GetAlljob: base_url + 'getalljobpostingdetails',
+  getnotification:'http://localhost:8082/getAllNotification'
 };
 
 /*

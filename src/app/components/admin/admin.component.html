@@ -43,11 +43,11 @@
                                                                 *ngFor="let user of infodetail | filter:term | paginate: configer; let i = index">
 
                                                                 <td scope="row" class="name">{{i+1}}</td>
-                                                                <td class="name">{{user.firstName}}</td>
-                                                                <td align="center" class="blue">{{user.lastName}}</td>
-                                                                <td align="center" class="name">{{user.email}}</td>
-                                                                <td align="center" class="name">{{user.phoneNo}}</td>
-                                                                <td align="center" class="red">{{user.title}}</td>
+                                                                <td class="name">{{user?.firstName}}</td>
+                                                                <td align="center" class="blue">{{user?.lastName}}</td>
+                                                                <td align="center" class="name" style="color: red">{{user?.email}}</td>
+                                                                <td align="center" class="name">{{user?.phoneNo}}</td>
+                                                                <td align="center" class="red" style="color: blue">{{user?.title}}</td>
                                                         </tr>
 
 
@@ -285,8 +285,8 @@
                                                                                                 placeholder="***********"
                                                                                                 name="id"
                                                                                                 formControlName='idno'>
-                                                                                        <button type="button"
-                                                                                                class="btn upload add">Add</button>
+                                                                                        <!-- <button type="button"
+                                                                                                class="btn upload add">Add</button> -->
                                                                                         <button type="button"
                                                                                                 class="btn upload plus">
                                                                                                 <div class="pluss"

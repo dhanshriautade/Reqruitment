@@ -110,39 +110,6 @@ export class AdminComponent implements OnInit {
     if (this.employeeForm.invalid) {
       return;
     }
-    // if (this.employeeForm.value.ID == 'Passport') {
-    //   this.employeeForm.value.passport = this.employeeForm.value.idno;
-    //   this.employeeForm.value.pan = '';
-    //   this.employeeForm.value.adhar = '';
-    //   this.employeeForm.value.drivingLicence = '';
-    //   this.employeeForm.value.voterId = ''
-    // } else if (this.employeeForm.value.ID == 'PAN Card') {
-    //   this.employeeForm.value.passport = '';
-    //   this.employeeForm.value.pan = this.employeeForm.value.idno;
-    //   this.employeeForm.value.adhar = '';
-    //   this.employeeForm.value.drivingLicence = '';
-    //   this.employeeForm.value.voterId = ''
-    // } else if (this.employeeForm.value.ID == 'Adhar Card') {
-    //   this.employeeForm.value.passport = '';
-    //   this.employeeForm.value.pan = ''
-    //   this.employeeForm.value.adhar = this.employeeForm.value.idno;
-    //   this.employeeForm.value.drivingLicence = '';
-    //   this.employeeForm.value.voterId = ''
-    // } else if (this.employeeForm.value.ID == 'Driving Lincese') {
-    //   this.employeeForm.value.passport = '';
-    //   this.employeeForm.value.pan = '';
-    //   this.employeeForm.value.adhar = '';
-    //   this.employeeForm.value.drivingLicence = this.employeeForm.value.idno;
-    //   this.employeeForm.value.voterId = ''
-    // } else if (this.employeeForm.value.ID == 'Voter ID') {
-    //   this.employeeForm.value.passport = '';
-    //   this.employeeForm.value.pan = '';
-    //   this.employeeForm.value.adhar = '';
-    //   this.employeeForm.value.drivingLicence = '';
-    //   this.employeeForm.value.voterId = this.employeeForm.value.idno;
-    // }
-
-
     this.data = {
       "title": this.employeeForm.value.title,
       "firstName": this.employeeForm.value.firstName,
@@ -158,9 +125,11 @@ export class AdminComponent implements OnInit {
       "voterId": this.employeeForm.value.voterId,
       "status": "1"
     };
-
     this.EmployeeService.AddEmployee(JSON.stringify(this.data)).subscribe(res => {
       this.spinner = false;
+      this.submitted = false;
+      this.employeeForm.reset();
+      this.docArray = [];
       this.toastr.success('Successfully added Employee !!!');
 
     })

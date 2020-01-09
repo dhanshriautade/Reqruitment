@@ -22,27 +22,42 @@
           <div class="ml-2 mr-2 mt-2 ">
           <img class=" mt-2" src="/assets/logo/settings.png">
           </div>
-          <div class="ml-2 mr-2 mt-2"><img src="/assets/logo/Notification.png" (click)="op.toggle($event)">
-          <p-overlayPanel #op>
-        <span class="my-2">contentsfaffewf</span><br>
-        <span class="my-2">contentsfaffewf</span><br>
-        <span class="my-2">contentsfaffewf</span><br>
-        <span class="my-2">contentsfaffewf</span><br>
-        <span class="my-2">contentsfaffewf</span><br>
-        <span class="my-2">contentsfaffewf</span><br>
-        <span class="my-2">contentsfaffewf</span><br>
-        </p-overlayPanel></div>
+          <div class="ml-2 mr-2 mt-2" style="z-index: 1"><img src="/assets/logo/Notification.png" (click)="op.toggle($event)">
+         </div>
           <div class="ml-2 mr-2 mt-2"><img src="/assets/logo/logout.png"></div>
           <div class="ml-2 mr-2 mt-2 Profname">{{name}}</div>
           <div class="ml-2 mr-2 mt-2"><i class="fa fa-angle-down" aria-hidden="true" style="color:black"></i></div>
           <div class="profile" style="margin-top: 0px;">
           <img class="profileImage" (click)="LogOut()" src="http://lorempixel.com/100/100" />
           </div>
-          
+         
           </div>
+         
    
       </div>  
-  
+      <div class="col-sm-8"></div>
+      <div class="col-sm-4" style="z-index: 1">
+        <div style="width:300px">
+        <p-overlayPanel #op>
+          notification
+          <!-- <ul *ngFor="let data of notificationData">
+              <li class="notify"> 
+                  <img class="profileImage"  src="http://lorempixel.com/100/100" />        
+                  {{data.firstName}} :- {{data.designation}}
+                 
+              </li>
+              </ul> -->
+              <ul>
+                  <li class="notify"> 
+                      <img class="profileImage"  src="http://lorempixel.com/100/100" />        
+                    dhanshri
+                     
+                  </li>
+                  </ul>
+      </p-overlayPanel>
+     
+      </div>
+    </div>
     </div>
   
   
