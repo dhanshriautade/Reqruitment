@@ -69,5 +69,40 @@ font-size: 25px;
               }
               th ,td {
                 border-right: 1px solid white;
-                // color: white;
+                
             }
+            :host ::ng-deep .pi-times{
+                display: none;
+            }
+            .action{
+                background-color: #8AA4AF;
+                width: 100%;
+             color: white;
+            }
+            .select{
+                background-color: #CCD8DD;
+                width:100%;
+            }
+            .reject{
+                background-color:#EBEFF1;
+                width:100%;
+                color: #157DEC;
+            }
+            .hold{
+                background-color: #CCD8DD;
+                width:100%;
+            }
+            :host ::ng-deep .ui-overlaypanel-content{
+                padding:0px !important
+            }
+            .Centered{
+              width: 4%;
+                position: fixed;
+                top: 73%;
+	            left: 77%;
+	            
+               
+            }
+             
+         
+            
