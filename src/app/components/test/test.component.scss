@@ -50,7 +50,7 @@
         color: #157DEC;
         font-weight: bold;
     }
-    .star{
+    .stars{
 color: white;
 padding-top: 5px;
 font-size: 25px;
@@ -69,5 +69,51 @@ font-size: 25px;
               }
               th ,td {
                 border-right: 1px solid white;
-                // color: white;
+                
             }
+            :host ::ng-deep .pi-times{
+                display: none;
+            }
+            .action{
+                background-color: #8AA4AF;
+                width: 100%;
+             color: white;
+            }
+            .select{
+                background-color: #CCD8DD;
+                width:100%;
+            }
+            .reject{
+                background-color:#EBEFF1;
+                width:100%;
+                color: #157DEC;
+            }
+            .hold{
+                background-color: #CCD8DD;
+                width:100%;
+            }
+            :host ::ng-deep .ui-overlaypanel-content{
+                padding:0px !important
+            }
+            .Centered{
+              width: 4%;
+                position: fixed;
+                top: 73%;
+	            left: 77%;  
+            }
+            .pi-star {
+                color:#ACBEC6;
+                font-size: 26px;
+            }
+            .fa-star {
+                color:white;
+                font-size: 19px;
+            }
+            
+            .pi-star.active {
+                color: #FFC900;
+                font-size: 26px;
+            }
+             
+         
+            

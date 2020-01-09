@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   name;
   email: string;
   notificationData;
+  display=false;
   constructor(private router: Router,public TeamService: TeamService) {
     this.name = localStorage.getItem('name');
   }
@@ -20,6 +21,10 @@ export class HomeComponent implements OnInit {
     localStorage.clear();
     this.router.navigateByUrl('');
   }
+  viewProfile(){
+    this.display=true;
+  }
+
 
   ngOnInit() {
     this.TeamService.getNotification().subscribe((res:any) => { 

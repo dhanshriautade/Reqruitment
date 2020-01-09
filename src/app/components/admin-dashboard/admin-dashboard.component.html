@@ -400,7 +400,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let job of getAllJob  | filter:term | paginate: config ;index as i">
+                                    <tr *ngFor="let job of getAllJob| paginate: config   | filter:term  ;index as i">
                                         <td scope="row" class="name">{{i+1}}</td>
                                         <td class="name">Java Lead</td>
                                         <td align="center" class="blue text-primary">{{job.jobId}}</td>
