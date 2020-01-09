@@ -37,23 +37,30 @@
       </div>  
       <div class="col-sm-8"></div>
       <div class="col-sm-4" style="z-index: 1">
-        <div style="width:300px">
+        <div style="width:348px">
         <p-overlayPanel #op>
-          notification
-          <!-- <ul *ngFor="let data of notificationData">
-              <li class="notify"> 
-                  <img class="profileImage"  src="http://lorempixel.com/100/100" />        
-                  {{data.firstName}} :- {{data.designation}}
+            <div class="row">
+                <div class="col-sm-7">
+                  <span class="note">Notifications</span></div>
+                <div class="col-sm-5"> <a href="">Mark All as Read</a></div>
+              </div>
+              <hr>
+          <ul *ngFor="let data of notificationData">
+            
+              <li class="notify" > 
+                  <div class="row">
+                      <div class="col-sm-2 ml-0 pl-0"> <img class="profileImage" src="http://lorempixel.com/100/100" /></div>
+                      <div class="col-sm-10"><span class="notename">  {{data.firstName}} :- </span>{{data.designation}}</div>
+                      </div>
+               
                  
               </li>
-              </ul> -->
-              <ul>
-                  <li class="notify"> 
-                      <img class="profileImage"  src="http://lorempixel.com/100/100" />        
-                    dhanshri
-                     
-                  </li>
-                  </ul>
+              <hr>
+              </ul>
+              <div>
+                  <p class="text-center"><a href="">See All</a></p>
+                </div>
+            
       </p-overlayPanel>
      
       </div>
