@@ -75,7 +75,10 @@ export class AdminDashboardComponent implements OnInit {
 
    }
   
-  
+   removeWindow(){
+     this.displayp=false;
+     this.displayPreview=false;  
+   }
   ngOnInit() {
     this.createJobForm = this.formBuilder.group({
       jobId: [''],

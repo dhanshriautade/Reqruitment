@@ -87,12 +87,15 @@ width: 106%;
     height: 30px;
     line-height: 1px;
 }
-.reset{
+.windowclose{
     background-color: #AFBEC6;
     color: white;
     height: 30px;
     line-height: 1px;
     width: 120px;
+}
+.diaheader{
+    height: 0px;
 }
 .complete{
     font-weight: bold;
@@ -186,7 +189,7 @@ width: 106%;
       
     }
     :host ::ng-deep .pi-times{
-       // display: none;
+       display: none;
     }
    
       .report{
