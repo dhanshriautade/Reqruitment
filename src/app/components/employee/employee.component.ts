@@ -248,33 +248,27 @@ this.getProfileEmployee();
 getProfileEmployee(){
     var email = this.email_id;
     this.TeamService.GetProfile(email).subscribe((res: any) => {
-        console.log('getprofile', res);
-        
-        if(res.primarySkill != ''){
+
+        if(res.primarySkill != '' && res.primarySkill != null){
         for(var i=0; i<res.primarySkill.length;i++)
         {
         this.skillArray.push(res.primarySkill[i]);
         }
         
         }
-        if(res.secondarySkill != ''){
+        if(res.secondarySkill != '' && res.secondarySkill != null ){
         for(var i=0; i<res.secondarySkill.length;i++)
         {
         this.secskillArray.push(res.secondarySkill[i]);
         }
         
         }
-        if(res.idproof !=''){
+        if(res.idproof !='' &&  res.idproof != null){
         for(var i=0;i<res.idproof.length;i++){
         }
         
         }
-        // if(res.identityNo !=''){
-        // for(var i=0;i<res.identityNo.length;i++){
-        // this.documentArray.push(res.idProof[i]);
-        // }
-        
-        // }
+     
         this.personalInfoForm.get('firstName').setValue(res.firstName);
         this.personalInfoForm.get('lastName').setValue(res.lastName);
         this.personalInfoForm.get('email').setValue(res.email);
@@ -461,13 +455,6 @@ this.value = {
 
 
 }
-
-
-
-
-console.log(this.value);
-
-
 
 this.TeamService.AddInformation(this.value).subscribe(res => {
 console.log(JSON.stringify(res))
