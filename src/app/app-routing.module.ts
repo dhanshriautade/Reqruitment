@@ -22,10 +22,10 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: EmployeeComponent},
       { path: 'admin', component: AdminComponent},
-      { path: 'dash' , component:AdminDashboardComponent},
-      { path: 'test' , component:TestComponent},
+      { path: 'Admin/Dashboard' , component:AdminDashboardComponent},
+      { path: 'job/detail' , component:TestComponent},
     ]
-  }
+  },
 ]
 
 

@@ -27,7 +27,16 @@
        text-align: center;
        font-size: smaller;
    }
+   .Centered{
+    position: fixed;
+    top: 25%;
+    left: 35%;
+    width: 22%;
 
+ }
+   .div_hover { background-color: #FFFFFF; }
+
+   .div_hover:hover { background-color:#ECEFF1; }
    .notify{
        display: contents
    }
@@ -239,4 +248,19 @@
         .Profname{
           color: blue;
       }
-     
+      :host ::ng-deep .pi-times{
+        float: right;
+        }
+        .Centered{
+        width: 55%;
+        }
+        .pack{
+        font-size: small;
+        color: #586B75;
+        }
+        
+        .lead{
+        font-weight: 550;
+        font-size: small;
+        color: #435965;
+        }

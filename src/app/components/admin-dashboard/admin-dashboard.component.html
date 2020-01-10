@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row">
-                                    <div class="col-sm-7 main pt-1 pb-1">
+                                    <div class="col-sm-7 main pt-1 pb-1" (click)="goToAdmin()" >
                                         <img class="img2" src="../../../assets/Account Summary.png" alt="">
                                         <span class="wel ml-2">Account Summary</span>
                                     </div>
@@ -55,10 +55,76 @@
                         </div>
                     </div>
                 </div>
-                <p-dialog [(visible)]="display" [style]="{width: '102%', height: '100%',margin:'30px 0px 0px 0px'}">
+                <div class="Centered">
+                    <p-dialog [(visible)]="displayp" [style]="{width: '62%'}" class="abc">
+                          <p-header class="dialogHeader"> 
+                            <div class="row diaheader"> 
+                             <div class="col-sm-10">
+                              <img class="imge" src="../../../assets/logo/Create Job.png" alt="">
+                              <span class="ml-2 report">JVL0145</span>
+                              </div>
+                              <div class="col-sm-2">
+                              <i class="tick fa fa-times mt-2" aria-hidden="true"(click)="removeWindow()"></i>
+                              </div>
+                           </div>
+                          </p-header>
+                          <form class="group grp_form" [formGroup]="previewjobForm" (ngSubmit)="onSubmit()">
+                              <div class="row my-3">
+                                  <div class="col-sm-2 text-right pack">Designation:</div>
+                                  <div class="col-sm-10 lead">Java Lead,(Automation IOT)</div>
+                              </div>
+                              <div class="row my-3">
+                                  <div class="col-sm-2 text-right pack">Experience:</div>
+                                  <div class="col-sm-10 lead">3 To 7 Yrs,Relative 03 Yrs</div>
+                              </div>
+                              <div class="row my-3">
+                                  <div class="col-sm-2 text-right pack">Package:</div>
+                                  <div class="col-sm-10 lead">03.00 to 08.00 LPA</div>
+                              </div>
+                              <div class="row my-3">
+                                  <div class="col-sm-2 text-right pack">Notice Period:</div>
+                                  <div class="col-sm-10 lead">15 Days</div>
+                              </div>
+                              <div class="row my-3">
+                                  <div class="col-sm-2 text-right pack">Skill's:</div>
+                                  <div class="col-sm-10 lead">Java,Advance Java,C+,C++,CSS 3.0,J2EE</div>
+                              </div>
+                              <div class="row my-3">
+                                  <div class="col-sm-2 text-right pack">Description:</div>
+                                  <div class="col-sm-10 pack">Responsibilities-</div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-sm-2 text-right"></div>
+                                  <div class="col-sm-10 pack">
+                                      <ul style="list-style-type:square;">
+                                          <li>Mininum 3 years of experience in java,J2EE,Spring,Springboot</li>
+                                          <li>Hands on experience in multi-threading,collections and writing unit tests
+                                          </li>
+                                          <li>Extensive Experience of using design patterns</li>
+                                          <li>Experience using web sockets</li>
+                                          <li>Consitently demonstrates clear and concise written and verbal communication
+                                          </li>
+                                          <li>Cemonstrated problem-solving and decision-making skills</li>
+                                          <li>Ability to work in a dynamic environment</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <hr class="line">
+                              <div class="row">
+                                  <div class="col-sm-9"></div>
+                                  <div class="col-sm-3">
+                                      <button type="button" class="btn windowclose" (click)="removeWindow()">Close</button>
+                                  </div>
+                              </div>
+                          </form>
+                      </p-dialog>
+                      </div>
+                <div [ngClass]="displayPreview ? 'hidepreview' : ''" *ngIf="display">
+                <p-dialog [(visible)]="display" [style]="{width: '102%', height: '85%',margin:'40px 50px 0px 0px'}">
                     <p-header class="dialogHeader mt-2">
                         <img class="imge" src="../../../assets/logo/Create Job.png" alt="">
                         <span class="ml-2 mt-2 report">Create Job <span class="replaced">| Replacement</span></span>
+                        <i class="tick fa fa-times mt-2" aria-hidden="true"(click)="closeWindow()"></i>
                     </p-header>
                     <form class="group grp_form" [formGroup]="createJobForm" (ngSubmit)="onSubmit()">
                         <div class="row ">
@@ -249,7 +315,6 @@
                                     <div class="col-sm-2 nam_e">
                                         <label class="notice">Description:</label>
                                     </div>
-                                   
                                     <div class="col-sm-10 nam_e ">
                                         <div>
                                             <div class="draw">
@@ -275,7 +340,7 @@
                             <div class="col-sm-6"></div>
                             <div class="col-sm-6 show_button">
                                 <button type="button" class="btn cancel my-3 mr-4">cancel</button>
-                                <button type="button" class="btn preview my-3 mr-4">Preview</button>
+                                <button type="button" class="btn preview my-3 mr-4" (click)="previewjob()">Preview</button>
                                 <button type="submit" class="btn submit my-3 mr-4">Submit
                                     <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
                                 </button>
@@ -283,6 +348,7 @@
                         </div>
                     </form>
                 </p-dialog>
+                </div>
                 <div class="mainhr" *ngIf="currentStatus">
                     <div class="row main my-3 ">
                         <span class="wel pl-2 pt-1"> Account Summary:</span>
@@ -311,7 +377,7 @@
                                 <input type="text" class="search"   [(ngModel)]="term"
                                     placeholder="Search Employees,designations,jobs,job ID...">
                                 <div class="input-group-append">
-                                    <button class="btn btn-secondary" type="button">
+                                    <button class="btn btn-secondary hideicon" type="button">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>
@@ -349,7 +415,7 @@
                                     <tr *ngFor="let job of getAllJob| paginate: config   | filter:term  ;index as i">
                                         <td scope="row" class="name">{{i+1}}</td>
                                         <td class="name">Java Lead</td>
-                                        <td align="center" class="blue text-primary">{{job.jobId}}</td>
+                                        <td align="center" class="blue text-primary" (click)="goToJob()">{{job.jobId}}</td>
                                         <td align="center" class="name">05</td>
                                         <td align="center" class="name">03</td>
                                         <td align="center" class="red">07</td>

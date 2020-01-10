@@ -87,7 +87,16 @@ width: 106%;
     height: 30px;
     line-height: 1px;
 }
-
+.windowclose{
+    background-color: #AFBEC6;
+    color: white;
+    height: 30px;
+    line-height: 1px;
+    width: 120px;
+}
+.diaheader{
+    height: 0px;
+}
 .complete{
     font-weight: bold;
     color: white;
@@ -139,7 +148,7 @@ width: 106%;
 .tick{
     display: inline-block;
     color:#ACBEC6;
-   
+    float: right;
     
    }
 .add{
@@ -180,7 +189,7 @@ width: 106%;
       
     }
     :host ::ng-deep .pi-times{
-        display: none;
+     display: none;
     }
    
       .report{
@@ -215,10 +224,25 @@ width: 106%;
         color:gray;
     }
     :host ::ng-deep.ui-dialog-content {
-        height: 370.25px;
+        height: 490px;
         overflow-y: scroll !important;
      
     }
+    .dia{
+        position: absolute; 
+     }
+     .hidepreview{
+        opacity: 0.5 !important;
+ 
+     }
+ .Centered{
+     position: fixed;
+     left: 28%;
+     top: 24%;
+     width: 76%;
+     z-index: 1;
+ }
+    
     .show_button{
         margin-bottom: 30px;
     }
@@ -239,3 +263,19 @@ width: 106%;
         width: 118%;   
     }
     
+    
+    .lead{
+        font-weight: 550;
+        font-size: small;
+        color: #435965;
+    }
+    .pack{
+        font-size: small;
+        color: #586B75;
+    }
+    .line{
+        color: black;
+    }
+    .hideicon{
+        z-index: 0;
+    }
