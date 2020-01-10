@@ -148,7 +148,7 @@ width: 106%;
 .tick{
     display: inline-block;
     color:#ACBEC6;
-   
+    float: right;
     
    }
 .add{
@@ -189,7 +189,7 @@ width: 106%;
       
     }
     :host ::ng-deep .pi-times{
-       display: none;
+     display: none;
     }
    
       .report{

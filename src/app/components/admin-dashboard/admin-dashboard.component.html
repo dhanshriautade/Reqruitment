@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row">
-                                    <div class="col-sm-7 main pt-1 pb-1">
+                                    <div class="col-sm-7 main pt-1 pb-1" (click)="goToAdmin()" >
                                         <img class="img2" src="../../../assets/Account Summary.png" alt="">
                                         <span class="wel ml-2">Account Summary</span>
                                     </div>
@@ -124,6 +124,7 @@
                     <p-header class="dialogHeader mt-2">
                         <img class="imge" src="../../../assets/logo/Create Job.png" alt="">
                         <span class="ml-2 mt-2 report">Create Job <span class="replaced">| Replacement</span></span>
+                        <i class="tick fa fa-times mt-2" aria-hidden="true"(click)="closeWindow()"></i>
                     </p-header>
                     <form class="group grp_form" [formGroup]="createJobForm" (ngSubmit)="onSubmit()">
                         <div class="row ">
@@ -410,7 +411,7 @@
                                     <tr *ngFor="let job of getAllJob| paginate: config   | filter:term  ;index as i">
                                         <td scope="row" class="name">{{i+1}}</td>
                                         <td class="name">Java Lead</td>
-                                        <td align="center" class="blue text-primary">{{job.jobId}}</td>
+                                        <td align="center" class="blue text-primary" (click)="goToJob()">{{job.jobId}}</td>
                                         <td align="center" class="name">05</td>
                                         <td align="center" class="name">03</td>
                                         <td align="center" class="red">07</td>

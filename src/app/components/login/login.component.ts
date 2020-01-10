@@ -79,12 +79,18 @@ export class LoginComponent implements OnInit {
                    localStorage.setItem('id',this.info.emp_id);
                   localStorage.setItem('email',this.info.email);
                   localStorage.setItem('name',this.info.empName);
+                  localStorage.setItem('role',this.info.role);
                  this.spinner =false;
-                  if(this.info.status ===  true){
+                  if(this.info.status ===  true && this.info.role == 0){
                     this.toastr.success('Successfully signin !!!');
                     this.router.navigateByUrl('/main');
                     this.spinner = false;             
                     this.loginForm.reset();
+                    }
+                    else if(this.info.status ===  true && this.info.role == 1){
+                      this.router.navigateByUrl('/main/Admin/Dashboard');
+                      this.spinner = false;             
+                      this.loginForm.reset();
                     }
                     if (this.info.status === 500 ||this.info.status !=  true ){
                       this.toastr.error('Invalid credentials Oops !!!');

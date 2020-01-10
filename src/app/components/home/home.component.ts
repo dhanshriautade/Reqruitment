@@ -13,8 +13,11 @@ export class HomeComponent implements OnInit {
   email: string;
   notificationData;
   display=false;
+  role: string;
   constructor(private router: Router,public TeamService: TeamService) {
     this.name = localStorage.getItem('name');
+    this.role = localStorage.getItem('role');
+
   }
 
   LogOut(){
@@ -24,6 +27,19 @@ export class HomeComponent implements OnInit {
   viewProfile(){
     this.display=true;
   }
+
+  goToPath(){
+
+    if(this.role === '1'){
+      this.router.navigateByUrl('/main/Admin/Dashboard');
+
+    }
+    else{
+      this.router.navigateByUrl('/main');
+    }
+    
+  }
+
 
 
   ngOnInit() {

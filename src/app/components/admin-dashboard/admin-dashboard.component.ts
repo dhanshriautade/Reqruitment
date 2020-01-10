@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TeamService } from 'src/app/services/team.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -31,7 +32,7 @@ export class AdminDashboardComponent implements OnInit {
   })
   markFormTouched: any;
   config: { itemsPerPage: number; currentPage: number; totalItems: any; };
- constructor(private formBuilder: FormBuilder, private toastr: ToastrService,public TeamService: TeamService) {
+ constructor(private formBuilder: FormBuilder, public router: Router, private toastr: ToastrService,public TeamService: TeamService) {
   this.notice = [
     { 'notes': 'one week' }, { 'notes': ' 15 days' }, { 'notes': '1 month' }, { 'notes': ' 2 month' }, { 'notes': '3 month' }, { 'notes': 'other' }
     
@@ -79,6 +80,12 @@ export class AdminDashboardComponent implements OnInit {
      this.displayp=false;
      this.displayPreview=false;  
    }
+   closeWindow(){
+     this.display=false;
+     this.currentStatus=true;
+     //this.displayp=true;
+    
+   }
   ngOnInit() {
     this.createJobForm = this.formBuilder.group({
       jobId: [''],
@@ -109,6 +116,13 @@ export class AdminDashboardComponent implements OnInit {
   
   }
 
+  goToJob(){
+    this.router.navigateByUrl('/main/job/detail');
+  }
+  goToAdmin(){
+    this.router.navigateByUrl('/main/admin');
+                
+  }
 
   addskill() {
     this.skillArray.push(this.createJobForm.get('skills').value);
