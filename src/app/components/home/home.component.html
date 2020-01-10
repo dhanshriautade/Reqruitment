@@ -1,100 +1,140 @@
 <div class="header">
 
 
-    <div class="row">
-      <div class="col-sm-2 col-md-3 col-lg-3 col-xl-2 col-3 logo" (click)="goToPath()">
-        <img src="/assets/logo/logo_one.png" class="bgimg">
-        
-      </div>
-      <div class="col-sm-10 col-md-9 col-lg-9 col-xl-10 col-9 profile" style="margin-top: 15px;">
-        <div class="d-flex d-flex-row flx1">
-          <div class="mr-auto"></div>
-          <div>
+  <div class="row">
+    <div class="col-sm-2 col-md-3 col-lg-3 col-xl-2 col-3 logo" (click)="goToPath()">
+      <img src="/assets/logo/logo_one.png" class="bgimg">
+
+    </div>
+    <div class="col-sm-10 col-md-9 col-lg-9 col-xl-10 col-9 profile" style="margin-top: 15px;">
+      <div class="d-flex d-flex-row flx1">
+        <div class="mr-auto"></div>
+        <div>
           <div class="mt-1">
-          <p-autoComplete [(ngModel)]="text" placeholder="Search Employee or Help" [suggestions]="results"
-          (completeMethod)="search($event)"></p-autoComplete>
-          <button type="submit" pButton type="button" (click)="onComplete($event)" class="ui-button-warn">
-          <img class=" mt-2" src="/assets/logo/Search Icon.png">
-          </button>
-          
+            <p-autoComplete [(ngModel)]="text" placeholder="Search Employee or Help" [suggestions]="results"
+              (completeMethod)="search($event)"></p-autoComplete>
+            <button type="submit" pButton type="button" (click)="onComplete($event)" class="ui-button-warn">
+              <img class=" mt-2" src="/assets/logo/Search Icon.png">
+            </button>
+
           </div>
-          </div>
-          <div class="ml-2 mr-2 mt-2 ">
+        </div>
+        <div class="ml-2 mr-2 mt-2 ">
           <img class=" mt-2" src="/assets/logo/settings.png">
-          </div>
-          <div class="ml-2 mr-2 mt-2" style="z-index: 1"><img src="/assets/logo/Notification.png" (click)="op.toggle($event)">
-         </div>
-          <div class="ml-2 mr-2 mt-2"><img src="/assets/logo/logout.png"></div>
-          <div class="ml-2 mr-2 mt-2 Profname">{{name}}</div>
-          <div class="ml-2 mr-2 mt-2"><i class="fa fa-angle-down" aria-hidden="true" style="color:black"></i></div>
-          <div class="profile" style="margin-top: 0px;">
+        </div>
+        <div class="ml-2 mr-2 mt-2" style="z-index: 1"><img src="/assets/logo/Notification.png"
+            (click)="op.toggle($event)">
+        </div>
+        <div class="ml-2 mr-2 mt-2"><img src="/assets/logo/logout.png"></div>
+        <div class="ml-2 mr-2 mt-2 Profname">{{name}}</div>
+        <div class="ml-2 mr-2 mt-2"><i class="fa fa-angle-down" aria-hidden="true" style="color:black"></i></div>
+        <div class="profile" style="margin-top: 0px;">
           <img class="profileImage" (click)="LogOut()" src="http://lorempixel.com/100/100" />
-          </div>
-         
-          </div>
-         
-   
-      </div>  
-      <div class="col-sm-8"></div>
-      <div class="col-sm-4" style="z-index: 1">
-        <div style="width:348px">
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col-sm-8"></div>
+    <div class="col-sm-4" style="z-index: 1">
+      <div style="width:348px">
         <p-overlayPanel #op>
-            <div class="row">
-                <div class="col-sm-7">
-                  <span class="note">Notifications</span></div>
-                <div class="col-sm-5"> <a href="">Mark All as Read</a></div>
-              </div>
-              <hr>
+          <div class="row">
+            <div class="col-sm-7">
+              <span class="note">Notifications</span></div>
+            <div class="col-sm-5"> <a href="">Mark All as Read</a></div>
+          </div>
+          <hr>
           <ul class="div_hover mb-2" *ngFor="let data of notificationData">
-            
-                 <li class="notify" (click)="viewProfile()" > 
-                  <div class="row ">
-                      <div class="col-sm-2 ml-0 pl-0"> <img class="profileImage" src="http://lorempixel.com/100/100" /></div>
-                      <div class="col-sm-10"><span class="notename">  {{data.firstName}} :- </span>{{data.designation}}</div>
-                  </div>
-               
-                 
-              </li>
-              <hr>
-              </ul>
-              <div>
-                  <p class="text-center"><a href="">See All</a></p>
-                </div>
-            
-      </p-overlayPanel>
-     
+
+            <li class="notify" (click)="viewProfile()">
+              <div class="row ">
+                <div class="col-sm-2 ml-0 pl-0"> <img class="profileImage" src="http://lorempixel.com/100/100" /></div>
+                <div class="col-sm-10"><span class="notename"> {{data.firstName}} :- </span>{{data.designation}}</div>
+              </div>
+
+
+            </li>
+            <hr>
+          </ul>
+          <div>
+            <p class="text-center"><a href="">See All</a></p>
+          </div>
+
+        </p-overlayPanel>
+
       </div>
 
       <div class="Centered">
-          <p-dialog [(visible)]="display">
-              <p-header class="dialogHeader mt-2">
-                <span class="ml-2 mt-2 report">header</span>
-              </p-header>
-                 <div>hii</div>
-            </p-dialog>
+        <p-dialog [(visible)]="display" [style]="{width: '62%'}">
+          <p-header class="dialogHeader mt-2">
+            <span class="ml-2 mt-2 text-primary">Notification Details</span>
+          </p-header>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">First Name:</div>
+            <div class="col-sm-9 lead">Dhanshree </div>
           </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">Last Name:</div>
+            <div class="col-sm-9 lead">Autade</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">Date:</div>
+            <div class="col-sm-9 lead">01-01-2010</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">contact:</div>
+            <div class="col-sm-9 lead">92646 520909</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">designation:</div>
+            <div class="col-sm-9 lead">UI Devloper</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">Email Id:</div>
+            <div class="col-sm-9 lead">dhanshri.autade3@gmail.com</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">jobId:</div>
+            <div class="col-sm-9 lead">A005</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">read:</div>
+            <div class="col-sm-9 lead">False</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">status:</div>
+            <div class="col-sm-9 lead">Active</div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-3 text-right pack">notificationId:</div>
+            <div class="col-sm-9 lead">32c9dca4-52d1-4734-8183-77f036f5f39f</div>
+          </div>
+        </p-dialog>
+      </div>
     </div>
-    </div>
-  
-  
   </div>
-  <div>
-    <router-outlet></router-outlet>
-  </div>
+
+
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>
 
 
 
 
 
 <div class="menu_bottom row">
-    <div class="col-sm-3 col-md-3 col-lg-4 col-xl-4 col-1">
-  
-    </div>
-    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-10 footer">
-      @ BEAUTO System Pvt. Ltd. | <a class="link"> Terms</a>
-    </div>
-    <div class="col-sm-3 col-md-3 col-lg-4 col-xl-4 col-1">
-  
-    </div>
-  
+  <div class="col-sm-3 col-md-3 col-lg-4 col-xl-4 col-1">
+
   </div>
+  <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-10 footer">
+    @ BEAUTO System Pvt. Ltd. | <a class="link"> Terms</a>
+  </div>
+  <div class="col-sm-3 col-md-3 col-lg-4 col-xl-4 col-1">
+
+  </div>
+
+</div>
