@@ -3,12 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TeamService } from 'src/app/services/team.service';
 import { ToastrService } from 'ngx-toastr';
-<<<<<<< HEAD
-import { Chart} from 'chart.js';
-
-=======
 import { Router } from '@angular/router';
->>>>>>> d452d8cc3864d16082f9625477741ce2726aeda8
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -38,15 +33,7 @@ export class AdminDashboardComponent implements OnInit {
   })
   markFormTouched: any;
   config: { itemsPerPage: number; currentPage: number; totalItems: any; };
-<<<<<<< HEAD
-  canvas: any;
-  options: { circumference: number; rotation: number; animation: { onComplete: () => void; }; };
- constructor(private formBuilder: FormBuilder, private toastr: ToastrService,public TeamService: TeamService) {
-
-   
-=======
  constructor(private formBuilder: FormBuilder, public router: Router, private toastr: ToastrService,public TeamService: TeamService) {
->>>>>>> d452d8cc3864d16082f9625477741ce2726aeda8
   this.notice = [
     { 'notes': 'one week' }, { 'notes': ' 15 days' }, { 'notes': '1 month' }, { 'notes': ' 2 month' }, { 'notes': '3 month' }, { 'notes': 'other' }
     
