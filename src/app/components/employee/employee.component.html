@@ -229,16 +229,25 @@
     
     
     
-    <select class="country" formControlName='country'>
-    <option *ngFor="let a of check" [value]="a.val">{{a.val}}</option>
-    
+    <select class="country" formControlName='country'  (change)="getCountryLocationList()">
+      <option>India</option> <option>South Africa</option> <option>America</option> 
+        <option>Germany</option>  <option>China</option>  <option>Afghanistan</option>  
+       
+       
+       
+      
+     <!-- <option *ngFor="let a of check" [value]="a.val">{{a.val}}</option>  -->
     </select>
-    <select class="state" formControlName='state'>
-    <option *ngFor="let e of eval" [value]="e.sa">{{e.sa}}</option>
+    <select class="state" formControlName='state' (change)="getStateLocationList()">
+        <option [value]="state"
+        *ngFor="let state of locationList">
+        {{state}}</option>
     
     </select>
     <select class="city" formControlName='city'>
-    <option *ngFor="let c of checked" [value]="c.ind">{{c.ind}}</option>
+        <option [value]="city"
+        *ngFor="let city of locationCityList">
+        {{city}}</option>
     
     </select>
     </div>

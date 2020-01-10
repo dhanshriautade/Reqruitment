@@ -57,6 +57,10 @@ docArray = [];
 documentArray = [];
 docidArray = [];
 fields: any;
+countryState: any = [];
+stateCity:any=[];
+locationList:any=[];
+locationCityList: any=[];
 uploadForm = new FormGroup({
 
 file: new FormControl(['']),
@@ -85,6 +89,70 @@ this.email_id = localStorage.getItem('email');
 
 
 // })
+
+this.countryState = [["Afghanistan",["Bamyan","Faryab"]],["Albania",[""]],["Algeria",[""]],["Andorra",[""]],["Angola",[""]],
+["Antigua",[""]],["Argentina",[""]],["Armenia",[""]],["Australia",[""]],["Austria",[""]],["Azerbaijan",[""]],
+["Bahamas",[""]],["Bahrain",[""]],["Bangladesh",[""]],["Barbados",[""]],["Belarus",[""]],["Belgium",[""]],
+["Belize",[""]],["Benin",[""]],["Bhutan",[""]],["Bolivia",[""]],["Bosnia",[""]],["Botswana",[""]],
+["Brazil",[""]],["Brunei",[""]],["Bulgaria",[""]],["Burkina",[""]],["Burundi",[""]],["CaboVerde",[""]],
+["Cambodia",[""]],["Cameroon",[""]],["Canada",[""]],["Central African Republic",[""]],["Chad",[""]],["Chile",
+[""]],["China",["Hefei","Shanghai Municipality","Hunan Province"]],["Colombia",[""]],["Comoros",[""]],["Costa Rica",[""]],["CotedIvoire",[""]],["Croatia",[""]],
+["cuba",[""]],["Cyprus",[""]],["Czechia",[""]],["Denmark",[""]],["Djibouti",[""]],["Dominica",[""]],["Ecuador",[""]],
+["Egypt",[""]],["ElSalvador",[""]],["Equatorial Guinea",[""]],["Eritrea",[""]],["Estonia",[""]],["Eswatini",[""]],
+["Ethiopia",[""]],["Fiji",[""]],["Finland",[""]],["France",[""]],["Gabon",[""]],["Gambia",[""]],["Georgia",[""]],
+["Germany",["Bavaria","Berlin","Brandenburg","Thuringia"]],["Ghana",[""]],["Greece",[""]],["Grenada",[""]],["Guatemala",[""]],["Guinea",[""]],["Guinea-Bissau",
+[""]],["Guyana",[""]],["Haiti",[""]],["Honduras",[""]],["Hungary",[""]],["Iceland",[""]],
+  ['India', ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh",
+"Goa","Gujrat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala", "Maharastra","Manipur","Meghalaya","Mizoram",
+"Nagaland","Madhya Pradesh","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura",
+"Uttar Pradesh","Uttarakhand","West Bengal"]],
+["Indonesia",[""]],["Iran",[""]],["Iraq",[""]],["Ireland",[""]],["Israel",[""]],["Italy",[""]],
+["Jamaica",[""]],["Japan",[""]],["Jordan",[""]],["Kazakhstan",[""]],["Kenya",[""]],["Kiribati",
+[""]],["Kosovo",[""]],["Kuwait",[""]],["Kyrgyzstan",[""]],["Laos",[""]],["Latvia",[""]],["Lebanon",[""]],
+["Lesotho",[""]],["Liberia",[""]],["Libya",[""]],["Liechtenstein",[""]],["Lithuania",[""]],
+["Luxembourg",[""]],["Madagascar",[""]],["Malawi",[""]],["Malaysia",[""]],["Maldives",[""]],["Mali",[""]],
+["Malta",[""]],["Marshall Islands",[""]],["Mauritania",[""]],["Mauritius",[""]],["Mexico",[""]],
+["Micronesia",[""]],["Moldova",[""]],["Monaco",[""]],["Mongolia",[""]],["Montenegro",[""]],
+["Morocco",[""]],["Mozambique",[""]],["Myanmar",[""]],["Namibia",[""]],["Nauru",[""]],["Nepal",[""]],
+["Netherlands",[""]],["New Zealand",[""]],["Nicaragua",[""]],["Niger",[""]],["Nigeria",[""]],["North Korea",[""]],
+["North Macedonia",[""]],["Norway",[""]],["Oman",[""]],["Pakistan",[""]],["Palau",[""]],["Palestine",[""]],
+["Seychelles",[""]],["Sierra Leone",[""]],["Singapore",[""]],["Slovakia",[""]],["Slovenia",[""]],["Solomon Islands",
+[""]],["Somalia",[""]],["South Africa",[""]],["South Korea",[""]],["South Sudan",[""]],["Spain",[""]],["Sudan",[""]],
+["Suriname",[""]],["Sweden",[""]],["Switzerland",[""]],["Syria",[""]],["Taiwan",[""]],["Tajikistan",[""]],["Serbia",
+[""]]
+];
+
+
+this.stateCity = [["Andhra Pradesh",["Visakhapatnam","Vijayawada","Guntur","Rajahmundry","Nellore","Kakinada","Kurnool",
+"Tirupati","Eluru","Ongole","Anantapur","Vizianagaram","Tenali","Proddatur","Adoni","Nandyal","Madanapalle",
+"Machilipatnam","Chittoor","Hindupur","Bhimavaram","Srikakulam","Anakapalle","Amaravati","Kavali"]],["Arunachal Pradesh",["Itanagar"]],
+["Assam",["Dhuburi","Dibrugarh","Dispur","Guwahati","Jorhat","Nagaon","Sibsagar","Silchar","Tezpur","Tinsukia"]],
+["Bihar",["Ara","Baruni","Begusarai","Bettiah","Bhagalpur","Bihar Sharif","Bodh Gaya","Buxar","Chapra","Darbhanga",
+"Dehri","Dinapur Nizamat","Gaya","Hajipur","Jamalpur","Katihar","Madhubani","Motihari","Munger","Muzaffarpur","Patna",
+"Purnia","Pusa","Samastipur","Siwan"]],["Chhattisgarh",["Ambikapur","Bhilai","Bilaspur","Dhamtari","Durg",
+"Jagdalpur","Raipur","Rajnandgaon"]],["Goa",["Madgaon","Panaji"]],["Gujrat",["Ahmedabad","Surat","Vadodara","Rajkot",
+"Bhavnagar","Jamnagar","Junagadh","Anand","Navsari","Surendranagar","Morvi","Gandhidham","Nadiad","Bharuch","Porbandar"]],
+["Haryana",["Ambala","Bhiwani","Chandigarh","Faridabad","Firozpur Jhirka","Gurgaon","Hansi","Hisar","Jind",
+"Kaithal","Karnal","Kurukshetra","Panipat","Pehowa","Rewari","Rohtak","Sirsa","Sonipat"]],["Himachal Pradesh",["Bilaspur","Chamba",
+"Dalhousie","Dharmshala","Hamirpur","Kangra","Kullu","Mandi","Nahan","Shimla","Una"]],["Jharkhand",["Bokaro",
+"Chaibasa","Deoghar","Dhanbad","Dumka","Giridih","Hazaribag","Jamshedpur","Jharia","Rajmahal","Ranchi","Saraikela"]],
+["Karnataka",["Badami","Ballari","Bangalore","Belgavi","Bhadravati","Bidar","Chikkamagaluru","Chitradurga",
+"Davangere","Halebid","Hassan","Kalaburagi","Kolar","Madikeri","Mandya","Mangaluru","Mysuru","Raichur",
+"Shivamogga","Tumkuru"]],["Kerala",["Alappuzha","Badagara","Idukki","Kannur","Kochi","Kollam","Kottayam","Kozhikode",
+"Mattancheri","Palakkad","Thalassery","Thiruvananthapuram"]],["Maharastra",["Pune","Nagpur","A.Nagar","Nashik","Palghar",
+"Aurangabad","Solapur","Amravati","Jalgaon","Nashik","Kolhapur","Nanded","Sangli","Thane","Akola","Latur"]],
+["Manipur",["Imphal"]],["Meghalaya",["Cherrapunji","Shillong","Mizoram","Aizawl","Lunglei"]],["Mizoram",["Aizawl",
+"Serchhip","Lunglei","Saiha","Darlawn","Thenzawl","Tualbung","Tuipang","Ainak","Chhimluang","Chiahpui","Durtlang",
+"Farkawn","Hmawngzawl","Hmundo"]],["Nagaland",["Kohima","Mon","Phek","Wokha","Zunheboto"]],["Madhya Pradesh",["Balaghat",
+"Barwani","Betul","Bharhut","Bhind","Bhojpur","Bhopal","Burhanpur","Chhatarpur","Chhindwara","Damoh","Datia",
+"Dewas","Dhar","Guna","Gwalior","Hoshangabad","Indore","Itarsi","Jabalpur","Jhabua","Khajuraho","Khandwa",
+"Khargon","Maheshwar","Mandla","Mandsaur","Mhow","Narsimhapur","Narwar","Neemuch","Nowgong","Orchha","Panna",
+"Raisen","Rajgarh","Ratlam","Rewa","Sagar","Sarangpur","Satna","Sehore","Seoni","Shahdol","Shajapur","Sheopur","Shivpuri"]],
+["Bavaria",["	Nuremberg","	Munich"]],["Thuringia",["jena","Gera"]],["Berlin",["berlin"]],["Brandenburg",["	Potsdam","	Cottbus"]],
+["Shanghai",["Hangzhou","Suzhou","Ningbo"]],["Hunan",["Chenzhou‎","Changsha‎"]],["Bamyan",["Meymaneh","Andkhvoy"]],
+["Faryab",["Abdal"]]];
+
+
 this.infodispaly = true;
 this.data = [
 { 'num': 1 },
@@ -100,40 +168,34 @@ this.data = [
 this.detail = [
 { 'id': 1 }, { 'id': 2 }, { 'id': 3 }, { 'id': 4 }, { 'id': 5 }, { 'id': 6 }, { 'id': 7 }, { 'id': 8 }, { 'id': 9 }, { 'id': 10 }, { 'id': 11 }
 ]
-this.check = [
-{ 'val': 'Afghanistan' }, { 'val': 'Albania' }, { 'val': 'Algeria' }, { 'val': 'Andorra' }, { 'val': 'Angola' }
-, { 'val': 'Antigua' }, { 'val': 'Argentina' }, { 'val': 'Armenia' }, { 'val': 'Australia' }, { 'val': 'Austria' }, { 'val': 'Azerbaijan' }
-, { 'val': 'Bahamas' }, { 'val': 'Bahrain' }, { 'val': 'Bangladesh' }, { 'val': 'Barbados' }, { 'val': 'Belarus' }, { 'val': 'Belgium' }
-, { 'val': 'Belize' }, { 'val': 'Benin' }, { 'val': 'Bhutan' }, { 'val': 'Bolivia' }, { 'val': 'Bosnia' }, { 'val': 'Botswana' }
-, { 'val': 'Brazil' }, { 'val': 'Brunei' }, { 'val': 'Bulgaria' }, { 'val': 'Burkina' }, { 'val': 'Burundi' }, { 'val': 'CaboVerde' }
-, { 'val': 'Cambodia' }, { 'val': 'Cameroon' }, { 'val': 'Canada' }, { 'val': 'Central African Republic' }, { 'val': 'Chad' }, { 'val': 'Chile' }
-, { 'val': 'China' }, { 'val': 'Colombia' }, { 'val': 'Comoros' }, { 'val': 'Costa Rica' }, { 'val': 'CotedIvoire' }, { 'val': 'Croatia' }
-, { 'val': 'cuba' }, { 'val': 'Cyprus' }, { 'val': 'Czechia' }, { 'val': 'Denmark' }, { 'val': 'Djibouti' }, { 'val': 'Dominica' }
+ this.check = [
+ { 'val': 'Afghanistan' }, { 'val': 'Albania' }, { 'val': 'Algeria' }, { 'val': 'Andorra' }, { 'val': 'Angola' }
+ , { 'val': 'Antigua' }, { 'val': 'Argentina' }, { 'val': 'Armenia' }, { 'val': 'Australia' }, { 'val': 'Austria' }, { 'val': 'Azerbaijan' }
+ , { 'val': 'Bahamas' }, { 'val': 'Bahrain' }, { 'val': 'Bangladesh' }, { 'val': 'Barbados' }, { 'val': 'Belarus' }, { 'val': 'Belgium' }
+ , { 'val': 'Belize' }, { 'val': 'Benin' }, { 'val': 'Bhutan' }, { 'val': 'Bolivia' }, { 'val': 'Bosnia' }, { 'val': 'Botswana' }
+ , { 'val': 'Brazil' }, { 'val': 'Brunei' }, { 'val': 'Bulgaria' }, { 'val': 'Burkina' }, { 'val': 'Burundi' }, { 'val': 'CaboVerde' }
+ , { 'val': 'Cambodia' }, { 'val': 'Cameroon' }, { 'val': 'Canada' }, { 'val': 'Central African Republic' }, { 'val': 'Chad' }, { 'val': 'Chile' }
+ , { 'val': 'China' }, { 'val': 'Colombia' }, { 'val': 'Comoros' }, { 'val': 'Costa Rica' }, { 'val': 'CotedIvoire' }, { 'val': 'Croatia' }
+ , { 'val': 'cuba' }, { 'val': 'Cyprus' }, { 'val': 'Czechia' }, { 'val': 'Denmark' }, { 'val': 'Djibouti' }, { 'val': 'Dominica' }
 , { 'val': 'Ecuador' }, { 'val': 'Egypt' }, { 'val': 'ElSalvador' }, { 'val': 'Equatorial Guinea' }, { 'val': 'Eritrea' }, { 'val': 'Estonia' }
-, { 'val': 'Eswatini' }, { 'val': 'Ethiopia' }, { 'val': 'Fiji' }, { 'val': 'Finland' }, { 'val': 'France' }, { 'val': 'Gabon' }
-, { 'val': 'Gambia' }, { 'val': 'Georgia' }, { 'val': 'Germany' }, { 'val': 'Ghana' }, { 'val': 'Greece' }, { 'val': 'Grenada' }
-, { 'val': 'Guatemala' }, { 'val': 'Guinea' }, { 'val': 'Guinea-Bissau' }, { 'val': 'Guyana' }, { 'val': 'Haiti' }, { 'val': 'Honduras' }
+ , { 'val': 'Eswatini' }, { 'val': 'Ethiopia' }, { 'val': 'Fiji' }, { 'val': 'Finland' }, { 'val': 'France' }, { 'val': 'Gabon' }
+ , { 'val': 'Gambia' }, { 'val': 'Georgia' }, { 'val': 'Germany' }, { 'val': 'Ghana' }, { 'val': 'Greece' }, { 'val': 'Grenada' }
+ , { 'val': 'Guatemala' }, { 'val': 'Guinea' }, { 'val': 'Guinea-Bissau' }, { 'val': 'Guyana' }, { 'val': 'Haiti' }, { 'val': 'Honduras' }
 , { 'val': 'Hungary' }, { 'val': 'Iceland' }, { 'val': 'India' }, { 'val': 'Indonesia' }, { 'val': 'Iran' }, { 'val': 'Iraq' }
-, { 'val': 'Ireland' }, { 'val': 'Israel' }, { 'val': 'Italy' }, { 'val': 'Jamaica' }, { 'val': 'Japan' }, { 'val': 'Jordan' }
-, { 'val': 'Kazakhstan' }, { 'val': 'Kenya' }, { 'val': 'Kiribati' }, { 'val': 'Kosovo' }, { 'val': 'Kuwait' }, { 'val': 'Kyrgyzstan' }
-, { 'val': 'Laos' }, { 'val': 'Latvia' }, { 'val': 'Lebanon' }, { 'val': 'Lesotho' }, { 'val': 'Liberia' }, { 'val': 'Libya' }
-, { 'val': 'Liechtenstein' }, { 'val': 'Lithuania' }, { 'val': 'Luxembourg' }, { 'val': 'Madagascar' }, { 'val': 'Malawi' }, { 'val': 'Malaysia' }
-, { 'val': 'Maldives' }, { 'val': 'Mali' }, { 'val': 'Malta' }, { 'val': 'Marshall Islands' }, { 'val': 'Mauritania' }, { 'val': 'Mauritius' }
-, { 'val': 'Mexico' }, { 'val': 'Micronesia' }, { 'val': 'Moldova' }, { 'val': 'Monaco' }, { 'val': 'Mongolia' }, { 'val': 'Montenegro' }
-, { 'val': 'Morocco' }, { 'val': 'Mozambique' }, { 'val': 'Myanmar' }, { 'val': 'Namibia' }, { 'val': 'Nauru' }, { 'val': 'Nepal' }
-, { 'val': 'Netherlands' }, { 'val': 'New Zealand' }, { 'val': 'Nicaragua' }, { 'val': 'Niger' }, { 'val': 'Nigeria' }, { 'val': 'North Korea' }
-, { 'val': 'North Macedonia' }, { 'val': 'Norway' }, { 'val': 'Oman' }, { 'val': 'Pakistan' }, { 'val': 'Palau' }, { 'val': 'Palestine' }
-, { 'val': 'Panama' }, { 'val': 'Papua New Guinea' }, { 'val': 'Paraguay' }, { 'val': 'Peru' }, { 'val': 'Philippines' }, { 'val': 'Portugal' }
-, { 'val': 'Qatar' }, { 'val': 'Romania' }, { 'val': 'Russia' }, { 'val': 'Rwanda' }, { 'val': 'Saint Kitts and Nevis' }, { 'val': 'Saint Lucia' }
-, { 'val': 'Samoa' }, { 'val': 'San Marino' }, { 'val': 'Sao Tome and Principe' }, { 'val': 'Saudi Arabia' }, { 'val': 'Senegal' },
-{ 'val': 'Serbia' }
-, { 'val': 'Seychelles' }, { 'val': 'Sierra Leone' }, { 'val': 'Singapore' }, { 'val': 'Slovakia' }, { 'val': 'Slovenia' }, { 'val': 'Solomon Islands' }
-, { 'val': 'Somalia' }, { 'val': 'South Africa' }, { 'val': 'South Korea' }, { 'val': 'South Sudan' }, { 'val': 'Spain' }, { 'val': 'Sudan' }
-, { 'val': 'Suriname' }, { 'val': 'Sweden' }, { 'val': 'Switzerland' }, { 'val': 'Syria' }, { 'val': 'Taiwan' }, { 'val': 'Tajikistan' }
-, {
-'val': 'other'
-}
-]
+ , { 'val': 'Ireland' }, { 'val': 'Israel' }, { 'val': 'Italy' }, { 'val': 'Jamaica' }, { 'val': 'Japan' }, { 'val': 'Jordan' }
+ , { 'val': 'Kazakhstan' }, { 'val': 'Kenya' }, { 'val': 'Kiribati' }, { 'val': 'Kosovo' }, { 'val': 'Kuwait' }, { 'val': 'Kyrgyzstan' }
+ , { 'val': 'Laos' }, { 'val': 'Latvia' }, { 'val': 'Lebanon' }, { 'val': 'Lesotho' }, { 'val': 'Liberia' }, { 'val': 'Libya' }
+ , { 'val': 'Liechtenstein' }, { 'val': 'Lithuania' }, { 'val': 'Luxembourg' }, { 'val': 'Madagascar' }, { 'val': 'Malawi' }, { 'val': 'Malaysia' }
+ , { 'val': 'Maldives' }, { 'val': 'Mali' }, { 'val': 'Malta' }, { 'val': 'Marshall Islands' }, { 'val': 'Mauritania' }, { 'val': 'Mauritius' }
+ , { 'val': 'Mexico' }, { 'val': 'Micronesia' }, { 'val': 'Moldova' }, { 'val': 'Monaco' }, { 'val': 'Mongolia' }, { 'val': 'Montenegro' }
+ , { 'val': 'Morocco' }, { 'val': 'Mozambique' }, { 'val': 'Myanmar' }, { 'val': 'Namibia' }, { 'val': 'Nauru' }, { 'val': 'Nepal' }
+ , { 'val': 'Netherlands' }, { 'val': 'New Zealand' }, { 'val': 'Nicaragua' }, { 'val': 'Niger' }, { 'val': 'Nigeria' }, { 'val': 'North Korea' }
+ , { 'val': 'North Macedonia' }, { 'val': 'Norway' }, { 'val': 'Oman' }, { 'val': 'Pakistan' }, { 'val': 'Palau' }, { 'val': 'Palestine' }
+ , { 'val': 'Seychelles' }, { 'val': 'Sierra Leone' }, { 'val': 'Singapore' }, { 'val': 'Slovakia' }, { 'val': 'Slovenia' }, { 'val': 'Solomon Islands' }
+ , { 'val': 'Somalia' }, { 'val': 'South Africa' }, { 'val': 'South Korea' }, { 'val': 'South Sudan' }, { 'val': 'Spain' }, { 'val': 'Sudan' }
+ , { 'val': 'Suriname' }, { 'val': 'Sweden' }, { 'val': 'Switzerland' }, { 'val': 'Syria' }, { 'val': 'Taiwan' }, { 'val': 'Tajikistan' }
+ ,{ 'val': 'Serbia' }
+ ]
 this.eval = [
 { 'sa': 'Andhra Pradesh' }, { 'sa': 'Arunachal Pradesh' }, { 'sa': 'Assam' }, { 'sa': ' Bihar' }, { 'sa': 'Chhattisgarh' }, { 'sa': 'Goa' },
 { 'sa': ' Gujarat' }, { 'sa': 'Haryana' }, { 'sa': 'Himachal Pradesh' }, { 'sa': 'Jharkhand' }, { 'sa': 'Karnataka' }, { 'sa': ' Kerala' }, { 'sa': 'Madhya Pradesh' },
@@ -160,7 +222,28 @@ this.note = [
 ]
 }
 
+getCountryLocationList() {
+    let dept = this.personalInfoForm.get('country').value;
+    let map = new Map(this.countryState);
 
+    for (let entry of map.entries()) {
+      if (dept === entry[0]) {
+        this.locationList = entry[1];
+        
+      }
+    }
+  }
+  getStateLocationList(){
+    let city = this.personalInfoForm.get('state').value;
+    let map = new Map(this.stateCity);
+
+    for (let entry of map.entries()) {
+      if (city === entry[0]) {
+        this.locationCityList = entry[1];
+      }
+    }
+
+  }
 preview(files) {
 if (files.length === 0)
 return;

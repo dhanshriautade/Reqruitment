@@ -68,7 +68,7 @@
                                         <label>Job ID :</label>
                                     </div>
                                     <div class="col-sm-4">
-                                        JVL0145
+                                        <span class="text-primary">JVL0145</span>
                                     </div>
                                     <div class="col-sm-2 nam_e">
                                         <label>Designation :</label>
@@ -93,7 +93,7 @@
                                     <div class="col-sm-4">
                                         <div class="row">
                                             <div class="col-sm-5">
-                                                <input type="text" autocomplete="off" class="form-control text-centre"
+                                                <input type="text" autocomplete="off" class="form-control text-centre exper"
                                                     placeholder="00" name="exp" formControlName="experienceInYears">
 
                                             </div>
@@ -107,7 +107,7 @@
                                     <div class="col-sm-4">
                                         <div class="row">
                                             <div class="col-sm-5">
-                                                <input type="text" autocomplete="off" class="form-control text-centre"
+                                                <input type="text" autocomplete="off" class="form-control text-centre exper"
                                                     placeholder="00" name="exp" formControlName="relevantExpInYears">
 
                                             </div>
@@ -129,17 +129,19 @@
                                     <div class="col-sm-4">
                                         <div class="row ">
                                             <div class="col-sm-5">
-                                                <input type="text" autocomplete="off" class="form-control text-centre"
+                                                <input type="text" autocomplete="off" class="form-control text-centre pckg"
                                                     placeholder="0.00" name="minpackage" formControlName="minPackage">
 
                                             </div>
-                                            <label class="my-2"> to</label>
+                                            <span class="ml-2 my-2"> to</span>
+                                           
                                             <div class="col-sm-5">
-                                                <input type="text" autocomplete="off" class="form-control text-centre"
+                                             
+                                                <input type="text" autocomplete="off" class="form-control text-centre pckg"
                                                     placeholder="0.00" name="maxpackage" formControlName="maxPackage">
 
                                             </div>
-                                            <div class="col-sm-1"><label class=" my-2">LPA</label></div>
+                                            <div class="col-sm-1"><label class=" my-1">LPA</label></div>
                                         </div>
                                     </div>
                                     <div class="col-sm-2 nam_e">
@@ -219,6 +221,7 @@
 
                                     <div class="col-sm-6">
                                         <button type="button" class="btn upload add" (click)='addskill()'>Add</button>
+                                        <span class="ml-2 text-muted">Add max 20 skill's.</span>
                                         <div class="col-sm-3"></div>
                                     </div>
 
@@ -285,17 +288,18 @@
                         <span class="wel pl-2 pt-1"> Account Summary:</span>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p-chart type="doughnut" [data]="datacharts"></p-chart>
+                            <p-chart type="doughnut" [data]="datacharts"></p-chart> 
 
                             </div>
                             <div class="col-sm-3">
-                                <p-chart type="doughnut" [data]="datacharts"></p-chart>
+                               
+                                <p-chart type="doughnut" [data]="datacharts" ></p-chart>
                             </div>
                             <div class="col-sm-3">
-                                <p-chart type="doughnut" [data]="datacharts"></p-chart>
+                                <p-chart type="doughnut" [data]="datacharts">123</p-chart>
                             </div>
                             <div class="col-sm-3">
-                                <p-chart type="doughnut" [data]="datacharts"></p-chart>
+                                <p-chart type="doughnut" [data]="datacharts">123</p-chart>
                             </div>
                         </div>
                     </div>
