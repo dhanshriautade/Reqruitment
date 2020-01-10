@@ -348,10 +348,13 @@ getProfileEmployee(){
         }
         if(res.idproof !='' &&  res.idproof != null){
         for(var i=0;i<res.idproof.length;i++){
+          
         }
         
         }
-     
+       console.log('getprofile',res);
+       this.locationList.push(res.state);
+       this.locationCityList.push(res.city);
         this.personalInfoForm.get('firstName').setValue(res.firstName);
         this.personalInfoForm.get('lastName').setValue(res.lastName);
         this.personalInfoForm.get('email').setValue(res.email);
@@ -367,7 +370,7 @@ getProfileEmployee(){
         this.personalInfoForm.get('designation').setValue(res.designation);
         this.personalInfoForm.get('sExpYear').setValue(res.sExpYear);
         this.personalInfoForm.get('sExpMonth').setValue(res.sExpMonth);
-        this.personalInfoForm.get('phone').setValue(res.countryCode, + ' + ' + res.contact);
+        this.personalInfoForm.get('phone').setValue(res.contact);
         
         this.personalInfoForm.get('expYear').setValue(res.totalExperienceInYear);
         this.personalInfoForm.get('expMonth').setValue(res.totalExperienceInMonth);

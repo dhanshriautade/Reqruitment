@@ -232,17 +232,12 @@
     <select class="country" formControlName='country'  (change)="getCountryLocationList()">
       <option>India</option> <option>South Africa</option> <option>America</option> 
         <option>Germany</option>  <option>China</option>  <option>Afghanistan</option>  
-       
-       
-       
-      
-     <!-- <option *ngFor="let a of check" [value]="a.val">{{a.val}}</option>  -->
     </select>
+    
     <select class="state" formControlName='state' (change)="getStateLocationList()">
         <option [value]="state"
         *ngFor="let state of locationList">
-        {{state}}</option>
-    
+        {{state}}</option>    
     </select>
     <select class="city" formControlName='city'>
         <option [value]="city"
