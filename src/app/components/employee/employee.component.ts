@@ -270,6 +270,8 @@ const file = event.target.files[0]
 
 UploadResume() {
 // debugger;
+this.getCandidateDocumentsList();
+    
 this.display = true;
 this.infodispaly = false;
 }
@@ -347,10 +349,15 @@ getProfileEmployee(){
         
         }
         if(res.idproof !='' &&  res.idproof != null){
-        for(var i=0;i<res.idproof.length;i++){
-          
+          let keys = Object.keys(res.idproof[0]);
+       
+        for(var i=0;i<keys.length;i++){
+          var arr = res.idproof[0];
+          if(arr[keys[i]] != null){
+          this.docArray.push(keys[i]+' : ' + arr[keys[i]] )
+          }
         }
-        
+      
         }
        console.log('getprofile',res);
        this.locationList.push(res.state);
@@ -489,8 +496,8 @@ this.sent_data = {
 "id":this.email_id,
 "date":"15/03/1996"
 }
-
-formData.append('docsInfo',this.sent_data );
+console.log(this.sent_data);
+formData.append('docsInfo',JSON.stringify(this.sent_data) );
 
 this.fileUploadProgress = '0%';
 this.http.post('http://localhost:8081/uploadDocuments', formData, {
@@ -546,6 +553,7 @@ this.TeamService.AddInformation(this.value).subscribe(res => {
 console.log(JSON.stringify(res))
 this.spinner = false;
 this.toastr.success('Successfully created Employee !!!');
+this.getProfileEmployee();
 
 
 })
@@ -557,6 +565,15 @@ this.personalInfoForm.reset();
 
 
 }
+documentsList: any = {};
+    getCandidateDocumentsList() {
+
+        let body = new FormData();
+        body.append('id', this.email_id);
+        this.http.post('http://localhost:8081/getCandidateById', body).subscribe(response => {
+            this.documentsList = response;
+        });
+    }
 
 markFormTouched(group: FormGroup | FormArray) {
 Object.keys(group.controls).forEach((key: string) => {

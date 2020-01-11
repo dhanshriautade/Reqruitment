@@ -7,6 +7,9 @@
  .info{
      //background-color: blue;
  }
+  .serachbtn{
+     z-index: 0;
+ }
  :host ::ng-deep  .ui-dialog .ui-dialog-titlebar{
     height: 52px;
  }
