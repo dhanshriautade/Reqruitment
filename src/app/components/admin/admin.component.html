@@ -75,7 +75,7 @@
                                         <div class="d-flex">
                                                 <div class="my-2 mr-auto">
                                                         <img src="../../../assets/user big.png" alt="">
-                                                        <span class="ml-2 mt-2 report">Add Employee</span>
+                                                        <span class="ml-2 mt-2 report">  {{action == 'Save'? 'Add': 'Update'}}  Employee</span>
                                                 </div>
                                                 <div class="">
                                                         <i class=" tick pi pi-times mt-2 " aria-hidden="true"
@@ -83,7 +83,7 @@
                                                 </div>
                                         </div>
                                 </p-header>
-                                <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                                <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit(action)">
                                         <label class="head">Personal Information</label>
                                         <div class="row">
                                                 <div class="col-sm-8">
@@ -323,8 +323,8 @@
                                                 <div class="row">
                                                         <div class="col-sm-7"></div>
                                                         <div class="col-sm-5">
-                                                                <button type="submit" class="btn btn-primary save">Add
-                                                                        Employee</button></div>
+                                                                <button type="submit" class="btn btn-primary save">
+                                                                           {{action == 'Save'? 'Add': 'Update'}} Employee</button></div>
                                                 </div>
                                                 <hr>
                                         </div>

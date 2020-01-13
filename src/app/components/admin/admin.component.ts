@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   });
 
   departmentsAndDesignations: any = [];
-
+  action = 'Save'
   designationList: any = [];
   devicedetails
   displaylist = true;
@@ -55,27 +55,38 @@ export class AdminComponent implements OnInit {
   }
 
 
-  EditEmployee(i:any){
-    console.log('edit',this.infodetail[i]);
-      this.display = true;
-      this.displaylist = false;
+  EditEmployee(i: any) {
+    console.log('edit', this.infodetail[i]);
+    this.action = ''
+    this.display = true;
+    this.displaylist = false;
 
-      this.editStatus = true;
+    this.editStatus = true;
+    this.employeeForm.get('firstName').setValue(this.infodetail[i].firstName);
+    this.employeeForm.get('lastName').setValue(this.infodetail[i].lastName);
+    this.employeeForm.get('title').setValue(this.infodetail[i].title);
+    this.employeeForm.get('email').setValue(this.infodetail[i].email);
+    this.employeeForm.get('phone').setValue(this.infodetail[i].phoneNo);
+    this.employeeForm.get('phone').setValue(this.infodetail[i].contact);
+    this.employeeForm.get('dob').setValue(this.infodetail[i].dob);
+    // this.employeeForm.get('passport').setValue(this.infodetail[i].passport);
+    // this.employeeForm.get('pan').setValue(this.infodetail[i].pan);
+    // this.employeeForm.get('voterId').setValue(this.infodetail[i].voterId);
+    // this.employeeForm.get('adhar').setValue(this.infodetail[i].adhar);
+    // this.employeeForm.get('drivingLicence').setValue(this.infodetail[i].drivingLicence);
 
-     
-    this.EmployeeService.UpdateEmployee('hjhj').subscribe(res => {
-    })
 
-    
+
+
   }
 
-  DeleteEmployee(email:any){
-    const emailData = 
-      {
-        "email": email
-      }
-      
-    
+  DeleteEmployee(email: any) {
+    const emailData =
+    {
+      "email": email
+    }
+
+
     this.EmployeeService.DeleteEmployee(emailData).subscribe(res => {
     })
     this.getAllEmployeesList();
@@ -133,7 +144,9 @@ export class AdminComponent implements OnInit {
   }
 
   get f() { return this.employeeForm.controls; }
-  onSubmit() {
+  onSubmit(action) {
+    console.log('action', action)
+
     this.submitted = true;
     this.spinner = true;
     if (this.employeeForm.invalid) {
@@ -154,14 +167,26 @@ export class AdminComponent implements OnInit {
       "voterId": this.employeeForm.value.voterId,
       "status": "1"
     };
-    this.EmployeeService.AddEmployee(JSON.stringify(this.data)).subscribe(res => {
-      this.spinner = false;
-      this.submitted = false;
-      this.employeeForm.reset();
-      this.docArray = [];
-      this.toastr.success('Successfully added Employee !!!');
+    if (action == 'Save') {
+      this.EmployeeService.AddEmployee(JSON.stringify(this.data)).subscribe(res => {
+        this.spinner = false;
+        this.submitted = false;
+        this.employeeForm.reset();
+        this.docArray = [];
+        this.toastr.success('Successfully added Employee !!!');
 
-    })
+      })
+    }
+    else {
+      this.EmployeeService.UpdateEmployee(JSON.stringify(this.data)).subscribe(res => {
+        this.spinner = false;
+        this.submitted = false;
+        this.employeeForm.reset();
+        this.docArray = [];
+        this.toastr.success('Successfully added Employee !!!');
+
+      })
+    }
     this.employeeForm.reset();
     this.spinner = false;
     this.display = false;
@@ -177,6 +202,7 @@ export class AdminComponent implements OnInit {
   PersonalInfo() {
     this.display = true;
     this.displaylist = false;
+    this.action = 'Save'
   }
   removeSkill() {
     this.display = false;
