@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EmailValidator } from '@angular/forms';
 
 
 @Injectable({
@@ -16,6 +17,21 @@ export class EmployeeService {
       'Content-Type': 'application/json'
      });
     return this.http.post(environment.Employeepost, data,{ headers: headers });
+  }
+
+  UpdateEmployee(data: any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.UpdateEmployee, data,{ headers: headers });
+ 
+  }
+  DeleteEmployee(email:any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.DeleteEmployee, email,{ headers: headers });
+ 
   }
 
   getEmployee(){

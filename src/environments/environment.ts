@@ -6,6 +6,8 @@ const base_url = 'http://localhost:8081/';
 export const environment = {
   production: false,
   Employeepost:base_url + 'addEmployee',
+  UpdateEmployee:base_url + 'updateEmployee',
+  DeleteEmployee:base_url + 'deleteEmployee',
   Employeeget:base_url + 'getAllEmployeesInfo',
   signUp: base_url + 'signup',
   login:base_url + 'check/checkLogin',

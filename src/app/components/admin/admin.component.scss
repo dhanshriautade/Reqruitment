@@ -151,6 +151,19 @@ font-size: larger;
     margin-left: 61%;
     height: 91%;
   }
+  .pi-pencil{
+    font-size: 30px;
+  color: #3090C7;
+  }
+
+.edit:disabled {
+    background: #dddddd;
+  }
+.pi-trash{
+    font-size: 30px;
+    color: 	#DC143C;
+}
+
   .left_chip {
     font-size: 13px;
     background-color: white;

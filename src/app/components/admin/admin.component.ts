@@ -21,9 +21,11 @@ export class AdminComponent implements OnInit {
   displaylist = true;
   useradd: boolean = false;
   submitted: boolean;
+  totalItems = 0;
   data;
   docArray = [];
   documentArray = [];
+  editStatus = false;
   docidArray = [];
   term;
   spinner = false;
@@ -53,17 +55,38 @@ export class AdminComponent implements OnInit {
   }
 
 
-  EditEmployee(){
+  EditEmployee(i:any){
+    console.log('edit',this.infodetail[i]);
+      this.display = true;
+      this.displaylist = false;
 
+      this.editStatus = true;
+
+     
+    this.EmployeeService.UpdateEmployee('hjhj').subscribe(res => {
+    })
 
     
+  }
+
+  DeleteEmployee(email:any){
+    const emailData = 
+      {
+        "email": email
+      }
+      
+    
+    this.EmployeeService.DeleteEmployee(emailData).subscribe(res => {
+    })
+    this.getAllEmployeesList();
+
   }
   getAllEmployeesList() {
     this.EmployeeService.getEmployee().subscribe(res => {
       this.infodetail = [];
       this.data = res;
       let keys = Object.keys(this.data);
-      console.log('keys', keys);
+      // console.log('keys', keys);
       for (var i = 0; i < keys.length; i++) {
         this.infodetail.push(this.data[keys[i]]);
       }
@@ -72,7 +95,7 @@ export class AdminComponent implements OnInit {
         currentPage: 1,
         totalItems: this.infodetail.length
       };
-      console.log('list', this.infodetail);
+      // console.log('list', this.infodetail);
     });
   }
   pageChanged(event) {

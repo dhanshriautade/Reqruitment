@@ -51,9 +51,9 @@
                                                                 <td align="center" class="name">{{user?.phoneNo}}</td>
                                                                 <td align="center" class="red" style="color: blue">{{user?.title}}</td>
                                                                 <td align="center" class="red" style="color: blue">
-                                                                        <i class="pi pi-pencil" (click)="EditEmployee(index)" style="font-size: 3em"></i>
-                                                                        <i class="pi pi-trash" (click)="DeleteEmployee(index)" style="font-size: 3em"></i>
-                                                                </td>
+                                                                        <i class="pi pi-pencil mr-2" (click)="EditEmployee(i)" ></i>
+                                                                        <i class="pi pi-trash ml-2" (click)="DeleteEmployee(user?.email)"></i>
+                                                                             </td>
                                                      
                                                         </tr>
 
