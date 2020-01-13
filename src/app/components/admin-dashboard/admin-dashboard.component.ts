@@ -33,7 +33,9 @@ export class AdminDashboardComponent implements OnInit {
   })
   markFormTouched: any;
   config: { itemsPerPage: number; currentPage: number; totalItems: any; };
+  name: {}[];
  constructor(private formBuilder: FormBuilder, public router: Router, private toastr: ToastrService,public TeamService: TeamService) {
+  
   this.notice = [
     { 'notes': 'one week' }, { 'notes': ' 15 days' }, { 'notes': '1 month' }, { 'notes': ' 2 month' }, { 'notes': '3 month' }, { 'notes': 'other' }
     
@@ -74,10 +76,27 @@ export class AdminDashboardComponent implements OnInit {
 
 
    previewjob(){
+    //  console.log(this.createJobForm.get('designation').value);
     this.displayp = true;
     this.displayPreview = true
 
-   }
+    this.data = {
+      "jobId":"A0013",
+      "designation":this.createJobForm.value.designation,
+      "experienceInYears":this.createJobForm.value.experienceInYears,
+      "noticePeriod":this.createJobForm.value.noticePeriod,
+      "minPackage":this.createJobForm.value.minPackage,
+      "maxPackage":this.createJobForm.value.maxPackage,
+      "relevantExpInYears": this.createJobForm.value.relevantExpInYears,
+      "department":this.createJobForm.value.department,
+      "skills":this.skillArray,
+      "jobDescription":this.createJobForm.value.jobDescription,
+      "status":this.createJobForm.value.status,
+      "jobStatus":this.createJobForm.value.jobStatus,
+
+      
+      }
+     }
   
    removeWindow(){
      this.displayp=false;

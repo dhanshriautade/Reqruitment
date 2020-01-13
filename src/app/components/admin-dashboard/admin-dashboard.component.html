@@ -68,46 +68,46 @@
                               </div>
                            </div>
                           </p-header>
-                          <form class="group grp_form" [formGroup]="previewjobForm" (ngSubmit)="onSubmit()">
+                          <form class="group grp_form">
                               <div class="row my-3">
                                   <div class="col-sm-2 text-right pack">Designation:</div>
-                                  <div class="col-sm-10 lead">Java Lead,(Automation IOT)</div>
+                                  <div class="col-sm-10 lead">{{data.designation}}</div>
                               </div>
                               <div class="row my-3">
                                   <div class="col-sm-2 text-right pack">Experience:</div>
-                                  <div class="col-sm-10 lead">3 To 7 Yrs,Relative 03 Yrs</div>
+                                  <div class="col-sm-10 lead">{{data.experienceInYears}}</div>
                               </div>
+                              <div class="row my-3">
+                                <div class="col-sm-2 text-right pack">Rel Experience :</div>
+                                <div class="col-sm-10 lead">{{data.relevantExpInYears}}</div>
+                            </div>
                               <div class="row my-3">
                                   <div class="col-sm-2 text-right pack">Package:</div>
-                                  <div class="col-sm-10 lead">03.00 to 08.00 LPA</div>
+                                  <div class="col-sm-10 lead">{{data.minPackage}} to {{data.maxPackage}}</div>
                               </div>
                               <div class="row my-3">
+                                <div class="col-sm-2 text-right pack">Department:</div>
+                                <div class="col-sm-10 lead">{{data.department}}</div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-sm-2 text-right pack">Status:</div>
+                                <div class="col-sm-10 lead">{{data.status}}</div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-sm-2 text-right pack">Job Status:</div>
+                                <div class="col-sm-10 lead">{{data.jobStatus}}</div>
+                            </div>
+                              <div class="row my-3">
                                   <div class="col-sm-2 text-right pack">Notice Period:</div>
-                                  <div class="col-sm-10 lead">15 Days</div>
+                                  <div class="col-sm-10 lead">{{data.noticePeriod}}</div>
                               </div>
                               <div class="row my-3">
                                   <div class="col-sm-2 text-right pack">Skill's:</div>
-                                  <div class="col-sm-10 lead">Java,Advance Java,C+,C++,CSS 3.0,J2EE</div>
+                                  <div class="col-sm-10 lead">{{data.skills}}</div>
                               </div>
                               <div class="row my-3">
                                   <div class="col-sm-2 text-right pack">Description:</div>
-                                  <div class="col-sm-10 pack">Responsibilities-</div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-sm-2 text-right"></div>
-                                  <div class="col-sm-10 pack">
-                                      <ul style="list-style-type:square;">
-                                          <li>Mininum 3 years of experience in java,J2EE,Spring,Springboot</li>
-                                          <li>Hands on experience in multi-threading,collections and writing unit tests
-                                          </li>
-                                          <li>Extensive Experience of using design patterns</li>
-                                          <li>Experience using web sockets</li>
-                                          <li>Consitently demonstrates clear and concise written and verbal communication
-                                          </li>
-                                          <li>Cemonstrated problem-solving and decision-making skills</li>
-                                          <li>Ability to work in a dynamic environment</li>
-                                      </ul>
-                                  </div>
+                                  <div class="col-sm-10 pack">{{data.jobDescription}}</div>
                               </div>
                               <hr class="line">
                               <div class="row">
@@ -319,8 +319,8 @@
                                         <div>
                                             <div class="draw">
                                             </div>
-                                            <input type="text" autocomplete="off" class="form-control text-centre des "
-                                                placeholder="" name="description" formControlName='jobDescription'>
+                                            <textarea id="description" cols="22" rows="8" autocomplete="off" class="form-control text-centre  "
+                                                placeholder="" name="description" formControlName='jobDescription'></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -330,7 +330,7 @@
                         <div class="row notice">
                             <div class="col-sm-8"></div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn upload add">Add</button>
+                                <button type="button" class="btn upload add">Add</button>
                             </div>
                         </div>
                         <div class="col-sm-12 line"></div>
