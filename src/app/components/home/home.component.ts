@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   notificationData;
   display=false;
   role: string;
+  noteData: any;
   constructor(private router: Router,public TeamService: TeamService) {
     this.name = localStorage.getItem('name');
     this.role = localStorage.getItem('role');
@@ -24,8 +25,11 @@ export class HomeComponent implements OnInit {
     localStorage.clear();
     this.router.navigateByUrl('');
   }
-  viewProfile(){
+  viewProfile(index:any){
+  this.noteData=this.notificationData[index];
     this.display=true;
+
+
   }
 
   goToPath(){

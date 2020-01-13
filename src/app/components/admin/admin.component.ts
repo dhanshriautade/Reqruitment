@@ -52,6 +52,12 @@ export class AdminComponent implements OnInit {
     }
   }
 
+
+  EditEmployee(){
+
+
+    
+  }
   getAllEmployeesList() {
     this.EmployeeService.getEmployee().subscribe(res => {
       this.infodetail = [];

@@ -1,450 +1,461 @@
 <div class="dashboard">
     <div class="row">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-11">
-    <button type="button" [ngClass]="infodispaly ? 'active' : ''" class="btn info my-3 mr-4"
-    (click)="PersonalInfo()">Personal Information</button>
-    
-    <button type="button" [ngClass]="display ? 'active' : ''" class="btn upload my-3"
-    (click)="UploadResume()">Upload Resume</button>
-    <p-dialog [(visible)]="display" [style]="{width: '90%'}">
-    <p-header class="dialogHeader mt-2">
-    <img src="../../../assets/resume page.png" alt="">
-    <span class="ml-2 mt-2 report"> Upload Resume</span>
-    </p-header>
-    <form class="group grp_form" [formGroup]="uploadForm" (ngSubmit)="onUpload()">
-    <div class="row resume">
-    Upload your resume,cover letter and any other documents.
-    </div>
-    <div class="row format">
-    Upload either DOCX or PDF(2.0 MB max)
-    </div>
-    <div class="row">
-    
-    <div class="col-sm-4 my-3 ">
-    <label>
-    <!-- <input type="file" class="filetag" name="myfile" (change)="upload($event.target.files)" /> -->
-    <!-- <span class="req">*</span> -->
-    <input type="file" class=" btn-file-upload1 form-control " value="Upload file"
-    (change)="getFileDetails($event)"
-    formControlName="file" />
-    </label>
-    <span class=" ml-2 mt-2 word">Or</span>
-    <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
-    <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
-    <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-    <div class="error" *ngIf="errormassage">Invalid file type or size </div>
-    </div>
-    <div class="col-sm-4 my-3">
-    <label>
-    <input type="file" class=" form-control btn-file-upload1" value="Upload File"
-    (change)="Details($event)"
-    formControlName="secondfile" />
-    </label>
-    <span class=" ml-2 mt-2 word">Or</span>
-    <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
-    <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
-    <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
-    <div class="error" *ngIf="err">Invalid file type or size </div>
-    </div>
-    
-    
-    </div>
-    
-    <hr class="line">
-    <div class="space">
-    
-    </div>
-    <hr>
-    <div class="row">
-    <button class="btn btn3" type="submit">submit
-    <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
-    </button>
-    </div>
-    </form>
-    </p-dialog>
-    
-    
-    <p-dialog [(visible)]="infodispaly" [style]="{width: '90%', height: '70%'}">
-    <p-header class="dialogHeader mt-2">
-    <img src="../../../assets/user big.png" alt="">
-    <span class="ml-2 mt-2 report"> Profile</span>
-    </p-header>
-    <form class="group grp_form" [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()">
-    
-    <label class="head">Personal Information</label>
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row ">
-    <div class="col-sm-2 nam_e">
-    
-    <label>FirstName :</label> </div>
-    <div class="col-sm-4">
-    <input type="text" autocomplete="off" class="form-control text-centre"
-    placeholder="" name="firstname" formControlName="firstName">
-    <span class="text-danger"
-    *ngIf="personalInfoForm.controls['firstName'].hasError('required') &&
+        <div class="col-sm-1"></div>
+        <div class="col-sm-11">
+            <button type="button" [ngClass]="infodispaly ? 'active' : ''" class="btn info my-3 mr-4"
+                (click)="PersonalInfo()">Personal Information</button>
+
+            <button type="button" [ngClass]="display ? 'active' : ''" class="btn upload my-3"
+                (click)="UploadResume()">Upload Resume</button>
+            <p-dialog [(visible)]="display" [style]="{width: '90%'}">
+                <p-header class="dialogHeader mt-2">
+                    <img src="../../../assets/resume page.png" alt="">
+                    <span class="ml-2 mt-2 report"> Upload Resume</span>
+                </p-header>
+                <form class="group grp_form" [formGroup]="uploadForm" (ngSubmit)="onUpload()">
+                    <div class="row resume">
+                        Upload your resume,cover letter and any other documents.
+                    </div>
+                    <div class="row format">
+                        Upload either DOCX or PDF(2.0 MB max)
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-4 my-3 ">
+                            <label>
+                                <!-- <input type="file" class="filetag" name="myfile" (change)="upload($event.target.files)" /> -->
+                                <!-- <span class="req">*</span> -->
+                                <input type="file" class=" btn-file-upload1 form-control " value="Upload Resume"
+                                    placeholder="" (change)="getFileDetails($event)" formControlName="file" />
+                            </label>
+                            <span class=" ml-2 mt-2 word">Or</span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
+                            <div class="error" *ngIf="errormassage">Invalid file type or size </div>
+                        </div>
+                        <div class="col-sm-4 my-3">
+                            <label>
+                                <input type="file" class=" form-control btn-file-upload1" value="Upload File"
+                                    (change)="Details($event)" formControlName="secondfile" />
+                            </label>
+                            <span class=" ml-2 mt-2 word">Or</span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/cloud download.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/dropbox.png"></span>
+                            <span class="ml-2 mt-2"><img src="../../../assets/linkdein.png"></span>
+                            <div class="error" *ngIf="err">Invalid file type or size </div>
+                        </div>
+
+
+                    </div>
+
+                    <hr class="line">
+                    <div class="space">
+
+                        <div class="card-body my-1">
+
+                            <table class="table table-striped my-2" style="margin: auto; width: 85%;">
+                                <thead>
+                                    <tr class="headone">
+                                        <th scope="col">Documents</th>
+                                        <th scope="col">Download</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of documentsList?.documentPaths">
+                                        <td class="name">{{row.split("/")[row.split("/").length-1]}}</td>
+                                        <td class="name"><a (click)="downloadDocument(row)">Download</a></td>
+                                        <td class="red">Delete</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <button class="btn btn3" type="submit">submit
+                            <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
+                        </button>
+                    </div>
+                </form>
+            </p-dialog>
+
+
+            <p-dialog [(visible)]="infodispaly" [style]="{width: '90%', height: '70%'}">
+                <p-header class="dialogHeader mt-2">
+                    <img src="../../../assets/user big.png" alt="">
+                    <span class="ml-2 mt-2 report"> Profile</span>
+                </p-header>
+                <form class="group grp_form" [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()">
+
+                    <label class="head">Personal Information</label>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row ">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>FirstName :</label> </div>
+                                <div class="col-sm-4">
+                                    <input type="text" autocomplete="off" class="form-control text-centre"
+                                        placeholder="" name="firstname" formControlName="firstName">
+                                    <span class="text-danger" *ngIf="personalInfoForm.controls['firstName'].hasError('required') &&
     (personalInfoForm.controls['firstName'].dirty || personalInfoForm.controls['firstName'].touched)">This
-    field is
-    required</span>
-    <span class="text-danger"
-    *ngIf="personalInfoForm.controls['firstName'].hasError('pattern') &&
+                                        field is
+                                        required</span>
+                                    <span class="text-danger" *ngIf="personalInfoForm.controls['firstName'].hasError('pattern') &&
     (personalInfoForm.controls['firstName'].dirty || personalInfoForm.controls['firstName'].touched)">
-    Space Not Allowed</span>
-    </div>
-    <div class="col-sm-2 nam_e">
-    
-    <label>LastName :</label> </div>
-    <div class="col-sm-4">
-    <input type="text" autocomplete="off" class="form-control text-centre"
-    placeholder="" name="lastname" formControlName="lastName">
-    <span class="text-danger"
-    *ngIf="personalInfoForm.controls['lastName'].hasError('required') &&
+                                        Space Not Allowed</span>
+                                </div>
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>LastName :</label> </div>
+                                <div class="col-sm-4">
+                                    <input type="text" autocomplete="off" class="form-control text-centre"
+                                        placeholder="" name="lastname" formControlName="lastName">
+                                    <span class="text-danger" *ngIf="personalInfoForm.controls['lastName'].hasError('required') &&
     (personalInfoForm.controls['lastName'].dirty || personalInfoForm.controls['lastName'].touched)">This
-    field is
-    required</span>
-    <span class="text-danger"
-    *ngIf="personalInfoForm.controls['lastName'].hasError('pattern') &&
+                                        field is
+                                        required</span>
+                                    <span class="text-danger" *ngIf="personalInfoForm.controls['lastName'].hasError('pattern') &&
     (personalInfoForm.controls['lastName'].dirty || personalInfoForm.controls['lastName'].touched)">
-    Space Not Allowed</span>
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    <div class="col-sm-3"></div>
-    
-    
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row my-2">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Email Id :</label> </div>
-    <div class="col-sm-4">
-    <input type="email" autocomplete="off" class="form-control text-centre"
-    placeholder="" name="Email" formControlName="email">
-    <span class="text-danger"
-    *ngIf="personalInfoForm.controls['email'].hasError('required') &&
+                                        Space Not Allowed</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row my-2">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Email Id :</label> </div>
+                                <div class="col-sm-4">
+                                    <input type="email" autocomplete="off" class="form-control text-centre"
+                                        placeholder="" name="Email" formControlName="email">
+                                    <span class="text-danger" *ngIf="personalInfoForm.controls['email'].hasError('required') &&
     (personalInfoForm.controls['email'].dirty || personalInfoForm.controls['email'].touched)">This
-    field is required</span>
-    <span class="text-danger"
-    *ngIf="personalInfoForm.controls['email'].hasError('email') &&
+                                        field is required</span>
+                                    <span class="text-danger" *ngIf="personalInfoForm.controls['email'].hasError('email') &&
     (personalInfoForm.controls['email'].dirty || personalInfoForm.controls['email'].touched)">
-    Email must be valid email address</span>
-    </div>
-    <div class="col-sm-2 nam_e">
-    
-    <label>DOB :</label> </div>
-    <div class="col-sm-4">
-    <!-- <p-calendar [(ngModel)]="DueDate" [showIcon]="true" [yearNavigator]="true" yearRange="1900:2019"></p-calendar> -->
-    <input type="text" autocomplete="off" class="form-control text-centre"
-    placeholder="" name="dob" formControlName="dob">
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    <div class="col-sm-3"></div>
-    
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row ">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Cell No. :</label> </div>
-    <div class="col-sm-4 ">
-    <div class="tel">
-    <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
-    [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
-    [searchCountryFlag]="true"
-    
-    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-    [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
-    [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
-    [separateDialCode]="separateDialCode" formControlName="phone" name="phone">
-    </ngx-intl-tel-input>
-    </div>
-    
-    </div>
-    <div class="col-sm-2 nam_e">
-    
-    <label>Title :</label> </div>
-    <div class="col-sm-4">
-    <input type="text" autocomplete="off" class="form-control text-centre"
-    placeholder="" name="title" formControlName="title">
-    <span class="text-danger"
-    *ngIf="personalInfoForm.controls['title'].hasError('required') &&
+                                        Email must be valid email address</span>
+                                </div>
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>DOB :</label> </div>
+                                <div class="col-sm-4">
+                                    <!-- <p-calendar [(ngModel)]="DueDate" [showIcon]="true" [yearNavigator]="true" yearRange="1900:2019"></p-calendar> -->
+                                    <input type="text" autocomplete="off" class="form-control text-centre"
+                                        placeholder="" name="dob" formControlName="dob">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row ">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Cell No. :</label> </div>
+                                <div class="col-sm-4 ">
+                                    <div class="tel">
+                                        <ngx-intl-tel-input class="code_ph" [preferredCountries]="preferredCountries"
+                                            [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
+                                            [searchCountryFlag]="true"
+                                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
+                                            [maxLength]="15" [tooltipField]="TooltipLabel.Name" [phoneValidation]="true"
+                                            [separateDialCode]="separateDialCode" formControlName="phone" name="phone">
+                                        </ngx-intl-tel-input>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Title :</label> </div>
+                                <div class="col-sm-4">
+                                    <input type="text" autocomplete="off" class="form-control text-centre"
+                                        placeholder="" name="title" formControlName="title">
+                                    <span class="text-danger" *ngIf="personalInfoForm.controls['title'].hasError('required') &&
     (personalInfoForm.controls['title'].dirty || personalInfoForm.controls['title'].touched)">This
-    field is required</span>
-    <!-- <span style="color:red;" *ngIf="message">{{message}}</span>
+                                        field is required</span>
+                                    <!-- <span style="color:red;" *ngIf="message">{{message}}</span>
     <input #file type="file" accept='image/*' class="btn-file-upload"
     (change)="preview(file.files)" value="Browse" />
     <img [src]="imgURL" height="40" *ngIf="imgURL"> -->
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-12 line"></div>
-    <div class="row ">
-    </div>
-    
-    <label class="head">Experience Details</label>
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row loc">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Total Experience :</label> </div>
-    
-    <div class="col-sm-10">
-    
-    
-    
-    <select class="year" formControlName='expYear'>
-    
-    <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
-    
-    </select>
-    <select class="month" formControlName='expMonth'>
-    <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
-    </select>
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    
-    <div class="col-sm-3"></div>
-    
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row loc">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Current Location :</label> </div>
-    <div class="col-sm-10">
-    
-    
-    
-    <select class="country" formControlName='country'  (change)="getCountryLocationList()">
-      <option>India</option> <option>South Africa</option> <option>America</option> 
-        <option>Germany</option>  <option>China</option>  <option>Afghanistan</option>  
-       
-       
-       
-      
-     <!-- <option *ngFor="let a of check" [value]="a.val">{{a.val}}</option>  -->
-    </select>
-    <select class="state" formControlName='state' (change)="getStateLocationList()">
-        <option [value]="state"
-        *ngFor="let state of locationList">
-        {{state}}</option>
-    
-    </select>
-    <select class="city" formControlName='city'>
-        <option [value]="city"
-        *ngFor="let city of locationCityList">
-        {{city}}</option>
-    
-    </select>
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row loc">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Notice Period :</label> </div>
-    
-    <div class="col-sm-10">
-    
-    
-    
-    <select class="note" formControlName='noticePer'>
-    <option *ngFor="let n of note" [value]="n.notes">{{n.notes}}</option>
-    
-    </select>
-    
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    <div class="col-sm-3"></div>
-    
-    
-    <div class="col-sm-3"></div>
-    <label class="head">Add Skill's and Experience Details </label>
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row ">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Primary Skill :</label> </div>
-    <div class="col-sm-4">
-    <select id="user_time_zone" class="form-control code " size="0"
-    placeholder="Area Code" name="skill" formControlName='primarySkill'>
-    <option>Skill Name</option>
-    <option>C</option>
-    <option>C++</option>
-    <option>php</option>
-    <option>Python</option>
-    <option>Embedded</option>
-    <option>Ruby</option>
-    
-    </select>
-    
-    </div>
-    <button type="button" class="btn upload add" (click)='addSkill()'>Add</button>
-    
-    
-    <div class="col-sm-6"></div>
-    </div>
-    </div>
-    
-    <div class="col-sm-3"></div>
-    
-    <div class="clip ml-5 my-2">
-    <span class="left_chip my-2 ml-1" *ngFor="let primarySkill of this.skillArray;index as i">
-    {{primarySkill}}
-    <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill(i)"></i>
-    </span>
-    </div>
-    </div>
-    
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row codes">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Secondary Skill :</label> </div>
-    <div class="col-sm-4">
-    <select id="user_time_zone" class="form-control code " size="0"
-    placeholder="Area Code" name="secskill" formControlName='secondorySkill'>
-    <option>Skill Name</option>
-    <option>Angular</option>
-    <option>Java</option>
-    <option>Android</option>
-    <option>Spring</option>
-    <option>Hibernate</option>
-    <option>servlet</option>
-    <option>JSP</option>
-    </select>
-    
-    </div>
-    <button type="button" class="btn upload add" (click)='addsecSkill()'>Add</button>
-    <div class="col-sm-6"></div>
-    </div>
-    </div>
-    
-    <div class="col-sm-3"></div>
-    <div class="clip ml-5 my-2">
-    <span class="left_chip my-2 ml-1" *ngFor="let secondorySkill of this.secskillArray;index as i">
-    {{secondorySkill}} <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removesecSkill(i)"></i>
-    </span>
-    </div>
-    
-    
-    </div>
-    <div class="col-sm-12 line"></div>
-    <div class="row ">
-    </div>
-    <label class="head">Identity Proof </label>
-    
-    <div class="col-sm-9">
-    <div class="row ">
-    <div class="col-sm-2 nam_e">
-    
-    <label>Select Id Proof :</label> </div>
-    <div class="col-sm-10">
-    <div class="row">
-    <div class="col-sm-4">
-    <select id="user_time_zone" class="form-control code skill" size="0"
-    placeholder="Area Code" name="idproof" formControlName='idProof'>
-    
-    <option value="" disable>Select file type</option>
-    <option>adhar Card No.</option>
-    <option>Passport No.</option>
-    <option>PAN Card No.</option>
-    <option>Driving Lincese No.</option>
-    <option>Voter ID No.</option>
-    </select></div>
-    <div class="col-sm-8">
-    <div class="row">
-    <label class="nam_e"> Identity No.:</label>
-    <input type="text" autocomplete="off" class="form-control idno"
-    placeholder="***********" name="id" formControlName='identityNo'>
-    <button type="button" class="btn upload add">Add</button>
-    <button type="button" class="btn upload plus">
-    <div class="pluss" (click)="addDocument()">+
-        
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-12 line"></div>
+                    <div class="row ">
+                    </div>
+
+                    <label class="head">Experience Details</label>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row loc">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Total Experience :</label> </div>
+
+                                <div class="col-sm-10">
+
+
+
+                                    <select class="year" formControlName='expYear'>
+
+                                        <option *ngFor="let d of data" [value]="d.num">{{d.num}}</option>
+
+                                    </select>
+                                    <select class="month" formControlName='expMonth'>
+                                        <option *ngFor="let s of detail" [value]="s.id">{{s.id}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3"></div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row loc">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Current Location :</label> </div>
+                                <div class="col-sm-10">
+
+
+
+                                    <select class="country" formControlName='country'
+                                        (change)="getCountryLocationList()">
+                                        <option>India</option>
+                                        <option>South Africa</option>
+                                        <option>America</option>
+                                        <option>Germany</option>
+                                        <option>China</option>
+                                        <option>Afghanistan</option>
+                                    </select>
+
+                                    <select class="state" formControlName='state' (change)="getStateLocationList()">
+                                        <option [value]="state" *ngFor="let state of locationList">
+                                            {{state}}</option>
+                                    </select>
+                                    <select class="city" formControlName='city'>
+                                        <option [value]="city" *ngFor="let city of locationCityList">
+                                            {{city}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row loc">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Notice Period :</label> </div>
+
+                                <div class="col-sm-10">
+
+
+
+                                    <select class="note" formControlName='noticePer'>
+                                        <option *ngFor="let n of note" [value]="n.notes">{{n.notes}}</option>
+
+                                    </select>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+
+
+                    <div class="col-sm-3"></div>
+                    <label class="head">Add Skill's and Experience Details </label>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row ">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Primary Skill :</label> </div>
+                                <div class="col-sm-4">
+                                    <select id="user_time_zone" class="form-control code " size="0"
+                                        placeholder="Area Code" name="skill" formControlName='primarySkill'>
+                                        <option>Skill Name</option>
+                                        <option>C</option>
+                                        <option>C++</option>
+                                        <option>php</option>
+                                        <option>Python</option>
+                                        <option>Embedded</option>
+                                        <option>Ruby</option>
+
+                                    </select>
+
+                                </div>
+                                <button type="button" class="btn upload add" (click)='addSkill()'>Add</button>
+
+
+                                <div class="col-sm-6"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3"></div>
+
+                        <div class="clip ml-5 my-2">
+                            <span class="left_chip my-2 ml-1" *ngFor="let primarySkill of this.skillArray;index as i">
+                                {{primarySkill}}
+                                <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeSkill(i)"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row codes">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label>Secondary Skill :</label> </div>
+                                <div class="col-sm-4">
+                                    <select id="user_time_zone" class="form-control code " size="0"
+                                        placeholder="Area Code" name="secskill" formControlName='secondorySkill'>
+                                        <option>Skill Name</option>
+                                        <option>Angular</option>
+                                        <option>Java</option>
+                                        <option>Android</option>
+                                        <option>Spring</option>
+                                        <option>Hibernate</option>
+                                        <option>servlet</option>
+                                        <option>JSP</option>
+                                    </select>
+
+                                </div>
+                                <button type="button" class="btn upload add" (click)='addsecSkill()'>Add</button>
+                                <div class="col-sm-6"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3"></div>
+                        <div class="clip ml-5 my-2">
+                            <span class="left_chip my-2 ml-1"
+                                *ngFor="let secondorySkill of this.secskillArray;index as i">
+                                {{secondorySkill}} <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                    (click)="removesecSkill(i)"></i>
+                            </span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-12 line"></div>
+                    <div class="row ">
+                    </div>
+                    <label class="head">Identity Proof </label>
+
+                    <div class="col-sm-9">
+                        <div class="row ">
+                            <div class="col-sm-2 nam_e">
+
+                                <label>Select Id Proof :</label> </div>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <select id="user_time_zone" class="form-control code skill" size="0"
+                                            placeholder="Area Code" name="idproof" formControlName='idProof'>
+
+                                            <option value="" disable>Select file type</option>
+                                            <option>adhar Card No.</option>
+                                            <option>Passport No.</option>
+                                            <option>PAN Card No.</option>
+                                            <option>Driving Lincese No.</option>
+                                            <option>Voter ID No.</option>
+                                        </select></div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <label class="nam_e"> Identity No.:</label>
+                                            <input type="text" autocomplete="off" class="form-control idno"
+                                                placeholder="***********" name="id" formControlName='identityNo'>
+                                            <button type="button" class="btn upload add">Add</button>
+                                            <button type="button" class="btn upload plus">
+                                                <div class="pluss" (click)="addDocument()">+
+
+
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-sm-3"></div>
+                        <div class="row">
+                            <div class="clip ml-5 my-2">
+                                <span class="left_chip my-2 ml-1" *ngFor="let doc of this.docArray;index as i">
+                                    {{doc}}
+                                    <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeDoc(i)"></i>
+                                </span></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3"></div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="row my-2">
+                                <div class="col-sm-2 nam_e">
+
+                                    <label></label>Designation: </div>
+                                <div class="col-sm-4 ">
+                                    <input type="email" autocomplete="off" class="form-control des"
+                                        placeholder="Current Designation" name="desgn" formControlName="designation">
+                                </div>
+
+                                <div class="col-sm-6">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-12 line"></div>
+                    <div class="row ">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-7"></div>
+                        <div class="col-sm-5">
+                            <button type="submit" class="btn btn-primary save">Save
+
+                                <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
+                            </button></div>
+                    </div>
+
+
+
+
+
+                </form>
+            </p-dialog>
+        </div>
 
     </div>
-    </button>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    
-    
-    
-    
-    <div class="col-sm-3"></div>
-    <div class="row">
-    <div class="clip ml-5 my-2">
-    <span class="left_chip my-2 ml-1" *ngFor="let doc of this.docArray;index as i">
-         {{doc}} 
-   <i class=" tick pi pi-times mt-2 " aria-hidden="true" (click)="removeDoc(i)"></i>
-    </span></div></div> </div>
-    
-    <div class="col-sm-3"></div>
-    
-    <div class="row">
-    <div class="col-sm-9">
-    <div class="row my-2">
-    <div class="col-sm-2 nam_e">
-    
-    <label></label>Designation: </div>
-    <div class="col-sm-4 ">
-    <input type="email" autocomplete="off" class="form-control des"
-    placeholder="Current Designation" name="desgn" formControlName="designation">
-    </div>
-    
-    <div class="col-sm-6">
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-12 line"></div>
-    <div class="row ">
-    </div>
-    
-    <div class="row">
-    <div class="col-sm-7"></div>
-    <div class="col-sm-5">
-    <button type="submit" class="btn btn-primary save">Save
-    
-    <i *ngIf="spinner" class="pi pi-spin pi-spinner ml-1"></i>
-    </button></div>
-    </div>
-    
-    
-    
-    
-    
-    </form>
-    </p-dialog>
-    </div>
-    
-    </div>
-    </div>
+</div>
