@@ -183,7 +183,7 @@ export class AdminComponent implements OnInit {
         this.submitted = false;
         this.employeeForm.reset();
         this.docArray = [];
-        this.toastr.success('Successfully added Employee !!!');
+        this.toastr.success('Successfully Updated Employee !!!');
 
       })
     }
