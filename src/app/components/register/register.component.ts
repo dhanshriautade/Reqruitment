@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     submitted = false;
+    verifyemail= false;
     spinner= false;
     data;
     pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -49,6 +50,7 @@ export class RegisterComponent implements OnInit {
 
 
     onKey(event: any) { // without type info
+        this.verifyemail = false;
         this.data = {
             "firstName": "",
             "lastName": "",
@@ -59,8 +61,11 @@ export class RegisterComponent implements OnInit {
             "reEnterPassword": ""
         }
         
-        this.TeamService.AlreadyUse(this.data).subscribe(res => {
+        this.TeamService.AlreadyUse(this.data).subscribe((res:any) => {
             console.log(res);
+            if(res.message == 'already have an account in this Email'){
+                this.verifyemail = true;
+            }
 
         })
     }

@@ -46,8 +46,9 @@
                             <label for="name">Email :</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" autocomplete="off" class="form-control p-0" formControlName="email"
+                            <input type="text" autocomplete="off" class="form-control p-0"  (keyup)="onKey($event)" formControlName="email"
                                 [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" placeholder="Email" />
+                                <div *ngIf="verifyemail"> Duplicate email id !!!</div>
                             <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
                                 <div *ngIf="f.email.errors.required">email is required</div>
                                 <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
