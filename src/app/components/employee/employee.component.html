@@ -58,6 +58,7 @@
                                 <thead>
                                     <tr class="headone">
                                         <th scope="col">Documents</th>
+                                        <th scope="col">Date</th>
                                         <th scope="col">Download</th>
                                         <th scope="col">Delete</th>
                                     </tr>
@@ -65,6 +66,8 @@
                                 <tbody>
                                     <tr *ngFor="let row of documentsList?.documentPaths">
                                         <td class="name">{{row.split("/")[row.split("/").length-1]}}</td>
+                                        <td class="name">{{documentsList.date}}</td>
+                                     
                                         <td class="name"><a (click)="downloadDocument(row)">Download</a></td>
                                         <td class="red">Delete</td>
                                     </tr>

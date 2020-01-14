@@ -567,12 +567,11 @@ this.personalInfoForm.reset();
 }
 documentsList: any = {};
     getCandidateDocumentsList() {
-
         let body = new FormData();
         body.append('id', this.email_id);
         this.http.post('http://localhost:8081/getCandidateById', body).subscribe(response => {
             this.documentsList = response;
-        });
+           });
     }
 
 markFormTouched(group: FormGroup | FormArray) {
