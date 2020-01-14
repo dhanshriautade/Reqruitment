@@ -2,18 +2,20 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType, HttpParams } from '@angular/common/http';
-
+import { DatePipe } from '@angular/common';
 import { TeamService } from 'src/app/services/team.service';
 import { ToastrService } from 'ngx-toastr';
 @Component({
 selector: 'app-employee',
 templateUrl: './employee.component.html',
 styleUrls: ['./employee.component.scss'],
+providers: [DatePipe],
 preserveWhitespaces: false
 })
 export class EmployeeComponent implements OnInit {
 display = false;
 close: any;
+myDate = new Date();
 otherfileData: File[] = [];
 infodispaly = true;
 fileUploadProgress: string = null;
@@ -78,7 +80,7 @@ showDocArray: any=[];
 
 
 
-constructor(private formBuilder: FormBuilder, private toastr: ToastrService, public TeamService: TeamService, private http: HttpClient) {
+constructor(private formBuilder: FormBuilder, private datePipe: DatePipe, private toastr: ToastrService, public TeamService: TeamService, private http: HttpClient) {
 // this.infodispaly = true;
 this.email_id = localStorage.getItem('email');
 //console.log('this is email',this.email_id);
@@ -485,6 +487,8 @@ this.otherfileData.push(<File>fileInput.target.files[i])
 //this.preview();
 }
 onUpload() {
+var myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+
 this.submitted = true;
 this.spinner=true;
 const formData = new FormData();
@@ -494,7 +498,7 @@ formData.append('otherDocs', this.otherfileData[i]);
 }
 this.sent_data = {
 "id":this.email_id,
-"date":"15/03/1996"
+"date":myDate
 }
 console.log(this.sent_data);
 formData.append('docsInfo',JSON.stringify(this.sent_data) );
