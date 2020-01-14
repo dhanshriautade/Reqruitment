@@ -32,6 +32,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TestComponent } from './components/test/test.component';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
 // import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
@@ -79,6 +81,7 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxIntlTelInputModule,
+    ConfirmDialogModule,
     Ng2SearchPipeModule,
     DialogModule,
     NgxPaginationModule,

@@ -5,10 +5,13 @@ import { ToastrService } from 'ngx-toastr';
 import { TeamService } from 'src/app/services/team.service';
 import { Router } from '@angular/router';
 
+import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  
+  providers: [ConfirmationService]
 })
 export class LoginComponent implements OnInit {
   [x: string]: any;
@@ -18,7 +21,8 @@ export class LoginComponent implements OnInit {
   info;
   spinner = false;
   data;
-  constructor(private formBuilder: FormBuilder,public router: Router,private toastr: ToastrService,public TeamService: TeamService) { }
+  constructor(private formBuilder: FormBuilder,
+    private confirmationService: ConfirmationService,public router: Router,private toastr: ToastrService,public TeamService: TeamService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -92,6 +96,24 @@ export class LoginComponent implements OnInit {
                       this.spinner = false;             
                       this.loginForm.reset();
                     }
+                    else if(this.info.status ===  false || this.info.responseMessage === 'email not verified'){
+                      this.confirmationService.confirm({
+                        message: 'Do you want to delete this content ?',
+                        header: 'Approve Confirmation',
+                        icon: 'pi pi-info-circle',
+                        accept: () => {
+                          this.data = {
+                            "email" : this.loginForm.value.email
+                          }
+                          this.TeamService.sendemail(this.data).subscribe(res => { 
+                          })
+         
+                        },
+                        reject: () => {
+                          this.toastr.error('The content could not be deleted, please try again.');
+                        }
+                      });   }
+                    else
                     if (this.info.status === 500 ||this.info.status !=  true ){
                       this.toastr.error('Invalid credentials Oops !!!');
                 

@@ -11,6 +11,7 @@ export const environment = {
   Employeeget:base_url + 'getAllEmployeesInfo',
   signUp: base_url + 'signup',
   login:base_url + 'check/checkLogin',
+  sendemail: base_url + 'sendemail',
   alreadyUser:base_url + 'verifyemail/eventhit',
   uploadresume:base_url + 'uploadDocuments',
   forgot: base_url + 'emailexists?email=',

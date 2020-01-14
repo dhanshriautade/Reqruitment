@@ -37,6 +37,13 @@ export class TeamService {
     return this.http.post(environment.login, data, { headers: headers });
   }
 
+  sendemail(data: any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.post(environment.sendemail, data, { headers: headers });
+  }
+
   CreateJob(data: any){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
