@@ -1,9 +1,6 @@
 .dashboard{
     height: 89vh;
     background-color: #ECEFF1;
-    overflow-y: scroll ; 
-    overflow-x: hidden ;
-    
  }
  .btn{
     background-color: white;
@@ -85,6 +82,15 @@
     font-size: larger;
    // margin-left: 12px;
   }
+  .centered{
+    position: fixed;
+    width: 90%;
+  }
+  :host ::ng-deep.ui-dialog-content {
+    height: 490px;
+    overflow-y: scroll !important;
+  overflow-x: hidden;
+}
 
   .filename{
     font-size: x-small;
