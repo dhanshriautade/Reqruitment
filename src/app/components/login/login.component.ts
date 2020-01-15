@@ -102,10 +102,10 @@ export class LoginComponent implements OnInit {
                         header: 'Approve Confirmation',
                         icon: 'pi pi-info-circle',
                         accept: () => {
-                          this.data = {
-                            "email" : this.loginForm.value.email
-                          }
-                          this.TeamService.sendemail(this.data).subscribe(res => { 
+                         
+                          var email = 'email=' + this.loginForm.value.email
+                         
+                          this.TeamService.sendemail(email).subscribe(res => { 
                           })
          
                         },

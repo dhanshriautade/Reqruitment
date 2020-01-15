@@ -41,7 +41,7 @@ export class TeamService {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
      });
-    return this.http.post(environment.sendemail, data, { headers: headers });
+    return this.http.get(environment.sendemail +'?' + data, { headers: headers });
   }
 
   CreateJob(data: any){
