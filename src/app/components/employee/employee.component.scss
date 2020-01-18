@@ -368,3 +368,42 @@ margin-top: -15px;
   .clip{
   background-color: #9e9e9e;
   }
+  .card{
+    width: 92%;
+  }
+  .card-header{
+    padding: 0px !important;
+}
+ .bocard-body{
+    padding: 5px 15px 0px 20px;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: #F4F4F5
+     }
+ 
+ .table-striped tbody tr:nth-of-type(even){
+         background-color: #F5FBFF
+          }
+
+          .evnt{
+
+            color: #157DEC;
+            margin-left: 10px;
+            font-weight: bold;
+            font-size:large;
+            
+            }
+            .headone{
+                height: 10px!important;
+                background-color: #90A4AE;
+                color: white;
+            }
+            
+            th ,td {
+    border-right: 1px solid white;
+    // color: white;
+}
+
+.bookmark{
+  color: red;
+}

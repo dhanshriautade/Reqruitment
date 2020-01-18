@@ -31,8 +31,9 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TestComponent } from './components/test/test.component';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
-
+import { ChartsModule } from '@progress/kendo-angular-charts';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import 'hammerjs';
 
 //import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 // import { RecaptchaModule } from 'ng-recaptcha';
@@ -61,11 +62,13 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     ResetPasswordComponent,
     AdminDashboardComponent,
     TestComponent,
+    
    
   ],
  
   
   imports: [
+    ChartsModule,
     ChartModule,
     OverlayPanelModule,
     BrowserModule,
