@@ -16,7 +16,8 @@
                                                                         [(ngModel)]="term"
                                                                         placeholder="Search Employee">
                                                                 <div class="input-group-append">
-                                                                        <button class="btn btn-secondary serachbtn" type="button">
+                                                                        <button class="btn btn-secondary serachbtn"
+                                                                                type="button">
                                                                                 <i class="fa fa-search"></i>
                                                                         </button>
                                                                 </div>
@@ -37,7 +38,7 @@
                                                                 <th align="center" scope="col">Phone No.</th>
                                                                 <th align="center" scope="col">Title</th>
                                                                 <th align="center" scope="col">Action</th>
-                                                                
+
                                                         </tr>
                                                 </thead>
                                                 <tbody>
@@ -47,14 +48,18 @@
                                                                 <td scope="row" class="name">{{i+1}}</td>
                                                                 <td class="name">{{user?.firstName}}</td>
                                                                 <td align="center" class="blue">{{user?.lastName}}</td>
-                                                                <td align="center" class="name" style="color: red">{{user?.email}}</td>
+                                                                <td align="center" class="name" style="color: red">
+                                                                        {{user?.email}}</td>
                                                                 <td align="center" class="name">{{user?.phoneNo}}</td>
-                                                                <td align="center" class="red" style="color: blue">{{user?.title}}</td>
                                                                 <td align="center" class="red" style="color: blue">
-                                                                        <i class="pi pi-pencil mr-2" (click)="EditEmployee(i)" ></i>
-                                                                        <i class="pi pi-trash ml-2" (click)="DeleteEmployee(user?.email)"></i>
-                                                                             </td>
-                                                     
+                                                                        {{user?.title}}</td>
+                                                                <td align="center" class="red" style="color: blue">
+                                                                        <i class="pi pi-pencil mr-2"
+                                                                                (click)="EditEmployee(i)"></i>
+                                                                        <i class="pi pi-trash ml-2"
+                                                                                (click)="DeleteEmployee(user?.email)"></i>
+                                                                </td>
+
                                                         </tr>
 
 
@@ -75,7 +80,8 @@
                                         <div class="d-flex">
                                                 <div class="my-2 mr-auto">
                                                         <img src="../../../assets/user big.png" alt="">
-                                                        <span class="ml-2 mt-2 report">  {{action == 'Save'? 'Add': 'Update'}}  Employee</span>
+                                                        <span class="ml-2 mt-2 report">
+                                                                {{action == 'Save'? 'Add': 'Update'}} Employee</span>
                                                 </div>
                                                 <div class="">
                                                         <i class=" tick pi pi-times mt-2 " aria-hidden="true"
@@ -84,7 +90,18 @@
                                         </div>
                                 </p-header>
                                 <form class="group grp_form " [formGroup]="employeeForm" (ngSubmit)="onSubmit(action)">
-                                        <label class="head">Personal Information</label>
+                                        <div class="row">
+                                                <div class="col-sm-8">
+                                                        <label class="head">Personal Information</label>
+                                                </div>
+                                                <div class="col-sm-2"><button type="button"
+                                                                class="btn  btn-primary info my-3 ml-4"
+                                                                (click)="AddEducation()">Add Education</button></div>
+                                                <div class="col-sm-2"><button type="button"
+                                                                class="btn  btn-primary info my-3 ml-4"
+                                                                (click)="AddCertification()">Add Certification</button>
+                                                </div>
+                                        </div>
                                         <div class="row">
                                                 <div class="col-sm-8">
                                                         <div class="row ">
@@ -324,13 +341,196 @@
                                                         <div class="col-sm-7"></div>
                                                         <div class="col-sm-5">
                                                                 <button type="submit" class="btn btn-primary save">
-                                                                           {{action == 'Save'? 'Add': 'Update'}} Employee</button></div>
+                                                                        {{action == 'Save'? 'Add': 'Update'}}
+                                                                        Employee</button></div>
                                                 </div>
                                                 <hr>
                                         </div>
 
 
                                 </form>
+                        </p-dialog>
+
+                        <p-dialog [modal]="true" header='' [(visible)]="displayEducation" [style]="{width: '100%'}">
+                                <p-header class="dialogHeader mt-2">
+                                        <span class="ml-2 mt-2 report">Add Education</span>
+                                        <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                                (click)="removeEducation()"></i>
+                                </p-header>
+                                <div class="row">
+                                        <div class="col-sm-8">
+                                                <div class="row ">
+                                                        <div class="col-sm-2 field">
+                                                                <label class="nam_e">Education :</label>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
+                                                                <select id="" class="form-control box" size="0"
+                                                                        placeholder="" name="" formControlName=''>
+                                                                        <option>Select education</option>
+                                                                        <option>Doctorate/PhD</option>
+                                                                        <option>Master/Post-Graduation</option>
+                                                                        <option>12 th</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-sm-2 field">
+
+                                                                <label class="nam_e">Course :</label> </div>
+                                                        <div class="col-sm-4">
+                                                                <select id="" class="form-control box" size="0"
+                                                                        placeholder="" name="" formControlName=''>
+                                                                        <option>Select Course</option>
+                                                                        <option>CA</option>
+                                                                        <option>CS</option>
+                                                                        <option>MBA</option>
+                                                                        <option>MCA</option>
+                                                                        <option>Diploma</option>
+                                                                        <option>BE</option>
+                                                                </select>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-sm-8">
+                                                <div class="row ">
+                                                        <div class="col-sm-2 field">
+                                                                <label class="nam_e">Specialization :</label>
+                                                        </div>
+                                                        <div class="col-sm-4 my-2">
+                                                                <select id="" class="form-control box" size="0"
+                                                                        placeholder="" name="" formControlName=''>
+                                                                        <option>Select Specialization</option>
+                                                                        <option>CA</option>
+                                                                        <option>CS</option>
+                                                                        <option>ENTC</option>
+                                                                        <option>IT</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-sm-2 field">
+
+                                                                <label class="nam_e">University/Institute</label>
+                                                        </div>
+                                                        <div class="col-sm-4 my-2">
+                                                                <input type="text" autocomplete="off"
+                                                                        class="form-control box"
+                                                                        placeholder="University name" name=""
+                                                                        formControlName="">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-sm-8">
+                                                <div class="row ">
+                                                        <div class="col-sm-2 field">
+                                                                <label class="nam_e">Cource Type :</label>
+                                                        </div>
+                                                        <div class="col-sm-10 "></div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class=row>
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-3"> <input type="radio" name="age" value="30">Full Time<br>
+                                        </div>
+                                        <div class="col-sm-3"> <input type="radio" name="age" value="30">Part Time<br>
+                                        </div>
+                                        <div class="col-sm-3"> <input type="radio" name="age"
+                                                        value="30">Correspondance/Distance Learning<br> </div>
+                                        <div class="col-sm-4"></div>
+                                </div>
+                                <div class="row my-2">
+                                        <div class="col-sm-8">
+                                                <div class="row ">
+                                                        <div class="col-sm-2 field">
+                                                                <label class="nam_e">Passing Out Year:</label>
+                                                        </div>
+                                                        <div class="col-sm-4 ">
+                                                                <select id="" class="form-control box" size="0"
+                                                                        placeholder="" name="" formControlName=''>
+                                                                        <option>Select Passing Out Year</option>
+                                                                        <option>2014</option>
+                                                                        <option>2013</option>
+                                                                        <option>2012</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-sm-2 field">
+
+                                                                <label class="nam_e">Course :</label> </div>
+                                                        <div class="col-sm-4">
+                                                                <select id="" class="form-control box" size="0"
+                                                                        placeholder="" name="" formControlName=''>
+                                                                        <option>Grading System</option>
+                                                                        <option>Scale 10 Grading System</option>
+                                                                        <option>%marks of 100 Maximum</option>
+                                                                        <option>Course requires a pass</option>
+                                                                </select>
+                                                        </div>
+                                                </div>
+                                                <div class="row my-2">
+                                                                <div class="col-sm-7"></div>
+                                                                <div class="col-sm-3 my-2">
+                                                                <button type="submit"
+                                                                        class="btn btn-primary save">Cancel</button>
+                                                                        </div>
+                                                                        <div class="col-sm-2 my-2">
+                                                                        <button type="submit"
+                                                                        class="btn btn-primary save">Save</button>
+                                                                        </div>
+                                                        </div>
+                                        </div>
+                                </div>
+
+                        </p-dialog>
+                        <p-dialog [modal]="true" header='' [(visible)]="displayCertification" [style]="{width: '100%'}">
+                                <p-header class="dialogHeader mt-2">
+                                        <div class="my-2 mr-auto">
+                                                <span class="ml-2 mt-2 report">Add Certification</span>
+                                        </div> <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                                (click)="removeCertification()"></i>
+                                </p-header>
+                                <div class="row">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-8">
+                                                <div class="row"> <label class="nam_e">Certification Name:</label></div>
+                                                <div class="row">
+                                                        <input type="text" autocomplete="off"
+                                                                class="form-control text-centre box"
+                                                                placeholder="Enter Certification name" name=""
+                                                                formControlName="">
+                                                </div>
+                                                <div class="row"> <label class="nam_e">Certification Body:</label></div>
+                                                <div class="row">
+                                                        <input type="text" autocomplete="off"
+                                                                class="form-control text-centre box"
+                                                                placeholder="Enter Certification bddy" name=""
+                                                                formControlName="">
+                                                </div>
+                                                <div class="row"> <label class="nam_e">Year:</label></div>
+                                                <div class="row">
+                                                        <select id="" class="form-control box" size="0" placeholder=""
+                                                                name="" formControlName=''>
+                                                                <option> Year</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                        </select>
+                                                </div>
+                                                <div class="row my-2">
+                                                        <div class="col-sm-7"></div>
+                                                        <div class="col-sm-3 my-2">
+                                                        <button type="submit"
+                                                                class="btn btn-primary save">Cancel</button>
+                                                                </div>
+                                                                <div class="col-sm-2 my-2">
+                                                                <button type="submit"
+                                                                class="btn btn-primary save">Save</button>
+                                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-3"></div>
+
+                                </div>
                         </p-dialog>
 
                 </div>

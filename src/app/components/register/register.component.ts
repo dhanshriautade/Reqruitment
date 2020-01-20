@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     SearchCountryField = SearchCountryField;
     TooltipLabel = TooltipLabel;
     CountryISO = CountryISO;
-    preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+    preferredCountries: CountryISO[] = [];
 
     constructor(private formBuilder: FormBuilder,public router: Router,private toastr: ToastrService, public TeamService: TeamService) { }
 

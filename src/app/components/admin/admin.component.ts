@@ -10,6 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  displayCertification=false;
+  displayEducation=false;
   display = false;
   employeeForm = new FormGroup({
   });
@@ -199,6 +201,12 @@ export class AdminComponent implements OnInit {
   markFormTouched(employeeForm: any) {
     throw new Error("Method not implemented.");
   }
+  AddEducation(){
+ this.displayEducation=true;
+ }
+  AddCertification(){
+this.displayCertification=true;
+  }
   PersonalInfo() {
     this.display = true;
     this.displaylist = false;
@@ -207,6 +215,12 @@ export class AdminComponent implements OnInit {
   removeSkill() {
     this.display = false;
     this.displaylist = true;
+  }
+  removeEducation(){
+    this.displayEducation=false;
+  }
+  removeCertification(){
+    this.displayCertification=false
   }
   addDocument() {
     this.docArray.push(this.employeeForm.get('ID').value + this.employeeForm.get('idno').value)
