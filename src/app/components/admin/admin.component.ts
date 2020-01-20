@@ -43,6 +43,7 @@ export class AdminComponent implements OnInit {
 
     this.departmentsAndDesignations = [['Software', ["Android", "IOS", "Java"]], ["Embedded", ["Embedded department 1", "Embedded department 2", "Embedded department 3"]], ["Mechanical", ["Mechanical department 1", "Mechanical department 2", "Mechanical department 3"]]];
     this.getAllEmployeesList();
+    this.getAllJobInfo();
   }
 
   getDesignationList() {
@@ -54,6 +55,12 @@ export class AdminComponent implements OnInit {
         this.designationList = entry[1];
       }
     }
+  }
+
+  getAllJobInfo(){
+    this.EmployeeService.getAllJob().subscribe(res => {
+      console.log('getalljob',res);
+    })
   }
 
 
