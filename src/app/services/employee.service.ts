@@ -37,4 +37,8 @@ export class EmployeeService {
   getEmployee(){
     return this.http.get<any>(environment.Employeeget);
   }
+
+  getAllJob(){
+    return this.http.get<any>(environment.getAllJob); 
+  }
 }
