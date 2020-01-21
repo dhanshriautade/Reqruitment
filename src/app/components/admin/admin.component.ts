@@ -10,8 +10,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  displayCertification=false;
-  displayEducation=false;
+  currentStatusdisplay = false;
+  displayCertification = false;
+  displayEducation = false;
   display = false;
   employeeForm = new FormGroup({
   });
@@ -25,6 +26,7 @@ export class AdminComponent implements OnInit {
   submitted: boolean;
   totalItems = 0;
   data;
+  datajob;
   docArray = [];
   documentArray = [];
   editStatus = false;
@@ -37,6 +39,7 @@ export class AdminComponent implements OnInit {
   TooltipLabel = TooltipLabel;
   CountryISO = CountryISO;
   infodetail = [];
+  getjob = [];
   configer: any;
   preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
   constructor(private formBuilder: FormBuilder, private toastr: ToastrService, public EmployeeService: EmployeeService) {
@@ -57,10 +60,21 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  getAllJobInfo(){
+  getAllJobInfo() {
     this.EmployeeService.getAllJob().subscribe(res => {
-      console.log('getalljob',res);
-    })
+      this.getjob = [];
+      this.datajob = res;
+      let keys = Object.keys(this.datajob);
+      for (var i = 0; i < keys.length; i++) {
+        this.getjob.push(this.datajob[keys[i]]);
+      }
+      this.configer = {
+        itemsPerPage: 8,
+        currentPage: 1,
+        totalItems: this.getjob.length
+      };
+      console.log('getalljob', res);
+    });
   }
 
 
@@ -209,19 +223,31 @@ export class AdminComponent implements OnInit {
     throw new Error("Method not implemented.");
   }
   AddEducation(){
- this.displayEducation=true;
- }
+    this.displayEducation=true;
+  }
   AddCertification(){
-this.displayCertification=true;
+    this.displayCertification=true;
   }
   PersonalInfo() {
     this.display = true;
     this.displaylist = false;
-    this.action = 'Save'
+    this.action = 'Save';
+    this.currentStatusdisplay = false;
+  }
+  ViewJob() {
+    this.currentStatusdisplay = true;
+    this.displaylist = false;
+    this.display = false;
+    this.displayEducation=false;
+    this.displayCertification=false;
   }
   removeSkill() {
     this.display = false;
-    this.displaylist = true;
+    //this.displaylist = true;
+  }
+  removealljob(){
+    this.currentStatusdisplay = false;
+    this.displaylist=true;
   }
   removeEducation(){
     this.displayEducation=false;

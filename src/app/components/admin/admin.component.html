@@ -4,9 +4,62 @@
                 <div class="col-sm-10 col-lg-10 col-md-10">
                         <button type="button" class="btn  btn-primary info my-3 ml-4" (click)="PersonalInfo()">Add
                                 Employee</button>
-                                <button type="button" class="btn  btn-primary info my-3 ml-4" >
-                                        View all Job
-                                       </button>
+                        <button type="button" class="btn  btn-primary info my-3 ml-4" (click)="ViewJob()">
+                                View all Job
+                        </button>
+                        <div *ngIf="currentStatusdisplay">
+                                <div class="card my-3">
+                                        <div class="card-header">
+                                            <div class="d-flex">
+                                                <div class="my-1 mr-auto">
+                                                    <img class="my-1 ml-3 open" src="../../../assets/latest opening.png" alt="">
+                                                    <span class="evnt">View All Job</span>
+                                                </div>
+                                                <div class="">
+                                                        <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                                                (click)="removealljob()"></i>
+                                                </div>
+                                            </div>
+                    
+                                        </div>
+                                        <div class="card-body my-1">
+                                            <table class="table table-striped" style="margin: auto; width: 99%;">
+                                                <thead>
+                                                    <tr class="headone">
+                                                        <th align="center" scope="col">Sr.</th>
+                                                        <th align="center" scope="col">Department</th>
+                                                        <th align="center" scope="col">Job ID</th>
+                                                        <th align="center" scope="col">Job Description</th>
+                                                        <th align="center" scope="col">Experience</th>
+                                                        <th align="center" scope="col">Relevant Experence</th>
+                                                        <th align="center" scope="col">Notice Period</th>
+                                                        <th align="center" scope="col">status</th>
+                                                        <th align="center" scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let job of getjob | filter:term | paginate: configer; let i = index">
+                                                        <td scope="row" class="name">{{i+1}}</td>
+                                                        <td class="name">{{job.department}}</td>
+                                                        <td align="center" class="blue text-primary" >{{job.jobId}}</td>
+                                                        <td align="center" class="name">{{job.jobDescription}}</td>
+                                                        <td align="center" class="red" style="color: red">{{job.experienceInYears}}</td>
+                                                        <td align="center" class="red bookmark">{{job.relevantExpInYears}}</td>
+                                                        <td align="center" class="red" style="color: #FFC300">{{job.noticePeriod}}</td>
+                                                        <td align="center" class="red">{{job.status}}</td>
+                                                        <td align="center" class="red" style="color: blue">
+                                                                <i class="pi pi-lock mr-2"></i>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                    
+                                            </table>
+                                            <div class="text-right">
+                                                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
                         <div class="card" *ngIf="displaylist">
                                 <div class="card-header">
                                         <div class="d-flex">
@@ -367,8 +420,8 @@
                                                                 <label class="nam_e">Education :</label>
                                                         </div>
                                                         <div class="col-sm-4 ">
-                                                                <select id="" class="form-control box" size="0"
-                                                                        placeholder="" name="" formControlName=''>
+                                                                <select id="" class=" box2" size="0" placeholder=""
+                                                                        name="">
                                                                         <option>Select education</option>
                                                                         <option>Doctorate/PhD</option>
                                                                         <option>Master/Post-Graduation</option>
@@ -379,8 +432,8 @@
 
                                                                 <label class="nam_e">Course :</label> </div>
                                                         <div class="col-sm-4">
-                                                                <select id="" class="form-control box" size="0"
-                                                                        placeholder="" name="" formControlName=''>
+                                                                <select id="" class=" box2" size="0" placeholder=""
+                                                                        name="">
                                                                         <option>Select Course</option>
                                                                         <option>CA</option>
                                                                         <option>CS</option>
@@ -400,8 +453,8 @@
                                                                 <label class="nam_e">Specialization :</label>
                                                         </div>
                                                         <div class="col-sm-4 my-2">
-                                                                <select id="" class="form-control box" size="0"
-                                                                        placeholder="" name="" formControlName=''>
+                                                                <select id="" class="box2" size="0" placeholder=""
+                                                                        name="">
                                                                         <option>Select Specialization</option>
                                                                         <option>CA</option>
                                                                         <option>CS</option>
@@ -414,10 +467,8 @@
                                                                 <label class="nam_e">University/Institute</label>
                                                         </div>
                                                         <div class="col-sm-4 my-2">
-                                                                <input type="text" autocomplete="off"
-                                                                        class="form-control box"
-                                                                        placeholder="University name" name=""
-                                                                        formControlName="">
+                                                                <input type="text" autocomplete="off" class=" box2"
+                                                                        placeholder="University name" name="">
                                                         </div>
                                                 </div>
                                         </div>
@@ -434,13 +485,13 @@
                                 </div>
                                 <div class=row>
                                         <div class="col-sm-2"></div>
-                                        <div class="col-sm-3"> <input type="radio" name="age" value="30">Full Time<br>
+                                        <div class="col-sm-2"> <input type="radio" name="">Full Time<br>
                                         </div>
-                                        <div class="col-sm-3"> <input type="radio" name="age" value="30">Part Time<br>
+                                        <div class="col-sm-2"> <input type="radio" name="">Part Time<br>
                                         </div>
-                                        <div class="col-sm-3"> <input type="radio" name="age"
-                                                        value="30">Correspondance/Distance Learning<br> </div>
-                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-3"> <input type="radio" name="">Correspondance/Distance
+                                                Learning<br> </div>
+                                        <div class="col-sm-3"></div>
                                 </div>
                                 <div class="row my-2">
                                         <div class="col-sm-8">
@@ -449,8 +500,8 @@
                                                                 <label class="nam_e">Passing Out Year:</label>
                                                         </div>
                                                         <div class="col-sm-4 ">
-                                                                <select id="" class="form-control box" size="0"
-                                                                        placeholder="" name="" formControlName=''>
+                                                                <select id="" class=" box2" size="0" placeholder=""
+                                                                        name="">
                                                                         <option>Select Passing Out Year</option>
                                                                         <option>2014</option>
                                                                         <option>2013</option>
@@ -461,8 +512,8 @@
 
                                                                 <label class="nam_e">Course :</label> </div>
                                                         <div class="col-sm-4">
-                                                                <select id="" class="form-control box" size="0"
-                                                                        placeholder="" name="" formControlName=''>
+                                                                <select id="" class=" box2" size="0" placeholder=""
+                                                                        name="">
                                                                         <option>Grading System</option>
                                                                         <option>Scale 10 Grading System</option>
                                                                         <option>%marks of 100 Maximum</option>
@@ -471,16 +522,16 @@
                                                         </div>
                                                 </div>
                                                 <div class="row my-2">
-                                                                <div class="col-sm-7"></div>
-                                                                <div class="col-sm-3 my-2">
+                                                        <div class="col-sm-7"></div>
+                                                        <div class="col-sm-3 my-2">
                                                                 <button type="submit"
                                                                         class="btn btn-primary save">Cancel</button>
-                                                                        </div>
-                                                                        <div class="col-sm-2 my-2">
-                                                                        <button type="submit"
-                                                                        class="btn btn-primary save">Save</button>
-                                                                        </div>
                                                         </div>
+                                                        <div class="col-sm-2 my-2">
+                                                                <button type="submit"
+                                                                        class="btn btn-primary save">Save</button>
+                                                        </div>
+                                                </div>
                                         </div>
                                 </div>
 
@@ -497,22 +548,17 @@
                                         <div class="col-sm-8">
                                                 <div class="row"> <label class="nam_e">Certification Name:</label></div>
                                                 <div class="row">
-                                                        <input type="text" autocomplete="off"
-                                                                class="form-control text-centre box"
-                                                                placeholder="Enter Certification name" name=""
-                                                                formControlName="">
+                                                        <input type="text" autocomplete="off" class=" text-centre box2"
+                                                                placeholder="Enter Certification name" name="">
                                                 </div>
                                                 <div class="row"> <label class="nam_e">Certification Body:</label></div>
                                                 <div class="row">
-                                                        <input type="text" autocomplete="off"
-                                                                class="form-control text-centre box"
-                                                                placeholder="Enter Certification bddy" name=""
-                                                                formControlName="">
+                                                        <input type="text" autocomplete="off" class="text-centre box2"
+                                                                placeholder="Enter Certification bddy" name="">
                                                 </div>
                                                 <div class="row"> <label class="nam_e">Year:</label></div>
                                                 <div class="row">
-                                                        <select id="" class="form-control box" size="0" placeholder=""
-                                                                name="" formControlName=''>
+                                                        <select id="" class="box2" size="0" placeholder="" name="">
                                                                 <option> Year</option>
                                                                 <option>2014</option>
                                                                 <option>2013</option>
@@ -522,13 +568,13 @@
                                                 <div class="row my-2">
                                                         <div class="col-sm-7"></div>
                                                         <div class="col-sm-3 my-2">
-                                                        <button type="submit"
-                                                                class="btn btn-primary save">Cancel</button>
-                                                                </div>
-                                                                <div class="col-sm-2 my-2">
                                                                 <button type="submit"
-                                                                class="btn btn-primary save">Save</button>
-                                                                </div>
+                                                                        class="btn btn-primary save">Cancel</button>
+                                                        </div>
+                                                        <div class="col-sm-2 my-2">
+                                                                <button type="submit"
+                                                                        class="btn btn-primary save">Save</button>
+                                                        </div>
                                                 </div>
                                         </div>
                                         <div class="col-sm-3"></div>
