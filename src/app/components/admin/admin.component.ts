@@ -79,7 +79,6 @@ export class AdminComponent implements OnInit {
 
 
   EditEmployee(i: any) {
-    console.log('edit', this.infodetail[i]);
     this.action = ''
     this.display = true;
     this.displaylist = false;
@@ -89,18 +88,40 @@ export class AdminComponent implements OnInit {
     this.employeeForm.get('lastName').setValue(this.infodetail[i].lastName);
     this.employeeForm.get('title').setValue(this.infodetail[i].title);
     this.employeeForm.get('email').setValue(this.infodetail[i].email);
-    this.employeeForm.get('phone').setValue(this.infodetail[i].phoneNo);
-    this.employeeForm.get('phone').setValue(this.infodetail[i].contact);
+    // this.employeeForm.get('phone').setValue(this.infodetail[i].phoneNo);
+    // this.employeeForm.get('phone').setValue(this.infodetail[i].contact);
     this.employeeForm.get('dob').setValue(this.infodetail[i].dob);
-    // this.employeeForm.get('passport').setValue(this.infodetail[i].passport);
-    // this.employeeForm.get('pan').setValue(this.infodetail[i].pan);
-    // this.employeeForm.get('voterId').setValue(this.infodetail[i].voterId);
-    // this.employeeForm.get('adhar').setValue(this.infodetail[i].adhar);
-    // this.employeeForm.get('drivingLicence').setValue(this.infodetail[i].drivingLicence);
+    this.employeeForm.get('department').setValue(this.infodetail[i].department);
+    this.getDesignationList();
+    this.employeeForm.get('designation').setValue(this.infodetail[i].designation);
 
-
-
-
+    this.chosenDocs = [];
+    this.docArray = [];
+    if (this.infodetail[i].adhar) {
+      this.chosenDocs.push("Adhar Card");
+      this.docArray.push("Adhar Card " + this.infodetail[i].adhar);
+      this.employeeForm.get('adhar').setValue(this.infodetail[i].adhar);
+    }
+    if (this.infodetail[i].passport) {
+      this.chosenDocs.push("Passport");
+      this.employeeForm.get('passport').setValue(this.infodetail[i].passport);
+      this.docArray.push("Passport " + this.employeeForm.get('passport').value)
+    }
+    if (this.infodetail[i].pan) {
+      this.chosenDocs.push("PAN Card");
+      this.employeeForm.get('pan').setValue(this.infodetail[i].pan);
+      this.docArray.push("PAN Card " + this.employeeForm.get('pan').value);
+    }
+    if (this.infodetail[i].voterId) {
+      this.chosenDocs.push("Voter ID");
+      this.employeeForm.get('voterId').setValue(this.infodetail[i].voterId);
+      this.docArray.push("Voter ID " + this.employeeForm.get('voterId').value);
+    }
+    if (this.infodetail[i].drivingLicence) {
+      this.chosenDocs.push("Driving Lincese");
+      this.employeeForm.get('drivingLicence').setValue(this.infodetail[i].drivingLicence);
+      this.docArray.push("Driving Lincese " + this.employeeForm.get('drivingLicence').value);
+    }
   }
 
   DeleteEmployee(email: any) {
@@ -111,8 +132,9 @@ export class AdminComponent implements OnInit {
 
 
     this.EmployeeService.DeleteEmployee(emailData).subscribe(res => {
+      this.getAllEmployeesList();
     })
-    this.getAllEmployeesList();
+
 
   }
   getAllEmployeesList() {
@@ -168,13 +190,6 @@ export class AdminComponent implements OnInit {
 
   get f() { return this.employeeForm.controls; }
   onSubmit(action) {
-    console.log('action', action)
-
-    this.submitted = true;
-    this.spinner = true;
-    if (this.employeeForm.invalid) {
-      return;
-    }
     this.data = {
       "title": this.employeeForm.value.title,
       "firstName": this.employeeForm.value.firstName,
@@ -188,8 +203,16 @@ export class AdminComponent implements OnInit {
       "adhar": this.employeeForm.value.adhar,
       "drivingLicence": this.employeeForm.value.drivingLicence,
       "voterId": this.employeeForm.value.voterId,
+      "department": this.employeeForm.value.department,
+      "designation": this.employeeForm.value.designation,
       "status": "1"
     };
+    this.submitted = true;
+    this.spinner = true;
+    // if (this.employeeForm.invalid) {
+    //   return;
+    // }
+
     if (action == 'Save') {
       this.EmployeeService.AddEmployee(JSON.stringify(this.data)).subscribe(res => {
         this.spinner = false;
@@ -197,7 +220,7 @@ export class AdminComponent implements OnInit {
         this.employeeForm.reset();
         this.docArray = [];
         this.toastr.success('Successfully added Employee !!!');
-
+        this.getAllEmployeesList();
       })
     }
     else {
@@ -207,26 +230,23 @@ export class AdminComponent implements OnInit {
         this.employeeForm.reset();
         this.docArray = [];
         this.toastr.success('Successfully Updated Employee !!!');
-
-      })
+        this.getAllEmployeesList();
+      });
     }
     this.employeeForm.reset();
     this.spinner = false;
     this.display = false;
-
-    this.getAllEmployeesList();
-
 
 
   }
   markFormTouched(employeeForm: any) {
     throw new Error("Method not implemented.");
   }
-  AddEducation(){
-    this.displayEducation=true;
+  AddEducation() {
+    this.displayEducation = true;
   }
-  AddCertification(){
-    this.displayCertification=true;
+  AddCertification() {
+    this.displayCertification = true;
   }
   PersonalInfo() {
     this.display = true;
@@ -238,48 +258,68 @@ export class AdminComponent implements OnInit {
     this.currentStatusdisplay = true;
     this.displaylist = false;
     this.display = false;
-    this.displayEducation=false;
-    this.displayCertification=false;
+    this.displayEducation = false;
+    this.displayCertification = false;
   }
   removeSkill() {
     this.display = false;
     //this.displaylist = true;
   }
-  removealljob(){
+  removealljob() {
     this.currentStatusdisplay = false;
-    this.displaylist=true;
+    this.displaylist = true;
   }
-  removeEducation(){
-    this.displayEducation=false;
+  removeEducation() {
+    this.displayEducation = false;
   }
-  removeCertification(){
-    this.displayCertification=false
+  removeCertification() {
+    this.displayCertification = false
   }
   addDocument() {
+    this.chosenDocs.push(this.employeeForm.get('ID').value);
     this.docArray.push(this.employeeForm.get('ID').value + this.employeeForm.get('idno').value)
     this.documentArray.push(this.employeeForm.get('idno').value)
     this.docidArray.push(this.employeeForm.get('ID').value);
-
     if (this.employeeForm.value.ID === 'Adhar Card') {
-      this.employeeForm.value.adhar = this.employeeForm.get('idno').value;
+      this.employeeForm.get('adhar').setValue(this.employeeForm.get('idno').value);
     } else if (this.employeeForm.value.ID === 'Passport') {
-      this.employeeForm.value.passport = this.employeeForm.get('idno').value;
+      this.employeeForm.get('passport').setValue(this.employeeForm.get('idno').value);
     } else if (this.employeeForm.value.ID === 'PAN Card') {
-      this.employeeForm.value.pan = this.employeeForm.get('idno').value;
+      this.employeeForm.get('pan').setValue(this.employeeForm.get('idno').value);
     } else if (this.employeeForm.value.ID === 'Driving Lincese') {
-      this.employeeForm.value.drivingLicence = this.employeeForm.get('idno').value;
+      this.employeeForm.get('drivingLicence').setValue(this.employeeForm.get('idno').value);
     } else if (this.employeeForm.value.ID === 'Voter ID') {
-      this.employeeForm.value.voterId = this.employeeForm.get('idno').value;
+      this.employeeForm.get('voterId').setValue(this.employeeForm.get('idno').value);
     }
 
   }
+  chosenDocs: string[] = [];
   removeDoc(i: any) {
-    this.docArray.splice(i, 1);
+    let removedDoc: string[] = this.docArray.splice(i, 1);
+    let chosenDoc: string = "";
+    if (removedDoc[0].includes("Adhar Card")) {
+      chosenDoc = "Adhar Card";
+      this.employeeForm.get('adhar').setValue(null);
+    } else if (removedDoc[0].includes("Passport")) {
+      chosenDoc = "Passport";
+      this.employeeForm.get('passport').setValue(null);
+    } else if (removedDoc[0].includes("PAN Card")) {
+      chosenDoc = "PAN Card";
+      this.employeeForm.get('pan').setValue(null);
+    } else if (removedDoc[0].includes("Driving Lincese")) {
+      chosenDoc = "Driving Lincese";
+      this.employeeForm.get('drivingLicence').setValue(null);
+    } else if (removedDoc[0].includes("Voter ID")) {
+      chosenDoc = "Voter ID";
+      this.employeeForm.get('voterId').setValue(null);
+    }
+
+    for (let i = 0; i < this.chosenDocs.length; i++) {
+      if (chosenDoc === this.chosenDocs[i]) {
+        this.chosenDocs.splice(i, 1);
+      }
+    }
   }
 
 }
 
-
-interface DesignationAndDepartment {
-  department: string[];
-}
