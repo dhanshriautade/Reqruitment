@@ -263,13 +263,9 @@ export class AdminComponent implements OnInit {
     this.currentStatusdisplay = true;
     this.displaylist = false;
     this.display = false;
-<<<<<<< HEAD
-    }
-=======
     this.displayEducation = false;
     this.displayCertification = false;
   }
->>>>>>> 2b12ca3bc9d980485123c172621952406c387d69
   removeSkill() {
     this.display = false;
     this.currentStatusdisplay = false;   
