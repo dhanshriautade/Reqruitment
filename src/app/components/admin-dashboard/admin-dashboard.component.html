@@ -33,7 +33,7 @@
                                         <div class="main ">
                                             <img class="img2 ml-1" src="../../../assets/department.png" alt="">
                                            
-                                            <select class="depts my-0">
+                                            <select class="depts my-0" (change)="onChange($event.target.value)">
                                                 <option disabled="true" display="true">Department</option>
                                                 <option>IT</option>
                                                 <option>computer</option>

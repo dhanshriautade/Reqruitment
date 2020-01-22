@@ -158,6 +158,14 @@ export class AdminDashboardComponent implements OnInit {
   showDialog() {
     this.display = false;
   }
+  onChange(deviceValue:any){
+    console.log(deviceValue);
+    this.TeamService.searchDepartmentWiseJob(deviceValue).subscribe(res => {
+    })
+  }
+  selectedDepartment(selectedDepartment: any) {
+    throw new Error("Method not implemented.");
+  }
   onSubmit() {
     this.submitted = true;
     this.spinner = true;

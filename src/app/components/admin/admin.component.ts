@@ -234,16 +234,20 @@ export class AdminComponent implements OnInit {
     this.action = 'Save';
     this.currentStatusdisplay = false;
   }
+ 
+
+  selectedDepartment(selectedDepartment: any) {
+    throw new Error("Method not implemented.");
+  }
   ViewJob() {
     this.currentStatusdisplay = true;
     this.displaylist = false;
     this.display = false;
-    this.displayEducation=false;
-    this.displayCertification=false;
-  }
+    }
   removeSkill() {
     this.display = false;
-    //this.displaylist = true;
+    this.currentStatusdisplay = false;   
+    this.displaylist = true;
   }
   removealljob(){
     this.currentStatusdisplay = false;

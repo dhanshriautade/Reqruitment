@@ -44,6 +44,13 @@ export class TeamService {
     return this.http.get(environment.sendemail +'?' + data, { headers: headers });
   }
 
+  searchDepartmentWiseJob(data:any){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+     });
+    return this.http.get(environment.searchDepartmentWiseJob +'=' + data, { headers: headers });
+  
+  }
   CreateJob(data: any){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
