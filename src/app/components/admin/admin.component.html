@@ -10,56 +10,71 @@
                         <div *ngIf="currentStatusdisplay">
                                 <div class="card my-3">
                                         <div class="card-header">
-                                            <div class="d-flex">
-                                                <div class="my-1 mr-auto">
-                                                    <img class="my-1 ml-3 open" src="../../../assets/latest opening.png" alt="">
-                                                    <span class="evnt">View All Job</span>
+                                                <div class="d-flex">
+                                                        <div class="my-1 mr-auto">
+                                                                <img class="my-1 ml-3 open"
+                                                                        src="../../../assets/latest opening.png" alt="">
+                                                                <span class="evnt">View All Job</span>
+                                                        </div>
+                                                        <div class="">
+                                                                <i class=" tick pi pi-times mt-2 " aria-hidden="true"
+                                                                        (click)="removealljob()"></i>
+                                                        </div>
                                                 </div>
-                                                <div class="">
-                                                        <i class=" tick pi pi-times mt-2 " aria-hidden="true"
-                                                                (click)="removealljob()"></i>
-                                                </div>
-                                            </div>
-                    
+
                                         </div>
                                         <div class="card-body my-1">
-                                            <table class="table table-striped" style="margin: auto; width: 99%;">
-                                                <thead>
-                                                    <tr class="headone">
-                                                        <th align="center" scope="col">Sr.</th>
-                                                        <th align="center" scope="col">Department</th>
-                                                        <th align="center" scope="col">Job ID</th>
-                                                        <th align="center" scope="col">Job Description</th>
-                                                        <th align="center" scope="col">Experience</th>
-                                                        <th align="center" scope="col">Relevant Experence</th>
-                                                        <th align="center" scope="col">Notice Period</th>
-                                                        <th align="center" scope="col">status</th>
-                                                        <th align="center" scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr *ngFor="let job of getjob | filter:term | paginate: configer; let i = index">
-                                                        <td scope="row" class="name">{{i+1}}</td>
-                                                        <td class="name">{{job.department}}</td>
-                                                        <td align="center" class="blue text-primary" >{{job.jobId}}</td>
-                                                        <td align="center" class="name">{{job.jobDescription}}</td>
-                                                        <td align="center" class="red" style="color: red">{{job.experienceInYears}}</td>
-                                                        <td align="center" class="red bookmark">{{job.relevantExpInYears}}</td>
-                                                        <td align="center" class="red" style="color: #FFC300">{{job.noticePeriod}}</td>
-                                                        <td align="center" class="red">{{job.status}}</td>
-                                                        <td align="center" class="red" style="color: blue">
-                                                                <i class="pi pi-lock mr-2"></i>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                    
-                                            </table>
-                                            <div class="text-right">
-                                                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-                                            </div>
+                                                <table class="table table-striped" style="margin: auto; width: 99%;">
+                                                        <thead>
+                                                                <tr class="headone">
+                                                                        <th align="center" scope="col">Sr.</th>
+                                                                        <th align="center" scope="col">Department</th>
+                                                                        <th align="center" scope="col">Job ID</th>
+                                                                        <th align="center" scope="col">Job Description
+                                                                        </th>
+                                                                        <th align="center" scope="col">Experience</th>
+                                                                        <th align="center" scope="col">Relevant
+                                                                                Experence</th>
+                                                                        <th align="center" scope="col">Notice Period
+                                                                        </th>
+                                                                        <th align="center" scope="col">status</th>
+                                                                        <th align="center" scope="col">Action</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr
+                                                                        *ngFor="let job of getjob | filter:term | paginate: configer; let i = index">
+                                                                        <td scope="row" class="name">{{i+1}}</td>
+                                                                        <td class="name">{{job.department}}</td>
+                                                                        <td align="center" class="blue text-primary">
+                                                                                {{job.jobId}}</td>
+                                                                        <td align="center" class="name">
+                                                                                {{job.jobDescription}}</td>
+                                                                        <td align="center" class="red"
+                                                                                style="color: red">
+                                                                                {{job.experienceInYears}}</td>
+                                                                        <td align="center" class="red bookmark">
+                                                                                {{job.relevantExpInYears}}</td>
+                                                                        <td align="center" class="red"
+                                                                                style="color: #FFC300">
+                                                                                {{job.noticePeriod}}</td>
+                                                                        <td align="center" class="red">{{job.status}}
+                                                                        </td>
+                                                                        <td align="center" class="red"
+                                                                                style="color: blue">
+                                                                                <i class="pi pi-lock mr-2"></i>
+                                                                        </td>
+                                                                </tr>
+                                                        </tbody>
+
+                                                </table>
+                                                <div class="text-right">
+                                                        <pagination-controls (pageChange)="pageChanged($event)">
+                                                        </pagination-controls>
+                                                </div>
                                         </div>
-                                    </div>
-                                    </div>
+                                </div>
+                        </div>
                         <div class="card" *ngIf="displaylist">
                                 <div class="card-header">
                                         <div class="d-flex">
@@ -348,12 +363,22 @@
 
                                                                                         <option value="" disable>Select
                                                                                                 ID type</option>
-                                                                                        <option>Adhar Card</option>
-                                                                                        <option>Passport</option>
-                                                                                        <option>PAN Card</option>
-                                                                                        <option>Driving Lincese
+                                                                                        <option
+                                                                                                [disabled]="chosenDocs.includes('Adhar Card')">
+                                                                                                Adhar Card</option>
+                                                                                        <option
+                                                                                                [disabled]="chosenDocs.includes('Passport')">
+                                                                                                Passport</option>
+                                                                                        <option
+                                                                                                [disabled]="chosenDocs.includes('PAN Card')">
+                                                                                                PAN Card</option>
+                                                                                        <option
+                                                                                                [disabled]="chosenDocs.includes('Driving Lincese')">
+                                                                                                Driving Lincese
                                                                                         </option>
-                                                                                        <option>Voter ID</option>
+                                                                                        <option
+                                                                                                [disabled]="chosenDocs.includes('Voter ID')">
+                                                                                                Voter ID</option>
                                                                                 </select></div>
                                                                         <div class="col-sm-8">
                                                                                 <div class="row">
